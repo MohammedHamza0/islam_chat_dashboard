@@ -1,5 +1,6 @@
 /**
  * ApiService: Data Fetching and In-Memory Caching Service
+ * Supports both direct JS object loading (for file:/// protocol) and Fetch API (for http://)
  */
 window.ApiService = {
   questionsCache: null,
@@ -9,6 +10,14 @@ window.ApiService = {
     if (this.questionsCache) {
       return this.questionsCache;
     }
+
+    // 1. Direct window global check (Fastest & works on file:// protocol without CORS restriction)
+    if (window.ENRICHED_QA_DATASET && window.ENRICHED_QA_DATASET.questions) {
+      this.questionsCache = window.ENRICHED_QA_DATASET.questions;
+      return this.questionsCache;
+    }
+
+    // 2. Fetch API fallback (when served over http/https)
     try {
       const response = await fetch("assets/data/enriched_qa_dataset.min.json");
       if (!response.ok) {
@@ -18,12 +27,21 @@ window.ApiService = {
       this.questionsCache = data.questions || [];
       return this.questionsCache;
     } catch (err) {
-      console.error("ApiService: Failed to load enriched dataset", err);
+      console.warn("ApiService: Fetch API failed, checking window object...", err);
+      if (window.ENRICHED_QA_DATASET && window.ENRICHED_QA_DATASET.questions) {
+        this.questionsCache = window.ENRICHED_QA_DATASET.questions;
+        return this.questionsCache;
+      }
       return [];
     }
   },
 
   async getConversationById(chatId) {
+    // 1. Check window global check
+    if (window.CONVERSATIONS_LOOKUP && window.CONVERSATIONS_LOOKUP[chatId]) {
+      return window.CONVERSATIONS_LOOKUP[chatId];
+    }
+
     if (!this.conversationsCache) {
       try {
         const response = await fetch("assets/data/conversations_lookup.json");
@@ -32,10 +50,12 @@ window.ApiService = {
         }
         this.conversationsCache = await response.json();
       } catch (err) {
-        console.error("ApiService: Failed to load conversations lookup", err);
-        return null;
+        console.warn("ApiService: Fetch conversation lookup failed, checking window...", err);
+        if (window.CONVERSATIONS_LOOKUP) {
+          this.conversationsCache = window.CONVERSATIONS_LOOKUP;
+        }
       }
     }
-    return this.conversationsCache[chatId] || null;
+    return (this.conversationsCache && this.conversationsCache[chatId]) || null;
   }
 };

@@ -425,6 +425,10 @@ index_template = """<!DOCTYPE html>
     <p>Islam.chat Intelligence Hub & Analytics Suite • تم تحليل 12,448 محادثة و 11,596 سؤالاً شرعياً موثقاً</p>
   </footer>
 
+  <!-- Preloaded Data Objects (Guarantees zero CORS issue on file:/// protocol) -->
+  <script src="assets/data/enriched_qa_data.js"></script>
+  <script src="assets/data/conversations_data.js"></script>
+
   <!-- Modular Scripts (Microservices Architecture) -->
   <script src="assets/js/services/api.service.js"></script>
   <script src="assets/js/services/filter.service.js"></script>
@@ -440,4 +444,4 @@ index_template = """<!DOCTYPE html>
 with open(INDEX_FILE, "w", encoding="utf-8") as f:
     f.write(index_template)
 
-print(f"Successfully assembled index.html! Size: {INDEX_FILE.stat().st_size / 1024:.2f} KB, Lines: {len(index_template.splitlines())}")
+print(f"Successfully assembled index.html with JS data included! Size: {INDEX_FILE.stat().st_size / 1024:.2f} KB")
