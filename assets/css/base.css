@@ -1,0 +1,150 @@
+/* ==========================================================================
+   1. Design Tokens, CSS Variables & Global Resets
+   ========================================================================== */
+:root {
+  --bg-primary: #f6f8fb;
+  --bg-secondary: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-glass: rgba(255, 255, 255, 0.94);
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+  --border-color: #e2e8f0;
+  --border-glow: rgba(15, 61, 62, 0.12);
+  
+  /* Islamic Brand Identity */
+  --brand-teal: #0f3d3e;
+  --brand-teal-light: #165b5c;
+  --brand-teal-soft: #e8f5f3;
+  --brand-gold: #c59b27;
+  --brand-gold-light: #fef8e7;
+  --brand-gold-border: #e9cb70;
+  --accent-navy: #0b1a30;
+  
+  /* Semantic Tokens */
+  --data-blue: #0284c7;
+  --data-blue-soft: #e0f2fe;
+  --data-blue-border: #7dd3fc;
+  
+  --benefit-green: #059669;
+  --benefit-green-soft: #d1fae5;
+  --benefit-green-border: #6ee7b7;
+  
+  --insight-purple: #7c3aed;
+  --insight-purple-soft: #ede9fe;
+  --insight-purple-border: #c4b5fd;
+  
+  --warning-amber: #d97706;
+  --warning-amber-soft: #fef3c7;
+  --warning-amber-border: #fcd34d;
+  
+  --danger-red: #dc2626;
+  --danger-red-soft: #fee2e2;
+  --danger-red-border: #fca5a5;
+  
+  --shadow-sm: 0 2px 6px rgba(0,0,0,0.04);
+  --shadow-md: 0 6px 18px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 14px 34px rgba(15, 23, 42, 0.12);
+  --shadow-xl: 0 22px 50px rgba(15, 23, 42, 0.16);
+  
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 26px;
+  
+  --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-theme="dark"] {
+  --bg-primary: #070e17;
+  --bg-secondary: #0c1826;
+  --bg-card: #102033;
+  --bg-card-glass: rgba(16, 32, 51, 0.92);
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --border-color: #1e334d;
+  --border-glow: rgba(197, 155, 39, 0.2);
+  
+  --brand-teal: #1a6b6c;
+  --brand-teal-light: #259697;
+  --brand-teal-soft: rgba(26, 107, 108, 0.25);
+  --brand-gold: #e5b332;
+  --brand-gold-light: rgba(229, 179, 50, 0.15);
+  --brand-gold-border: rgba(229, 179, 50, 0.3);
+  --accent-navy: #050b12;
+  
+  --data-blue-soft: rgba(2, 132, 199, 0.15);
+  --data-blue-border: rgba(2, 132, 199, 0.3);
+  
+  --benefit-green-soft: rgba(5, 150, 105, 0.15);
+  --benefit-green-border: rgba(5, 150, 105, 0.3);
+  
+  --insight-purple-soft: rgba(124, 58, 237, 0.15);
+  --insight-purple-border: rgba(124, 58, 237, 0.3);
+  
+  --warning-amber-soft: rgba(217, 119, 6, 0.15);
+  --warning-amber-border: rgba(217, 119, 6, 0.3);
+  
+  --danger-red-soft: rgba(220, 38, 38, 0.15);
+  --danger-red-border: rgba(220, 38, 38, 0.3);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Cairo', 'IBM Plex Sans Arabic', sans-serif;
+  line-height: 1.65;
+  direction: rtl;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Scroll progress bar */
+#progress-bar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(to left, var(--brand-gold), var(--brand-teal-light));
+  width: 0%;
+  z-index: 1000;
+  transition: width 0.1s ease;
+}
+
+/* Container */
+.dashboard-container {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 24px 30px 80px;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.dashboard-footer {
+  border-top: 1px solid var(--border-color);
+  padding: 30px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 40px;
+}

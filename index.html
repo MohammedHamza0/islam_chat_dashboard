@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>التحليل الإحصائي المفصل والشامل لمنصة Islam.chat | Full Intelligence Dashboard</title>
+  <title>المنصة الموحدة لتحليلات واستكشاف محادثات منصة Islam.chat | Full Intelligence & Q&A Hub</title>
   
-  <!-- خطوط جوجل العربية والإنجليزية الفاخرة -->
+  <!-- Google Fonts: Cairo, Plus Jakarta Sans, IBM Plex Sans Arabic -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -13,2091 +13,2493 @@
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-  <style>
-    /* ==========================================================================
-       1. نظام الألوان والمتغيرات التصميمية (Design System Variables)
-       ========================================================================== */
-    :root {
-      --bg-primary: #f6f8fb;
-      --bg-secondary: #ffffff;
-      --bg-card: #ffffff;
-      --bg-card-glass: rgba(255, 255, 255, 0.92);
-      --text-primary: #0f172a;
-      --text-secondary: #334155;
-      --text-muted: #64748b;
-      --border-color: #e2e8f0;
-      --border-glow: rgba(15, 61, 62, 0.12);
-      
-      /* الهوية الإسلامية الحديثة */
-      --brand-teal: #0f3d3e;
-      --brand-teal-light: #165b5c;
-      --brand-teal-soft: #e8f5f3;
-      --brand-gold: #c59b27;
-      --brand-gold-light: #fef8e7;
-      --brand-gold-border: #e9cb70;
-      --accent-navy: #0b1a30;
-      
-      /* ألوان دلالية */
-      --data-blue: #0284c7;
-      --data-blue-soft: #e0f2fe;
-      --data-blue-border: #7dd3fc;
-      
-      --benefit-green: #059669;
-      --benefit-green-soft: #d1fae5;
-      --benefit-green-border: #6ee7b7;
-      
-      --insight-purple: #7c3aed;
-      --insight-purple-soft: #ede9fe;
-      --insight-purple-border: #c4b5fd;
-      
-      --warning-amber: #d97706;
-      --warning-amber-soft: #fef3c7;
-      --warning-amber-border: #fcd34d;
-      
-      --danger-red: #dc2626;
-      --danger-red-soft: #fee2e2;
-      --danger-red-border: #fca5a5;
-      
-      /* الظلال والتدوير */
-      --shadow-sm: 0 2px 5px rgba(0,0,0,0.03);
-      --shadow-md: 0 4px 15px rgba(15, 23, 42, 0.06);
-      --shadow-lg: 0 12px 30px rgba(15, 23, 42, 0.1);
-      --shadow-xl: 0 20px 45px rgba(15, 23, 42, 0.14);
-      
-      --radius-sm: 8px;
-      --radius-md: 14px;
-      --radius-lg: 20px;
-      --radius-xl: 26px;
-      
-      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    [data-theme="dark"] {
-      --bg-primary: #070e17;
-      --bg-secondary: #0c1826;
-      --bg-card: #102033;
-      --bg-card-glass: rgba(16, 32, 51, 0.88);
-      --text-primary: #f8fafc;
-      --text-secondary: #cbd5e1;
-      --text-muted: #94a3b8;
-      --border-color: #1e334d;
-      --border-glow: rgba(197, 155, 39, 0.18);
-      
-      --brand-teal: #1a6b6c;
-      --brand-teal-light: #259697;
-      --brand-teal-soft: rgba(26, 107, 108, 0.25);
-      --brand-gold: #e5b332;
-      --brand-gold-light: rgba(229, 179, 50, 0.15);
-      --brand-gold-border: rgba(229, 179, 50, 0.3);
-      --accent-navy: #050b12;
-      
-      --data-blue-soft: rgba(2, 132, 199, 0.15);
-      --data-blue-border: rgba(2, 132, 199, 0.3);
-      
-      --benefit-green-soft: rgba(5, 150, 105, 0.15);
-      --benefit-green-border: rgba(5, 150, 105, 0.3);
-      
-      --insight-purple-soft: rgba(124, 58, 237, 0.15);
-      --insight-purple-border: rgba(124, 58, 237, 0.3);
-      
-      --warning-amber-soft: rgba(217, 119, 6, 0.15);
-      --warning-amber-border: rgba(217, 119, 6, 0.3);
-      
-      --shadow-md: 0 6px 18px rgba(0,0,0,0.45);
-      --shadow-lg: 0 14px 35px rgba(0,0,0,0.55);
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Cairo', 'IBM Plex Sans Arabic', sans-serif;
-      background-color: var(--bg-primary);
-      color: var(--text-primary);
-      line-height: 1.85;
-      font-size: 15.5px;
-      transition: background-color 0.35s ease, color 0.35s ease;
-      overflow-x: hidden;
-    }
-
-    #progress-bar {
-      position: fixed;
-      top: 0;
-      right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, var(--brand-gold), #10b981, var(--brand-teal-light));
-      width: 0%;
-      z-index: 1000;
-      transition: width 0.1s ease;
-    }
-
-    .top-navbar {
-      position: sticky;
-      top: 0;
-      background: var(--bg-card-glass);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--border-color);
-      z-index: 999;
-      padding: 12px 28px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .brand-logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-    }
-
-    .brand-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, var(--brand-teal), var(--accent-navy));
-      color: var(--brand-gold);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 22px;
-      box-shadow: 0 4px 10px var(--border-glow);
-    }
-
-    .brand-text h1 {
-      font-size: 18px;
-      font-weight: 800;
-      color: var(--text-primary);
-      line-height: 1.2;
-    }
-
-    .brand-text span {
-      font-size: 12px;
-      color: var(--text-muted);
-      font-weight: 500;
-    }
-
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .search-box {
-      position: relative;
-      width: 300px;
-    }
-
-    .search-box input {
-      width: 100%;
-      padding: 8px 38px 8px 14px;
-      border-radius: 30px;
-      border: 1px solid var(--border-color);
-      background: var(--bg-secondary);
-      color: var(--text-primary);
-      font-family: inherit;
-      font-size: 13.5px;
-      outline: none;
-      transition: var(--transition);
-    }
-
-    .search-box input:focus {
-      border-color: var(--brand-gold);
-      box-shadow: 0 0 0 3px var(--brand-gold-light);
-    }
-
-    .search-box i {
-      position: absolute;
-      right: 14px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--text-muted);
-      font-size: 14px;
-    }
-
-    .theme-toggle-btn {
-      background: var(--bg-secondary);
-      border: 1px solid var(--border-color);
-      color: var(--text-primary);
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 16px;
-      transition: var(--transition);
-    }
-
-    .theme-toggle-btn:hover {
-      background: var(--brand-gold-light);
-      color: var(--brand-gold);
-      transform: rotate(15deg);
-    }
-
-    .dashboard-container {
-      display: grid;
-      grid-template-columns: 290px 1fr;
-      gap: 28px;
-      max-width: 1650px;
-      margin: 24px auto;
-      padding: 0 24px;
-    }
-
-    .sidebar-toc {
-      position: sticky;
-      top: 90px;
-      height: calc(100vh - 110px);
-      overflow-y: auto;
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-lg);
-      padding: 20px;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .sidebar-toc h3 {
-      font-size: 13.5px;
-      font-weight: 800;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-bottom: 14px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .toc-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-    }
-
-    .toc-item a {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 9px 12px;
-      border-radius: var(--radius-sm);
-      text-decoration: none;
-      color: var(--text-secondary);
-      font-size: 13.5px;
-      font-weight: 600;
-      transition: var(--transition);
-      border-right: 3px solid transparent;
-    }
-
-    .toc-item a i {
-      font-size: 14px;
-      width: 18px;
-      color: var(--text-muted);
-      transition: var(--transition);
-    }
-
-    .toc-item a:hover {
-      background: var(--brand-teal-soft);
-      color: var(--brand-teal);
-    }
-
-    .toc-item a.active {
-      background: var(--brand-teal-soft);
-      color: var(--brand-teal);
-      border-right-color: var(--brand-gold);
-      font-weight: 800;
-    }
-
-    .toc-item a.active i {
-      color: var(--brand-gold);
-    }
-
-    .sidebar-toc::-webkit-scrollbar {
-      width: 4px;
-    }
-    .sidebar-toc::-webkit-scrollbar-thumb {
-      background: var(--border-color);
-      border-radius: 10px;
-    }
-
-    .main-content {
-      display: flex;
-      flex-direction: column;
-      gap: 36px;
-    }
-
-    .hero-banner {
-      background: linear-gradient(135deg, var(--brand-teal), var(--accent-navy));
-      border-radius: var(--radius-xl);
-      padding: 36px 40px;
-      color: #ffffff;
-      position: relative;
-      overflow: hidden;
-      box-shadow: var(--shadow-lg);
-    }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(255, 255, 255, 0.12);
-      backdrop-filter: blur(8px);
-      padding: 6px 16px;
-      border-radius: 30px;
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--brand-gold);
-      border: 1px solid rgba(197, 155, 39, 0.3);
-      margin-bottom: 14px;
-    }
-
-    .hero-title {
-      font-size: 28px;
-      font-weight: 900;
-      line-height: 1.3;
-      margin-bottom: 12px;
-    }
-
-    .hero-subtitle {
-      font-size: 15.5px;
-      color: #cbd5e1;
-      max-width: 900px;
-      line-height: 1.8;
-    }
-
-    .kpi-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap: 18px;
-      margin-top: 24px;
-    }
-
-    .kpi-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-md);
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      box-shadow: var(--shadow-sm);
-      transition: var(--transition);
-    }
-
-    .kpi-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-md);
-      border-color: var(--brand-gold);
-    }
-
-    .kpi-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .kpi-title {
-      font-size: 13px;
-      color: var(--text-muted);
-      font-weight: 600;
-    }
-
-    .kpi-icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 16px;
-    }
-
-    .icon-teal { background: var(--brand-teal-soft); color: var(--brand-teal); }
-    .icon-gold { background: var(--brand-gold-light); color: var(--brand-gold); }
-    .icon-success { background: var(--benefit-green-soft); color: var(--benefit-green); }
-    .icon-danger { background: var(--danger-red-soft); color: var(--danger-red); }
-    .icon-info { background: var(--data-blue-soft); color: var(--data-blue); }
-
-    .kpi-value {
-      font-size: 26px;
-      font-weight: 900;
-      color: var(--text-primary);
-      font-family: 'Plus Jakarta Sans', 'Cairo', sans-serif;
-    }
-
-    .kpi-footer {
-      font-size: 12px;
-      color: var(--text-muted);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .badge-status {
-      padding: 2px 8px;
-      border-radius: 6px;
-      font-weight: 700;
-      font-size: 11px;
-    }
-
-    .badge-success { background: var(--benefit-green-soft); color: var(--benefit-green); }
-    .badge-warning { background: var(--warning-amber-soft); color: var(--warning-amber); }
-    .badge-danger { background: var(--danger-red-soft); color: var(--danger-red); }
-    .badge-info { background: var(--data-blue-soft); color: var(--data-blue); }
-
-    .section-container {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-xl);
-      padding: 34px;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .section-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      border-bottom: 2px solid var(--border-color);
-      padding-bottom: 18px;
-      margin-bottom: 28px;
-      flex-wrap: wrap;
-      gap: 14px;
-    }
-
-    .section-header-title {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .topic-number-badge {
-      width: 44px;
-      height: 44px;
-      background: linear-gradient(135deg, var(--brand-teal), var(--brand-teal-light));
-      color: #ffffff;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 900;
-      font-size: 18px;
-      box-shadow: 0 4px 8px var(--border-glow);
-    }
-
-    .section-header-title h2 {
-      font-size: 21px;
-      font-weight: 800;
-      color: var(--text-primary);
-    }
-
-    .section-header-title p {
-      font-size: 14px;
-      color: var(--text-muted);
-      margin-top: 2px;
-    }
-
-    .chart-presentation-card {
-      background: var(--bg-secondary);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-lg);
-      padding: 26px;
-      margin-bottom: 34px;
-      box-shadow: var(--shadow-sm);
-      transition: var(--transition);
-    }
-
-    .chart-presentation-card:hover {
-      border-color: var(--brand-teal-light);
-      box-shadow: var(--shadow-md);
-    }
-
-    .chart-meta-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 16px;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .chart-badge-title {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 17px;
-      font-weight: 800;
-      color: var(--brand-teal);
-    }
-
-    .chart-id-tag {
-      background: var(--brand-gold-light);
-      color: #856404;
-      border: 1px solid var(--brand-gold-border);
-      padding: 3px 10px;
-      border-radius: 8px;
-      font-size: 12px;
-      font-weight: 800;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-    }
-
-    .chart-image-frame {
-      position: relative;
-      background: #ffffff;
-      border-radius: var(--radius-md);
-      padding: 16px;
-      border: 1px solid var(--border-color);
-      margin-bottom: 24px;
-      text-align: center;
-      cursor: zoom-in;
-      overflow: hidden;
-    }
-
-    .chart-image-frame img {
-      max-width: 100%;
-      height: auto;
-      border-radius: var(--radius-sm);
-      transition: transform 0.3s ease;
-    }
-
-    .chart-image-frame:hover img {
-      transform: scale(1.01);
-    }
-
-    .chart-zoom-btn {
-      position: absolute;
-      top: 18px;
-      left: 18px;
-      background: rgba(15, 23, 42, 0.8);
-      color: #ffffff;
-      padding: 6px 14px;
-      border-radius: 20px;
-      font-size: 12px;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      backdrop-filter: blur(4px);
-      pointer-events: none;
-    }
-
-    .deep-explanation-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-      margin-top: 14px;
-    }
-
-    @media (max-width: 900px) {
-      .deep-explanation-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .explanation-box {
-      border-radius: var(--radius-md);
-      padding: 22px 24px;
-      border: 1px solid var(--border-color);
-      background: var(--bg-card);
-      position: relative;
-    }
-
-    .box-data-breakdown {
-      border-top: 4px solid var(--data-blue);
-      background: var(--data-blue-soft);
-      border-color: var(--data-blue-border);
-    }
-
-    .box-business-benefit {
-      border-top: 4px solid var(--benefit-green);
-      background: var(--benefit-green-soft);
-      border-color: var(--benefit-green-border);
-    }
-
-    .box-methodology-alert {
-      border-top: 4px solid var(--warning-amber);
-      background: var(--warning-amber-soft);
-      border-color: var(--warning-amber-border);
-      grid-column: 1 / -1;
-    }
-
-    .explanation-box-header {
-      font-size: 15px;
-      font-weight: 800;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 14px;
-    }
-
-    .box-data-breakdown .explanation-box-header { color: #0369a1; }
-    .box-business-benefit .explanation-box-header { color: #047857; }
-    .box-methodology-alert .explanation-box-header { color: #b45309; }
-
-    .explanation-content {
-      font-size: 14px;
-      line-height: 1.85;
-      color: var(--text-secondary);
-    }
-
-    .explanation-content p {
-      margin-bottom: 10px;
-    }
-
-    .explanation-content ul {
-      padding-right: 22px;
-      margin-bottom: 10px;
-    }
-
-    .explanation-content li {
-      margin-bottom: 8px;
-    }
-
-    .explanation-content strong {
-      color: var(--text-primary);
-    }
-
-    .decision-badge {
-      display: inline-block;
-      padding: 3px 10px;
-      border-radius: 6px;
-      background: #047857;
-      color: #ffffff;
-      font-size: 12px;
-      font-weight: 800;
-      margin-left: 6px;
-    }
-
-    .data-table-container {
-      overflow-x: auto;
-      margin: 20px 0;
-      border-radius: var(--radius-md);
-      border: 1px solid var(--border-color);
-    }
-
-    .custom-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 14px;
-      text-align: right;
-    }
-
-    .custom-table th {
-      background: var(--brand-teal);
-      color: #ffffff;
-      padding: 12px 18px;
-      font-weight: 700;
-      white-space: nowrap;
-    }
-
-    .custom-table td {
-      padding: 12px 18px;
-      border-bottom: 1px solid var(--border-color);
-      color: var(--text-secondary);
-    }
-
-    .custom-table tr:nth-child(even) {
-      background: var(--bg-primary);
-    }
-
-    .custom-table tr:hover {
-      background: var(--brand-gold-light);
-    }
-
-    .lightbox-modal {
-      display: none;
-      position: fixed;
-      z-index: 2000;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(7, 15, 24, 0.94);
-      backdrop-filter: blur(10px);
-      align-items: center;
-      justify-content: center;
-      padding: 30px;
-    }
-
-    .lightbox-content {
-      max-width: 92vw;
-      max-height: 90vh;
-      border-radius: var(--radius-lg);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.8);
-      border: 2px solid var(--brand-gold);
-    }
-
-    .lightbox-close {
-      position: absolute;
-      top: 24px;
-      left: 30px;
-      color: #ffffff;
-      font-size: 32px;
-      cursor: pointer;
-      transition: var(--transition);
-    }
-
-    .lightbox-close:hover {
-      color: var(--brand-gold);
-      transform: scale(1.2);
-    }
-
-    .back-to-top {
-      position: fixed;
-      bottom: 30px;
-      left: 30px;
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--brand-teal), var(--accent-navy));
-      color: var(--brand-gold);
-      border: 2px solid var(--brand-gold);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-      cursor: pointer;
-      box-shadow: var(--shadow-lg);
-      transition: var(--transition);
-      opacity: 0;
-      visibility: hidden;
-      z-index: 990;
-    }
-
-    .back-to-top.show {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .back-to-top:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(15, 61, 62, 0.6);
-    }
-
-    .dashboard-footer {
-      background: var(--bg-card);
-      border-top: 1px solid var(--border-color);
-      padding: 40px 24px;
-      margin-top: 60px;
-      text-align: center;
-      color: var(--text-muted);
-      font-size: 14px;
-    }
-
-    .footer-links {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      margin-bottom: 16px;
-    }
-
-    .footer-links a {
-      color: var(--brand-teal);
-      text-decoration: none;
-      font-weight: 700;
-    }
-
-    @media (max-width: 1024px) {
-      .dashboard-container {
-        grid-template-columns: 1fr;
-      }
-      .sidebar-toc {
-        display: none;
-      }
-      .search-box {
-        display: none;
-      }
-    }
-  </style>
+  <!-- Modular Stylesheets (Microservices Architecture) -->
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/navbar.css">
+  <link rel="stylesheet" href="assets/css/kpi.css">
+  <link rel="stylesheet" href="assets/css/filter-matrix.css">
+  <link rel="stylesheet" href="assets/css/qa-explorer.css">
+  <link rel="stylesheet" href="assets/css/macro-analytics.css">
+  <link rel="stylesheet" href="assets/css/modal.css">
+
+  <!-- Chart.js for Dynamic Visualizations -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body data-theme="light">
 
   <div id="progress-bar"></div>
 
-  <!-- شريط التنقل العلوي -->
+  <!-- Top Sticky Navigation Bar -->
   <header class="top-navbar">
     <a href="#" class="brand-logo">
       <div class="brand-icon">
         <i class="fa-solid fa-kaaba"></i>
       </div>
       <div class="brand-text">
-        <h1>Islam.chat Analytics Hub</h1>
-        <span>دليل التحليل الإحصائي والتفسير البياني الشامل</span>
+        <h1>Islam.chat Intelligence Hub</h1>
+        <span>منظومة استكشاف الأسئلة والتحليل السلوكي الذكي</span>
       </div>
     </a>
 
+    <!-- View Mode Switcher -->
+    <div class="view-mode-tabs">
+      <button class="view-tab-btn active" onclick="switchMainTab('explorer-view')">
+        <i class="fa-solid fa-compass"></i> مستكشف الأسئلة والفلاتر
+      </button>
+      <button class="view-tab-btn" onclick="switchMainTab('macro-analytics-view')">
+        <i class="fa-solid fa-chart-line"></i> التحليل الإحصائي العام (17 رسمة)
+      </button>
+      <button class="view-tab-btn" onclick="switchMainTab('action-plan-view')">
+        <i class="fa-solid fa-flag-checkered"></i> التوصيات وخطة العمل
+      </button>
+    </div>
+
+    <!-- Actions -->
     <div class="nav-actions">
-      <div class="search-box">
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="text" id="topic-search" placeholder="ابحث برقم الرسمة، اللغة، أو الكلمة المفتاحية..." onkeyup="filterTopics()">
-      </div>
+      <button class="btn-export" onclick="exportFilteredDataCSV()">
+        <i class="fa-solid fa-file-csv"></i> تصدير البيانات المفلترة
+      </button>
 
       <button class="theme-toggle-btn" id="theme-toggle" title="تبديل الوضع الليلي / الفاتح" onclick="toggleTheme()">
         <i class="fa-solid fa-moon"></i>
       </button>
-
-      <a href="#summary-section" style="padding: 8px 16px; border-radius: 20px; background: linear-gradient(135deg, var(--brand-teal), var(--brand-teal-light)); color: #fff; text-decoration: none; font-size: 13px; font-weight: 700;">
-        <i class="fa-solid fa-clipboard-check"></i> التوصيات التنفيذية
-      </a>
     </div>
   </header>
 
-  <!-- الحاوية الرئيسية -->
+  <!-- Main Dashboard Container -->
   <div class="dashboard-container">
-    
-    <!-- القائمة الجانبية -->
-    <aside class="sidebar-toc">
-      <h3><i class="fa-solid fa-chart-simple"></i> فهرس الرسوم البيانية</h3>
-      <ul class="toc-list">
-        <li class="toc-item"><a href="#hero-section" class="active"><i class="fa-solid fa-chart-pie"></i> لوحة المؤشرات العامة</a></li>
-        <li class="toc-item"><a href="#topic-1"><i class="fa-solid fa-calendar-days"></i> 1. التحليل الزمني والمواسم</a></li>
-        <li class="toc-item"><a href="#topic-2"><i class="fa-solid fa-users-viewfinder"></i> 2. تفاعل وارتداد المستخدمين</a></li>
-        <li class="toc-item"><a href="#topic-3"><i class="fa-solid fa-language"></i> 3. توزيع اللغات العالمية</a></li>
-        <li class="toc-item"><a href="#topic-4"><i class="fa-solid fa-triangle-exclamation"></i> 4. إخفاقات وصمت البوت</a></li>
-        <li class="toc-item"><a href="#topic-5"><i class="fa-solid fa-scale-balanced"></i> 5. توازن الحوار والمحاضرة</a></li>
-        <li class="toc-item"><a href="#topic-6"><i class="fa-solid fa-clock"></i> 6. أوقات الذروة حسب اللغات</a></li>
-        <li class="toc-item"><a href="#topic-7"><i class="fa-solid fa-gauge-high"></i> 7. سرعة الاستجابة و Outliers</a></li>
-        <li class="toc-item"><a href="#topic-8"><i class="fa-solid fa-arrows-spin"></i> 8. الجلسات والمستخدمين العائدين</a></li>
-        <li class="toc-item"><a href="#topic-9"><i class="fa-solid fa-bullseye"></i> 9. دقة اكتشاف اللغة وخلطها</a></li>
-        <li class="toc-item"><a href="#topic-10"><i class="fa-solid fa-server"></i> 10. لوحة الأداء ومصفوفة SLA</a></li>
-        <li class="toc-item"><a href="#summary-section"><i class="fa-solid fa-flag-checkered"></i> الخلاصة وخطة العمل</a></li>
-      </ul>
-    </aside>
 
-    <!-- المحتوى الرئيسي مع الشرح التفصيلي للـ 17 رسمة -->
-    <main class="main-content">
+    <!-- ====================================================================
+         TAB 1: Interactive Q&A Explorer & Behavioral Filter Matrix
+         ==================================================================== -->
+    <section id="explorer-view" class="tab-content active">
 
-      <!-- قسم الترحيب والمؤشرات العامة -->
-      <section id="hero-section" class="hero-banner">
+      <!-- Hero & Dynamic Metrics -->
+      <div class="hero-banner">
         <div class="hero-badge">
-          <i class="fa-solid fa-book-open"></i>
-          <span>المرجع الشامل لتفسير البيانات والرسومات الإحصائية</span>
+          <i class="fa-solid fa-wand-magic-sparkles"></i>
+          <span>منظومة استكشاف 11,596 سؤالاً وجواباً شرعياً موثقاً عبر 80 لغة</span>
         </div>
-        <h1 class="hero-title">التحليل البياني المفصل لمنصة المحادثة الذكية (Islam.chat)</h1>
+        <h2 class="hero-title">لوحة استكشاف وتصفية الأسئلة الشرعية والدعوية المتعددة الأبعاد</h2>
         <p class="hero-subtitle">
-          يقدم هذا الموقع شرحًا معمقًا وتفصيليًا لكل رسمة بيانية استُخرجت من تحليل <strong>12,448 محادثة</strong> عبر <strong>80 لغة</strong>. تم بناء الشرح ليوضح بدقة متناهية: <strong>(1) ما هي الداتا المعروضة في الرسمة</strong>، و <strong>(2) ما هي الاستفادة الإدارية والعملية وقرارات البيزنس المستخلصة منها</strong>، لتمكين أي مسؤول أو باحث من فهم الأرقام والقرارات دون وسيط.
+          تتيح هذه المنصة التفاعلية فلترة وفحص الأسئلة الموثقة بدقة فائقة بحسب <strong>معتقد السائل</strong>، <strong>نية السؤال</strong>، <strong>الباب الشرعي</strong>، <strong>المنطقة الجغرافية</strong>، <strong>اللغة</strong>، و<strong>النطاق الزمني والتوقيت</strong>، مع تحديث فوري للرسوم البيانية والـ Insights اللحظية.
         </p>
 
+        <!-- KPI Metrics -->
         <div class="kpi-grid">
           <div class="kpi-card">
             <div class="kpi-header">
-              <span class="kpi-title">حجم المحادثات الإجمالي</span>
-              <div class="kpi-icon icon-teal"><i class="fa-solid fa-comments"></i></div>
+              <span class="kpi-title">الأسئلة المطابقة للفلتر</span>
+              <div class="kpi-icon" style="background: var(--brand-teal-soft); color: var(--brand-teal);"><i class="fa-solid fa-comments"></i></div>
             </div>
-            <div class="kpi-value">12,448</div>
-            <div class="kpi-footer">
-              <span class="badge-status badge-success">+6,076% نمو سنوي</span>
-              <span>17 شهرًا مسجلة</span>
-            </div>
+            <div class="kpi-val" id="kpi-filtered-count">11,596</div>
+            <div class="kpi-sub" id="kpi-percentage-badge">100% من إجمالي الأسئلة</div>
           </div>
 
           <div class="kpi-card">
             <div class="kpi-header">
-              <span class="kpi-title">معدل التفاعل الإيجابي</span>
-              <div class="kpi-icon icon-success"><i class="fa-solid fa-user-check"></i></div>
+              <span class="kpi-title">اللغات الممثلة</span>
+              <div class="kpi-icon" style="background: var(--data-blue-soft); color: var(--data-blue);"><i class="fa-solid fa-language"></i></div>
             </div>
-            <div class="kpi-value">99.2%</div>
-            <div class="kpi-footer">
-              <span class="badge-status badge-success">0.8% ارتداد فقط</span>
-              <span>مشاركة مستخدم عالية</span>
-            </div>
+            <div class="kpi-val" id="kpi-languages-count">80</div>
+            <div class="kpi-sub">تغطية عالمية شاملة</div>
           </div>
 
           <div class="kpi-card">
             <div class="kpi-header">
-              <span class="kpi-title">السرعة الفورية للرد (<1ث)</span>
-              <div class="kpi-icon icon-gold"><i class="fa-solid fa-bolt"></i></div>
+              <span class="kpi-title">مقارنة الأديان والشبهات</span>
+              <div class="kpi-icon" style="background: var(--insight-purple-soft); color: var(--insight-purple);"><i class="fa-solid fa-scale-balanced"></i></div>
             </div>
-            <div class="kpi-value">76.6%</div>
-            <div class="kpi-footer">
-              <span class="badge-status badge-info">وسيط 0.33 ثانية</span>
-              <span>استجابة لحظية</span>
-            </div>
+            <div class="kpi-val" id="kpi-comparative-count">3,160</div>
+            <div class="kpi-sub" id="kpi-comparative-pct">27.3% من النتائج</div>
           </div>
 
           <div class="kpi-card">
             <div class="kpi-header">
-              <span class="kpi-title">معدل الإخفاق الكلي</span>
-              <div class="kpi-icon icon-danger"><i class="fa-solid fa-triangle-exclamation"></i></div>
+              <span class="kpi-title">الأسئلة الأكثر تكراراً (Trending)</span>
+              <div class="kpi-icon" style="background: var(--warning-amber-soft); color: var(--warning-amber);"><i class="fa-solid fa-fire"></i></div>
             </div>
-            <div class="kpi-value">0.88%</div>
-            <div class="kpi-footer">
-              <span class="badge-status badge-warning">109 صمت فقط</span>
-              <span>موثوقية 99.12%</span>
+            <div class="kpi-val" id="kpi-trending-count">2,143</div>
+            <div class="kpi-sub">عناقيد شائعة متعددة</div>
+          </div>
+
+          <div class="kpi-card">
+            <div class="kpi-header">
+              <span class="kpi-title">رغبة في الإسلام / نطق الشهادة</span>
+              <div class="kpi-icon" style="background: var(--benefit-green-soft); color: var(--benefit-green);"><i class="fa-solid fa-heart"></i></div>
             </div>
+            <div class="kpi-val" id="kpi-conversion-count">20</div>
+            <div class="kpi-sub">طلبات هداية مباشرة</div>
           </div>
         </div>
-      </section>
+      </div>
 
-      <!-- ====================================================================
-           المحور 1: التحليل الزمني (5 رسومات)
-           ==================================================================== -->
-      <section id="topic-1" class="section-container topic-card" data-keywords="الزمني النمو رمضان الحج الأشهر الساعات الأيام المدة Chart 1 Chart 2 Chart 3 Chart 4 Chart 5">
+      <!-- Multi-Faceted Filter Matrix -->
+      <div class="filter-panel">
+        <div class="filter-panel-header">
+          <div class="filter-panel-title">
+            <i class="fa-solid fa-sliders"></i> شريط الفلاتر الذكي متعدد الأبعاد (Smart Multi-Filter Matrix)
+          </div>
+          <div class="filter-actions">
+            <button class="btn-action" onclick="resetAllFilters()">
+              <i class="fa-solid fa-rotate-left"></i> إعادة ضبط الفلاتر
+            </button>
+          </div>
+        </div>
+
+        <div class="filter-grid">
+          <!-- Filter 1: Year / Date -->
+          <div class="filter-group">
+            <label class="filter-label"><i class="fa-solid fa-calendar"></i> السنة / النطاق الزمني</label>
+            <select id="filter-year" class="filter-select" onchange="applyFilters()">
+              <option value="all">كل السنوات (2024 - 2026)</option>
+              <option value="2026">2026 (الربع الأول)</option>
+              <option value="2025">2025 (سنة الانتشار الكبرى)</option>
+              <option value="2024">2024 (فترة الإطلاق التجريبي)</option>
+            </select>
+            <div class="quick-year-chips">
+              <button class="chip-btn active" onclick="setQuickYear('all', this)">الكل</button>
+              <button class="chip-btn" onclick="setQuickYear('2026', this)">2026</button>
+              <button class="chip-btn" onclick="setQuickYear('2025', this)">2025</button>
+              <button class="chip-btn" onclick="setQuickYear('2024', this)">2024</button>
+            </div>
+          </div>
+
+          <!-- Filter 2: Faith & User Belief -->
+          <div class="filter-group">
+            <label class="filter-label"><i class="fa-solid fa-user-tag"></i> ديانة / معتقد السائل</label>
+            <select id="filter-faith" class="filter-select" onchange="applyFilters()">
+              <option value="all">جميع المعتقدات والديانات</option>
+              <option value="مسلم ممارس / مستفتي">مسلم ممارس / مستفتي (3,224)</option>
+              <option value="مسيحي">مسيحي (2,272)</option>
+              <option value="مستفسر عن أصول الإيمان">مستفسر عن أصول الإيمان (1,634)</option>
+              <option value="غير مسلم / باحث عن الحقيقة">غير مسلم / باحث عن الحقيقة (1,073)</option>
+              <option value="هندوسي / بوذي">هندوسي / بوذي (608)</option>
+              <option value="ملحد / لاديني">ملحد / لاديني (488)</option>
+              <option value="مسلم جديد / مهتدٍ">مسلم جديد / مهتدٍ (394)</option>
+              <option value="شيعي / فرق">شيعي / فرق (203)</option>
+              <option value="يهودي">يهودي (166)</option>
+            </select>
+          </div>
+
+          <!-- Filter 3: Intent Classification -->
+          <div class="filter-group">
+            <label class="filter-label"><i class="fa-solid fa-bullseye"></i> نية وطبيعة السؤال</label>
+            <select id="filter-intent" class="filter-select" onchange="applyFilters()">
+              <option value="all">جميع النوايا والأنماط</option>
+              <option value="استفسار معرفي وتعليمي عام">استفسار معرفي وتعليمي عام (5,131)</option>
+              <option value="مقارنة أديان ورد شبهات">مقارنة أديان ورد شبهات (3,160)</option>
+              <option value="طلب فتوى وحكم فقهي">طلب فتوى وحكم فقهي (2,136)</option>
+              <option value="تعلم أساسيات الدين للمسلمين الجدد">تعلم أساسيات الدين للمسلمين الجدد (586)</option>
+              <option value="توجيه روحي واستشارة شخصية">توجيه روحي واستشارة شخصية (563)</option>
+              <option value="رغبة في اعتناق الإسلام والشهادة">رغبة في اعتناق الإسلام والشهادة (20)</option>
+            </select>
+          </div>
+
+          <!-- Filter 4: Topic Category -->
+          <div class="filter-group">
+            <label class="filter-label"><i class="fa-solid fa-book-quran"></i> الباب والموضوع الشرعي</label>
+            <select id="filter-topic" class="filter-select" onchange="applyFilters()">
+              <option value="all">جميع الأبواب الشرعية</option>
+              <option value="العقيدة وأصول الإيمان">العقيدة وأصول الإيمان (2,604)</option>
+              <option value="مقارنة الأديان وحوار غير المسلمين">مقارنة الأديان وحوار غير المسلمين (2,367)</option>
+              <option value="الفقه والعبادات والأحكام">الفقه والعبادات والأحكام (1,990)</option>
+              <option value="القرآن الكريم والتفسير">القرآن الكريم والتفسير (1,030)</option>
+              <option value="منهجية الدعوة والردود">منهجية الدعوة والردود (788)</option>
+              <option value="الحديث الشريف والسيرة النبوية">الحديث الشريف والسيرة النبوية (766)</option>
+              <option value="رعاية وتعليم المسلمين الجدد">رعاية وتعليم المسلمين الجدد (610)</option>
+              <option value="الأخلاق والآداب الإسلامية">الأخلاق والآداب الإسلامية (498)</option>
+              <option value="التاريخ والحضارة الإسلامية">التاريخ والحضارة الإسلامية (399)</option>
+              <option value="الاستشارات والتوجيه الشخصي">الاستشارات والتوجيه الشخصي (382)</option>
+            </select>
+          </div>
+
+          <!-- Filter 5: Language -->
+          <div class="filter-group">
+            <label class="filter-label"><i class="fa-solid fa-globe"></i> لغة المحادثة (80 لغة)</label>
+            <select id="filter-language" class="filter-select" onchange="applyFilters()">
+              <option value="all">جميع اللغات (80 لغة)</option>
+              <option value="English">الإنجليزية (English: 4,612)</option>
+              <option value="Arabic">العربية (Arabic: 4,297)</option>
+              <option value="Swahili">السواحلية (Swahili: 847)</option>
+              <option value="Japanese">اليابانية (Japanese: 386)</option>
+              <option value="French">الفرنسية (French: 281)</option>
+              <option value="Filipino">الفلبينية (Filipino: 230)</option>
+              <option value="Korean">الكورية (Korean: 153)</option>
+              <option value="Central Kurdish">الكردية (Kurdish: 143)</option>
+              <option value="Urdu">الأردية (Urdu: 126)</option>
+              <option value="Najdi Arabic">العربية النجدية (66)</option>
+              <option value="German">الألمانية (German: 51)</option>
+              <option value="Spanish">الإسبانية (Spanish: 46)</option>
+              <option value="Russian">الروسية (Russian: 38)</option>
+              <option value="Indonesian">الإندونيسية (Indonesian: 34)</option>
+            </select>
+          </div>
+
+          <!-- Filter 6: Geographic Region -->
+          <div class="filter-group">
+            <label class="filter-label"><i class="fa-solid fa-map-location-dot"></i> المنطقة الجغرافية</label>
+            <select id="filter-region" class="filter-select" onchange="applyFilters()">
+              <option value="all">جميع المناطق الجغرافية</option>
+              <option value="العالم الغربي والناطق بالإنجليزية">العالم الغربي والناطق بالإنجليزية (4,612)</option>
+              <option value="الشرق الأوسط وشمال أفريقيا">الشرق الأوسط وشمال أفريقيا (4,363)</option>
+              <option value="أفريقيا جنوب الصحراء">أفريقيا جنوب الصحراء (850)</option>
+              <option value="شرق وجنوب شرق آسيا">شرق وجنوب شرق آسيا (805)</option>
+              <option value="أوروبا وأمريكا اللاتينية">أوروبا وأمريكا اللاتينية (403)</option>
+              <option value="آسيا الوسطى وأوراسيا">آسيا الوسطى وأوراسيا (224)</option>
+              <option value="جنوب آسيا (شبه القارة الهندية)">جنوب آسيا (شبه القارة الهندية: 185)</option>
+            </select>
+          </div>
+
+          <!-- Filter 7: Trending / Cluster Size -->
+          <div class="filter-group">
+            <label class="filter-label"><i class="fa-solid fa-fire-flame-curved"></i> تكرار وشهرة السؤال</label>
+            <select id="filter-trending" class="filter-select" onchange="applyFilters()">
+              <option value="all">الكل (الأسئلة الفردية والشائعة)</option>
+              <option value="trending_only">الأسئلة الأكثر تكراراً فقط (Trending > 1)</option>
+              <option value="unique_only">الأسئلة الفردية فقط</option>
+            </select>
+          </div>
+
+          <!-- Filter 8: Question Nature (Main vs Follow-up) -->
+          <div class="filter-group">
+            <label class="filter-label"><i class="fa-solid fa-sitemap"></i> نوع وسياق السؤال</label>
+            <select id="filter-followup" class="filter-select" onchange="applyFilters()">
+              <option value="all">الكل (رئيسي ومتابعة)</option>
+              <option value="main_only">سؤال افتتاحي رئيسي فقط</option>
+              <option value="followup_only">استفسار متابعة وتكميل فقط</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dynamic Live Charts Row -->
+      <div class="charts-split-grid">
+        <div class="chart-card">
+          <div class="chart-card-header">
+            <span class="chart-card-title"><i class="fa-solid fa-chart-area"></i> توزيع وتطور الأسئلة المفلترة عبر الأشهر</span>
+            <span class="badge badge-topic" id="chart-timeline-badge">تحديث فوري</span>
+          </div>
+          <div class="chart-canvas-wrapper">
+            <canvas id="timelineChart"></canvas>
+          </div>
+        </div>
+
+        <div class="chart-card">
+          <div class="chart-card-header">
+            <span class="chart-card-title"><i class="fa-solid fa-chart-pie"></i> توزيع معتقدات وسلوك السائلين للنتائج الحالية</span>
+            <span class="badge badge-faith" id="chart-faith-badge">Faith Breakdown</span>
+          </div>
+          <div class="chart-canvas-wrapper">
+            <canvas id="faithChart"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- Results Header & Controls -->
+      <div class="results-bar">
+        <div class="results-count-title">
+          <i class="fa-solid fa-list-check"></i> قائمة الأسئلة المستخرجة (<span id="results-count">11,596</span> سؤالاً مطابقاً)
+        </div>
+
+        <div class="results-controls">
+          <div class="search-input-wrapper">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="live-search-input" class="filter-input" placeholder="ابحث في نص السؤال، الإجابة، أو الموضوع..." onkeyup="onSearchInput()">
+          </div>
+
+          <select id="sort-select" class="filter-select" style="width: 170px;" onchange="applySort()">
+            <option value="trending_desc">الأكثر تكراراً (Trending)</option>
+            <option value="id_desc">الأحدث إضافة</option>
+            <option value="id_asc">الأقدم إضافة</option>
+            <option value="richness_desc">الأطول إجابة وثراءً</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Cards Grid -->
+      <div class="qa-cards-grid" id="qa-cards-container">
+        <!-- Rendered dynamically via QaCardComponent -->
+      </div>
+
+      <!-- Pagination -->
+      <div class="pagination-bar" id="pagination-container">
+        <!-- Rendered dynamically via QaCardComponent -->
+      </div>
+
+    </section>
+
+    <!-- ====================================================================
+         TAB 2: Macro Statistical Analysis (17 Full Visual Charts from Commit 2ba7ad9)
+         ==================================================================== -->
+    <section id="macro-analytics-view" class="tab-content">
+      
+      <div class="hero-banner">
+        <div class="hero-badge"><i class="fa-solid fa-chart-pie"></i> التقرير الإحصائي الكلي الشامل</div>
+        <h2 class="hero-title">الدليل التحليلي الشامل لـ 17 رسماً بيانياً</h2>
+        <p class="hero-subtitle">
+          تفسير إحصائي وإداري معمق لجميع جوانب أداء منصة Islam.chat عبر <strong>12,448 محادثة</strong> و <strong>80 لغة</strong>، شاملاً التحليل الزمني، معدلات الارتداد، توازن الحوار، اتفاقية مستوى الخدمة (SLA)، وأوقات الذروة العالمية.
+        </p>
+      </div>
+
+      <!-- 10 Topics & 17 Charts from commit 2ba7ad92c833c33012003ac646be503efb5759c4 -->
+<section id="topic-1" class="section-container topic-card" data-keywords="الزمني النمو رمضان الحج الأشهر الساعات الأيام المدة Chart 1 Chart 2 Chart 3 Chart 4 Chart 5">
+
         <div class="section-header">
+
           <div class="section-header-title">
+
             <div class="topic-number-badge">01</div>
+
             <div>
+
               <h2>المحور الأول: التحليل الزمني ومواسم الاستخدام (Temporal Dynamics)</h2>
+
               <p>شرح تفصيلي لـ 5 رسومات بيانية توضح متى وأين يتحدث الناس مع البوت، ومواسم الذروة، وأزمنة الجلسات.</p>
+
             </div>
+
           </div>
+
         </div>
+
+
 
         <!-- الرسمة 1 -->
+
         <div class="chart-presentation-card">
+
           <div class="chart-meta-header">
+
             <div class="chart-badge-title">
+
               <i class="fa-solid fa-chart-line"></i> الرسم البياني 1: النمو السنوي والتوزيع الموسمي الشهري التراكمي (Yearly & Monthly Seasonality)
+
             </div>
+
             <span class="chart-id-tag">Chart #01 (Cell 4)</span>
+
           </div>
+
+
 
           <div class="chart-image-frame" onclick="openLightbox('assets/images/chart_01_cell_4.png')">
+
             <img src="assets/images/chart_01_cell_4.png" alt="النمو السنوي والموسمي" loading="lazy">
+
             <div class="chart-zoom-btn"><i class="fa-solid fa-expand"></i> انقر للتكبير عالي الدقة</div>
+
           </div>
+
+
 
           <div class="deep-explanation-grid">
+
             <div class="explanation-box box-data-breakdown">
+
               <div class="explanation-box-header"><i class="fa-solid fa-database"></i> 1. ما هي الداتا المعروضة في هذه الرسمة؟</div>
+
               <div class="explanation-content">
+
                 <p>تعرض هذه الرسمة <strong>لوحتين بيانيتين أساسيتين (2 Subplots)</strong> توضحان حجم واستخدام المنصة على المستويين السنوي والشهري التراكمي:</p>
+
                 <ul>
+
                   <li><strong>اللوحة الأولى (اليسار - Total Conversations per Year):</strong> رسم شريطي أزرق يوضح التطور السنوي:
+
                     <ul>
+
                       <li>عام <strong>2024:</strong> 179 محادثة (فترة البداية والتجربة).</li>
+
                       <li>عام <strong>2025:</strong> 11,056 محادثة (سنة الانتشار الحقيقي بنمو +6,076%).</li>
+
                       <li>عام <strong>2026:</strong> 1,213 محادثة (الربع الأول فقط حتى 26 مارس 2026).</li>
+
                     </ul>
+
                   </li>
+
                   <li><strong>اللوحة الثانية (اليمين - Seasonality: Conversations per Month):</strong> رسم شريطي ملون يوضح مجموع محادثات كل شهر مجمعة عبر كامل تاريخ المنصة (All-Time Aggregated):
+
                     <ul>
+
                       <li>يتصدر <strong>شهر مارس (March) القمة بـ 3,458 محادثة</strong> (بسبب شهر رمضان المبارك).</li>
+
                       <li>يأتي <strong>شهر يونيو (June) في المركز الثاني بـ 1,790 محادثة</strong> (بسبب موسم الحج).</li>
+
                       <li>يأتي <strong>شهر أكتوبر (October) بـ 1,301 محادثة</strong>، بينما تسجل شهور الصيف (مايو، أغسطس، سبتمبر) أدنى المستويات (حوالي 450 - 500 محادثة).</li>
+
                     </ul>
+
                   </li>
+
                 </ul>
+
                 <p style="margin-top: 10px; font-size: 13px; color: var(--text-muted);">
+
                   📌 <em>ملاحظة: تفاصيل نشاط "أيام الأسبوع" و"ساعات اليوم" تم إفراد رسومات بيانية مخصصة ومفصلة لها لاحقاً في الرسوم (Chart #04 الخريطة الحرارية، و Chart #11 و #12).</em>
+
                 </p>
+
               </div>
+
             </div>
 
+
+
             <div class="explanation-box box-business-benefit">
+
               <div class="explanation-box-header"><i class="fa-solid fa-briefcase"></i> 2. ما هي الاستفادة العملية وقرارات البيزنس من هذه الرسمة؟</div>
+
               <div class="explanation-content">
+
                 <p>تعتبر هذه الرسمة بمثابة البوصلة الاستراتيجية لتخطيط السعة والنمو السنوي:</p>
+
                 <ul>
+
                   <li><span class="decision-badge">تقييم نمو المنتج</span> <strong>إثبات نجاح الانتشار:</strong> القفزة من 179 محادثة إلى أكثر من 11 ألف محادثة تثبت نجاح المنتج واستقراره وتزايد اعتماده لدى المستخدمين.</li>
+
                   <li><span class="decision-badge">تخطيط الميزانية</span> <strong>توقع الإنفاق السحابي:</strong> توزيع الاستهلاك يوضح أن الربع الأول والثاني هما الأكثر استهلاكاً لحصص التوكنز (Tokens) وتكاليف الـ API، مما يساعد الإدارة المالية في حجز اشتراكات سنوية مسبقة بتخفيضات تصل إلى 30%.</li>
+
                 </ul>
+
               </div>
+
             </div>
+
           </div>
+
         </div>
+
+
 
         <!-- الرسمة 2 -->
+
         <div class="chart-presentation-card">
+
           <div class="chart-meta-header">
+
             <div class="chart-badge-title">
+
               <i class="fa-solid fa-timeline"></i> الرسم البياني 2: الخط الزمني الفعلي للمحادثات شهرًا بشهر (No Accumulation Bias)
+
             </div>
+
             <span class="chart-id-tag">Chart #02 (Cell 5)</span>
+
           </div>
+
+
 
           <div class="chart-image-frame" onclick="openLightbox('assets/images/chart_02_cell_5.png')">
+
             <img src="assets/images/chart_02_cell_5.png" alt="الخط الزمني الفعلي شهرًا بشهر" loading="lazy">
+
             <div class="chart-zoom-btn"><i class="fa-solid fa-expand"></i> انقر للتكبير عالي الدقة</div>
+
           </div>
+
+
 
           <div class="deep-explanation-grid">
+
             <div class="explanation-box box-data-breakdown">
+
               <div class="explanation-box-header"><i class="fa-solid fa-database"></i> 1. ما هي الداتا المعروضة في هذه الرسمة؟</div>
+
               <div class="explanation-content">
+
                 <p>تعرض هذه الرسمة التسلسل التاريخي الحقيقي للمحادثات شهرًا بشهر على مدار 18 شهرًا متتاليًا (من 2024-10 إلى 2026-03) بشكل منفصل دون دمج شهور السنوات المتشابهة:</p>
+
                 <ul>
+
                   <li><strong>المحور الأفقي (X-Axis):</strong> الشهور بتسلسلها الزمني الفعلي (سنة-شهر: `2024-10` وحتى `2026-03`).</li>
+
                   <li><strong>المحور الرأسي (Y-Axis):</strong> عدد المحادثات الفعلية المسجلة في كل شهر (`Number of Conversations`).</li>
+
                   <li><strong>أهم القمم المسجلة بالأرقام:</strong>
+
                     <ul>
+
                       <li><strong>مارس 2025 (2025-03):</strong> القمة الكبرى بـ <strong>3,091 محادثة</strong>.</li>
+
                       <li><strong>يونيو 2025 (2025-06):</strong> القمة الثانية بـ <strong>1,790 محادثة</strong>.</li>
+
                       <li><strong>أكتوبر 2025 (2025-10):</strong> 1,161 محادثة.</li>
+
                       <li><strong>مارس 2026 (2026-03):</strong> 367 محادثة (حتى 26 مارس).</li>
+
                     </ul>
+
                   </li>
+
                 </ul>
+
               </div>
+
             </div>
+
+
 
             <div class="explanation-box box-business-benefit">
+
               <div class="explanation-box-header"><i class="fa-solid fa-briefcase"></i> 2. ما هي الاستفادة العملية وقرارات البيزنس من هذه الرسمة؟</div>
+
               <div class="explanation-content">
+
                 <p>تكشف هذه الرسمة عن الأثر الموسمي الحاسم للمناسبات الدينية الكبرى:</p>
+
                 <ul>
+
                   <li><span class="decision-badge">رؤية استراتيجية</span> <strong>أثر شهر رمضان المبارك 1446هـ:</strong> قفزة مارس 2025 توافقت بدقة مع شهر رمضان، حيث زاد الطلب بنسبة <strong>+1,151%</strong> مقارنة بشهر فبراير (247 محادثة). هذا يثبت أن رمضان هو المحرك الأكبر للبحث الديني.</li>
+
                   <li><span class="decision-badge">رؤية استراتيجية</span> <strong>أثر موسم الحج وعيد الأضحى:</strong> قفزة يونيو 2025 توافقت مع شهر ذي الحجة وموسم الحج.</li>
+
                   <li><span class="decision-badge">قرار بيزنس</span> <strong>الاستعداد المالي والتقني للمواسم:</strong> يجب تفعيل ميزة التوسع التلقائي للخوادم (Auto-Scaling) ومضاعفة ميزانية الـ API والـ Tokens قبل حلول شهر رمضان بشهر على الأقل.</li>
+
                 </ul>
+
               </div>
+
             </div>
 
+
+
             <div class="explanation-box box-methodology-alert">
+
               <div class="explanation-box-header"><i class="fa-solid fa-circle-exclamation"></i> ⚠️ تنبيه إحصائي لمنع الالتباس المنهجي</div>
+
               <div class="explanation-content">
+
                 <p>في الرسم البياني السابق (Chart 1)، يظهر شهر مارس برقم 3,458 محادثة لأن الرسم السابق جمع أرقام مارس 2025 (3,091) مع مارس 2026 (367). هذا الرسم المنفصل (Chart 2) يصحح هذا الانحياز ويوضح الواقع بدقة متناهية.</p>
+
               </div>
+
             </div>
+
           </div>
+
         </div>
+
+
 
         <!-- الرسمة 3 -->
+
         <div class="chart-presentation-card">
+
           <div class="chart-meta-header">
+
             <div class="chart-badge-title">
+
               <i class="fa-solid fa-chart-area"></i> الرسم البياني 3: النشاط اليومي والمتوسط المتحرك لـ 7 أيام (Daily Volume Timeline)
+
             </div>
+
             <span class="chart-id-tag">Chart #03 (Cell 6)</span>
+
           </div>
+
+
 
           <div class="chart-image-frame" onclick="openLightbox('assets/images/chart_03_cell_6.png')">
+
             <img src="assets/images/chart_03_cell_6.png" alt="النشاط اليومي والمتوسط المتحرك" loading="lazy">
+
             <div class="chart-zoom-btn"><i class="fa-solid fa-expand"></i> انقر للتكبير عالي الدقة</div>
+
           </div>
+
+
 
           <div class="deep-explanation-grid">
+
             <div class="explanation-box box-data-breakdown">
+
               <div class="explanation-box-header"><i class="fa-solid fa-database"></i> 1. ما هي الداتا المعروضة في هذه الرسمة؟</div>
+
               <div class="explanation-content">
+
                 <p>تعرض هذه الرسمة منحنيين للنشاط اليومي على مدار ما يقارب 520 يوماً متصلاً:</p>
+
                 <ul>
+
                   <li><strong>المحور الأفقي (Date):</strong> التاريخ اليومي من أواخر 2024 وحتى مارس 2026.</li>
+
                   <li><strong>المحور الرأسي (Number of Conversations):</strong> عدد المحادثات اليومية (يصل إلى قمم تفوق 450 محادثة في اليوم الواحد).</li>
+
                   <li><strong>المنحنى الأزرق الفاتح (Daily):</strong> يمثل عدد المحادثات الفعلي الحقيقي لكل يوم منفرد، بما يحتويه من تذبذب طبيعي بين أيام الأسبوع.</li>
+
                   <li><strong>المنحنى الأحمر (7-Day Rolling Avg):</strong> يمثل المتوسط الحسابي المتحرك لـ 7 أيام متتالية، ووظيفته تنعيم التذبذبات اليومية لإبراز الاتجاه الحقيقي العام للصعود والهبوط.</li>
+
                 </ul>
+
               </div>
+
             </div>
 
+
+
             <div class="explanation-box box-business-benefit">
+
               <div class="explanation-box-header"><i class="fa-solid fa-briefcase"></i> 2. ما هي الاستفادة العملية وقرارات البيزنس من هذه الرسمة؟</div>
+
               <div class="explanation-content">
+
                 <p>تساعد هذه الرسمة في مراقبة الاستقرار التشغيلي وكشف الشذوذ:</p>
+
                 <ul>
+
                   <li><span class="decision-badge">مراقبة تشغيلية</span> <strong>التحقق من عدم وجود انقطاعات فجائية:</strong> يُثبت الخط المتصل عدم حدوث أي انقطاع كامل للخدمة (Zero Outage Days) طوال عام 2025.</li>
+
                   <li><span class="decision-badge">تخطيط السعة</span> <strong>فهم التذبذب الأسبوعي:</strong> يوضح المنحنى أن التذبذب بين أيام الأسبوع طبيعي ومتكرر ولا يمثل انخفاضاً حقيقياً في الاهتمام.</li>
+
                 </ul>
+
               </div>
+
             </div>
+
           </div>
+
         </div>
+
+
 
         <!-- الرسمة 4 -->
+
         <div class="chart-presentation-card">
+
           <div class="chart-meta-header">
+
             <div class="chart-badge-title">
+
               <i class="fa-solid fa-fire"></i> الرسم البياني 4: الخريطة الحرارية لتقاطع الأيام والساعات (Day vs. Hour Heatmap)
+
             </div>
+
             <span class="chart-id-tag">Chart #04 (Cell 7)</span>
+
           </div>
+
+
 
           <div class="chart-image-frame" onclick="openLightbox('assets/images/chart_04_cell_7.png')">
+
             <img src="assets/images/chart_04_cell_7.png" alt="الخريطة الحرارية للأيام والساعات" loading="lazy">
+
             <div class="chart-zoom-btn"><i class="fa-solid fa-expand"></i> انقر للتكبير عالي الدقة</div>
+
           </div>
+
+
 
           <div class="deep-explanation-grid">
+
             <div class="explanation-box box-data-breakdown">
+
               <div class="explanation-box-header"><i class="fa-solid fa-database"></i> 1. ما هي الداتا المعروضة في هذه الرسمة؟</div>
+
               <div class="explanation-content">
+
                 <p>مصفوفة لونية دقيقة تقيس كثافة المحادثات عند تقاطع كل يوم من أيام الأسبوع مع كل ساعة من ساعات اليوم الـ 24:</p>
+
                 <ul>
+
                   <li><strong>المحور الرأسي (Day of Week):</strong> أيام الأسبوع من الإثنين (Monday) إلى الأحد (Sunday).</li>
+
                   <li><strong>المحور الأفقي (Hour of Day 24h):</strong> ساعات اليوم من 0 إلى 23.</li>
+
                   <li><strong>مقياس الألوان (Blue Colormap):</strong> تدرج لوني أزرق يبدأ من الأزرق الفاتح جداً (أقل من 30 محادثة) إلى الأزرق الداكن والكحلي الغامق (أكثر من 140 محادثة).</li>
+
                   <li><strong>الخلايا الأكثر كثافة ونشاطاً بالأرقام الدقيقة:</strong>
+
                     <ul>
+
                       <li>يوم <strong>الأربعاء الساعة 13:00</strong> سجلت <strong>148 محادثة</strong> (أعلى خلية في الأسبوع).</li>
+
                       <li>يوم <strong>الخميس الساعة 13:00</strong> سجلت <strong>141 محادثة</strong>، والساعة 22:00 سجلت 138، والساعة 15:00 سجلت 133.</li>
+
                       <li>يوم <strong>الجمعة الساعة 16:00</strong> سجلت 127 محادثة.</li>
+
                     </ul>
+
                   </li>
+
                 </ul>
+
               </div>
+
             </div>
 
+
+
             <div class="explanation-box box-business-benefit">
+
               <div class="explanation-box-header"><i class="fa-solid fa-briefcase"></i> 2. ما هي الاستفادة العملية وقرارات البيزنس من هذه الرسمة؟</div>
+
               <div class="explanation-content">
+
                 <p>تستخدم الخريطة الحرارية في توزيع الورديات والدعم البشري الفوري:</p>
+
                 <ul>
+
                   <li><span class="decision-badge">فريق الدعوة والمشرفين</span> <strong>توزيع المشرفين البشريين:</strong> إذا كان هناك دعاة أو مشرفون يردون على الحالات المعقدة، فإن تواجدهم الحي إلزامي يومي الأربعاء والخميس من 1:00 ظهراً إلى 6:00 مساءً.</li>
+
                   <li><span class="decision-badge">إدارة التكاليف</span> <strong>تقليل السيرفرات خارج أوقات الذروة:</strong> تقليص عدد خوادم المعالجة السحابية بعد منتصف الليل (بين 1:00 إلى 5:00 صباحاً) لتوفير تكاليف البنية التحتية بنسبة قد تصل إلى 40%.</li>
+
                 </ul>
+
               </div>
+
             </div>
+
           </div>
+
         </div>
+
+
 
         <!-- الرسمة 5 -->
+
         <div class="chart-presentation-card">
+
           <div class="chart-meta-header">
+
             <div class="chart-badge-title">
+
               <i class="fa-solid fa-stopwatch"></i> الرسم البياني 5: توزيع المدة الزمنية للمحادثات بالدقائق (Duration Distribution)
+
             </div>
+
             <span class="chart-id-tag">Chart #05 (Cell 8)</span>
+
           </div>
+
+
 
           <div class="chart-image-frame" onclick="openLightbox('assets/images/chart_05_cell_8.png')">
+
             <img src="assets/images/chart_05_cell_8.png" alt="توزيع مدة المحادثات" loading="lazy">
+
             <div class="chart-zoom-btn"><i class="fa-solid fa-expand"></i> انقر للتكبير عالي الدقة</div>
+
           </div>
+
+
 
           <div class="deep-explanation-grid">
+
             <div class="explanation-box box-data-breakdown">
+
               <div class="explanation-box-header"><i class="fa-solid fa-database"></i> 1. ما هي الداتا المعروضة في هذه الرسمة؟</div>
+
               <div class="explanation-content">
+
                 <p>تعرض هذه الرسمة لوحتين بيانيتين لتوزيع الزمن الإجمالي الذي يقضيه المستخدم داخل المحادثة:</p>
+
                 <ul>
+
                   <li><strong>اللوحة الأولى (اليسار - Duration Distribution 0-60 Minutes):</strong> مدرج تكراري بلون أرجواني/بنفسجي يوضح أن الغالبية الساحقة من المحادثات تتركز في الدقائق الأولى بالقرب من الصفر.</li>
+
                   <li><strong>اللوحة الثانية (اليمين - Zoomed: 0-10 Minutes):</strong> تكبير دقيق لأول 10 دقائق (تمثل 85% من البيانات) بلون وردي، وتوضح أن:
+
                     <ul>
+
                       <li>أكثر من <strong>4,800 محادثة تنتهي في أقل من دقيقة واحدة</strong> (طرح سؤال وتلقي الإجابة فوراً).</li>
+
                       <li><strong>85.3% من المحادثات (10,623 محادثة)</strong> تستغرق أقل من 10 دقائق.</li>
+
                       <li>فقط 9.1% تمتد بين 10 إلى 60 دقيقة، و 5.6% تمتد لساعات أو أيام.</li>
+
                     </ul>
+
                   </li>
+
                 </ul>
+
               </div>
+
             </div>
+
+
 
             <div class="explanation-box box-business-benefit">
+
               <div class="explanation-box-header"><i class="fa-solid fa-briefcase"></i> 2. ما هي الاستفادة العملية وقرارات البيزنس من هذه الرسمة؟</div>
+
               <div class="explanation-content">
+
                 <p>تكشف هذه البيانات عن النمط السلوكي المهيمن لزوار الموقع:</p>
+
                 <ul>
+
                   <li><span class="decision-badge">تصميم تجربة المستخدم UX</span> <strong>النمط الاستفساري السريع (Quick Q&A):</strong> معظم المستخدمين يأتون بهدف الحصول على فتوى أو إجابة فورية لسؤال محدد ثم المغادرة فوراً. يجب أن تكون الإجابة الأولى للبوت مباشرة ومركزة دون إطالة غير مبررة.</li>
+
                   <li><span class="decision-badge">إدارة الجلسات</span> <strong>ضبط مهلة انتهاء الجلسة (Session Timeout):</strong> يمكن ضبط إغلاق الجلسة غير النشطة بعد 30 دقيقة بأمان تام دون مقاطعة 94.4% من المستخدمين.</li>
+
                 </ul>
+
               </div>
+
             </div>
+
           </div>
+
         </div>
+
       </section>
 
+
+
       <!-- ====================================================================
+
            المحور 2: تفاعل المستخدمين
+
            ==================================================================== -->
+
       <section id="topic-2" class="section-container topic-card" data-keywords="التفاعل الارتداد الرسائل عمق الحوار الاستجابة Bounce Rate">
+
         <div class="section-header">
+
           <div class="section-header-title">
+
             <div class="topic-number-badge">02</div>
+
             <div>
+
               <h2>المحور الثاني: تحليل التفاعل وعمق المشاركة (Engagement & Bounce Rate)</h2>
+
               <p>هل يتفاعل المستخدمون فعليًا أم يغادرون فور فتح المحادثة؟ وما هو عمق النقاشات المسجلة؟</p>
+
             </div>
+
           </div>
+
         </div>
+
+
 
         <div class="deep-explanation-grid">
+
           <div class="explanation-box box-data-breakdown">
+
             <div class="explanation-box-header"><i class="fa-solid fa-chart-pie"></i> 1. البيانات الإحصائية لمعدل الارتداد وعمق الحوار</div>
+
             <div class="explanation-content">
+
               <ul>
+
                 <li><strong>معدل الارتداد (Bounce Rate):</strong> <strong>0.8% فقط (100 محادثة)</strong> من أصل 12,448 محادثة فتح فيها المستخدم الصندوق دون إرسال أي رسالة.</li>
+
                 <li><strong>معدل التفاعل الإيجابي:</strong> <strong>99.2% (12,348 مستخدم)</strong> تفاعلوا وأرسلوا رسالة واحدة على الأقل.</li>
+
                 <li><strong>محادثات قصيرة (1-2 رسالة مستخدم):</strong> 7,514 محادثة (<strong>60.4%</strong>).</li>
+
                 <li><strong>محادثات متوسطة (3-10 رسائل مستخدم):</strong> 4,285 محادثة (<strong>34.4%</strong>).</li>
+
                 <li><strong>محادثات مطولة (+10 رسائل مستخدم):</strong> 549 محادثة (<strong>4.4%</strong>).</li>
+
               </ul>
+
             </div>
+
           </div>
+
+
 
           <div class="explanation-box box-business-benefit">
+
             <div class="explanation-box-header"><i class="fa-solid fa-briefcase"></i> 2. الاستفادة العملية وقرارات البيزنس</div>
+
             <div class="explanation-content">
+
               <ul>
+
                 <li><span class="decision-badge">مؤشر نجاح قاطع</span> <strong>جاذبية واجهة المحادثة:</strong> ارتداد 0.8% يثبت أن زوار الموقع لديهم دافع قوي جداً للحديث وليسوا زواراً عابرين بالخطأ.</li>
+
                 <li><span class="decision-badge">تطوير المنتج</span> <strong>تقسيم تجربة المستخدم إلى مسارين:</strong> مسار "الإجابة السريعة المركزة" لـ 60% من المستخدمين، ومسار "الحوار التفاعلي المتعمق" مع اقتراح أسئلة متابعة ذكية لـ 38% الراغبين في النقاش.</li>
+
               </ul>
+
             </div>
+
           </div>
+
         </div>
+
       </section>
 
+
+
       <!-- ====================================================================
+
            المحور 3: اللغات العالمية (رسمتان: Chart 6 & Chart 7)
+
            ==================================================================== -->
+
       <section id="topic-3" class="section-container topic-card" data-keywords="اللغات العربية الإنجليزية السواحيلية اليابانية الفرنسية الفلبينية Chart 6 Chart 7">
+
         <div class="section-header">
+
           <div class="section-header-title">
+
             <div class="topic-number-badge">03</div>
+
             <div>
+
               <h2>المحور الثالث: التوزيع الجغرافي واللغوي (Global Language Distribution)</h2>
+
               <p>شرح تفصيلي للغتي الهيمنة (العربية والإنجليزية) ولغات النمو الصاعدة (السواحيلية، الفلبينية، والفرنسية).</p>
+
             </div>
+
           </div>
+
         </div>
+
+
 
         <!-- الرسمة 6 -->
+
         <div class="chart-presentation-card">
+
           <div class="chart-meta-header">
+
             <div class="chart-badge-title">
+
               <i class="fa-solid fa-bars-progress"></i> الرسم البياني 6: ترتيب الحصص السوقية للغات الـ 15 الكبرى (Distribution of Conversation Languages Top 15)
+
             </div>
+
             <span class="chart-id-tag">Chart #06 (Cell 15)</span>
+
           </div>
+
+
 
           <div class="chart-image-frame" onclick="openLightbox('assets/images/chart_06_cell_15.png')">
+
             <img src="assets/images/chart_06_cell_15.png" alt="توزيع اللغات الـ 15 الكبرى" loading="lazy">
+
             <div class="chart-zoom-btn"><i class="fa-solid fa-expand"></i> انقر للتكبير عالي الدقة</div>
+
           </div>
+
+
 
           <div class="deep-explanation-grid">
+
             <div class="explanation-box box-data-breakdown">
+
               <div class="explanation-box-header"><i class="fa-solid fa-database"></i> 1. ما هي الداتا المعروضة في هذه الرسمة؟</div>
+
               <div class="explanation-content">
+
                 <p>رسم شريطي أفقي يوضح الترتيب التنازلي للغات الـ 15 الأكثر استخداماً من بين 80 لغة اكتشفها النظام، مع ذكر النسبة المئوية المكتوبة على طرف كل شريط وعدد المحادثات على المحور الأفقي:</p>
+
                 <ul>
+
                   <li>🥇 <strong>اللغة العربية (Arabic):</strong> المركز الأول بـ <strong>5,667 محادثة (45.5%)</strong>.</li>
+
                   <li>🥈 <strong>اللغة الإنجليزية (English):</strong> المركز الثاني بـ <strong>4,293 محادثة (34.5%)</strong>.</li>
+
                   <li>🥉 <strong>السواحيلية (Swahili):</strong> المركز الثالث بـ <strong>579 محادثة (4.7%)</strong>.</li>
+
                   <li><strong>اليابانية (Japanese):</strong> 350 محادثة (2.8%).</li>
+
                   <li><strong>الفرنسية (French):</strong> 302 محادثة (2.4%).</li>
+
                   <li><strong>الفلبينية (Filipino):</strong> 189 محادثة (1.5%).</li>
+
                   <li><strong>الكردية الوسطى (Central Kurdish):</strong> 165 محادثة (1.3%).</li>
+
                   <li><strong>الكورية (Korean):</strong> 117 محادثة (0.9%)، <strong>الإسبانية:</strong> 113 (0.9%)، <strong>الأردية:</strong> 83 (0.7%).</li>
+
                 </ul>
+
               </div>
+
             </div>
 
+
+
             <div class="explanation-box box-business-benefit">
+
               <div class="explanation-box-header"><i class="fa-solid fa-briefcase"></i> 2. ما هي الاستفادة العملية وقرارات البيزنس من هذه الرسمة؟</div>
+
               <div class="explanation-content">
+
                 <p>توجه هذه البيانات خطة الترجمة وتطوير النماذج:</p>
+
                 <ul>
+
                   <li><span class="decision-badge">أولوية الترجمة</span> <strong>التركيز على اللغات الحية:</strong> يجب أن تكون قاعدة المعرفة العقدية ومقارنة الأديان مراجعة ومدققة بأعلى معايير الجودة بالإنجليزية والعربية أولاً (تشكلان 80% من الحجم).</li>
+
                   <li><span class="decision-badge">توسع إقليمي</span> <strong>اكتشاف أسواق دعوية جديدة:</strong> وجود السواحيلية في المركز الثالث يكشف عن قاعدة مستخدمين ضخمة في شرق أفريقيا (كينيا، تنزانيا، أوغندا) تبحث بنشاط عن الإسلام.</li>
+
                 </ul>
+
               </div>
+
             </div>
+
           </div>
+
         </div>
+
+
 
         <!-- الرسمة 7 -->
+
         <div class="chart-presentation-card">
+
           <div class="chart-meta-header">
+
             <div class="chart-badge-title">
+
               <i class="fa-solid fa-chart-column"></i> الرسم البياني 7: متوسط عدد رسائل المستخدم لكل لغة (Average User Messages per Language)
+
             </div>
+
             <span class="chart-id-tag">Chart #07 (Cell 16)</span>
+
           </div>
+
+
 
           <div class="chart-image-frame" onclick="openLightbox('assets/images/chart_07_cell_16.png')">
+
             <img src="assets/images/chart_07_cell_16.png" alt="متوسط الرسائل حسب اللغة" loading="lazy">
+
             <div class="chart-zoom-btn"><i class="fa-solid fa-expand"></i> انقر للتكبير عالي الدقة</div>
+
           </div>
+
+
 
           <div class="deep-explanation-grid">
+
             <div class="explanation-box box-data-breakdown">
+
               <div class="explanation-box-header"><i class="fa-solid fa-database"></i> 1. ما هي الداتا المعروضة في هذه الرسمة؟</div>
+
               <div class="explanation-content">
+
                 <p><strong>رسم شريطي رأسي (Vertical Bar Chart)</strong> يقارن متوسط عدد الرسائل التي يكتبها المستخدم في المحادثة الواحدة مصنفة حسب لغته (مع خطوط فترات الثقة السوداء):</p>
+
                 <ul>
+
                   <li><strong>المحور الأفقي (Language):</strong> اللغات الـ 10 الكبرى مرتبة.</li>
+
                   <li><strong>المحور الرأسي (Avg. Messages Sent by User):</strong> متوسط عدد الرسائل لكل مستخدم (من 0 إلى 5 رسائل).</li>
+
                   <li><strong>القيم الدقيقة المسجلة:</strong>
+
                     <ul>
+
                       <li>🥇 <strong>السواحيلية (Swahili):</strong> الأعلى تفاعلاً بمتوسط <strong>4.6 رسائل</strong>.</li>
+
                       <li>🥈 <strong>الفلبينية (Filipino):</strong> المركز الثاني بمتوسط <strong>4.4 رسائل</strong>.</li>
+
                       <li>🥉 <strong>الإنجليزية (English):</strong> المركز الثالث بمتوسط <strong>4.1 رسائل</strong>.</li>
+
                       <li><strong>الأردية (Urdu):</strong> بمتوسط <strong>4.0 رسائل</strong>.</li>
+
                       <li><strong>اليابانية:</strong> 3.6 رسائل، <strong>الكردية:</strong> 3.3 رسائل، <strong>الكورية:</strong> 3.2 رسائل، <strong>الفرنسية:</strong> 3.1 رسائل.</li>
+
                       <li><strong>العربية (Arabic):</strong> بمتوسط <strong>3.0 رسائل فقط</strong>، و <strong>الإسبانية:</strong> 2.8 رسالة.</li>
+
                     </ul>
+
                   </li>
+
                 </ul>
+
               </div>
+
             </div>
+
+
 
             <div class="explanation-box box-business-benefit">
+
               <div class="explanation-box-header"><i class="fa-solid fa-briefcase"></i> 2. ما هي الاستفادة العملية وقرارات البيزنس من هذه الرسمة؟</div>
+
               <div class="explanation-content">
+
                 <p>تفسير عمق الحوار وتوجيه استراتيجية المحتوى:</p>
+
                 <ul>
+
                   <li><span class="decision-badge">رؤية دعوية نوعية</span> <strong>غير العرب أكثر تعمقاً وحواراً:</strong> المستخدمون باللغات الإنجليزية والسواحيلية والفلبينية والأردية يخوضون حوارات دعوية استكشافية طويلة (عن مقارنة الأديان، عيسى في الإسلام، وكيفية إعلان الشهادة)، مما يتطلب أسئلة متابعة متعددة.</li>
+
                   <li><span class="decision-badge">رؤية للمحتوى العربي</span> <strong>المستخدم العربي يطلب أحكاماً مباشرة:</strong> قصر المحادثات العربية (3 رسائل) يعكس أن المستخدم المسلم يبحث غالباً عن حكم فقهي سريع (حلال/حرام) ويكتفي بالرد دون استرسال.</li>
+
                 </ul>
+
               </div>
+
             </div>
+
           </div>
+
         </div>
+
       </section>
 
+
+
       <!-- ====================================================================
+
            المحور 4: إخفاقات البوت (رسمتان: Chart 8 & Chart 9)
+
            ==================================================================== -->
+
       <section id="topic-4" class="section-container topic-card" data-keywords="الإخفاقات الصمت الفشل الأعطال المشاكل الحرجة Chart 8 Chart 9">
+
         <div class="section-header">
+
           <div class="section-header-title">
+
             <div class="topic-number-badge">04</div>
+
             <div>
+
               <h2>المحور الرابع: تحليل إخفاقات وصمت البوت (Bot Failure Audit)</h2>
+
               <p>تشريح دقيق لـ 109 حالات لم يرد فيها المساعد، تصنيف درجات خطورتها، وتحليل أوقاتها ولغاتها.</p>
+
             </div>
+
           </div>
+
         </div>
+
+
 
         <!-- الرسمة 8 -->
+
         <div class="chart-presentation-card">
+
           <div class="chart-meta-header">
+
             <div class="chart-badge-title">
+
               <i class="fa-solid fa-triangle-exclamation"></i> الرسم البياني 8: إخفاقات البوت حسب السنوات والشهور وساعات اليوم (3 Subplots)
+
             </div>
+
             <span class="chart-id-tag">Chart #08 (Cell 19)</span>
+
           </div>
+
+
 
           <div class="chart-image-frame" onclick="openLightbox('assets/images/chart_08_cell_19.png')">
+
             <img src="assets/images/chart_08_cell_19.png" alt="إخفاقات البوت بالسنوات والشهور والساعات" loading="lazy">
+
             <div class="chart-zoom-btn"><i class="fa-solid fa-expand"></i> انقر للتكبير عالي الدقة</div>
+
           </div>
+
+
 
           <div class="deep-explanation-grid">
+
             <div class="explanation-box box-data-breakdown">
+
               <div class="explanation-box-header"><i class="fa-solid fa-database"></i> 1. ما هي الداتا المعروضة في هذه الرسمة؟</div>
+
               <div class="explanation-content">
+
                 <p>تحتوي هذه الرسمة على <strong>3 لوحات فرعية متتالية (3 Subplots)</strong> تحلل توقيت حدوث حالات الصمت الـ 109:</p>
+
                 <ul>
+
                   <li><strong>اللوحة الأولى (اليسار - Failures by Year):</strong> رسم شريطي أحمر يوضح عدد الإخفاقات السنوية:
+
                     <ul>
+
                       <li>عام <strong>2024:</strong> 7 إخفاقات.</li>
+
                       <li>عام <strong>2025:</strong> 95 إخفاقاً (سنة الضغط العالي).</li>
+
                       <li>عام <strong>2026:</strong> 7 إخفاقات.</li>
+
                     </ul>
+
                   </li>
+
                   <li><strong>اللوحة الثانية (الوسط - Failures by Month):</strong> رسم شريطي برتقالي/بني يوضح تركز <strong>55% من الإخفاقات في شهري يناير (30 إخفاقاً) وفبراير (30 إخفاقاً)</strong>، مع 23 في مارس، ثم انخفاض حاد لباقي الشهور (أبريل=3، مايو=1، يونيو=3...).</li>
+
                   <li><strong>اللوحة الثالثة (اليمين - Failures by Hour of Day):</strong> خط بياني أحمر بنقاط دائرية يوضح ساعات حدوث الأعطال؛ وتبرز قمم الإخفاق في <strong>الساعة 13:00 (13 حالة)</strong> و <strong>الساعة 16:00 (12 حالة)</strong> و <strong>الساعة 20:00 (11 حالة)</strong>.</li>
+
                 </ul>
+
               </div>
+
             </div>
 
+
+
             <div class="explanation-box box-business-benefit">
+
               <div class="explanation-box-header"><i class="fa-solid fa-briefcase"></i> 2. ما هي الاستفادة العملية وقرارات البيزنس من هذه الرسمة؟</div>
+
               <div class="explanation-content">
+
                 <p>تحديد الأخطاء التقنية المحددة في النظام وتحسين معدل الرضا:</p>
+
                 <ul>
+
                   <li><span class="decision-badge">تحقيق جنائي هندسي</span> <strong>مراجعة سجلات يناير وفبراير:</strong> تركز 60 حالة في شهرين متتاليين يؤكد وقوع خطأ تقني في سيرفرات الاستقبال أو تحديث للـ Backend خلال تلك الفترة وليس مشكلة عشوائية.</li>
+
                   <li><span class="decision-badge">جودة الخدمة (QA)</span> <strong>تزامن الإخفاقات مع ساعات الذروة:</strong> حدوث القمم في الساعة 13 و 16 يؤكد أن بعض طلبات الاستدعاء كانت تسقط بسبب الضغط العالي، مما يتطلب تفعيل طوابير انتظار ذكية (Message Queue).</li>
+
                 </ul>
+
               </div>
+
             </div>
+
           </div>
+
         </div>
+
+
 
         <!-- الرسمة 9 -->
+
         <div class="chart-presentation-card">
+
           <div class="chart-meta-header">
+
             <div class="chart-badge-title">
+
               <i class="fa-solid fa-language"></i> الرسم البياني 9: حصر إخفاقات وصمت البوت حسب لغة المحادثة (Bot Failures by Language)
+
             </div>
+
             <span class="chart-id-tag">Chart #09 (Cell 19)</span>
+
           </div>
+
+
 
           <div class="chart-image-frame" onclick="openLightbox('assets/images/chart_09_cell_19.png')">
+
             <img src="assets/images/chart_09_cell_19.png" alt="إخفاقات البوت باللغات" loading="lazy">
+
             <div class="chart-zoom-btn"><i class="fa-solid fa-expand"></i> انقر للتكبير عالي الدقة</div>
+
           </div>
+
+
 
           <div class="deep-explanation-grid">
+
             <div class="explanation-box box-data-breakdown">
+
               <div class="explanation-box-header"><i class="fa-solid fa-database"></i> 1. ما هي الداتا المعروضة في هذه الرسمة؟</div>
+
               <div class="explanation-content">
+
                 <p><strong>رسم شريطي أفقي واحد (Horizontal Bar Chart)</strong> يوضح عدد مرات صمت البوت مصنفة حسب كل لغة بالتفصيل من الأعلى للأدنى:</p>
+
                 <ul>
+
                   <li><strong>المحور الرأسي (conversation_language):</strong> اللغات الـ 24 التي سجلت إخفاقاً واحداً على الأقل.</li>
+
                   <li><strong>المحور الأفقي (Count of Failed Conversations):</strong> عدد المحادثات الفاشلة (من 0 إلى 40).</li>
+
                   <li><strong>الأرقام التفصيلية:</strong>
+
                     <ul>
+
                       <li>🥇 <strong>العربية (Arabic):</strong> 39 حالة إخفاق (35.8% من إجمالي الإخفاقات).</li>
+
                       <li>🥈 <strong>الإنجليزية (English):</strong> 38 حالة إخفاق (34.9%).</li>
+
                       <li>🥉 <strong>الفارسية (Persian):</strong> 4 حالات إخفاق.</li>
+
                       <li><strong>محادثات بلا لغة محددة (No Language):</strong> 3 حالات، <strong>السندية:</strong> 3 حالات.</li>
+
                       <li><strong>الإسبرانتو، الفرنسية، البولندية:</strong> حالتان لكل منها، وباقي اللغات حالة واحدة لكل لغة.</li>
+
                     </ul>
+
                   </li>
+
                 </ul>
+
               </div>
+
             </div>
+
+
 
             <div class="explanation-box box-business-benefit">
+
               <div class="explanation-box-header"><i class="fa-solid fa-briefcase"></i> 2. ما هي الاستفادة العملية وقرارات البيزنس من هذه الرسمة؟</div>
+
               <div class="explanation-content">
+
                 <p>حماية تجربة المستخدم تحت وطأة الضغط:</p>
+
                 <ul>
+
                   <li><span class="decision-badge">حل هندسي فوري</span> <strong>إضافة Fallback Alert:</strong> ربط النظام بآلية تنبيه فوري؛ إذا لم يولد النموذج رداً خلال 10 ثوانٍ، تظهر للمستخدم رسالة فورية: <em>"نعتذر، جاري معالجة طلبك وسنوافيك بالرد فوراً"</em> بدلاً من تركه يواجه شاشة بيضاء صامتة.</li>
+
                 </ul>
+
               </div>
+
             </div>
+
           </div>
+
         </div>
+
       </section>
 
+
+
       <!-- ====================================================================
+
            المحور 5: توازن المحادثة (رسمة واحدة: Chart 10)
+
            ==================================================================== -->
+
       <section id="topic-5" class="section-container topic-card" data-keywords="التوازن المحاضرة الاستجواب رسائل البوت Chart 10">
+
         <div class="section-header">
+
           <div class="section-header-title">
+
             <div class="topic-number-badge">05</div>
+
             <div>
+
               <h2>المحور الخامس: توازن الحوار بين المستخدم والبوت (Conversation Balance)</h2>
+
               <p>قياس هل الحوار طبيعي وتفاعلي أم يعاني من إطالة مفرطة (محاضرة) أو تعثر المستخدم (استجواب)؟</p>
+
             </div>
+
           </div>
+
         </div>
 
+
+
         <div class="chart-presentation-card">
+
           <div class="chart-meta-header">
+
             <div class="chart-badge-title">
+
               <i class="fa-solid fa-scale-balanced"></i> الرسم البياني 10: أنماط التوازن ومخطط التشتت لرسائل المستخدم مقابل البوت
+
             </div>
+
             <span class="chart-id-tag">Chart #10 (Cell 22)</span>
+
           </div>
+
+
 
           <div class="chart-image-frame" onclick="openLightbox('assets/images/chart_10_cell_22.png')">
+
             <img src="assets/images/chart_10_cell_22.png" alt="توازن المحادثة" loading="lazy">
+
             <div class="chart-zoom-btn"><i class="fa-solid fa-expand"></i> انقر للتكبير عالي الدقة</div>
+
           </div>
+
+
 
           <div class="deep-explanation-grid">
+
             <div class="explanation-box box-data-breakdown">
+
               <div class="explanation-box-header"><i class="fa-solid fa-database"></i> 1. ما هي الداتا المعروضة في هذه الرسمة؟</div>
+
               <div class="explanation-content">
+
                 <p>تحتوي الرسمة على لوحتين متكاملتين:</p>
+
                 <ul>
+
                   <li><strong>اللوحة الأولى (اليسار - Distribution of Conversation Styles):</strong> رسم شريطي أفقي يوضح الأنماط الحوارية الأربعة:
+
                     <ul>
+
                       <li><strong>حوار متوازن (Balanced Dialogue):</strong> <strong>12,201 محادثة (98.0%)</strong> وهو الشريط الأزرق الأطول.</li>
+
                       <li><strong>هيمنة المستخدم / استجواب (User Dominant):</strong> <strong>137 محادثة (1.1%)</strong>.</li>
+
                       <li><strong>صمت المستخدم (Silent User):</strong> 100 محادثة (0.8%).</li>
+
                       <li><strong>هيمنة البوت / محاضرة (Bot Dominant):</strong> 10 محادثات فقط (0.1%).</li>
+
                     </ul>
+
                   </li>
+
                   <li><strong>اللوحة الثانية (اليمين - Message Volume: User vs. Bot):</strong> مخطط تشتت نقطي (Scatter Plot) يقارن عدد رسائل المستخدم (محور X من 0 إلى 700) بعدد ردود البوت (محور Y من 0 إلى 700)، وتوضح النقاط الزرقاء المصطفة على الخط المتقطع القطري (1:1 Perfect Balance) التوازن التام.</li>
+
                 </ul>
+
               </div>
+
             </div>
+
+
 
             <div class="explanation-box box-business-benefit">
+
               <div class="explanation-box-header"><i class="fa-solid fa-briefcase"></i> 2. ما هي الاستفادة العملية وقرارات البيزنس من هذه الرسمة؟</div>
+
               <div class="explanation-content">
+
                 <p>تقييم جودة الصياغة الحوارية ونماذج التوجيه (Prompt Engineering):</p>
+
                 <ul>
+
                   <li><span class="decision-badge">شهادة نجاح للمنتج</span> <strong>توازن بنسبة 98%:</strong> يثبت أن النظام لا يلقي محاضرات طويلة تصيب المستخدم بالملل، ولا يقصر في الشرح لدرجة تجبر المستخدم على تكرار السؤال.</li>
+
                   <li><span class="decision-badge">فرصة تدقيق</span> <strong>فحص الـ 137 حالة استجواب:</strong> تدل حالات هيمنة المستخدم على أن البوت ربما لم يفهم السؤال في المرة الأولى، مما اضطر المستخدم لتكرار السؤال وإعادة صياغته 3 أو 4 مرات متتالية.</li>
+
                 </ul>
+
               </div>
+
             </div>
+
           </div>
+
         </div>
+
       </section>
 
+
+
       <!-- ====================================================================
+
            المحور 6: أوقات الذروة حسب اللغة (3 رسومات: Charts 11, 12, 13)
+
            ==================================================================== -->
+
       <section id="topic-6" class="section-container topic-card" data-keywords="الذروة المناطق الزمنية الساعات اللغات الفروق Chart 11 Chart 12 Chart 13">
+
         <div class="section-header">
+
           <div class="section-header-title">
+
             <div class="topic-number-badge">06</div>
+
             <div>
+
               <h2>المحور السادس: أوقات الذروة واختلاف المناطق الزمنية (Peak Times by Language)</h2>
+
               <p>شرح 3 رسومات بيانية توضح كيف تعكس اللغات المختلفة مواقع مستخدميها الجغرافية وتوقيتاتهم المحلية عبر السنوات 2024 و 2025 و 2026.</p>
+
             </div>
+
           </div>
+
         </div>
+
+
 
         <!-- الرسمة 11 -->
+
         <div class="chart-presentation-card">
+
           <div class="chart-meta-header">
+
             <div class="chart-badge-title">
+
               <i class="fa-solid fa-clock"></i> الرسم البياني 11: أنماط التفاعل للغات في عام 2024 التأسيسي (Interaction Patterns for 2024)
+
             </div>
+
             <span class="chart-id-tag">Chart #11 (Cell 25)</span>
+
           </div>
+
+
 
           <div class="chart-image-frame" onclick="openLightbox('assets/images/chart_11_cell_25.png')">
+
             <img src="assets/images/chart_11_cell_25.png" alt="أنماط 2024 للغات" loading="lazy">
+
             <div class="chart-zoom-btn"><i class="fa-solid fa-expand"></i> انقر للتكبير عالي الدقة</div>
+
           </div>
+
+
 
           <div class="deep-explanation-grid">
+
             <div class="explanation-box box-data-breakdown">
+
               <div class="explanation-box-header"><i class="fa-solid fa-database"></i> 1. ما هي الداتا المعروضة في هذه الرسمة؟</div>
+
               <div class="explanation-content">
+
                 <p>لوحة ثلاثية (3 Subplots) توضح سلوك اللغات الأولى (الإنجليزية والعربية والعربية النجدية) في 2024:</p>
+
                 <ul>
+
                   <li><strong>اللوحة 1 (Monthly Seasonality):</strong> خط بياني يوضح بدء تسجيل النشاط في شهور الإطلاق (أكتوبر ونوفمبر وديسمبر).</li>
+
                   <li><strong>اللوحة 2 (Weekly Routine):</strong> أعمدة توضح أن يوم <strong>الجمعة (Friday)</strong> كان الأبرز في 2024 بنحو 75 محادثة، يليه الخميس بنحو 22 محادثة.</li>
+
                   <li><strong>اللوحة 3 (Daily Routine):</strong> خط بياني يوضح الساعات الأكثر نشاطاً في 2024 (قمة في الساعة 1:00 صباحاً وقيمة في الساعة 17:00).</li>
+
                 </ul>
+
               </div>
+
             </div>
 
+
+
             <div class="explanation-box box-business-benefit">
+
               <div class="explanation-box-header"><i class="fa-solid fa-briefcase"></i> 2. ما هي الاستفادة العملية وقرارات البيزنس من هذه الرسمة؟</div>
+
               <div class="explanation-content">
+
                 <p>تقييم مرحلة الإطلاق التجريبي (Soft Launch):</p>
+
                 <ul>
+
                   <li><span class="decision-badge">تحليل تاريخي</span> <strong>توثيق الانطلاقة الأولى:</strong> إثبات أن النظام بدأ باختبارات مكثفة في أواخر 2024 تمهيداً للانطلاق الشامل في 2025.</li>
+
                 </ul>
+
               </div>
+
             </div>
+
           </div>
+
         </div>
+
+
 
         <!-- الرسمة 12 -->
+
         <div class="chart-presentation-card">
+
           <div class="chart-meta-header">
+
             <div class="chart-badge-title">
+
               <i class="fa-solid fa-calendar-week"></i> الرسم البياني 12: أنماط التفاعل الشاملة للغات الكبرى في عام 2025 الرئيسي (Interaction Patterns for 2025)
+
             </div>
+
             <span class="chart-id-tag">Chart #12 (Cell 25)</span>
+
           </div>
+
+
 
           <div class="chart-image-frame" onclick="openLightbox('assets/images/chart_12_cell_25.png')">
+
             <img src="assets/images/chart_12_cell_25.png" alt="أنماط 2025 للغات" loading="lazy">
+
             <div class="chart-zoom-btn"><i class="fa-solid fa-expand"></i> انقر للتكبير عالي الدقة</div>
+
           </div>
+
+
 
           <div class="deep-explanation-grid">
+
             <div class="explanation-box box-data-breakdown">
+
               <div class="explanation-box-header"><i class="fa-solid fa-database"></i> 1. ما هي الداتا المعروضة في هذه الرسمة؟</div>
+
               <div class="explanation-content">
+
                 <p>الرسمة الأكثر أهمية لسلوك اللغات عبر <strong>3 لوحات فرعية (3 Subplots)</strong> خلال عام 2025 الرئيسي:</p>
+
                 <ul>
+
                   <li><strong>اللوحة 1 (اليسار - Monthly Seasonality):</strong> خطوط بيانية ملونة توضح تتبع نشاط اللغات شهرياً؛ حيث يتصدر الخط الأزرق (العربية) بقمة قياسية تتجاوز <strong>1,700 محادثة</strong> والخط البرتقالي (الإنجليزية) بـ <strong>1,000 محادثة</strong>، مع ظهور قمة السواحيلية (الخط الأخضر) بـ 200 محادثة.</li>
+
                   <li><strong>اللوحة 2 (الوسط - Weekly Routine Busiest Days):</strong> أعمدة بيانية توضح نشاط الأيام؛ حيث يتصدر <strong>يوم الخميس (Thursday)</strong> القمة المطلقة للعربية (~970 محادثة) والإنجليزية (~670 محادثة)، بينما تسجل السواحيلية أعلى نشاط لها يوم <strong>السبت (Saturday)</strong>.</li>
+
                   <li><strong>اللوحة 3 (اليمين - Daily Routine Busiest Hours):</strong> خطوط ساعات اليوم (0 إلى 23)؛ تبلغ العربية والإنجليزية ذروتهما في <strong>الساعة 14:00 (2:00 ظهراً)</strong> بنحو 350 محادثة للعربية و 240 للإنجليزية، بينما تنفرد السواحيلية بذروة مسائية في <strong>الساعة 20:00 - 21:00</strong>، وتنفرد اليابانية (الخط الأحمر) بذروة مبكرة في <strong>الساعة 4:00 صباحاً</strong>.</li>
+
                 </ul>
+
               </div>
+
             </div>
 
+
+
             <div class="explanation-box box-business-benefit">
+
               <div class="explanation-box-header"><i class="fa-solid fa-briefcase"></i> 2. ما هي الاستفادة العملية وقرارات البيزنس من هذه الرسمة؟</div>
+
               <div class="explanation-content">
+
                 <p>تخصيص الحملات التسويقية حسب الثقافة والمناطق الزمنية:</p>
+
                 <ul>
+
                   <li><span class="decision-badge">استهداف جغرافي</span> <strong>مطابقة التوقيت الياباني:</strong> الساعة 4:00 صباحاً بالسيرفر توافق 1:00 ظهراً بتوقيت طوكيو (استراحة الغداء).</li>
+
                   <li><span class="decision-badge">استهداف تسويقي</span> <strong>التركيز على عطلة السبت لمستخدمي السواحيلية:</strong> إطلاق الإعلانات الموجهة لشرق أفريقيا في عطلة نهاية الأسبوع، بينما توجه الإعلانات للجمهور العربي في منتصف الأسبوع.</li>
+
                 </ul>
+
               </div>
+
             </div>
+
           </div>
+
         </div>
+
+
 
         <!-- الرسمة 13 -->
+
         <div class="chart-presentation-card">
+
           <div class="chart-meta-header">
+
             <div class="chart-badge-title">
+
               <i class="fa-solid fa-chart-simple"></i> الرسم البياني 13: أنماط التفاعل في 2026 وصعود الفرنسية كقوة ثالثة (Interaction Patterns for 2026)
+
             </div>
+
             <span class="chart-id-tag">Chart #13 (Cell 25)</span>
+
           </div>
+
+
 
           <div class="chart-image-frame" onclick="openLightbox('assets/images/chart_13_cell_25.png')">
+
             <img src="assets/images/chart_13_cell_25.png" alt="أنماط 2026 وصعود الفرنسية" loading="lazy">
+
             <div class="chart-zoom-btn"><i class="fa-solid fa-expand"></i> انقر للتكبير عالي الدقة</div>
+
           </div>
+
+
 
           <div class="deep-explanation-grid">
+
             <div class="explanation-box box-data-breakdown">
+
               <div class="explanation-box-header"><i class="fa-solid fa-database"></i> 1. ما هي الداتا المعروضة في هذه الرسمة؟</div>
+
               <div class="explanation-content">
+
                 <p>توضح تفاعل اللغات في الربع الأول من عام 2026 عبر <strong>3 لوحات فرعية (3 Subplots)</strong>:</p>
+
                 <ul>
+
                   <li><strong>اللوحة 1 (اليسار - Monthly Seasonality):</strong> خطوط بيانية لأول 3 شهور (يناير، فبراير، مارس 2026) توضح صعود الخط الأخضر للغة الفرنسية (French) مسجلاً نحو 40 محادثة في مارس، بينما سجلت الإنجليزية (الأزرق) 175 في فبراير والعربية (البرتقالي) 140 في فبراير.</li>
+
                   <li><strong>اللوحة 2 (الوسط - Weekly Routine Busiest Days):</strong> أعمدة توضح أن <strong>يوم الجمعة (Friday)</strong> هو الأعلى إجمالاً (~75 للإنجليزية و ~58 للعربية)، مع نشاط ملحوظ للفرنسية (الأعمدة الخضراء) أيام الأربعاء والخميس والجمعة (~15-18 محادثة).</li>
+
                   <li><strong>اللوحة 3 (اليمين - Daily Routine Busiest Hours):</strong> خطوط الساعات توضح قمة النشاط في <strong>الساعة 16:00 (4:00 عصراً)</strong> بنحو 33 محادثة للإنجليزية، مع نشاط مسائي ممتد بين الساعة 19:00 و 21:00 للفرنسية والعربية.</li>
+
                 </ul>
+
               </div>
+
             </div>
+
+
 
             <div class="explanation-box box-business-benefit">
+
               <div class="explanation-box-header"><i class="fa-solid fa-briefcase"></i> 2. ما هي الاستفادة العملية وقرارات البيزنس من هذه الرسمة؟</div>
+
               <div class="explanation-content">
+
                 <p>اكتشاف لغات النمو الاستراتيجي المستقبلية:</p>
+
                 <ul>
+
                   <li><span class="decision-badge">استراتيجية دعوية كبرى</span> <strong>الاستثمار في المحتوى الفرنسي:</strong> يشير صعود الفرنسية إلى توسع انتشار المنصة في غرب أفريقيا والدول الفرانكوفونية، مما يستوجب توظيف دعاة يتقنون الفرنسية وتدقيق الردود الفقهية باللغة الفرنسية فوراً.</li>
+
                 </ul>
+
               </div>
+
             </div>
+
           </div>
+
         </div>
+
       </section>
 
+
+
       <!-- ====================================================================
+
            المحور 7: سرعة الاستجابة و Outliers (رسمة مجمعة: Chart 14)
+
            ==================================================================== -->
+
       <section id="topic-7" class="section-container topic-card" data-keywords="السرعة الاستجابة الزمن الثواني التأخير Outliers Chart 14">
+
         <div class="section-header">
+
           <div class="section-header-title">
+
             <div class="topic-number-badge">07</div>
+
             <div>
+
               <h2>المحور السابع: سرعة استجابة البوت وإدارة القيم الشاذة (Response Time & Outliers)</h2>
+
               <p>تشريح دقيق لأزمنة رد الذكاء الاصطناعي والمستخدم، وتوزيع فئات السرعة بعد عزل الأخطاء الشاذة.</p>
+
             </div>
+
           </div>
+
         </div>
 
+
+
         <div class="chart-presentation-card">
+
           <div class="chart-meta-header">
+
             <div class="chart-badge-title">
+
               <i class="fa-solid fa-gauge-high"></i> الرسم البياني 14: التوزيع المنقى لسرعة رد البوت والمستخدم وفئات الأداء ومخطط التشتت (2x2 Grid)
+
             </div>
+
             <span class="chart-id-tag">Chart #14 (Cell 29)</span>
+
           </div>
+
+
 
           <div class="chart-image-frame" onclick="openLightbox('assets/images/chart_14_cell_29.png')">
+
             <img src="assets/images/chart_14_cell_29.png" alt="سرعة الاستجابة المنقاة وفئات الأداء" loading="lazy">
+
             <div class="chart-zoom-btn"><i class="fa-solid fa-expand"></i> انقر للتكبير عالي الدقة</div>
+
           </div>
 
+
+
           <div class="deep-explanation-grid">
+
             <div class="explanation-box box-data-breakdown">
+
               <div class="explanation-box-header"><i class="fa-solid fa-database"></i> 1. ما هي الداتا المعروضة في هذه الرسمة؟</div>
+
               <div class="explanation-content">
+
                 <p>تحتوي هذه الرسمة على <strong>4 لوحات إحصائية دقيقة في شبكة رباعية (2x2 Grid)</strong>:</p>
+
                 <ul>
+
                   <li><strong>اللوحة 1 (أعلى اليسار Top-Left):</strong> <code>AI Response Time (Cleaned, cap=83.5s)</code> - مدرج تكراري أزرق مع خط وسيط أحمر متقطع يحمل علامة صريحة: <strong>Median: 0.33s</strong>، ويوضح أن الغالبية الساحقة من ردود الذكاء الاصطناعي تكتمل في أجزاء من الثانية.</li>
+
                   <li><strong>اللوحة 2 (أعلى اليمين Top-Right):</strong> <code>User Response Time (Cleaned, cap=125785.6s)</code> - مدرج تكراري برتقالي مع خط وسيط أحمر يحمل علامة: <strong>Median: 59.00s</strong>، مما يثبت أن المستخدمين يستغرقون دقيقة واحدة تقريباً لقراءة الرد والتفكير وكتابة السؤال التالي.</li>
+
                   <li><strong>اللوحة 3 (أسفل اليسار Bottom-Left):</strong> <code>Does Faster AI Lead to More Engagement?</code> - مخطط تشتت بنقاط خضراء يقارن سرعة رد البوت (محور X من 0 إلى 80 ثانية) بعدد رسائل المستخدم (محور Y حتى 250 رسالة).</li>
+
                   <li><strong>اللوحة 4 (أسفل اليمين Bottom-Right):</strong> <code>Response Time Comparison (Log Scale, no outliers)</code> - مخطط الصندوق (Boxplot) يقارن صندوق سرعة البوت الأزرق (AI Bot) بصندوق سرعة المستخدم البرتقالي (User) على مقياس لوغاريتمي (من 10⁻¹ إلى 10² ثانية).</li>
+
                 </ul>
+
               </div>
+
             </div>
 
+
+
             <div class="explanation-box box-business-benefit">
+
               <div class="explanation-box-header"><i class="fa-solid fa-briefcase"></i> 2. ما هي الاستفادة العملية وقرارات البيزنس من هذه الرسمة؟</div>
+
               <div class="explanation-content">
+
                 <p>ضمان سلاسة التجربة ومنع تسرب المستخدمين أثناء الانتظار:</p>
+
                 <ul>
+
                   <li><span class="decision-badge">تقييم ممتاز</span> <strong>76.6% استجابة فورية (<1ث):</strong> مؤشر تقني رائع يعكس سرعة توليد النصوص في الإجابات المباشرة.</li>
+
                   <li><span class="decision-badge">مشكلة بحاجة لحل</span> <strong>معالجة الردود البطيئة:</strong> تفعيل خاصية <strong>البث التدفقي للكلمات (Streaming Generation)</strong> ليرى المستخدم النص يتشكل أمامه لحظياً دون إحساس بالانتظار.</li>
+
                 </ul>
+
               </div>
+
             </div>
+
+
 
             <div class="explanation-box box-methodology-alert">
+
               <div class="explanation-box-header"><i class="fa-solid fa-circle-exclamation"></i> ⚠️ توضيح علمي حول معالجة القيم الشاذة (Outliers)</div>
+
               <div class="explanation-content">
+
                 <p>سجلت البيانات الخام في السيرفر رقماً متطرفاً بلغ 2,088,585 ثانية (أي 24 يوماً زمن رد للمساعد!). هذا خطأ تقني مستحيل برمجياً ناتج عن تعليق التايمر في المتصفح. قمنا بحذف أعلى 1% من القيم الشاذة لتقديم صورة نقية وصادقة تعكس الواقع الحقيقي.</p>
+
               </div>
+
             </div>
+
           </div>
+
         </div>
+
       </section>
 
+
+
       <!-- ====================================================================
+
            المحور 8: الجلسات والفجوات (رسمة مجمعة: Chart 15)
+
            ==================================================================== -->
+
       <section id="topic-8" class="section-container topic-card" data-keywords="الجلسات الفجوات العودة الانقطاع Sessions Chart 15">
+
         <div class="section-header">
+
           <div class="section-header-title">
+
             <div class="topic-number-badge">08</div>
+
             <div>
+
               <h2>المحور الثامن: تحليل الجلسات والفجوات الزمنية وعودة المستخدمين (Session & Gap Dynamics)</h2>
+
               <p>هل يكتفي المستخدم بجلسة واحدة أم يعود لاحقاً لنفس المحادثة؟ وما الفارق في عمق التفاعل؟</p>
+
             </div>
+
           </div>
+
         </div>
 
+
+
         <div class="chart-presentation-card">
+
           <div class="chart-meta-header">
+
             <div class="chart-badge-title">
+
               <i class="fa-solid fa-arrows-spin"></i> الرسم البياني 15: توزيع الجلسات والفجوات الزمنية ومقارنة الرسائل (2x2 Grid)
+
             </div>
+
             <span class="chart-id-tag">Chart #15 (Cell 33)</span>
+
           </div>
+
+
 
           <div class="chart-image-frame" onclick="openLightbox('assets/images/chart_15_cell_33.png')">
+
             <img src="assets/images/chart_15_cell_33.png" alt="تحليل الجلسات والفجوات" loading="lazy">
+
             <div class="chart-zoom-btn"><i class="fa-solid fa-expand"></i> انقر للتكبير عالي الدقة</div>
+
           </div>
+
+
 
           <div class="deep-explanation-grid">
+
             <div class="explanation-box box-data-breakdown">
+
               <div class="explanation-box-header"><i class="fa-solid fa-database"></i> 1. ما هي الداتا المعروضة في هذه الرسمة؟</div>
+
               <div class="explanation-content">
+
                 <p>تعرض هذه الرسمة <strong>4 لوحات متكاملة في شبكة رباعية (2x2 Grid)</strong> لتحليل الجلسات والفجوات الزمنية:</p>
+
                 <ul>
+
                   <li><strong>اللوحة 1 (أعلى اليسار Top-Left):</strong> <code>Number of Sessions per Conversation</code> - رسم شريطي أزرق يوضح بالرقم المكتوب فوق العمود الأول أن <strong>12,091 محادثة تمت في جلسة واحدة (Session 1)</strong>، بينما توزعت باقي المحادثات على 2 و 3 و 4 و 5+ جلسات.</li>
+
                   <li><strong>اللوحة 2 (أعلى اليمين Top-Right):</strong> <code>Max Gap Distribution (0-60 min, 595 outliers >1hr excluded)</code> - مدرج تكراري وردي ومنحنى كثافة يوضح أن الغالبية العظمى من الفجوات بين الرسائل تحدث خلال أول دقيقتين.</li>
+
                   <li><strong>اللوحة 3 (أسفل اليسار Bottom-Left):</strong> <code>Gap Categories Distribution</code> - رسم شريطي أفقي ملون يعرض الفئات الست الدقيقة بالأرقام والنسب المكتوبة داخل الأشرطة:
+
                     <ul>
+
                       <li>🟢 <strong>فوري Instant (0s):</strong> 4,213 محادثة (33.8%).</li>
+
                       <li>🟢 <strong>أقل من دقيقة Under 1 min:</strong> 4,471 محادثة (35.9%).</li>
+
                       <li>🟡 <strong>من 1 إلى 5 دقائق:</strong> 3,131 محادثة (25.1%).</li>
+
                       <li>🟡 <strong>من 5 إلى 60 دقيقة:</strong> 1,044 محادثة (8.4%).</li>
+
                       <li>🟠 <strong>من 1 إلى 7 ساعات:</strong> 238 محادثة (1.9%).</li>
+
                       <li>🔴 <strong>أكثر من 7 ساعات (جلسة جديدة 7+ hours):</strong> 357 محادثة (2.9%).</li>
+
                     </ul>
+
                   </li>
+
                   <li><strong>اللوحة 4 (أسفل اليمين Bottom-Right):</strong> <code>Total Messages by Session Count (outliers hidden)</code> - مخطط الصندوق (Boxplot) يوضح التدرج التصاعدي لعدد الرسائل: وسيط 4 رسائل للجلسة الواحدة، ويرتفع إلى 13 للجلسة 2، و 21 للجلسة 3، و 31 للجلسة 4، ويصل إلى <strong>48 رسالة للجلسات 5+</strong>.</li>
+
                 </ul>
+
               </div>
+
             </div>
+
+
 
             <div class="explanation-box box-business-benefit">
+
               <div class="explanation-box-header"><i class="fa-solid fa-briefcase"></i> 2. ما هي الاستفادة العملية وقرارات البيزنس من هذه الرسمة؟</div>
+
               <div class="explanation-content">
+
                 <p>استغلال الفرصة الدعوية الذهبية للمستخدمين العائدين:</p>
+
                 <ul>
+
                   <li><span class="decision-badge">فرصة بيزنس ودعوة</span> <strong>التركيز على الـ 357 محادثة متعددة الجلسات:</strong> هؤلاء يمثلون الشريحة الأكثر جدية وعمقاً على الإطلاق (باحثون عن الحقيقة أو مقبلون على الإسلام).</li>
+
                   <li><span class="decision-badge">ميزة جديدة للمنتج</span> <strong>إضافة ميزة حفظ وتصدير السجل:</strong> إتاحة زر للمستخدم لحفظ محادثته عبر البريد الإلكتروني أو الواتساب لمواصلة الحوار بسهولة.</li>
+
                 </ul>
+
               </div>
+
             </div>
+
           </div>
+
         </div>
+
       </section>
 
+
+
       <!-- ====================================================================
+
            المحور 9: دقة اكتشاف اللغة (رسمة مجمعة: Chart 16)
+
            ==================================================================== -->
+
       <section id="topic-9" class="section-container topic-card" data-keywords="دقة اللغة الثقة خلط اللغات العربية النجدية Code-Switching Chart 16">
+
         <div class="section-header">
+
           <div class="section-header-title">
+
             <div class="topic-number-badge">09</div>
+
             <div>
+
               <h2>المحور التاسع: دقة وموثوقية خوارزمية اكتشاف اللغة (Language Confidence Audit)</h2>
+
               <p>تقييم درجة الثقة في تصنيف اللغات، ولماذا تعاني اللغة العربية من ظاهرة خلط اللغات (Code-Switching)؟</p>
+
             </div>
+
           </div>
+
         </div>
 
+
+
         <div class="chart-presentation-card">
+
           <div class="chart-meta-header">
+
             <div class="chart-badge-title">
+
               <i class="fa-solid fa-bullseye"></i> الرسم البياني 16: مستويات الثقة في تصنيف اللغة وفحص خلط اللغات في العربية (Arabic Deep Dive)
+
             </div>
+
             <span class="chart-id-tag">Chart #16 (Cell 37)</span>
+
           </div>
+
+
 
           <div class="chart-image-frame" onclick="openLightbox('assets/images/chart_16_cell_37.png')">
+
             <img src="assets/images/chart_16_cell_37.png" alt="دقة اكتشاف اللغة" loading="lazy">
+
             <div class="chart-zoom-btn"><i class="fa-solid fa-expand"></i> انقر للتكبير عالي الدقة</div>
+
           </div>
+
+
 
           <div class="deep-explanation-grid">
+
             <div class="explanation-box box-data-breakdown">
+
               <div class="explanation-box-header"><i class="fa-solid fa-database"></i> 1. ما هي الداتا المعروضة في هذه الرسمة؟</div>
+
               <div class="explanation-content">
+
                 <p>تحليل إحصائي متعمق لمستوى ثقة نموذج تصنيف اللغة في المحادثات العربية عبر <strong>لوحتين بيانيتين (2 Subplots)</strong>:</p>
+
                 <ul>
+
                   <li><strong>اللوحة الأولى (اليسار - Arabic Confidence Distribution n=5736):</strong> مدرج تكراري برتقالي/مرجاني مع منحنى الكثافة وخطين عموديين استرشاديين:
+
                     <ul>
+
                       <li>خط أحمر متقطع يمثل حد الثقة المنخفضة <strong>Low (0.5)</strong>.</li>
+
                       <li>خط أخضر متقطع يمثل حد الثقة العالية <strong>High (0.9)</strong>.</li>
+
                       <li>يوضح الرسم وجود ذيل طويل ممتد نحو اليسار وكتلة ملحوظة من المحادثات العربية تقع تحت خط الثقة العالية (0.9)، مما خفض متوسط ثقة العربية إلى 0.822.</li>
+
                     </ul>
+
                   </li>
+
                   <li><strong>اللوحة الثانية (اليمين - Arabic: Message Count vs Confidence):</strong> مخطط تشتت نقطي يقارن إجمالي رسائل المحادثة (محور X من 0 إلى 250 رسالة) بدرجة الثقة (محور Y من 0.0 إلى 1.0) مع خط أحمر متقطع عند 0.5؛ وتوضح كتلة النقاط الكثيفة على اليسار أن تشتت الثقة يحدث بكثافة في المحادثات التي يقل طولها عن 50 رسالة بسبب خلط المصطلحات والمصادر الإنجليزية في الرسائل الأولى.</li>
+
                 </ul>
+
               </div>
+
             </div>
+
+
 
             <div class="explanation-box box-business-benefit">
+
               <div class="explanation-box-header"><i class="fa-solid fa-briefcase"></i> 2. ما هي الاستفادة العملية وقرارات البيزنس من هذه الرسمة؟</div>
+
               <div class="explanation-content">
+
                 <p>فهم السبب الحقيقي وتطوير خوارزمية المعالجة اللغوية (NLP):</p>
+
                 <ul>
+
                   <li><span class="decision-badge">تشخيص السبب</span> <strong>ظاهرة خلط اللغات (Code-Switching):</strong> يكتب المستخدم العربي نصوصاً ممزوجة بمصطلحات إنجليزية وأرقام وروابط، مما يربك النموذج الذي يعتمد على آخر 500 حرف.</li>
+
                   <li><span class="decision-badge">توصية هندسية</span> <strong>تحديث كاشف اللغة:</strong> تدريب النموذج على النصوص المختلطة وإضافة فئة تصنيف جديدة تسمى <code>Mixed / Bilingual</code> لمنع تشويه الإحصائيات اللغوية.</li>
+
                 </ul>
+
               </div>
+
             </div>
+
           </div>
+
         </div>
+
       </section>
 
+
+
       <!-- ====================================================================
+
            المحور 10: لوحة أداء البوت ومصفوفة SLA (رسمة شاملة: Chart 17)
+
            ==================================================================== -->
+
       <section id="topic-10" class="section-container topic-card" data-keywords="SLA الأداء مستويات الخدمة الكردية اليابانية السواحيلية السرعة Chart 17">
+
         <div class="section-header">
+
           <div class="section-header-title">
+
             <div class="topic-number-badge">10</div>
+
             <div>
+
               <h2>المحور العاشر: لوحة أداء البوت الشاملة ومصفوفة الخدمة (AI Performance & SLA Dashboard)</h2>
+
               <p>مقارنة سرعة البوت عبر 15 لغة، ومصفوفة الالتزام بمستويات الخدمة (SLA Compliance)، وأزمة اللغة الكردية.</p>
+
             </div>
+
           </div>
+
         </div>
+
+
 
         <div class="chart-presentation-card">
+
           <div class="chart-meta-header">
+
             <div class="chart-badge-title">
+
               <i class="fa-solid fa-server"></i> الرسم البياني 17: لوحة المقارنة الشاملة للسرعة ومصفوفة SLA وسرعة الساعات وطول الحوار (2x2 Grid)
+
             </div>
+
             <span class="chart-id-tag">Chart #17 (Cell 41)</span>
+
           </div>
+
+
 
           <div class="chart-image-frame" onclick="openLightbox('assets/images/chart_17_cell_41.png')">
+
             <img src="assets/images/chart_17_cell_41.png" alt="لوحة أداء البوت الشاملة" loading="lazy">
+
             <div class="chart-zoom-btn"><i class="fa-solid fa-expand"></i> انقر للتكبير عالي الدقة</div>
+
           </div>
+
+
 
           <div class="deep-explanation-grid">
+
             <div class="explanation-box box-data-breakdown">
+
               <div class="explanation-box-header"><i class="fa-solid fa-database"></i> 1. ما هي الداتا المعروضة في هذه الرسمة؟</div>
+
               <div class="explanation-content">
+
                 <p>لوحة قيادة تنفيذية شاملة تضم <strong>4 لوحات قياس حاسمة في شبكة رباعية (2x2 Grid)</strong>:</p>
+
                 <ul>
+
                   <li><strong>اللوحة 1 (أعلى اليسار Top-Left):</strong> <code>AI Avg Response Time by Language (Cleaned, Top 15)</code> - رسم شريطي أفقي متدرج الألوان (من الأخضر فائق السرعة إلى الأحمر الداكن البطيء):
+
                     <ul>
+
                       <li>🟢 <strong>باقة السرعة الفائقة (< 1.5 ثانية):</strong> اليابانية (0.58ث)، السواحيلية (0.70ث)، الصينية (1.0ث)، الكورية (1.22ث)، والأردية (1.3ث).</li>
+
                       <li>🟡 <strong>باقة السرعة المتوسطة المستقرة (2.5 - 4.5 ثوانٍ):</strong> الإسبانية (2.5ث)، الألمانية (2.8ث)، الفرنسية (3.4ث)، الهندية (3.5ث)، العربية النجدية (3.8ث)، العربية الفصحى (4.19ث)، الإنجليزية (4.30ث)، والفلبينية (4.4ث).</li>
+
                       <li>🔴 <strong>البرتغالية (Portuguese):</strong> بمتوسط 4.8 ثوانٍ.</li>
+
                       <li>🚨 <strong>الكردية الوسطى (Central Kurdish):</strong> يمتد شريطها الأحمر الداكن عبر المحور بالكامل مسجلاً <strong>15.37 ثانية</strong> (وسيط 11.12 ثانية)!</li>
+
                     </ul>
+
                   </li>
+
                   <li><strong>اللوحة 2 (أعلى اليمين Top-Right):</strong> <code>AI Response Time by Hour (Cleaned)</code> - خط بياني وردي يوضح متوسط سرعة الرد عبر ساعات اليوم (0-23):
+
                     <ul>
+
                       <li>⚡ <strong>أسرع أوقات الاستجابة:</strong> في الصباح الباكر وتحديداً <strong>الساعة 7:00 صباحاً (2.6 ثانية)</strong> والساعة 8:00 صباحاً.</li>
+
                       <li>⏳ <strong>أبطأ أوقات الاستجابة:</strong> في ساعات الفجر الأولى <strong>الساعة 3:00 صباحاً (6.0 ثوانٍ)</strong> وساعات الذروة في منتصف النهار (11:00 و 14:00 بـ 4.3 - 4.5 ثوانٍ).</li>
+
                     </ul>
+
                   </li>
+
                   <li><strong>اللوحة 3 (أسفل اليسار Bottom-Left):</strong> <code>AI Speed vs Conversation Length (Cleaned)</code> - مخطط تشتت يقارن إجمالي رسائل المحادثة (محور X حتى 550 رسالة) بزمن رد البوت (محور Y حتى 80 ثانية)؛ ويوضح أن المحادثات القصيرة تحافظ على استجابة سريعة جداً، بينما المحادثات الطويلة (+100 رسالة) تشهد تشتتاً وارتفاعاً في زمن التوليد بسبب كبر حجم السياق (Context Window).</li>
+
                   <li><strong>اللوحة 4 (أسفل اليمين Bottom-Right):</strong> <code>AI Speed SLA by Language (Top 5)</code> - أشرطة مكدسة توضح نسبة الالتزام بمستويات الخدمة (SLA) لأعلى 5 لغات:
+
                     <ul>
+
                       <li>🇯🇵 <strong>اليابانية (Japanese):</strong> <strong>98%</strong> من الردود فورية (&lt; 1 ثانية - اللون الأخضر الداكن).</li>
+
                       <li>🇰🇪 <strong>السواحيلية (Swahili):</strong> <strong>94%</strong> من الردود فورية (&lt; 1 ثانية).</li>
+
                       <li>🇫🇷 <strong>الفرنسية (French):</strong> <strong>81%</strong> فورية، و 5% (1-5ث)، و 6% (5-15ث)، و 8% بطيئة (+15ث).</li>
+
                       <li>🇬🇧 <strong>الإنجليزية (English):</strong> <strong>77%</strong> فورية، و 6% (1-5ث)، و 8% (5-15ث)، و 9% بطيئة (+15ث).</li>
+
                       <li>🇸🇦 <strong>العربية (Arabic):</strong> <strong>74%</strong> فورية، و 8% (1-5ث)، و 9% (5-15ث)، و 9% بطيئة (+15ث).</li>
+
                     </ul>
+
                   </li>
+
                 </ul>
+
               </div>
+
             </div>
+
+
 
             <div class="explanation-box box-business-benefit">
+
               <div class="explanation-box-header"><i class="fa-solid fa-briefcase"></i> 2. ما هي الاستفادة العملية وقرارات البيزنس من هذه الرسمة؟</div>
+
               <div class="explanation-content">
+
                 <p>تحديد الاختناقات التقنية وتحديث البنية التحتية:</p>
+
                 <ul>
+
                   <li><span class="decision-badge" style="background: var(--danger-red);">أولوية قصوى 1</span> <strong>حل أزمة بطء الكردية الوسطى:</strong> وسيط 11.12 ثانية للكردية يعني أنها <strong>أبطأ بـ 30 ضعفاً من باقي اللغات</strong>. السبب هو خلل في تقطيع النصوص الكردية السورانية (Tokenization) في الـ LLM، ويجب توجيه طلبات الكردية فوراً لنموذج أسرع أو إصلاح المعالج اللغوي.</li>
+
                   <li><span class="decision-badge">تحسين معماري</span> <strong>تلخيص سياق المحادثة (Context Summarization):</strong> لتقليل زمن الرد في المحادثات الطويلة من 7 ثوانٍ إلى ثانيتين عبر تلخيص الرسائل السابقة بدلاً من تمرير السجل كاملاً في كل Turn.</li>
+
                 </ul>
+
               </div>
+
             </div>
+
           </div>
+
         </div>
+
       </section>
+
+
 
       <!-- ====================================================================
+
            قسم الخلاصة والتوصيات الاستراتيجية
+
            ==================================================================== -->
+
       <section id="summary-section" class="section-container" style="border: 2px solid var(--brand-gold);">
+
         <div class="section-header">
+
           <div class="section-header-title">
+
             <div class="topic-number-badge" style="background: linear-gradient(135deg, var(--brand-gold), #856404);">
+
               <i class="fa-solid fa-flag-checkered"></i>
+
             </div>
+
             <div>
+
               <h2>الخلاصة التنفيذية وخطة العمل الموصى بها (Strategic Action Roadmap)</h2>
+
               <p>خريطة طريق عملية مبنية على الأدلة والبيانات لتطوير أداء المنتج وتوسيع الأثر الدعوي والتقني.</p>
+
             </div>
+
           </div>
+
         </div>
+
+
 
         <div class="data-table-container">
+
           <table class="custom-table">
+
             <thead>
+
               <tr>
+
                 <th style="width: 50px; text-align: center;">م</th>
+
                 <th style="width: 30%;">التوصية الاستراتيجية</th>
+
                 <th style="width: 15%; text-align: center;">الأولوية</th>
+
                 <th style="width: 32%;">الأثر المتوقع على البيزنس والمنتج</th>
+
                 <th style="width: 18%;">فريق التنفيذ المسؤول</th>
+
               </tr>
+
             </thead>
+
             <tbody>
+
               <tr>
+
                 <td style="text-align: center; font-weight: 900; color: var(--brand-teal);">1</td>
+
                 <td><strong>حل أزمة بطء الكردية الوسطى:</strong> فحص خط أنابيب معالجة التقطيع اللغوي (Tokenization) وتوجيه طلبات اللغة الكردية لنموذج أسرع.</td>
+
                 <td style="text-align: center;"><span class="badge-status badge-danger" style="display: inline-flex; align-items: center; gap: 4px;"><i class="fa-solid fa-circle-exclamation"></i> أولوية قصوى</span></td>
+
                 <td>تحسين سرعة الاستجابة لـ 165 محادثة من 11.1 ثانية إلى أقل من ثانية واحدة (تسريع 15x).</td>
+
                 <td><strong style="color: var(--brand-teal);">فريق هندسة الذكاء الاصطناعي</strong></td>
+
               </tr>
+
               <tr>
+
                 <td style="text-align: center; font-weight: 900; color: var(--brand-teal);">2</td>
+
                 <td><strong>تطوير نموذج اكتشاف اللغة للمحادثات المختلطة:</strong> تدريب المصنف على تمييز خلط العربية والإنجليزية (Code-Switching) وإضافة فئة <code>Bilingual</code>.</td>
+
                 <td style="text-align: center;"><span class="badge-status badge-warning" style="display: inline-flex; align-items: center; gap: 4px;"><i class="fa-solid fa-triangle-exclamation"></i> أولوية عالية</span></td>
+
                 <td>رفع دقة تصنيف لغة المحادثات العربية من 36.9% إلى أكثر من 90%، وإنهاء انخفاض درجات الثقة.</td>
+
                 <td><strong style="color: var(--brand-teal);">فريق علوم البيانات و NLP</strong></td>
+
               </tr>
+
               <tr>
+
                 <td style="text-align: center; font-weight: 900; color: var(--brand-teal);">3</td>
+
                 <td><strong>مراجعة الـ 30 حالة صمت حرجة:</strong> تدقيق أسباب عدم رد البوت على الأسئلة الحقيقية وتفعيل التنبيه الفوري التلقائي (Fallback Alert).</td>
+
                 <td style="text-align: center;"><span class="badge-status badge-warning" style="display: inline-flex; align-items: center; gap: 4px;"><i class="fa-solid fa-triangle-exclamation"></i> أولوية عالية</span></td>
+
                 <td>ضمان عدم ترك أي سائل أو مهتدٍ محتمل دون إجابة (Zero Silent Drop) وحفظ سمعة المنصة.</td>
+
                 <td><strong style="color: var(--brand-teal);">فريق الجودة والعمليات</strong></td>
+
               </tr>
+
               <tr>
+
                 <td style="text-align: center; font-weight: 900; color: var(--brand-teal);">4</td>
+
                 <td><strong>التوسع في دعم المحتوى الفرنسي والسواحيلي:</strong> دعم النمو الكبير للغة الفرنسية في 2026 (المركز 3) والسواحيلية في شرق أفريقيا.</td>
+
                 <td style="text-align: center;"><span class="badge-status badge-info" style="display: inline-flex; align-items: center; gap: 4px;"><i class="fa-solid fa-arrow-trend-up"></i> أولوية متوسطة</span></td>
+
                 <td>مضاعفة معدلات اعتناق الإسلام واستقطاب باحثين جدد من أفريقيا الفرنكوفونية وشرق أفريقيا.</td>
+
                 <td><strong style="color: var(--brand-teal);">فريق المحتوى والدعوة المتخصصة</strong></td>
+
               </tr>
+
               <tr>
+
                 <td style="text-align: center; font-weight: 900; color: var(--brand-teal);">5</td>
+
                 <td><strong>الاستعداد لمواسم الذروة (رمضان والحج):</strong> ضبط نظام التوسع التلقائي للسيرفرات (Auto-scaling) قبل المواسم بشهر على الأقل.</td>
+
                 <td style="text-align: center;"><span class="badge-status badge-info" style="display: inline-flex; align-items: center; gap: 4px;"><i class="fa-solid fa-server"></i> أولوية متوسطة</span></td>
+
                 <td>تفادي انهيار أو بطء الخدمة أثناء قفزات الاستخدام التي تتجاوز +1,100% في رمضان.</td>
+
                 <td><strong style="color: var(--brand-teal);">فريق البنية التحتية و DevOps</strong></td>
+
               </tr>
+
               <tr>
+
                 <td style="text-align: center; font-weight: 900; color: var(--brand-teal);">6</td>
+
                 <td><strong>بناء مسار تحويل للـ 357 محادثة متعددة الجلسات:</strong> ميزة حفظ السجل وإتاحة زر التواصل المباشر مع داعية بشري متخصص.</td>
+
                 <td style="text-align: center;"><span class="badge-status badge-success" style="display: inline-flex; align-items: center; gap: 4px;"><i class="fa-solid fa-star"></i> فرصة نمو كبرى</span></td>
+
                 <td>تعظيم الأثر الدعوي للفئة الأكثر تفاعلاً وجدية (متوسط 47.2 رسالة للمحادثة).</td>
+
                 <td><strong style="color: var(--brand-teal);">فريق تجربة المنتج (Product & UX)</strong></td>
+
               </tr>
+
             </tbody>
+
           </table>
+
         </div>
+
       </section>
 
-    </main>
+
+
+    
+    </section>
+
+    <!-- ====================================================================
+         TAB 3: Executive Recommendations & Action Roadmap
+         ==================================================================== -->
+    <section id="action-plan-view" class="tab-content">
+      <div class="hero-banner">
+        <div class="hero-badge"><i class="fa-solid fa-flag-checkered"></i> خطة العمل الاستراتيجية</div>
+        <h2 class="hero-title">التوصيات التنفيذية وخارطة الطريق لتطوير Islam.chat</h2>
+        <p class="hero-subtitle">خلاصة القرارات المستخلصة من تحليل 12,448 محادثة و 11,596 سؤالاً لتحقيق أعلى أثر دعوي وتقني.</p>
+      </div>
+
+      <div class="section-container">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+          
+          <div style="background: var(--bg-secondary); padding: 24px; border-radius: var(--radius-lg); border: 1px solid var(--border-color);">
+            <div style="font-size: 16px; font-weight: 800; color: var(--brand-teal); margin-bottom: 12px;">
+              <i class="fa-solid fa-robot"></i> 1. استثمار بنك الأسئلة الفريدة (RAG & Fine-Tuning)
+            </div>
+            <p style="font-size: 13.5px; color: var(--text-secondary); line-height: 1.7;">
+              استخدام الـ 11,596 سؤالاً وجواباً كقاعدة معرفية ذهبية لبناء نظام استرجاع معرفي مدعم بالذكاء الاصطناعي (RAG)، وتغذية النموذج بأدق الأجوبة المعتمدة في الشبهات ومقارنة الأديان.
+            </p>
+          </div>
+
+          <div style="background: var(--bg-secondary); padding: 24px; border-radius: var(--radius-lg); border: 1px solid var(--border-color);">
+            <div style="font-size: 16px; font-weight: 800; color: var(--brand-gold); margin-bottom: 12px;">
+              <i class="fa-solid fa-earth-africa"></i> 2. التوسع اللغوي في اللغات الصاعدة
+            </div>
+            <p style="font-size: 13.5px; color: var(--text-secondary); line-height: 1.7;">
+              أثبتت البيانات وجود طلب هائل في اللغة السواحلية (847 محادثة) واليابانية (386) والفلبينية. يوصى بإعداد محتوى دعوي مخصص لهذه الثقافات وربطهم بدعاة محليين ناطقين بلغاتهم.
+            </p>
+          </div>
+
+          <div style="background: var(--bg-secondary); padding: 24px; border-radius: var(--radius-lg); border: 1px solid var(--border-color);">
+            <div style="font-size: 16px; font-weight: 800; color: var(--benefit-green); margin-bottom: 12px;">
+              <i class="fa-solid fa-hand-holding-heart"></i> 3. مسار خاص برعاية المهتدين الجدد
+            </div>
+            <p style="font-size: 13.5px; color: var(--text-secondary); line-height: 1.7;">
+              بناء مسار تفاعلي مخصص (New Muslim Journey) يرشد السائل خطوة بخطوة بعد إبداء الرغبة في اعتناق الإسلام، مع تزويده ببطاقات تعليمية مبسطة للصلاة والطهارة.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
   </div>
 
-  <button class="back-to-top" id="backToTop" onclick="scrollToTop()" title="العودة لأعلى الصفحة">
-    <i class="fa-solid fa-arrow-up"></i>
-  </button>
-
-  <div class="lightbox-modal" id="lightboxModal" onclick="closeLightbox()">
-    <span class="lightbox-close">&times;</span>
-    <img class="lightbox-content" id="lightboxImg" src="" alt="رسم بياني مكبر">
-  </div>
-
-  <footer class="dashboard-footer">
-    <div class="footer-links">
-      <a href="#hero-section"><i class="fa-solid fa-house"></i> الرئيسية</a>
-      <a href="#topic-1"><i class="fa-solid fa-chart-line"></i> التحليلات</a>
-      <a href="#summary-section"><i class="fa-solid fa-check-circle"></i> التوصيات</a>
+  <!-- Dialogue Context Modal -->
+  <div class="modal-overlay" id="dialogue-modal" onclick="closeDialogueModal(event)">
+    <div class="modal-container" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <h3 id="modal-title"><i class="fa-solid fa-comments"></i> سياق المحادثة الكاملة (#<span id="modal-chat-id"></span>)</h3>
+        <button class="modal-close-btn" onclick="closeDialogueModal()"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body" id="modal-chat-body">
+        <!-- Messages rendered dynamically via DialogueModalComponent -->
+      </div>
     </div>
-    <p>© 2026 Islam.chat Analytics Engine | تم إعداد التحليل بواسطة خبير استخبارات الأعمال والذكاء الاصطناعي</p>
+  </div>
+
+  <!-- Image Lightbox Modal -->
+  <div class="lightbox-modal" id="lightbox-modal" onclick="closeLightbox()">
+    <img id="lightbox-img" class="lightbox-content" src="" alt="Zoomed Chart">
+  </div>
+
+  <!-- Footer -->
+  <footer class="dashboard-footer">
+    <p>Islam.chat Intelligence Hub & Analytics Suite • تم تحليل 12,448 محادثة و 11,596 سؤالاً شرعياً موثقاً</p>
   </footer>
 
-  <script>
-    window.onscroll = function() {
-      let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-      let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      let scrolled = (winScroll / height) * 100;
-      document.getElementById("progress-bar").style.width = scrolled + "%";
-
-      let btt = document.getElementById("backToTop");
-      if (winScroll > 300) {
-        btt.classList.add("show");
-      } else {
-        btt.classList.remove("show");
-      }
-
-      highlightActiveToc();
-    };
-
-    function scrollToTop() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    function toggleTheme() {
-      let currentTheme = document.body.getAttribute("data-theme");
-      let newTheme = currentTheme === "dark" ? "light" : "dark";
-      document.body.setAttribute("data-theme", newTheme);
-      
-      let icon = document.querySelector("#theme-toggle i");
-      if (newTheme === "dark") {
-        icon.classList.remove("fa-moon");
-        icon.classList.add("fa-sun");
-      } else {
-        icon.classList.remove("fa-sun");
-        icon.classList.add("fa-moon");
-      }
-      localStorage.setItem("islam_chat_theme", newTheme);
-    }
-
-    window.addEventListener("DOMContentLoaded", () => {
-      let savedTheme = localStorage.getItem("islam_chat_theme");
-      if (savedTheme) {
-        document.body.setAttribute("data-theme", savedTheme);
-        let icon = document.querySelector("#theme-toggle i");
-        if (savedTheme === "dark") {
-          icon.classList.remove("fa-moon");
-          icon.classList.add("fa-sun");
-        }
-      }
-    });
-
-    function openLightbox(src) {
-      document.getElementById("lightboxImg").src = src;
-      document.getElementById("lightboxModal").style.display = "flex";
-      document.body.style.overflow = "hidden";
-    }
-
-    function closeLightbox() {
-      document.getElementById("lightboxModal").style.display = "none";
-      document.body.style.overflow = "auto";
-    }
-
-    document.addEventListener("keydown", function(e) {
-      if (e.key === "Escape") {
-        closeLightbox();
-      }
-    });
-
-    function filterTopics() {
-      let input = document.getElementById("topic-search").value.toLowerCase();
-      let cards = document.querySelectorAll(".topic-card, .chart-presentation-card");
-
-      cards.forEach(card => {
-        let text = card.innerText.toLowerCase();
-        let keywords = card.getAttribute("data-keywords") ? card.getAttribute("data-keywords").toLowerCase() : "";
-        if (text.includes(input) || keywords.includes(input)) {
-          card.style.display = "block";
-        } else {
-          card.style.display = "none";
-        }
-      });
-    }
-
-    function highlightActiveToc() {
-      let sections = document.querySelectorAll("section[id]");
-      let scrollPos = window.pageYOffset || document.documentElement.scrollTop;
-
-      sections.forEach(sec => {
-        let top = sec.offsetTop - 120;
-        let height = sec.offsetHeight;
-        let id = sec.getAttribute("id");
-
-        if (scrollPos >= top && scrollPos < top + height) {
-          document.querySelectorAll(".toc-item a").forEach(a => {
-            a.classList.remove("active");
-            if (a.getAttribute("href") === "#" + id) {
-              a.classList.add("active");
-            }
-          });
-        }
-      });
-    }
-  </script>
+  <!-- Modular Scripts (Microservices Architecture) -->
+  <script src="assets/js/services/api.service.js"></script>
+  <script src="assets/js/services/filter.service.js"></script>
+  <script src="assets/js/services/chart.service.js"></script>
+  <script src="assets/js/components/qa-card.component.js"></script>
+  <script src="assets/js/components/dialogue-modal.component.js"></script>
+  <script src="assets/js/components/lightbox.component.js"></script>
+  <script src="assets/js/app.js"></script>
 </body>
 </html>
