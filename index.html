@@ -5,23 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>المنصة الموحدة لتحليلات واستكشاف محادثات منصة Islam.chat | Full Intelligence & Q&A Hub</title>
   
-  <!-- Google Fonts: Cairo, Plus Jakarta Sans, IBM Plex Sans Arabic -->
+  <!-- Google Fonts: Cairo, Plus Jakarta Sans, IBM Plex Sans Arabic, Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
   
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- Modular Stylesheets (Microservices Architecture with Cache Busting) -->
-  <link rel="stylesheet" href="assets/css/base.css?v=2.5">
-  <link rel="stylesheet" href="assets/css/navbar.css?v=2.5">
-  <link rel="stylesheet" href="assets/css/kpi.css?v=2.5">
-  <link rel="stylesheet" href="assets/css/filter-matrix.css?v=2.5">
-  <link rel="stylesheet" href="assets/css/qa-explorer.css?v=2.5">
-  <link rel="stylesheet" href="assets/css/macro-analytics.css?v=2.5">
-  <link rel="stylesheet" href="assets/css/modal.css?v=2.5">
-  <link rel="stylesheet" href="assets/css/playbooks.css?v=2.5">
+  <link rel="stylesheet" href="assets/css/base.css?v=3.0">
+  <link rel="stylesheet" href="assets/css/navbar.css?v=3.0">
+  <link rel="stylesheet" href="assets/css/kpi.css?v=3.0">
+  <link rel="stylesheet" href="assets/css/filter-matrix.css?v=3.0">
+  <link rel="stylesheet" href="assets/css/qa-explorer.css?v=3.0">
+  <link rel="stylesheet" href="assets/css/macro-analytics.css?v=3.0">
+  <link rel="stylesheet" href="assets/css/modal.css?v=3.0">
+  <link rel="stylesheet" href="assets/css/playbooks.css?v=3.0">
 
   <!-- Chart.js for Dynamic Visualizations -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -37,28 +37,33 @@
         <i class="fa-solid fa-kaaba"></i>
       </div>
       <div class="brand-text">
-        <h1>Islam.chat Intelligence Hub</h1>
-        <span>منظومة استكشاف الأسئلة والتحليل السلوكي الذكي (100% LLM Ground Truth)</span>
+        <h1 data-i18n="brandTitle">Islam.chat Intelligence Hub</h1>
+        <span data-i18n="brandSubtitle">منظومة استكشاف الأسئلة والتحليل السلوكي الذكي (100% LLM Ground Truth)</span>
       </div>
     </a>
 
     <!-- View Mode Switcher -->
     <div class="view-mode-tabs">
       <button class="view-tab-btn active" onclick="switchMainTab('explorer-view')">
-        <i class="fa-solid fa-compass"></i> مستكشف الأسئلة والفلاتر
+        <i class="fa-solid fa-compass"></i> <span data-i18n="tabExplorer">مستكشف الأسئلة والفلاتر</span>
       </button>
       <button class="view-tab-btn" onclick="switchMainTab('macro-analytics-view')">
-        <i class="fa-solid fa-chart-line"></i> التحليل الإحصائي العام (17 رسمة)
+        <i class="fa-solid fa-chart-line"></i> <span data-i18n="tabMacro">التحليل الإحصائي العام (17 رسمة)</span>
       </button>
       <button class="view-tab-btn" onclick="switchMainTab('action-plan-view')">
-        <i class="fa-solid fa-flag-checkered"></i> خطط الحوار والاستراتيجيات
+        <i class="fa-solid fa-flag-checkered"></i> <span data-i18n="tabPlaybooks">خطط الحوار والاستراتيجيات</span>
       </button>
     </div>
 
-    <!-- Actions -->
+    <!-- Actions (Language Toggle, Export, Theme) -->
     <div class="nav-actions">
+      <!-- Bilingual Language Switcher Button -->
+      <button class="lang-toggle-btn" id="lang-toggle" onclick="toggleLanguage()" title="Switch Language / تبديل اللغة">
+        <i class="fa-solid fa-globe"></i> <span id="lang-toggle-text">English</span>
+      </button>
+
       <button class="btn-export" onclick="exportFilteredDataCSV()">
-        <i class="fa-solid fa-file-csv"></i> تصدير البيانات المفلترة
+        <i class="fa-solid fa-file-csv"></i> <span data-i18n="btnExport">تصدير البيانات المفلترة</span>
       </button>
 
       <button class="theme-toggle-btn" id="theme-toggle" title="تبديل الوضع الليلي / الفاتح" onclick="toggleTheme()">
@@ -79,10 +84,10 @@
       <div class="hero-banner">
         <div class="hero-badge">
           <i class="fa-solid fa-wand-magic-sparkles"></i>
-          <span>بيانات موثقة 100% بالذكاء الاصطناعي (Gemini 3.1 Flash Lite) عبر 12,448 محادثة</span>
+          <span data-i18n="heroBadge1">بيانات موثقة 100% بالذكاء الاصطناعي (Gemini 3.1 Flash Lite) عبر 12,448 محادثة</span>
         </div>
-        <h2 class="hero-title">لوحة استكشاف وتصفية الأسئلة الشرعية والدعوية المعتمدة على الذكاء الاصطناعي</h2>
-        <p class="hero-subtitle">
+        <h2 class="hero-title" data-i18n="heroTitle1">لوحة استكشاف وتصفية الأسئلة الشرعية والدعوية المعتمدة على الذكاء الاصطناعي</h2>
+        <p class="hero-subtitle" data-i18n="heroSubtitle1">
           تتيح هذه المنصة فحص وتصفية الأسئلة المستخرجة بدقة فائقة بالاعتماد على <strong>الديانة الموثقة للسائل</strong>، <strong>النية الحقيقية</strong>، <strong>مراحل قمع الهداية (Conversion Funnel)</strong>، <strong>العوائق والشبهات الفكرية (Theological Blockers)</strong>، و<strong>نوع الحوار</strong>.
         </p>
 
@@ -90,7 +95,7 @@
         <div class="kpi-grid">
           <div class="kpi-card">
             <div class="kpi-header">
-              <span class="kpi-title">الأسئلة المطابقة للفلتر</span>
+              <span class="kpi-title" data-i18n="kpiFilteredTitle">الأسئلة المطابقة للفلتر</span>
               <div class="kpi-icon" style="background: var(--brand-teal-soft); color: var(--brand-teal);"><i class="fa-solid fa-comments"></i></div>
             </div>
             <div class="kpi-val" id="kpi-filtered-count">11,596</div>
@@ -99,38 +104,38 @@
 
           <div class="kpi-card">
             <div class="kpi-header">
-              <span class="kpi-title">باحثون صادقون عن الحقيقة</span>
+              <span class="kpi-title" data-i18n="kpiSeekersTitle">باحثون صادقون عن الحقيقة</span>
               <div class="kpi-icon" style="background: var(--data-blue-soft); color: var(--data-blue);"><i class="fa-solid fa-magnifying-glass-location"></i></div>
             </div>
             <div class="kpi-val" id="kpi-seekers-count">1,822</div>
-            <div class="kpi-sub">Genuine Seekers</div>
+            <div class="kpi-sub" data-i18n="kpiSeekersSub">Genuine Seekers</div>
           </div>
 
           <div class="kpi-card">
             <div class="kpi-header">
-              <span class="kpi-title">مناظرون ومشككون</span>
+              <span class="kpi-title" data-i18n="kpiChallengersTitle">مناظرون ومشككون</span>
               <div class="kpi-icon" style="background: var(--insight-purple-soft); color: var(--insight-purple);"><i class="fa-solid fa-scale-balanced"></i></div>
             </div>
             <div class="kpi-val" id="kpi-challengers-count">3,264</div>
-            <div class="kpi-sub">Challengers & Debaters</div>
+            <div class="kpi-sub" data-i18n="kpiChallengersSub">Challengers & Debaters</div>
           </div>
 
           <div class="kpi-card">
             <div class="kpi-header">
-              <span class="kpi-title">اعتنقوا الإسلام بالفعل</span>
+              <span class="kpi-title" data-i18n="kpiConvertedTitle">اعتنقوا الإسلام بالفعل</span>
               <div class="kpi-icon" style="background: var(--benefit-green-soft); color: var(--benefit-green);"><i class="fa-solid fa-check-double"></i></div>
             </div>
             <div class="kpi-val" id="kpi-converted-count">346</div>
-            <div class="kpi-sub">Converted (حالات مؤكدة)</div>
+            <div class="kpi-sub" data-i18n="kpiConvertedSub">Converted (حالات مؤكدة)</div>
           </div>
 
           <div class="kpi-card">
             <div class="kpi-header">
-              <span class="kpi-title">مهتمون باعتناق الإسلام</span>
+              <span class="kpi-title" data-i18n="kpiInterestTitle">مهتمون باعتناق الإسلام</span>
               <div class="kpi-icon" style="background: var(--warning-amber-soft); color: var(--warning-amber);"><i class="fa-solid fa-heart"></i></div>
             </div>
             <div class="kpi-val" id="kpi-interest-count">545</div>
-            <div class="kpi-sub">Conversion Interest</div>
+            <div class="kpi-sub" data-i18n="kpiInterestSub">Conversion Interest</div>
           </div>
         </div>
       </div>
@@ -139,11 +144,11 @@
       <div class="filter-panel">
         <div class="filter-panel-header">
           <div class="filter-panel-title">
-            <i class="fa-solid fa-sliders"></i> شريط الفلاتر الذكي المعتمد على الذكاء الاصطناعي (Smart Multi-Filter Matrix)
+            <i class="fa-solid fa-sliders"></i> <span data-i18n="filterPanelTitle">شريط الفلاتر الذكي المعتمد على الذكاء الاصطناعي (Smart Multi-Filter Matrix)</span>
           </div>
           <div class="filter-actions">
             <button class="btn-action" onclick="resetAllFilters()" title="إعادة ضبط كافة الفلاتر وتحديث النتائج">
-              <i class="fa-solid fa-rotate-left"></i> إعادة ضبط الفلاتر
+              <i class="fa-solid fa-rotate-left"></i> <span data-i18n="btnResetFilters">إعادة ضبط الفلاتر</span>
             </button>
           </div>
         </div>
@@ -152,7 +157,7 @@
           <!-- Filter 1: Year & Dynamic Months -->
           <div class="filter-group">
             <label class="filter-label">
-              <span class="filter-label-text"><i class="fa-solid fa-calendar"></i> السنة / النطاق الزمني</span>
+              <span class="filter-label-text"><i class="fa-solid fa-calendar"></i> <span data-i18n="lblYear">السنة / النطاق الزمني</span></span>
             </label>
             <select id="filter-year" class="filter-select" onchange="onYearDropdownChange()">
               <option value="all">كل السنوات (2024 - 2026)</option>
@@ -161,19 +166,19 @@
               <option value="2024">2024 (فترة الإطلاق التجريبي)</option>
             </select>
             <div class="quick-year-chips">
-              <button class="chip-btn active" onclick="setQuickYear('all', this)">الكل</button>
+              <button class="chip-btn active" onclick="setQuickYear('all', this)" data-i18n="chipAllYears">الكل</button>
               <button class="chip-btn" onclick="setQuickYear('2026', this)">2026</button>
               <button class="chip-btn" onclick="setQuickYear('2025', this)">2025</button>
               <button class="chip-btn" onclick="setQuickYear('2024', this)">2024</button>
             </div>
-            <!-- Dynamic Month Chips Container (Option 1) -->
+            <!-- Dynamic Month Chips Container -->
             <div id="quick-months-container"></div>
           </div>
 
           <!-- Filter 2: Faith & User Belief (LLM Ground Truth) -->
           <div class="filter-group">
             <label class="filter-label">
-              <span class="filter-label-text"><i class="fa-solid fa-user-tag"></i> ديانة / معتقد السائل الموثق</span>
+              <span class="filter-label-text"><i class="fa-solid fa-user-tag"></i> <span data-i18n="lblFaith">ديانة / معتقد السائل الموثق</span></span>
             </label>
             <select id="filter-faith" class="filter-select" onchange="applyFilters()">
               <option value="all">جميع المعتقدات والديانات</option>
@@ -194,7 +199,7 @@
           <!-- Filter 3: Intent Classification (LLM Ground Truth) -->
           <div class="filter-group">
             <label class="filter-label">
-              <span class="filter-label-text"><i class="fa-solid fa-bullseye"></i> نية وطبيعة السائل</span>
+              <span class="filter-label-text"><i class="fa-solid fa-bullseye"></i> <span data-i18n="lblIntent">نية وطبيعة السائل</span></span>
             </label>
             <select id="filter-intent" class="filter-select" onchange="applyFilters()">
               <option value="all">جميع النوايا والأنماط</option>
@@ -212,7 +217,7 @@
           <!-- Filter 4: Conversion Funnel Stage (NEW LLM Dimension) -->
           <div class="filter-group">
             <label class="filter-label">
-              <span class="filter-label-text"><i class="fa-solid fa-filter-circle-dollar"></i> مرحلة قمع الدعوة والهداية</span>
+              <span class="filter-label-text"><i class="fa-solid fa-filter-circle-dollar"></i> <span data-i18n="lblFunnel">مرحلة قمع الدعوة والهداية</span></span>
             </label>
             <select id="filter-funnel" class="filter-select" onchange="applyFilters()">
               <option value="all">جميع مراحل القمع الدعوي</option>
@@ -228,7 +233,7 @@
           <!-- Filter 5: Key Blocker / Theological Objection (NEW LLM Dimension) -->
           <div class="filter-group">
             <label class="filter-label">
-              <span class="filter-label-text"><i class="fa-solid fa-shield-halved"></i> العائق الفكري والشبهة الرئيسية</span>
+              <span class="filter-label-text"><i class="fa-solid fa-shield-halved"></i> <span data-i18n="lblBlocker">العائق الفكري والشبهة الرئيسية</span></span>
             </label>
             <select id="filter-blocker" class="filter-select" onchange="applyFilters()">
               <option value="all">جميع العوائق والشبهات</option>
@@ -249,7 +254,7 @@
           <!-- Filter 6: Conversation Type (NEW LLM Dimension) -->
           <div class="filter-group">
             <label class="filter-label">
-              <span class="filter-label-text"><i class="fa-solid fa-comments-dollar"></i> نوع وسياق المحادثة</span>
+              <span class="filter-label-text"><i class="fa-solid fa-comments-dollar"></i> <span data-i18n="lblConvType">نوع وسياق المحادثة</span></span>
             </label>
             <select id="filter-convtype" class="filter-select" onchange="applyFilters()">
               <option value="all">جميع أنواع المحادثات</option>
@@ -266,7 +271,7 @@
           <!-- Filter 7: Topic Category -->
           <div class="filter-group">
             <label class="filter-label">
-              <span class="filter-label-text"><i class="fa-solid fa-book-quran"></i> الباب والموضوع الشرعي</span>
+              <span class="filter-label-text"><i class="fa-solid fa-book-quran"></i> <span data-i18n="lblTopic">الباب والموضوع الشرعي</span></span>
             </label>
             <select id="filter-topic" class="filter-select" onchange="applyFilters()">
               <option value="all">جميع الأبواب الشرعية</option>
@@ -286,7 +291,7 @@
           <!-- Filter 8: Language -->
           <div class="filter-group">
             <label class="filter-label">
-              <span class="filter-label-text"><i class="fa-solid fa-globe"></i> لغة المحادثة (51 لغة)</span>
+              <span class="filter-label-text"><i class="fa-solid fa-globe"></i> <span data-i18n="lblLanguage">لغة المحادثة (51 لغة)</span></span>
             </label>
             <select id="filter-language" class="filter-select" onchange="applyFilters()">
               <option value="all">جميع اللغات (51 لغة)</option>
@@ -310,9 +315,9 @@
           <!-- Filter 9: Geographic Region / Linguistic Sphere (Option 3 with Informative Badge) -->
           <div class="filter-group">
             <label class="filter-label">
-              <span class="filter-label-text"><i class="fa-solid fa-map-location-dot"></i> المنطقة الجغرافية</span>
+              <span class="filter-label-text"><i class="fa-solid fa-map-location-dot"></i> <span data-i18n="lblRegion">المنطقة الجغرافية</span></span>
               <span class="info-tooltip-badge" title="تم استنتاج المنطقة استناداً إلى لغة المحادثة الأصلية للمستخدم (Linguistic-Geographic Sphere)">
-                <i class="fa-solid fa-circle-info"></i> مبني على لغة الحوار
+                <i class="fa-solid fa-circle-info"></i> <span data-i18n="badgeRegionInfo">مبني على لغة الحوار</span>
               </span>
             </label>
             <select id="filter-region" class="filter-select" onchange="applyFilters()">
@@ -330,7 +335,7 @@
           <!-- Filter 10: Trending / Cluster Size -->
           <div class="filter-group">
             <label class="filter-label">
-              <span class="filter-label-text"><i class="fa-solid fa-fire-flame-curved"></i> تكرار وشهرة السؤال</span>
+              <span class="filter-label-text"><i class="fa-solid fa-fire-flame-curved"></i> <span data-i18n="lblTrending">تكرار وشهرة السؤال</span></span>
             </label>
             <select id="filter-trending" class="filter-select" onchange="applyFilters()">
               <option value="all">الكل (الأسئلة الفردية والشائعة)</option>
@@ -345,8 +350,8 @@
       <div class="charts-split-grid">
         <div class="chart-card">
           <div class="chart-card-header">
-            <span class="chart-card-title"><i class="fa-solid fa-chart-area"></i> توزيع وتطور الأسئلة المفلترة عبر الأشهر</span>
-            <span class="badge badge-topic" id="chart-timeline-badge">تحديث فوري</span>
+            <span class="chart-card-title"><i class="fa-solid fa-chart-area"></i> <span data-i18n="chartTimelineTitle">توزيع وتطور الأسئلة المفلترة عبر الأشهر</span></span>
+            <span class="badge badge-topic" id="chart-timeline-badge" data-i18n="chartTimelineBadge">تحديث فوري</span>
           </div>
           <div class="chart-canvas-wrapper">
             <canvas id="timelineChart"></canvas>
@@ -355,8 +360,8 @@
 
         <div class="chart-card">
           <div class="chart-card-header">
-            <span class="chart-card-title"><i class="fa-solid fa-chart-pie"></i> توزيع معتقدات وسلوك السائلين للنتائج الحالية (LLM)</span>
-            <span class="badge badge-faith" id="chart-faith-badge">Faith Breakdown</span>
+            <span class="chart-card-title"><i class="fa-solid fa-chart-pie"></i> <span data-i18n="chartFaithTitle">توزيع معتقدات وسلوك السائلين للنتائج الحالية (LLM)</span></span>
+            <span class="badge badge-faith" id="chart-faith-badge" data-i18n="chartFaithBadge">Faith Breakdown</span>
           </div>
           <div class="chart-canvas-wrapper">
             <canvas id="faithChart"></canvas>
@@ -367,13 +372,13 @@
       <!-- Results Header & Controls -->
       <div class="results-bar">
         <div class="results-count-title">
-          <i class="fa-solid fa-list-check"></i> قائمة الأسئلة المستخرجة (<span id="results-count">11,596</span> سؤالاً مطابقاً)
+          <i class="fa-solid fa-list-check"></i> <span data-i18n="resultsCountPrefix">قائمة الأسئلة المستخرجة</span> (<span id="results-count">11,596</span> <span data-i18n="resultsCountSuffix">سؤالاً مطابقاً</span>)
         </div>
 
         <div class="results-controls">
           <div class="search-input-wrapper">
             <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" id="live-search-input" class="filter-input" placeholder="ابحث في نص السؤال، الإجابة، أو العائق الفكري..." onkeyup="onSearchInput()">
+            <input type="text" id="live-search-input" class="filter-input" data-i18n="searchPlaceholder" placeholder="ابحث في نص السؤال، الإجابة، أو العائق الفكري..." onkeyup="onSearchInput()">
           </div>
 
           <select id="sort-select" class="filter-select" style="width: 170px;" onchange="applySort()">
@@ -2499,9 +2504,9 @@
       
       <!-- Strategic Hero Banner -->
       <div class="hero-banner">
-        <div class="hero-badge"><i class="fa-solid fa-book-journal-whills"></i> الدليل الاستراتيجي والتشغيلي للدعاة</div>
-        <h2 class="hero-title">أدلة الحوار التكتيكية لكل ديانة وتحليل ترافيك المنصة</h2>
-        <p class="hero-subtitle">
+        <div class="hero-badge"><i class="fa-solid fa-book-journal-whills"></i> <span data-i18n="playbookHeroBadge">الدليل الاستراتيجي والتشغيلي للدعاة</span></div>
+        <h2 class="hero-title" data-i18n="playbookHeroTitle">أدلة الحوار التكتيكية لكل ديانة وتحليل ترافيك المنصة</h2>
+        <p class="hero-subtitle" data-i18n="playbookHeroSubtitle">
           خلاصة الدراسات التحليلية النوعية لـ <strong>12,448 محادثة</strong> و <strong>22.9 مليون توكن</strong>؛ لتزويد الدعاة والذكاء الاصطناعي بخطط حوار تكتيكية مخصصة لكل معتقد وإدارة الموارد التقنية بكفاءة.
         </p>
       </div>
@@ -2512,8 +2517,8 @@
           <div class="section-header-title">
             <div class="topic-number-badge"><i class="fa-solid fa-compass"></i></div>
             <div>
-              <h3>1. أدلة الحوار التكتيكية المخصصة لكل ديانة (Religion-Specific Concern Playbooks)</h3>
-              <p style="font-size: 13px; color: var(--text-muted);">خطط حوار تشغيلية واستراتيجيات ردود مبنية على تحليل أداء آلاف الحوارات الحقيقية.</p>
+              <h3 data-i18n="sec1Title">1. أدلة الحوار التكتيكية المخصصة لكل ديانة (Religion-Specific Concern Playbooks)</h3>
+              <p style="font-size: 13px; color: var(--text-muted);" data-i18n="sec1Sub">خطط حوار تشغيلية واستراتيجيات ردود مبنية على تحليل أداء آلاف الحوارات الحقيقية.</p>
             </div>
           </div>
         </div>
@@ -2522,19 +2527,19 @@
           <!-- Playbook Tabs -->
           <div class="playbook-nav-tabs">
             <button class="playbook-tab-btn active" onclick="switchPlaybook('christianity')">
-              <i class="fa-solid fa-cross"></i> حوار المسيحيين (2,036)
+              <i class="fa-solid fa-cross"></i> <span data-i18n="tabPlaybookChrist">حوار المسيحيين (2,036)</span>
             </button>
             <button class="playbook-tab-btn" onclick="switchPlaybook('atheism')">
-              <i class="fa-solid fa-atom"></i> حوار الملاحدة واللادينيين (939)
+              <i class="fa-solid fa-atom"></i> <span data-i18n="tabPlaybookAtheist">حوار الملاحدة واللادينيين (939)</span>
             </button>
             <button class="playbook-tab-btn" onclick="switchPlaybook('hinduism')">
-              <i class="fa-solid fa-om"></i> حوار الهندوس والسيخ (336)
+              <i class="fa-solid fa-om"></i> <span data-i18n="tabPlaybookHindu">حوار الهندوس والسيخ (336)</span>
             </button>
             <button class="playbook-tab-btn" onclick="switchPlaybook('judaism')">
-              <i class="fa-solid fa-star-of-david"></i> حوار اليهود (88)
+              <i class="fa-solid fa-star-of-david"></i> <span data-i18n="tabPlaybookJew">حوار اليهود (88)</span>
             </button>
             <button class="playbook-tab-btn" onclick="switchPlaybook('buddhism')">
-              <i class="fa-solid fa-dharmachakra"></i> حوار البوذيين (103)
+              <i class="fa-solid fa-dharmachakra"></i> <span data-i18n="tabPlaybookBuddha">حوار البوذيين (103)</span>
             </button>
           </div>
 
@@ -2553,53 +2558,53 @@
               <i class="fa-solid fa-coins"></i>
             </div>
             <div>
-              <h3>2. تحليل حركة المسلمين على البوت وإدارة التوكنز (Muslim Traffic & Token Optimization)</h3>
-              <p style="font-size: 13px; color: var(--text-muted);">دراسة استهلاك 22.9 مليون توكن والتوصيات المعمارية لتوفير 24.4% من التكاليف.</p>
+              <h3 data-i18n="sec2Title">2. تحليل حركة المسلمين على البوت وإدارة التوكنز (Muslim Traffic & Token Optimization)</h3>
+              <p style="font-size: 13px; color: var(--text-muted);" data-i18n="sec2Sub">دراسة استهلاك 22.9 مليون توكن والتوصيات المعمارية لتوفير 24.4% من التكاليف.</p>
             </div>
           </div>
         </div>
 
         <div class="token-stats-grid">
           <div class="token-stat-card">
-            <span class="badge badge-topic"><i class="fa-solid fa-users"></i> إجمالي محادثات المسلمين</span>
+            <span class="badge badge-topic"><i class="fa-solid fa-users"></i> <span data-i18n="kpiMuslimChats">إجمالي محادثات المسلمين</span></span>
             <div class="token-stat-val">4,601</div>
-            <div class="token-stat-sub">37.0% من إجمالي حركة المنصة</div>
+            <div class="token-stat-sub" data-i18n="kpiMuslimChatsSub">37.0% من إجمالي حركة المنصة</div>
           </div>
 
           <div class="token-stat-card">
-            <span class="badge badge-trending"><i class="fa-solid fa-microchip"></i> استهلاك التوكنز للمسلمين</span>
+            <span class="badge badge-trending"><i class="fa-solid fa-microchip"></i> <span data-i18n="kpiMuslimTokens">استهلاك التوكنز للمسلمين</span></span>
             <div class="token-stat-val">22.9M</div>
-            <div class="token-stat-sub">39.9% من إجمالي ميزانية الـ Tokens</div>
+            <div class="token-stat-sub" data-i18n="kpiMuslimTokensSub">39.9% من إجمالي ميزانية الـ Tokens</div>
           </div>
 
           <div class="token-stat-card">
-            <span class="badge badge-faith"><i class="fa-solid fa-scale-balanced"></i> طلب الفتاوى والإرشاد الفقهي</span>
+            <span class="badge badge-faith"><i class="fa-solid fa-scale-balanced"></i> <span data-i18n="kpiMuslimFiqh">طلب الفتاوى والإرشاد الفقهي</span></span>
             <div class="token-stat-val">2,690</div>
-            <div class="token-stat-sub">58.5% من أسئلة المسلمين</div>
+            <div class="token-stat-sub" data-i18n="kpiMuslimFiqhSub">58.5% من أسئلة المسلمين</div>
           </div>
 
           <div class="token-stat-card">
-            <span class="badge badge-intent"><i class="fa-solid fa-graduation-cap"></i> التدريب على الدعوة (Training)</span>
+            <span class="badge badge-intent"><i class="fa-solid fa-graduation-cap"></i> <span data-i18n="kpiMuslimTraining">التدريب على الدعوة (Training)</span></span>
             <div class="token-stat-val">838</div>
-            <div class="token-stat-sub">18.2% من أسئلة المسلمين</div>
+            <div class="token-stat-sub" data-i18n="kpiMuslimTrainingSub">18.2% من أسئلة المسلمين</div>
           </div>
         </div>
 
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
           <div style="background: var(--bg-secondary); padding: 22px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
             <div style="font-size: 14.5px; font-weight: 800; color: var(--brand-teal); margin-bottom: 10px;">
-              <i class="fa-solid fa-triangle-exclamation"></i> التحدي المكتشف في البيانات
+              <i class="fa-solid fa-triangle-exclamation"></i> <span data-i18n="boxChallengeTitle">التحدي المكتشف في البيانات</span>
             </div>
-            <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.7;">
+            <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.7;" data-i18n="boxChallengeText">
               يستهلك المستخدم المسلم متوسط <strong>4,979 توكن</strong> لكل محادثة مقارنة بـ 4,393 توكن لغير المسلم، نظراً لاسترسال البوت في تفصيل المسائل الفقهية والخلافات المذهبية بدلاً من التركيز على الهدف الأساسي للمنصة وهو دعوة غير المسلمين.
             </p>
           </div>
 
           <div style="background: var(--bg-secondary); padding: 22px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
             <div style="font-size: 14.5px; font-weight: 800; color: var(--benefit-green); margin-bottom: 10px;">
-              <i class="fa-solid fa-sitemap"></i> الحل المعماري المقترح (Dual-Track Routing)
+              <i class="fa-solid fa-sitemap"></i> <span data-i18n="boxSolutionTitle">الحل المعماري المقترح (Dual-Track Routing)</span>
             </div>
-            <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.7;">
+            <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.7;" data-i18n="boxSolutionText">
               بناء طبقة توجيه ذكية تفصل المحادثات فورياً: مسار دعوي متخصص ومكثف لغير المسلمين (Dawah Track)، ومسار استشاري فقهي سريع ومدعوم بقاعدة فتاوى مختصرة للمسلمين، مما <strong>يوفر ما يصل إلى 24.4% من التوكنز المهدرة</strong>.
             </p>
           </div>
@@ -2612,51 +2617,51 @@
           <div class="section-header-title">
             <div class="topic-number-badge"><i class="fa-solid fa-layer-group"></i></div>
             <div>
-              <h3>3. المحاور الموضوعية الـ 8 الكبرى (Thematic Super-Clusters)</h3>
-              <p style="font-size: 13px; color: var(--text-muted);">تحليل وتطبيع 22,028 إشارة لموضوعات الحوار عبر المنصة.</p>
+              <h3 data-i18n="sec3Title">3. المحاور الموضوعية الـ 8 الكبرى (Thematic Super-Clusters)</h3>
+              <p style="font-size: 13px; color: var(--text-muted);" data-i18n="sec3Sub">تحليل وتطبيع 22,028 إشارة لموضوعات الحوار عبر المنصة.</p>
             </div>
           </div>
         </div>
 
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
           <div style="background: var(--bg-secondary); padding: 18px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
-            <div style="font-size: 14px; font-weight: 800; color: var(--brand-teal); margin-bottom: 6px;"><i class="fa-solid fa-kaaba"></i> 1. العبادات وأركان الإسلام</div>
-            <div style="font-size: 12.5px; color: var(--text-muted);">1,862 إشارة عبر 1,313 محادثة (الصلاة، الصيام، الطهارة، الحج).</div>
+            <div style="font-size: 14px; font-weight: 800; color: var(--brand-teal); margin-bottom: 6px;"><i class="fa-solid fa-kaaba"></i> <span data-i18n="super1Title">1. العبادات وأركان الإسلام</span></div>
+            <div style="font-size: 12.5px; color: var(--text-muted);" data-i18n="super1Sub">1,862 إشارة عبر 1,313 محادثة (الصلاة، الصيام، الطهارة، الحج).</div>
           </div>
 
           <div style="background: var(--bg-secondary); padding: 18px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
-            <div style="font-size: 14px; font-weight: 800; color: var(--brand-gold); margin-bottom: 6px;"><i class="fa-solid fa-sun"></i> 2. التوحيد ونفي الشريك</div>
-            <div style="font-size: 12.5px; color: var(--text-muted);">1,596 إشارة عبر 1,511 محادثة (شهادة أن لا إله إلا الله، أسماء الله وصفاته).</div>
+            <div style="font-size: 14px; font-weight: 800; color: var(--brand-gold); margin-bottom: 6px;"><i class="fa-solid fa-sun"></i> <span data-i18n="super2Title">2. التوحيد ونفي الشريك</span></div>
+            <div style="font-size: 12.5px; color: var(--text-muted);" data-i18n="super2Sub">1,596 إشارة عبر 1,511 محادثة (شهادة أن لا إله إلا الله، أسماء الله وصفاته).</div>
           </div>
 
           <div style="background: var(--bg-secondary); padding: 18px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
-            <div style="font-size: 14px; font-weight: 800; color: var(--data-blue); margin-bottom: 6px;"><i class="fa-solid fa-book-quran"></i> 3. القرآن الكريم وأصالته</div>
-            <div style="font-size: 12.5px; color: var(--text-muted);">1,523 إشارة عبر 1,228 محادثة (حفظ النص القرآني، الإعجاز، والمخطوطات).</div>
+            <div style="font-size: 14px; font-weight: 800; color: var(--data-blue); margin-bottom: 6px;"><i class="fa-solid fa-book-quran"></i> <span data-i18n="super3Title">3. القرآن الكريم وأصالته</span></div>
+            <div style="font-size: 12.5px; color: var(--text-muted);" data-i18n="super3Sub">1,523 إشارة عبر 1,228 محادثة (حفظ النص القرآني، الإعجاز، والمخطوطات).</div>
           </div>
 
           <div style="background: var(--bg-secondary); padding: 18px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
-            <div style="font-size: 14px; font-weight: 800; color: var(--insight-purple); margin-bottom: 6px;"><i class="fa-solid fa-person-praying"></i> 4. عيسى في الإسلام</div>
-            <div style="font-size: 12.5px; color: var(--text-muted);">848 إشارة (بشرية المسيح، مريم العذراء، تفنيد التثليث والصلب).</div>
+            <div style="font-size: 14px; font-weight: 800; color: var(--insight-purple); margin-bottom: 6px;"><i class="fa-solid fa-person-praying"></i> <span data-i18n="super4Title">4. عيسى في الإسلام</span></div>
+            <div style="font-size: 12.5px; color: var(--text-muted);" data-i18n="super4Sub">848 إشارة (بشرية المسيح، مريم العذراء، تفنيد التثليث والصلب).</div>
           </div>
 
           <div style="background: var(--bg-secondary); padding: 18px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
-            <div style="font-size: 14px; font-weight: 800; color: var(--danger-red); margin-bottom: 6px;"><i class="fa-solid fa-brain"></i> 5. براهين الخالق والعلية</div>
-            <div style="font-size: 12.5px; color: var(--text-muted);">352 إشارة (أدلة التصميم والضبط الدقيق والرد على التفسير المادي).</div>
+            <div style="font-size: 14px; font-weight: 800; color: var(--danger-red); margin-bottom: 6px;"><i class="fa-solid fa-brain"></i> <span data-i18n="super5Title">5. براهين الخالق والعلية</span></div>
+            <div style="font-size: 12.5px; color: var(--text-muted);" data-i18n="super5Sub">352 إشارة (أدلة التصميم والضبط الدقيق والرد على التفسير المادي).</div>
           </div>
 
           <div style="background: var(--bg-secondary); padding: 18px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
-            <div style="font-size: 14px; font-weight: 800; color: var(--benefit-green); margin-bottom: 6px;"><i class="fa-solid fa-scroll"></i> 6. النبوة ورسالة محمد ﷺ</div>
-            <div style="font-size: 12.5px; color: var(--text-muted);">دلائل النبوة، السيرة النبوية، والبشارات في الكتب السابقة.</div>
+            <div style="font-size: 14px; font-weight: 800; color: var(--benefit-green); margin-bottom: 6px;"><i class="fa-solid fa-scroll"></i> <span data-i18n="super6Title">6. النبوة ورسالة محمد ﷺ</span></div>
+            <div style="font-size: 12.5px; color: var(--text-muted);" data-i18n="super6Sub">دلائل النبوة، السيرة النبوية، والبشارات في الكتب السابقة.</div>
           </div>
 
           <div style="background: var(--bg-secondary); padding: 18px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
-            <div style="font-size: 14px; font-weight: 800; color: var(--warning-amber); margin-bottom: 6px;"><i class="fa-solid fa-scale-balanced"></i> 7. القدر ومشكلة الشر والألم</div>
-            <div style="font-size: 12.5px; color: var(--text-muted);">الحكمة من الابتلاء، العدل الإلهي، ومعنى الحياة الدنيا.</div>
+            <div style="font-size: 14px; font-weight: 800; color: var(--warning-amber); margin-bottom: 6px;"><i class="fa-solid fa-scale-balanced"></i> <span data-i18n="super7Title">7. القدر ومشكلة الشر والألم</span></div>
+            <div style="font-size: 12.5px; color: var(--text-muted);" data-i18n="super7Sub">الحكمة من الابتلاء، العدل الإلهي، ومعنى الحياة الدنيا.</div>
           </div>
 
           <div style="background: var(--bg-secondary); padding: 18px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
-            <div style="font-size: 14px; font-weight: 800; color: var(--text-primary); margin-bottom: 6px;"><i class="fa-solid fa-users"></i> 8. الشريعة والأسرة ومكانة المرأة</div>
-            <div style="font-size: 12.5px; color: var(--text-muted);">حقوق المرأة، نظام الميراث، الحجاب، ومقاصد الشريعة الإسلامية.</div>
+            <div style="font-size: 14px; font-weight: 800; color: var(--text-primary); margin-bottom: 6px;"><i class="fa-solid fa-users"></i> <span data-i18n="super8Title">8. الشريعة والأسرة ومكانة المرأة</span></div>
+            <div style="font-size: 12.5px; color: var(--text-muted);" data-i18n="super8Sub">حقوق المرأة، نظام الميراث، الحجاب، ومقاصد الشريعة الإسلامية.</div>
           </div>
         </div>
       </div>
@@ -2669,7 +2674,7 @@
   <div class="modal-overlay" id="dialogue-modal" onclick="closeDialogueModal(event)">
     <div class="modal-container" onclick="event.stopPropagation()">
       <div class="modal-header">
-        <h3 id="modal-title"><i class="fa-solid fa-comments"></i> سياق المحادثة الكاملة (#<span id="modal-chat-id"></span>)</h3>
+        <h3 id="modal-title"><i class="fa-solid fa-comments"></i> <span data-i18n="modalDialogueTitle">سياق المحادثة الكاملة</span> (#<span id="modal-chat-id"></span>)</h3>
         <button class="modal-close-btn" onclick="closeDialogueModal()"><i class="fa-solid fa-xmark"></i></button>
       </div>
       <div class="modal-body" id="modal-chat-body">
@@ -2685,21 +2690,22 @@
 
   <!-- Footer -->
   <footer class="dashboard-footer">
-    <p>Islam.chat Intelligence Hub & Analytics Suite • تم تحليل 12,448 محادثة و 11,596 سؤالاً شرعياً موثقاً بالـ LLM</p>
+    <p data-i18n="footerText">Islam.chat Intelligence Hub & Analytics Suite • تم تحليل 12,448 محادثة و 11,596 سؤالاً شرعياً موثقاً بالـ LLM</p>
   </footer>
 
   <!-- Preloaded Data Objects (Guarantees zero CORS issue on file:/// protocol) -->
-  <script src="assets/data/enriched_qa_data.js?v=2.5"></script>
-  <script src="assets/data/conversations_data.js?v=2.5"></script>
+  <script src="assets/data/enriched_qa_data.js?v=3.0"></script>
+  <script src="assets/data/conversations_data.js?v=3.0"></script>
 
   <!-- Modular Scripts (Microservices Architecture with Cache Busting) -->
-  <script src="assets/js/services/api.service.js?v=2.5"></script>
-  <script src="assets/js/services/filter.service.js?v=2.5"></script>
-  <script src="assets/js/services/chart.service.js?v=2.5"></script>
-  <script src="assets/js/components/qa-card.component.js?v=2.5"></script>
-  <script src="assets/js/components/dialogue-modal.component.js?v=2.5"></script>
-  <script src="assets/js/components/lightbox.component.js?v=2.5"></script>
-  <script src="assets/js/components/playbooks.component.js?v=2.5"></script>
-  <script src="assets/js/app.js?v=2.5"></script>
+  <script src="assets/js/services/i18n.service.js?v=3.0"></script>
+  <script src="assets/js/services/api.service.js?v=3.0"></script>
+  <script src="assets/js/services/filter.service.js?v=3.0"></script>
+  <script src="assets/js/services/chart.service.js?v=3.0"></script>
+  <script src="assets/js/components/qa-card.component.js?v=3.0"></script>
+  <script src="assets/js/components/dialogue-modal.component.js?v=3.0"></script>
+  <script src="assets/js/components/lightbox.component.js?v=3.0"></script>
+  <script src="assets/js/components/playbooks.component.js?v=3.0"></script>
+  <script src="assets/js/app.js?v=3.0"></script>
 </body>
 </html>

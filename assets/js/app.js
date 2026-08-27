@@ -1,5 +1,5 @@
 /**
- * Main Application Orchestrator & Controller (100% LLM Ground Truth)
+ * Main Application Orchestrator & Controller (100% LLM Ground Truth - Bilingual)
  */
 window.App = {
   allQuestions: [],
@@ -10,36 +10,70 @@ window.App = {
   toastTimeout: null,
 
   availableMonthsData: {
-    "all": [
-      { key: "all", label: "كل الشهور (18 شهراً)" }
-    ],
-    "2024": [
-      { key: "all", label: "كل شهور 2024" },
-      { key: "10", label: "أكتوبر (12)" },
-      { key: "11", label: "نوفمبر (2)" },
-      { key: "12", label: "ديسمبر (22)" }
-    ],
-    "2025": [
-      { key: "all", label: "كل شهور 2025" },
-      { key: "01", label: "يناير (127)" },
-      { key: "02", label: "فبراير (38)" },
-      { key: "03", label: "مارس (1,884)" },
-      { key: "04", label: "أبريل (562)" },
-      { key: "05", label: "مايو (498)" },
-      { key: "06", label: "يونيو (1,700)" },
-      { key: "07", label: "يوليو (989)" },
-      { key: "08", label: "أغسطس (732)" },
-      { key: "09", label: "سبتمبر (688)" },
-      { key: "10", label: "أكتوبر (1,126)" },
-      { key: "11", label: "نوفمبر (781)" },
-      { key: "12", label: "ديسمبر (820)" }
-    ],
-    "2026": [
-      { key: "all", label: "كل شهور 2026" },
-      { key: "01", label: "يناير (578)" },
-      { key: "02", label: "فبراير (535)" },
-      { key: "03", label: "مارس (502)" }
-    ]
+    ar: {
+      "all": [
+        { key: "all", label: "كل الشهور (18 شهراً)" }
+      ],
+      "2024": [
+        { key: "all", label: "كل شهور 2024" },
+        { key: "10", label: "أكتوبر (12)" },
+        { key: "11", label: "نوفمبر (2)" },
+        { key: "12", label: "ديسمبر (22)" }
+      ],
+      "2025": [
+        { key: "all", label: "كل شهور 2025" },
+        { key: "01", label: "يناير (127)" },
+        { key: "02", label: "فبراير (38)" },
+        { key: "03", label: "مارس (1,884)" },
+        { key: "04", label: "أبريل (562)" },
+        { key: "05", label: "مايو (498)" },
+        { key: "06", label: "يونيو (1,700)" },
+        { key: "07", label: "يوليو (989)" },
+        { key: "08", label: "أغسطس (732)" },
+        { key: "09", label: "سبتمبر (688)" },
+        { key: "10", label: "أكتوبر (1,126)" },
+        { key: "11", label: "نوفمبر (781)" },
+        { key: "12", label: "ديسمبر (820)" }
+      ],
+      "2026": [
+        { key: "all", label: "كل شهور 2026" },
+        { key: "01", label: "يناير (578)" },
+        { key: "02", label: "فبراير (535)" },
+        { key: "03", label: "مارس (502)" }
+      ]
+    },
+    en: {
+      "all": [
+        { key: "all", label: "All Months (18 Months)" }
+      ],
+      "2024": [
+        { key: "all", label: "All 2024 Months" },
+        { key: "10", label: "Oct (12)" },
+        { key: "11", label: "Nov (2)" },
+        { key: "12", label: "Dec (22)" }
+      ],
+      "2025": [
+        { key: "all", label: "All 2025 Months" },
+        { key: "01", label: "Jan (127)" },
+        { key: "02", label: "Feb (38)" },
+        { key: "03", label: "Mar (1,884)" },
+        { key: "04", label: "Apr (562)" },
+        { key: "05", label: "May (498)" },
+        { key: "06", label: "Jun (1,700)" },
+        { key: "07", label: "Jul (989)" },
+        { key: "08", label: "Aug (732)" },
+        { key: "09", label: "Sep (688)" },
+        { key: "10", label: "Oct (1,126)" },
+        { key: "11", label: "Nov (781)" },
+        { key: "12", label: "Dec (820)" }
+      ],
+      "2026": [
+        { key: "all", label: "All 2026 Months" },
+        { key: "01", label: "Jan (578)" },
+        { key: "02", label: "Feb (535)" },
+        { key: "03", label: "Mar (502)" }
+      ]
+    }
   },
 
   async init() {
@@ -100,12 +134,16 @@ window.App = {
     const container = document.getElementById("quick-months-container");
     if (!container) return;
 
-    const months = this.availableMonthsData[yearVal] || this.availableMonthsData["all"];
+    const isEn = window.I18nService && window.I18nService.currentLang === "en";
+    const langDict = isEn ? this.availableMonthsData.en : this.availableMonthsData.ar;
+    const months = langDict[yearVal] || langDict["all"];
+    const titlePrefix = isEn ? "Available Months for" : "الشهور المتاحة لسنة";
+    const platformLabel = isEn ? "Platform" : "المنصة";
     
     container.innerHTML = `
       <div class="quick-months-wrapper">
         <div class="quick-months-title">
-          <i class="fa-solid fa-calendar-days"></i> الشهور المتاحة لسنة ${yearVal === "all" ? "المنصة" : yearVal}:
+          <i class="fa-solid fa-calendar-days"></i> ${titlePrefix} ${yearVal === "all" ? platformLabel : yearVal}:
         </div>
         <div class="quick-month-chips">
           ${months.map(m => `
@@ -122,7 +160,6 @@ window.App = {
   onYearDropdownChange() {
     const yearVal = document.getElementById("filter-year")?.value || "all";
     
-    // Sync chip buttons
     document.querySelectorAll(".chip-btn").forEach(b => {
       const isMatch = b.getAttribute("onclick")?.includes(`'${yearVal}'`);
       b.classList.toggle("active", isMatch);
@@ -225,8 +262,8 @@ window.App = {
     // Re-apply filters to immediately refresh KPIs, charts, and cards
     this.applyFilters();
 
-    // Show visual confirmation toast
-    this.showToast("تمت استعادة كافة الفلاتر والبيانات بنجاح (11,596 سؤالاً)");
+    const isEn = window.I18nService && window.I18nService.currentLang === "en";
+    this.showToast(isEn ? "All filters and dataset successfully restored (11,596 questions)" : "تمت استعادة كافة الفلاتر والبيانات بنجاح (11,596 سؤالاً)");
   },
 
   showToast(message) {
@@ -262,6 +299,7 @@ window.App = {
 
   updateKPIs() {
     const kpi = FilterService.calculateKPIs(this.filteredQuestions, this.allQuestions.length);
+    const isEn = window.I18nService && window.I18nService.currentLang === "en";
 
     const elFiltered = document.getElementById("kpi-filtered-count");
     if (elFiltered) elFiltered.textContent = kpi.filteredCount.toLocaleString();
@@ -270,7 +308,10 @@ window.App = {
     if (elResults) elResults.textContent = kpi.filteredCount.toLocaleString();
 
     const elPct = document.getElementById("kpi-percentage-badge");
-    if (elPct) elPct.textContent = kpi.percentageBadge;
+    if (elPct) {
+      const pctVal = ((kpi.filteredCount / this.allQuestions.length) * 100).toFixed(1);
+      elPct.textContent = isEn ? `${pctVal}% of Total Questions` : `${pctVal}% من إجمالي الأسئلة`;
+    }
 
     const elSeekers = document.getElementById("kpi-seekers-count");
     if (elSeekers) elSeekers.textContent = kpi.genuineSeekers.toLocaleString();
@@ -299,8 +340,9 @@ window.App = {
   },
 
   exportFilteredDataCSV() {
+    const isEn = window.I18nService && window.I18nService.currentLang === "en";
     if (this.filteredQuestions.length === 0) {
-      alert("لا توجد بيانات مطابقة لتصديرها!");
+      alert(isEn ? "No matching data available to export!" : "لا توجد بيانات مطابقة لتصديرها!");
       return;
     }
 
@@ -310,12 +352,12 @@ window.App = {
       q.conversation_id,
       `"${(q.question || '').replace(/"/g, '""')}"`,
       `"${(q.answer || '').replace(/"/g, '""')}"`,
-      `"${q.topic_ar || q.topic}"`,
-      `"${q.faith_ar}"`,
-      `"${q.intent_ar}"`,
-      `"${q.funnel_stage_ar}"`,
-      `"${q.key_blocker_ar}"`,
-      `"${q.conversation_type_ar}"`,
+      `"${isEn ? (q.topic || q.topic_ar) : (q.topic_ar || q.topic)}"`,
+      `"${isEn ? (q.faith || q.faith_ar) : q.faith_ar}"`,
+      `"${isEn ? (q.intent || q.intent_ar) : q.intent_ar}"`,
+      `"${isEn ? (q.funnel_stage || q.funnel_stage_ar) : q.funnel_stage_ar}"`,
+      `"${isEn ? (q.key_blocker || q.key_blocker_ar) : q.key_blocker_ar}"`,
+      `"${isEn ? (q.conversation_type || q.conversation_type_ar) : q.conversation_type_ar}"`,
       `"${q.language}"`,
       `"${q.region_ar}"`,
       q.date || '',
@@ -327,7 +369,7 @@ window.App = {
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.setAttribute("href", url);
-    link.setAttribute("download", `islam_chat_llm_filtered_qa_${new Date().toISOString().slice(0,10)}.csv`);
+    link.setAttribute("download", `islam_chat_${isEn ? 'en' : 'ar'}_filtered_qa_${new Date().toISOString().slice(0,10)}.csv`);
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

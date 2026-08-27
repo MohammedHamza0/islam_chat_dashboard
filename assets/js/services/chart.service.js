@@ -1,32 +1,34 @@
 /**
- * ChartService: Dynamic Chart.js Rendering and Live Updates (100% LLM Ground Truth)
+ * ChartService: Dynamic Chart.js Rendering and Live Updates (100% LLM Ground Truth - Bilingual)
  */
 window.ChartService = {
   timelineChart: null,
   faithChart: null,
 
   monthKeys: [
-    { key: "2024-10", label: "أكتوبر 24" },
-    { key: "2024-11", label: "نوفمبر 24" },
-    { key: "2024-12", label: "ديسمبر 24" },
-    { key: "2025-01", label: "يناير 25" },
-    { key: "2025-02", label: "فبراير 25" },
-    { key: "2025-03", label: "مارس 25" },
-    { key: "2025-04", label: "أبريل 25" },
-    { key: "2025-05", label: "مايو 25" },
-    { key: "2025-06", label: "يونيو 25" },
-    { key: "2025-07", label: "يوليو 25" },
-    { key: "2025-08", label: "أغسطس 25" },
-    { key: "2025-09", label: "سبتمبر 25" },
-    { key: "2025-10", label: "أكتوبر 25" },
-    { key: "2025-11", label: "نوفمبر 25" },
-    { key: "2025-12", label: "ديسمبر 25" },
-    { key: "2026-01", label: "يناير 26" },
-    { key: "2026-02", label: "فبراير 26" },
-    { key: "2026-03", label: "مارس 26" }
+    { key: "2024-10", labelAr: "أكتوبر 24", labelEn: "Oct 24" },
+    { key: "2024-11", labelAr: "نوفمبر 24", labelEn: "Nov 24" },
+    { key: "2024-12", labelAr: "ديسمبر 24", labelEn: "Dec 24" },
+    { key: "2025-01", labelAr: "يناير 25", labelEn: "Jan 25" },
+    { key: "2025-02", labelAr: "فبراير 25", labelEn: "Feb 25" },
+    { key: "2025-03", labelAr: "مارس 25", labelEn: "Mar 25" },
+    { key: "2025-04", labelAr: "أبريل 25", labelEn: "Apr 25" },
+    { key: "2025-05", labelAr: "مايو 25", labelEn: "May 25" },
+    { key: "2025-06", labelAr: "يونيو 25", labelEn: "Jun 25" },
+    { key: "2025-07", labelAr: "يوليو 25", labelEn: "Jul 25" },
+    { key: "2025-08", labelAr: "أغسطس 25", labelEn: "Aug 25" },
+    { key: "2025-09", labelAr: "سبتمبر 25", labelEn: "Sep 25" },
+    { key: "2025-10", labelAr: "أكتوبر 25", labelEn: "Oct 25" },
+    { key: "2025-11", labelAr: "نوفمبر 25", labelEn: "Nov 25" },
+    { key: "2025-12", labelAr: "ديسمبر 25", labelEn: "Dec 25" },
+    { key: "2026-01", labelAr: "يناير 26", labelEn: "Jan 26" },
+    { key: "2026-02", labelAr: "فبراير 26", labelEn: "Feb 26" },
+    { key: "2026-03", labelAr: "مارس 26", labelEn: "Mar 26" }
   ],
 
   initCharts(isDarkTheme = false) {
+    const isEn = window.I18nService && window.I18nService.currentLang === "en";
+    const fontFam = isEn ? "'Plus Jakarta Sans', sans-serif" : "'Cairo', sans-serif";
     const textColor = isDarkTheme ? "#cbd5e1" : "#334155";
     const gridColor = isDarkTheme ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.06)";
 
@@ -38,9 +40,9 @@ window.ChartService = {
       this.timelineChart = new Chart(ctxTimeline, {
         type: "line",
         data: {
-          labels: this.monthKeys.map(m => m.label),
+          labels: this.monthKeys.map(m => isEn ? m.labelEn : m.labelAr),
           datasets: [{
-            label: "عدد الأسئلة المستخرجة",
+            label: isEn ? "Extracted Questions Count" : "عدد الأسئلة المستخرجة",
             data: new Array(this.monthKeys.length).fill(0),
             borderColor: "#0f3d3e",
             backgroundColor: "rgba(15, 61, 62, 0.12)",
@@ -60,13 +62,13 @@ window.ChartService = {
             legend: { display: false },
             tooltip: {
               callbacks: {
-                label: (ctx) => ` ${ctx.parsed.y.toLocaleString()} سؤالاً مطابقاً`
+                label: (ctx) => isEn ? ` ${ctx.parsed.y.toLocaleString()} Matching Questions` : ` ${ctx.parsed.y.toLocaleString()} سؤالاً مطابقاً`
               }
             }
           },
           scales: {
             x: {
-              ticks: { color: textColor, font: { family: 'Cairo', size: 11 } },
+              ticks: { color: textColor, font: { family: fontFam, size: 11 } },
               grid: { color: gridColor }
             },
             y: {
@@ -87,7 +89,7 @@ window.ChartService = {
       this.faithChart = new Chart(ctxFaith, {
         type: "doughnut",
         data: {
-          labels: ["الإسلام", "المسيحية", "غير محدد", "الإلحاد", "اللاأدرية", "الهندوسية", "أخرى"],
+          labels: isEn ? ["Islam", "Christianity", "Unknown", "Atheism", "Agnosticism", "Hinduism", "Other"] : ["الإسلام", "المسيحية", "غير محدد", "الإلحاد", "اللاأدرية", "الهندوسية", "أخرى"],
           datasets: [{
             data: [0, 0, 0, 0, 0, 0, 0],
             backgroundColor: [
@@ -108,7 +110,7 @@ window.ChartService = {
           plugins: {
             legend: {
               position: 'right',
-              labels: { color: textColor, font: { family: 'Cairo', size: 11 } }
+              labels: { color: textColor, font: { family: fontFam, size: 11 } }
             }
           }
         }
@@ -118,6 +120,7 @@ window.ChartService = {
 
   updateCharts(filteredQuestions) {
     if (!filteredQuestions) return;
+    const isEn = window.I18nService && window.I18nService.currentLang === "en";
 
     // --- 1. Update Dynamic Timeline Line Chart ---
     if (this.timelineChart) {
@@ -134,6 +137,8 @@ window.ChartService = {
       });
 
       const timelineData = this.monthKeys.map(m => monthCounts[m.key] || 0);
+      this.timelineChart.data.labels = this.monthKeys.map(m => isEn ? m.labelEn : m.labelAr);
+      this.timelineChart.data.datasets[0].label = isEn ? "Extracted Questions Count" : "عدد الأسئلة المستخرجة";
       this.timelineChart.data.datasets[0].data = timelineData;
       this.timelineChart.update();
     }
@@ -142,7 +147,7 @@ window.ChartService = {
     if (this.faithChart) {
       const faithMap = {};
       filteredQuestions.forEach(q => {
-        const faith = q.faith_ar || "غير محدد";
+        const faith = isEn ? (q.faith || q.faith_ar || "Unknown") : (q.faith_ar || "غير محدد");
         faithMap[faith] = (faithMap[faith] || 0) + 1;
       });
 

@@ -1,5 +1,5 @@
 /* ==========================================================================
-   1. Design System & Base CSS Variables (Light & Dark Themes)
+   1. Design System & Base CSS Variables (Light & Dark Themes + i18n RTL/LTR)
    ========================================================================== */
 :root {
   --bg-primary: #f6f8fb;
@@ -87,6 +87,23 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
   min-height: 100vh;
   overflow-x: hidden;
+}
+
+/* LTR English Overrides */
+html[dir="ltr"] body, body[dir="ltr"] {
+  direction: ltr;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+html[dir="ltr"] #progress-bar {
+  left: 0;
+  right: auto;
+  background: linear-gradient(to right, var(--brand-gold), var(--brand-teal-light));
+}
+
+html[dir="ltr"] .toast-alert {
+  left: auto;
+  right: 24px;
 }
 
 /* Scroll progress bar */

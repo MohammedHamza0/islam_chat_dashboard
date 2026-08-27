@@ -97,6 +97,31 @@
   gap: 12px;
 }
 
+.lang-toggle-btn {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  color: var(--brand-teal);
+  padding: 8px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: var(--transition);
+}
+
+[data-theme="dark"] .lang-toggle-btn {
+  color: var(--brand-gold);
+}
+
+.lang-toggle-btn:hover {
+  background: var(--brand-teal-soft);
+  border-color: var(--brand-teal);
+}
+
 .theme-toggle-btn, .btn-action {
   background: var(--bg-secondary);
   border: 1px solid var(--border-color);
