@@ -69,12 +69,11 @@ window.App = {
     const language = document.getElementById("filter-language")?.value || "all";
     const region = document.getElementById("filter-region")?.value || "all";
     const trending = document.getElementById("filter-trending")?.value || "all";
-    const followup = document.getElementById("filter-followup")?.value || "all";
     const searchQuery = document.getElementById("live-search-input")?.value || "";
 
     // 1. Filter
     this.filteredQuestions = FilterService.filterQuestions(this.allQuestions, {
-      year, faith, intent, funnel, blocker, convType, topic, language, region, trending, followup, searchQuery
+      year, faith, intent, funnel, blocker, convType, topic, language, region, trending, searchQuery
     });
 
     // 2. Sort
@@ -94,28 +93,41 @@ window.App = {
   },
 
   resetAllFilters() {
-    document.getElementById("filter-year").value = "all";
-    document.getElementById("filter-faith").value = "all";
-    document.getElementById("filter-intent").value = "all";
-    if (document.getElementById("filter-funnel")) document.getElementById("filter-funnel").value = "all";
-    if (document.getElementById("filter-blocker")) document.getElementById("filter-blocker").value = "all";
-    if (document.getElementById("filter-convtype")) document.getElementById("filter-convtype").value = "all";
-    document.getElementById("filter-topic").value = "all";
-    document.getElementById("filter-language").value = "all";
-    document.getElementById("filter-region").value = "all";
-    document.getElementById("filter-trending").value = "all";
-    document.getElementById("filter-followup").value = "all";
-    document.getElementById("live-search-input").value = "";
+    const selectIds = [
+      "filter-year",
+      "filter-faith",
+      "filter-intent",
+      "filter-funnel",
+      "filter-blocker",
+      "filter-convtype",
+      "filter-topic",
+      "filter-language",
+      "filter-region",
+      "filter-trending"
+    ];
+
+    selectIds.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.value = "all";
+    });
+
+    const searchInput = document.getElementById("live-search-input");
+    if (searchInput) searchInput.value = "";
+
+    const sortSelect = document.getElementById("sort-select");
+    if (sortSelect) sortSelect.value = "trending_desc";
 
     document.querySelectorAll(".chip-btn").forEach(b => b.classList.remove("active"));
     const allChip = document.querySelector(".chip-btn");
     if (allChip) allChip.classList.add("active");
 
+    // Re-apply filters and refresh all UI components & charts
     this.applyFilters();
   },
 
   setQuickYear(yearVal, btn) {
-    document.getElementById("filter-year").value = yearVal;
+    const el = document.getElementById("filter-year");
+    if (el) el.value = yearVal;
     document.querySelectorAll(".chip-btn").forEach(b => b.classList.remove("active"));
     if (btn) btn.classList.add("active");
     this.applyFilters();
@@ -137,14 +149,26 @@ window.App = {
   updateKPIs() {
     const kpi = FilterService.calculateKPIs(this.filteredQuestions, this.allQuestions.length);
 
-    document.getElementById("kpi-filtered-count").textContent = kpi.filteredCount.toLocaleString();
-    document.getElementById("results-count").textContent = kpi.filteredCount.toLocaleString();
-    document.getElementById("kpi-percentage-badge").textContent = kpi.percentageBadge;
-    
-    document.getElementById("kpi-seekers-count").textContent = kpi.genuineSeekers.toLocaleString();
-    document.getElementById("kpi-challengers-count").textContent = kpi.challengers.toLocaleString();
-    document.getElementById("kpi-converted-count").textContent = kpi.converted.toLocaleString();
-    document.getElementById("kpi-interest-count").textContent = kpi.conversionInterest.toLocaleString();
+    const elFiltered = document.getElementById("kpi-filtered-count");
+    if (elFiltered) elFiltered.textContent = kpi.filteredCount.toLocaleString();
+
+    const elResults = document.getElementById("results-count");
+    if (elResults) elResults.textContent = kpi.filteredCount.toLocaleString();
+
+    const elPct = document.getElementById("kpi-percentage-badge");
+    if (elPct) elPct.textContent = kpi.percentageBadge;
+
+    const elSeekers = document.getElementById("kpi-seekers-count");
+    if (elSeekers) elSeekers.textContent = kpi.genuineSeekers.toLocaleString();
+
+    const elChallengers = document.getElementById("kpi-challengers-count");
+    if (elChallengers) elChallengers.textContent = kpi.challengers.toLocaleString();
+
+    const elConverted = document.getElementById("kpi-converted-count");
+    if (elConverted) elConverted.textContent = kpi.converted.toLocaleString();
+
+    const elInterest = document.getElementById("kpi-interest-count");
+    if (elInterest) elInterest.textContent = kpi.conversionInterest.toLocaleString();
   },
 
   renderCurrentPage() {
