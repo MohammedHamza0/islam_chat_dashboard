@@ -24,13 +24,14 @@ index_template = """<!DOCTYPE html>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- Modular Stylesheets (Microservices Architecture with Cache Busting) -->
-  <link rel="stylesheet" href="assets/css/base.css?v=2.1">
-  <link rel="stylesheet" href="assets/css/navbar.css?v=2.1">
-  <link rel="stylesheet" href="assets/css/kpi.css?v=2.1">
-  <link rel="stylesheet" href="assets/css/filter-matrix.css?v=2.1">
-  <link rel="stylesheet" href="assets/css/qa-explorer.css?v=2.1">
-  <link rel="stylesheet" href="assets/css/macro-analytics.css?v=2.1">
-  <link rel="stylesheet" href="assets/css/modal.css?v=2.1">
+  <link rel="stylesheet" href="assets/css/base.css?v=2.2">
+  <link rel="stylesheet" href="assets/css/navbar.css?v=2.2">
+  <link rel="stylesheet" href="assets/css/kpi.css?v=2.2">
+  <link rel="stylesheet" href="assets/css/filter-matrix.css?v=2.2">
+  <link rel="stylesheet" href="assets/css/qa-explorer.css?v=2.2">
+  <link rel="stylesheet" href="assets/css/macro-analytics.css?v=2.2">
+  <link rel="stylesheet" href="assets/css/modal.css?v=2.2">
+  <link rel="stylesheet" href="assets/css/playbooks.css?v=2.2">
 
   <!-- Chart.js for Dynamic Visualizations -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -60,7 +61,7 @@ index_template = """<!DOCTYPE html>
         <i class="fa-solid fa-chart-line"></i> التحليل الإحصائي العام (17 رسمة)
       </button>
       <button class="view-tab-btn" onclick="switchMainTab('action-plan-view')">
-        <i class="fa-solid fa-flag-checkered"></i> التوصيات وخطة العمل
+        <i class="fa-solid fa-flag-checkered"></i> خطط الحوار والاستراتيجيات
       </button>
     </div>
 
@@ -399,47 +400,174 @@ index_template = """<!DOCTYPE html>
     </section>
 
     <!-- ====================================================================
-         TAB 3: Executive Recommendations & Action Roadmap
+         TAB 3: Strategic Playbooks & Executive Recommendations (Eng.Menna Data)
          ==================================================================== -->
     <section id="action-plan-view" class="tab-content">
+      
+      <!-- Strategic Hero Banner -->
       <div class="hero-banner">
-        <div class="hero-badge"><i class="fa-solid fa-flag-checkered"></i> خطة العمل الاستراتيجية</div>
-        <h2 class="hero-title">التوصيات التنفيذية وخارطة الطريق لتطوير Islam.chat</h2>
-        <p class="hero-subtitle">خلاصة القرارات المستخلصة من تحليل 12,448 محادثة و 11,596 سؤالاً لتحقيق أعلى أثر دعوي وتقني.</p>
+        <div class="hero-badge"><i class="fa-solid fa-book-journal-whills"></i> الدليل الاستراتيجي والتشغيلي للدعاة</div>
+        <h2 class="hero-title">أدلة الحوار التكتيكية لكل ديانة وتحليل ترافيك المنصة</h2>
+        <p class="hero-subtitle">
+          خلاصة الدراسات التحليلية النوعية لـ <strong>12,448 محادثة</strong> و <strong>22.9 مليون توكن</strong>؛ لتزويد الدعاة والذكاء الاصطناعي بخطط حوار تكتيكية مخصصة لكل معتقد وإدارة الموارد التقنية بكفاءة.
+        </p>
       </div>
 
+      <!-- Section 1: Religion-Specific Concern Playbooks -->
       <div class="section-container">
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
-          
-          <div style="background: var(--bg-secondary); padding: 24px; border-radius: var(--radius-lg); border: 1px solid var(--border-color);">
-            <div style="font-size: 16px; font-weight: 800; color: var(--brand-teal); margin-bottom: 12px;">
-              <i class="fa-solid fa-robot"></i> 1. استثمار بنك الأسئلة الفريدة (RAG & Fine-Tuning)
+        <div class="section-header">
+          <div class="section-header-title">
+            <div class="topic-number-badge"><i class="fa-solid fa-compass"></i></div>
+            <div>
+              <h3>1. أدلة الحوار التكتيكية المخصصة لكل ديانة (Religion-Specific Concern Playbooks)</h3>
+              <p style="font-size: 13px; color: var(--text-muted);">خطط حوار تشغيلية واستراتيجيات ردود مبنية على تحليل أداء آلاف الحوارات الحقيقية.</p>
             </div>
-            <p style="font-size: 13.5px; color: var(--text-secondary); line-height: 1.7;">
-              استخدام الـ 11,596 سؤالاً وجواباً كقاعدة معرفية ذهبية لبناء نظام استرجاع معرفي مدعم بالذكاء الاصطناعي (RAG)، وتغذية النموذج بأدق الأجوبة المعتمدة في الشبهات ومقارنة الأديان.
-            </p>
+          </div>
+        </div>
+
+        <div class="playbook-container">
+          <!-- Playbook Tabs -->
+          <div class="playbook-nav-tabs">
+            <button class="playbook-tab-btn active" onclick="switchPlaybook('christianity')">
+              <i class="fa-solid fa-cross"></i> حوار المسيحيين (2,036)
+            </button>
+            <button class="playbook-tab-btn" onclick="switchPlaybook('atheism')">
+              <i class="fa-solid fa-atom"></i> حوار الملاحدة واللادينيين (939)
+            </button>
+            <button class="playbook-tab-btn" onclick="switchPlaybook('hinduism')">
+              <i class="fa-solid fa-om"></i> حوار الهندوس والسيخ (336)
+            </button>
+            <button class="playbook-tab-btn" onclick="switchPlaybook('judaism')">
+              <i class="fa-solid fa-star-of-david"></i> حوار اليهود (88)
+            </button>
+            <button class="playbook-tab-btn" onclick="switchPlaybook('buddhism')">
+              <i class="fa-solid fa-dharmachakra"></i> حوار البوذيين (103)
+            </button>
           </div>
 
-          <div style="background: var(--bg-secondary); padding: 24px; border-radius: var(--radius-lg); border: 1px solid var(--border-color);">
-            <div style="font-size: 16px; font-weight: 800; color: var(--brand-gold); margin-bottom: 12px;">
-              <i class="fa-solid fa-earth-africa"></i> 2. التوسع اللغوي في اللغات الصاعدة
-            </div>
-            <p style="font-size: 13.5px; color: var(--text-secondary); line-height: 1.7;">
-              أثبتت البيانات وجود طلب هائل في اللغة السواحلية (847 محادثة) واليابانية (386) والفلبينية. يوصى بإعداد محتوى دعوي مخصص لهذه الثقافات وربطهم بدعاة محليين ناطقين بلغاتهم.
-            </p>
+          <!-- Dynamic Display Box (Rendered via PlaybooksComponent) -->
+          <div id="playbook-content-display">
+            <!-- Loaded dynamically -->
           </div>
-
-          <div style="background: var(--bg-secondary); padding: 24px; border-radius: var(--radius-lg); border: 1px solid var(--border-color);">
-            <div style="font-size: 16px; font-weight: 800; color: var(--benefit-green); margin-bottom: 12px;">
-              <i class="fa-solid fa-hand-holding-heart"></i> 3. مسار خاص برعاية المهتدين الجدد (346 حالة مؤكدة)
-            </div>
-            <p style="font-size: 13.5px; color: var(--text-secondary); line-height: 1.7;">
-              بناء مسار تفاعلي مخصص (New Muslim Journey) يرشد السائل خطوة بخطوة بعد إبداء الرغبة في اعتناق الإسلام، مع تزويده ببطاقات تعليمية مبسطة للصلاة والطهارة وربطه بمجتمع داعم.
-            </p>
-          </div>
-
         </div>
       </div>
+
+      <!-- Section 2: Muslim Traffic & Token Optimization -->
+      <div class="section-container">
+        <div class="section-header">
+          <div class="section-header-title">
+            <div class="topic-number-badge" style="background: linear-gradient(135deg, var(--brand-gold), #dfb332); color: #0b1a30;">
+              <i class="fa-solid fa-coins"></i>
+            </div>
+            <div>
+              <h3>2. تحليل حركة المسلمين على البوت وإدارة التوكنز (Muslim Traffic & Token Optimization)</h3>
+              <p style="font-size: 13px; color: var(--text-muted);">دراسة استهلاك 22.9 مليون توكن والتوصيات المعمارية لتوفير 24.4% من التكاليف.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="token-stats-grid">
+          <div class="token-stat-card">
+            <span class="badge badge-topic"><i class="fa-solid fa-users"></i> إجمالي محادثات المسلمين</span>
+            <div class="token-stat-val">4,601</div>
+            <div class="token-stat-sub">37.0% من إجمالي حركة المنصة</div>
+          </div>
+
+          <div class="token-stat-card">
+            <span class="badge badge-trending"><i class="fa-solid fa-microchip"></i> استهلاك التوكنز للمسلمين</span>
+            <div class="token-stat-val">22.9M</div>
+            <div class="token-stat-sub">39.9% من إجمالي ميزانية الـ Tokens</div>
+          </div>
+
+          <div class="token-stat-card">
+            <span class="badge badge-faith"><i class="fa-solid fa-scale-balanced"></i> طلب الفتاوى والإرشاد الفقهي</span>
+            <div class="token-stat-val">2,690</div>
+            <div class="token-stat-sub">58.5% من أسئلة المسلمين</div>
+          </div>
+
+          <div class="token-stat-card">
+            <span class="badge badge-intent"><i class="fa-solid fa-graduation-cap"></i> التدريب على الدعوة (Training)</span>
+            <div class="token-stat-val">838</div>
+            <div class="token-stat-sub">18.2% من أسئلة المسلمين</div>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
+          <div style="background: var(--bg-secondary); padding: 22px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+            <div style="font-size: 14.5px; font-weight: 800; color: var(--brand-teal); margin-bottom: 10px;">
+              <i class="fa-solid fa-triangle-exclamation"></i> التحدي المكتشف في البيانات
+            </div>
+            <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.7;">
+              يستهلك المستخدم المسلم متوسط <strong>4,979 توكن</strong> لكل محادثة مقارنة بـ 4,393 توكن لغير المسلم، نظراً لاسترسال البوت في تفصيل المسائل الفقهية والخلافات المذهبية بدلاً من التركيز على الهدف الأساسي للمنصة وهو دعوة غير المسلمين.
+            </p>
+          </div>
+
+          <div style="background: var(--bg-secondary); padding: 22px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+            <div style="font-size: 14.5px; font-weight: 800; color: var(--benefit-green); margin-bottom: 10px;">
+              <i class="fa-solid fa-sitemap"></i> الحل المعماري المقترح (Dual-Track Routing)
+            </div>
+            <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.7;">
+              بناء طبقة توجيه ذكية تفصل المحادثات فورياً: مسار دعوي متخصص ومكثف لغير المسلمين (Dawah Track)، ومسار استشاري فقهي سريع ومدعوم بقاعدة فتاوى مختصرة للمسلمين، مما <strong>يوفر ما يصل إلى 24.4% من التوكنز المهدرة</strong>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 3: Thematic Super-Clusters -->
+      <div class="section-container">
+        <div class="section-header">
+          <div class="section-header-title">
+            <div class="topic-number-badge"><i class="fa-solid fa-layer-group"></i></div>
+            <div>
+              <h3>3. المحاور الموضوعية الـ 8 الكبرى (Thematic Super-Clusters)</h3>
+              <p style="font-size: 13px; color: var(--text-muted);">تحليل وتطبيع 22,028 إشارة لموضوعات الحوار عبر المنصة.</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
+          <div style="background: var(--bg-secondary); padding: 18px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+            <div style="font-size: 14px; font-weight: 800; color: var(--brand-teal); margin-bottom: 6px;"><i class="fa-solid fa-kaaba"></i> 1. العبادات وأركان الإسلام</div>
+            <div style="font-size: 12.5px; color: var(--text-muted);">1,862 إشارة عبر 1,313 محادثة (الصلاة، الصيام، الطهارة، الحج).</div>
+          </div>
+
+          <div style="background: var(--bg-secondary); padding: 18px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+            <div style="font-size: 14px; font-weight: 800; color: var(--brand-gold); margin-bottom: 6px;"><i class="fa-solid fa-sun"></i> 2. التوحيد ونفي الشريك</div>
+            <div style="font-size: 12.5px; color: var(--text-muted);">1,596 إشارة عبر 1,511 محادثة (شهادة أن لا إله إلا الله، أسماء الله وصفاته).</div>
+          </div>
+
+          <div style="background: var(--bg-secondary); padding: 18px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+            <div style="font-size: 14px; font-weight: 800; color: var(--data-blue); margin-bottom: 6px;"><i class="fa-solid fa-book-quran"></i> 3. القرآن الكريم وأصالته</div>
+            <div style="font-size: 12.5px; color: var(--text-muted);">1,523 إشارة عبر 1,228 محادثة (حفظ النص القرآني، الإعجاز، والمخطوطات).</div>
+          </div>
+
+          <div style="background: var(--bg-secondary); padding: 18px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+            <div style="font-size: 14px; font-weight: 800; color: var(--insight-purple); margin-bottom: 6px;"><i class="fa-solid fa-person-praying"></i> 4. عيسى في الإسلام</div>
+            <div style="font-size: 12.5px; color: var(--text-muted);">848 إشارة (بشرية المسيح، مريم العذراء، تفنيد التثليث والصلب).</div>
+          </div>
+
+          <div style="background: var(--bg-secondary); padding: 18px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+            <div style="font-size: 14px; font-weight: 800; color: var(--danger-red); margin-bottom: 6px;"><i class="fa-solid fa-brain"></i> 5. براهين الخالق والعلية</div>
+            <div style="font-size: 12.5px; color: var(--text-muted);">352 إشارة (أدلة التصميم والضبط الدقيق والرد على التفسير المادي).</div>
+          </div>
+
+          <div style="background: var(--bg-secondary); padding: 18px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+            <div style="font-size: 14px; font-weight: 800; color: var(--benefit-green); margin-bottom: 6px;"><i class="fa-solid fa-scroll"></i> 6. النبوة ورسالة محمد ﷺ</div>
+            <div style="font-size: 12.5px; color: var(--text-muted);">دلائل النبوة، السيرة النبوية، والبشارات في الكتب السابقة.</div>
+          </div>
+
+          <div style="background: var(--bg-secondary); padding: 18px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+            <div style="font-size: 14px; font-weight: 800; color: var(--warning-amber); margin-bottom: 6px;"><i class="fa-solid fa-scale-balanced"></i> 7. القدر ومشكلة الشر والألم</div>
+            <div style="font-size: 12.5px; color: var(--text-muted);">الحكمة من الابتلاء، العدل الإلهي، ومعنى الحياة الدنيا.</div>
+          </div>
+
+          <div style="background: var(--bg-secondary); padding: 18px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+            <div style="font-size: 14px; font-weight: 800; color: var(--text-primary); margin-bottom: 6px;"><i class="fa-solid fa-users"></i> 8. الشريعة والأسرة ومكانة المرأة</div>
+            <div style="font-size: 12.5px; color: var(--text-muted);">حقوق المرأة، نظام الميراث، الحجاب، ومقاصد الشريعة الإسلامية.</div>
+          </div>
+        </div>
+      </div>
+
     </section>
 
   </div>
@@ -468,17 +596,18 @@ index_template = """<!DOCTYPE html>
   </footer>
 
   <!-- Preloaded Data Objects (Guarantees zero CORS issue on file:/// protocol) -->
-  <script src="assets/data/enriched_qa_data.js?v=2.1"></script>
-  <script src="assets/data/conversations_data.js?v=2.1"></script>
+  <script src="assets/data/enriched_qa_data.js?v=2.2"></script>
+  <script src="assets/data/conversations_data.js?v=2.2"></script>
 
   <!-- Modular Scripts (Microservices Architecture with Cache Busting) -->
-  <script src="assets/js/services/api.service.js?v=2.1"></script>
-  <script src="assets/js/services/filter.service.js?v=2.1"></script>
-  <script src="assets/js/services/chart.service.js?v=2.1"></script>
-  <script src="assets/js/components/qa-card.component.js?v=2.1"></script>
-  <script src="assets/js/components/dialogue-modal.component.js?v=2.1"></script>
-  <script src="assets/js/components/lightbox.component.js?v=2.1"></script>
-  <script src="assets/js/app.js?v=2.1"></script>
+  <script src="assets/js/services/api.service.js?v=2.2"></script>
+  <script src="assets/js/services/filter.service.js?v=2.2"></script>
+  <script src="assets/js/services/chart.service.js?v=2.2"></script>
+  <script src="assets/js/components/qa-card.component.js?v=2.2"></script>
+  <script src="assets/js/components/dialogue-modal.component.js?v=2.2"></script>
+  <script src="assets/js/components/lightbox.component.js?v=2.2"></script>
+  <script src="assets/js/components/playbooks.component.js?v=2.2"></script>
+  <script src="assets/js/app.js?v=2.2"></script>
 </body>
 </html>
 """
@@ -486,4 +615,4 @@ index_template = """<!DOCTYPE html>
 with open(INDEX_FILE, "w", encoding="utf-8") as f:
     f.write(index_template)
 
-print(f"Successfully assembled index.html with Cache Busting (?v=2.1)! Size: {INDEX_FILE.stat().st_size / 1024:.2f} KB")
+print(f"Successfully assembled index.html with Playbooks & Strategic Insights! Size: {INDEX_FILE.stat().st_size / 1024:.2f} KB")

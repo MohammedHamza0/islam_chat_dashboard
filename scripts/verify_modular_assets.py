@@ -11,12 +11,14 @@ endpoints = [
     "assets/css/qa-explorer.css",
     "assets/css/macro-analytics.css",
     "assets/css/modal.css",
+    "assets/css/playbooks.css",
     "assets/js/services/api.service.js",
     "assets/js/services/filter.service.js",
     "assets/js/services/chart.service.js",
     "assets/js/components/qa-card.component.js",
     "assets/js/components/dialogue-modal.component.js",
     "assets/js/components/lightbox.component.js",
+    "assets/js/components/playbooks.component.js",
     "assets/js/app.js",
     "assets/data/enriched_qa_dataset.min.json",
     "assets/data/conversations_lookup.json"
@@ -25,13 +27,13 @@ endpoints = [
 all_ok = True
 for ep in endpoints:
     try:
-        req = urllib.request.urlopen(f"{base_url}/{ep}")
+        req = urllib.request.urlopen(f"{base_url}/{ep}?v=2.2")
         print(f"[{req.status}] {ep} - {len(req.read())} bytes")
     except Exception as e:
         print(f"[FAIL] {ep} - {e}")
         all_ok = False
 
 if all_ok:
-    print("\nALL MODULAR ASSETS & ENDPOINTS VERIFIED 100% OK!")
+    print("\nALL MODULAR ASSETS & PLAYBOOK ENDPOINTS VERIFIED 100% OK!")
 else:
     print("\nSOME ENDPOINTS FAILED!")
