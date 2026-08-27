@@ -24,14 +24,14 @@ index_template = """<!DOCTYPE html>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- Modular Stylesheets (Microservices Architecture with Cache Busting) -->
-  <link rel="stylesheet" href="assets/css/base.css?v=2.4">
-  <link rel="stylesheet" href="assets/css/navbar.css?v=2.4">
-  <link rel="stylesheet" href="assets/css/kpi.css?v=2.4">
-  <link rel="stylesheet" href="assets/css/filter-matrix.css?v=2.4">
-  <link rel="stylesheet" href="assets/css/qa-explorer.css?v=2.4">
-  <link rel="stylesheet" href="assets/css/macro-analytics.css?v=2.4">
-  <link rel="stylesheet" href="assets/css/modal.css?v=2.4">
-  <link rel="stylesheet" href="assets/css/playbooks.css?v=2.4">
+  <link rel="stylesheet" href="assets/css/base.css?v=2.5">
+  <link rel="stylesheet" href="assets/css/navbar.css?v=2.5">
+  <link rel="stylesheet" href="assets/css/kpi.css?v=2.5">
+  <link rel="stylesheet" href="assets/css/filter-matrix.css?v=2.5">
+  <link rel="stylesheet" href="assets/css/qa-explorer.css?v=2.5">
+  <link rel="stylesheet" href="assets/css/macro-analytics.css?v=2.5">
+  <link rel="stylesheet" href="assets/css/modal.css?v=2.5">
+  <link rel="stylesheet" href="assets/css/playbooks.css?v=2.5">
 
   <!-- Chart.js for Dynamic Visualizations -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -161,7 +161,9 @@ index_template = """<!DOCTYPE html>
         <div class="filter-grid">
           <!-- Filter 1: Year & Dynamic Months -->
           <div class="filter-group">
-            <label class="filter-label"><i class="fa-solid fa-calendar"></i> السنة / النطاق الزمني</label>
+            <label class="filter-label">
+              <span class="filter-label-text"><i class="fa-solid fa-calendar"></i> السنة / النطاق الزمني</span>
+            </label>
             <select id="filter-year" class="filter-select" onchange="onYearDropdownChange()">
               <option value="all">كل السنوات (2024 - 2026)</option>
               <option value="2026">2026 (الربع الأول)</option>
@@ -180,7 +182,9 @@ index_template = """<!DOCTYPE html>
 
           <!-- Filter 2: Faith & User Belief (LLM Ground Truth) -->
           <div class="filter-group">
-            <label class="filter-label"><i class="fa-solid fa-user-tag"></i> ديانة / معتقد السائل الموثق</label>
+            <label class="filter-label">
+              <span class="filter-label-text"><i class="fa-solid fa-user-tag"></i> ديانة / معتقد السائل الموثق</span>
+            </label>
             <select id="filter-faith" class="filter-select" onchange="applyFilters()">
               <option value="all">جميع المعتقدات والديانات</option>
               <option value="الإسلام (مسلم)">الإسلام (مسلم: 5,337)</option>
@@ -199,7 +203,9 @@ index_template = """<!DOCTYPE html>
 
           <!-- Filter 3: Intent Classification (LLM Ground Truth) -->
           <div class="filter-group">
-            <label class="filter-label"><i class="fa-solid fa-bullseye"></i> نية وطبيعة السائل</label>
+            <label class="filter-label">
+              <span class="filter-label-text"><i class="fa-solid fa-bullseye"></i> نية وطبيعة السائل</span>
+            </label>
             <select id="filter-intent" class="filter-select" onchange="applyFilters()">
               <option value="all">جميع النوايا والأنماط</option>
               <option value="مسلم يتعلم أحكام دينه">مسلم يتعلم أحكام دينه (4,544)</option>
@@ -215,7 +221,9 @@ index_template = """<!DOCTYPE html>
 
           <!-- Filter 4: Conversion Funnel Stage (NEW LLM Dimension) -->
           <div class="filter-group">
-            <label class="filter-label"><i class="fa-solid fa-filter-circle-dollar"></i> مرحلة قمع الدعوة والهداية</label>
+            <label class="filter-label">
+              <span class="filter-label-text"><i class="fa-solid fa-filter-circle-dollar"></i> مرحلة قمع الدعوة والهداية</span>
+            </label>
             <select id="filter-funnel" class="filter-select" onchange="applyFilters()">
               <option value="all">جميع مراحل القمع الدعوي</option>
               <option value="اعتنق الإسلام بالفعل (Converted)">اعتنق الإسلام بالفعل - Converted (346)</option>
@@ -229,7 +237,9 @@ index_template = """<!DOCTYPE html>
 
           <!-- Filter 5: Key Blocker / Theological Objection (NEW LLM Dimension) -->
           <div class="filter-group">
-            <label class="filter-label"><i class="fa-solid fa-shield-halved"></i> العائق الفكري والشبهة الرئيسية</label>
+            <label class="filter-label">
+              <span class="filter-label-text"><i class="fa-solid fa-shield-halved"></i> العائق الفكري والشبهة الرئيسية</span>
+            </label>
             <select id="filter-blocker" class="filter-select" onchange="applyFilters()">
               <option value="all">جميع العوائق والشبهات</option>
               <option value="الشك العقلي والمنطقي">الشك العقلي والمنطقي (2,397)</option>
@@ -248,7 +258,9 @@ index_template = """<!DOCTYPE html>
 
           <!-- Filter 6: Conversation Type (NEW LLM Dimension) -->
           <div class="filter-group">
-            <label class="filter-label"><i class="fa-solid fa-comments-dollar"></i> نوع وسياق المحادثة</label>
+            <label class="filter-label">
+              <span class="filter-label-text"><i class="fa-solid fa-comments-dollar"></i> نوع وسياق المحادثة</span>
+            </label>
             <select id="filter-convtype" class="filter-select" onchange="applyFilters()">
               <option value="all">جميع أنواع المحادثات</option>
               <option value="إرشاد وتوجيه إسلامي">إرشاد وتوجيه إسلامي (3,999)</option>
@@ -263,7 +275,9 @@ index_template = """<!DOCTYPE html>
 
           <!-- Filter 7: Topic Category -->
           <div class="filter-group">
-            <label class="filter-label"><i class="fa-solid fa-book-quran"></i> الباب والموضوع الشرعي</label>
+            <label class="filter-label">
+              <span class="filter-label-text"><i class="fa-solid fa-book-quran"></i> الباب والموضوع الشرعي</span>
+            </label>
             <select id="filter-topic" class="filter-select" onchange="applyFilters()">
               <option value="all">جميع الأبواب الشرعية</option>
               <option value="العقيدة وأصول الإيمان">العقيدة وأصول الإيمان (2,604)</option>
@@ -281,7 +295,9 @@ index_template = """<!DOCTYPE html>
 
           <!-- Filter 8: Language -->
           <div class="filter-group">
-            <label class="filter-label"><i class="fa-solid fa-globe"></i> لغة المحادثة (51 لغة)</label>
+            <label class="filter-label">
+              <span class="filter-label-text"><i class="fa-solid fa-globe"></i> لغة المحادثة (51 لغة)</span>
+            </label>
             <select id="filter-language" class="filter-select" onchange="applyFilters()">
               <option value="all">جميع اللغات (51 لغة)</option>
               <option value="English">الإنجليزية (English: 4,612)</option>
@@ -301,9 +317,14 @@ index_template = """<!DOCTYPE html>
             </select>
           </div>
 
-          <!-- Filter 9: Geographic Region -->
+          <!-- Filter 9: Geographic Region / Linguistic Sphere (Option 3 with Informative Badge) -->
           <div class="filter-group">
-            <label class="filter-label"><i class="fa-solid fa-map-location-dot"></i> المنطقة الجغرافية</label>
+            <label class="filter-label">
+              <span class="filter-label-text"><i class="fa-solid fa-map-location-dot"></i> المنطقة الجغرافية</span>
+              <span class="info-tooltip-badge" title="تم استنتاج المنطقة استناداً إلى لغة المحادثة الأصلية للمستخدم (Linguistic-Geographic Sphere)">
+                <i class="fa-solid fa-circle-info"></i> مبني على لغة الحوار
+              </span>
+            </label>
             <select id="filter-region" class="filter-select" onchange="applyFilters()">
               <option value="all">جميع المناطق الجغرافية</option>
               <option value="العالم الغربي والناطق بالإنجليزية">العالم الغربي والناطق بالإنجليزية (4,612)</option>
@@ -318,7 +339,9 @@ index_template = """<!DOCTYPE html>
 
           <!-- Filter 10: Trending / Cluster Size -->
           <div class="filter-group">
-            <label class="filter-label"><i class="fa-solid fa-fire-flame-curved"></i> تكرار وشهرة السؤال</label>
+            <label class="filter-label">
+              <span class="filter-label-text"><i class="fa-solid fa-fire-flame-curved"></i> تكرار وشهرة السؤال</span>
+            </label>
             <select id="filter-trending" class="filter-select" onchange="applyFilters()">
               <option value="all">الكل (الأسئلة الفردية والشائعة)</option>
               <option value="trending_only">الأسئلة الأكثر تكراراً فقط (Trending > 1)</option>
@@ -598,18 +621,18 @@ index_template = """<!DOCTYPE html>
   </footer>
 
   <!-- Preloaded Data Objects (Guarantees zero CORS issue on file:/// protocol) -->
-  <script src="assets/data/enriched_qa_data.js?v=2.4"></script>
-  <script src="assets/data/conversations_data.js?v=2.4"></script>
+  <script src="assets/data/enriched_qa_data.js?v=2.5"></script>
+  <script src="assets/data/conversations_data.js?v=2.5"></script>
 
   <!-- Modular Scripts (Microservices Architecture with Cache Busting) -->
-  <script src="assets/js/services/api.service.js?v=2.4"></script>
-  <script src="assets/js/services/filter.service.js?v=2.4"></script>
-  <script src="assets/js/services/chart.service.js?v=2.4"></script>
-  <script src="assets/js/components/qa-card.component.js?v=2.4"></script>
-  <script src="assets/js/components/dialogue-modal.component.js?v=2.4"></script>
-  <script src="assets/js/components/lightbox.component.js?v=2.4"></script>
-  <script src="assets/js/components/playbooks.component.js?v=2.4"></script>
-  <script src="assets/js/app.js?v=2.4"></script>
+  <script src="assets/js/services/api.service.js?v=2.5"></script>
+  <script src="assets/js/services/filter.service.js?v=2.5"></script>
+  <script src="assets/js/services/chart.service.js?v=2.5"></script>
+  <script src="assets/js/components/qa-card.component.js?v=2.5"></script>
+  <script src="assets/js/components/dialogue-modal.component.js?v=2.5"></script>
+  <script src="assets/js/components/lightbox.component.js?v=2.5"></script>
+  <script src="assets/js/components/playbooks.component.js?v=2.5"></script>
+  <script src="assets/js/app.js?v=2.5"></script>
 </body>
 </html>
 """
@@ -617,4 +640,4 @@ index_template = """<!DOCTYPE html>
 with open(INDEX_FILE, "w", encoding="utf-8") as f:
     f.write(index_template)
 
-print(f"Successfully assembled index.html with Dynamic Month Chips (?v=2.4)! Size: {INDEX_FILE.stat().st_size / 1024:.2f} KB")
+print(f"Successfully assembled index.html with Informative Region Badge (?v=2.5)! Size: {INDEX_FILE.stat().st_size / 1024:.2f} KB")
