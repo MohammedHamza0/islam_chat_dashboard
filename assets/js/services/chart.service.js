@@ -5,11 +5,32 @@ window.ChartService = {
   timelineChart: null,
   faithChart: null,
 
+  monthKeys: [
+    { key: "2024-10", label: "أكتوبر 24" },
+    { key: "2024-11", label: "نوفمبر 24" },
+    { key: "2024-12", label: "ديسمبر 24" },
+    { key: "2025-01", label: "يناير 25" },
+    { key: "2025-02", label: "فبراير 25" },
+    { key: "2025-03", label: "مارس 25" },
+    { key: "2025-04", label: "أبريل 25" },
+    { key: "2025-05", label: "مايو 25" },
+    { key: "2025-06", label: "يونيو 25" },
+    { key: "2025-07", label: "يوليو 25" },
+    { key: "2025-08", label: "أغسطس 25" },
+    { key: "2025-09", label: "سبتمبر 25" },
+    { key: "2025-10", label: "أكتوبر 25" },
+    { key: "2025-11", label: "نوفمبر 25" },
+    { key: "2025-12", label: "ديسمبر 25" },
+    { key: "2026-01", label: "يناير 26" },
+    { key: "2026-02", label: "فبراير 26" },
+    { key: "2026-03", label: "مارس 26" }
+  ],
+
   initCharts(isDarkTheme = false) {
     const textColor = isDarkTheme ? "#cbd5e1" : "#334155";
     const gridColor = isDarkTheme ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.06)";
 
-    // 1. Timeline Chart
+    // 1. Timeline Line Chart (Live Dynamic)
     const canvasTimeline = document.getElementById("timelineChart");
     if (canvasTimeline) {
       if (this.timelineChart) this.timelineChart.destroy();
@@ -17,31 +38,48 @@ window.ChartService = {
       this.timelineChart = new Chart(ctxTimeline, {
         type: "line",
         data: {
-          labels: ["أكتوبر 24", "نوفمبر 24", "ديسمبر 24", "يناير 25", "فبراير 25", "مارس 25", "أبريل 25", "مايو 25", "يونيو 25", "يوليو 25", "أغسطس 25", "سبتمبر 25", "أكتوبر 25", "نوفمبر 25", "ديسمبر 25", "يناير 26", "فبراير 26", "مارس 26"],
+          labels: this.monthKeys.map(m => m.label),
           datasets: [{
             label: "عدد الأسئلة المستخرجة",
-            data: [10, 12, 14, 450, 680, 3200, 1100, 480, 1650, 890, 470, 510, 1280, 940, 750, 620, 480, 515],
+            data: new Array(this.monthKeys.length).fill(0),
             borderColor: "#0f3d3e",
             backgroundColor: "rgba(15, 61, 62, 0.12)",
             borderWidth: 2.5,
             fill: true,
             tension: 0.35,
-            pointRadius: 3
+            pointRadius: 4,
+            pointHoverRadius: 7,
+            pointBackgroundColor: "#0f3d3e"
           }]
         },
         options: {
           responsive: true,
           maintainAspectRatio: false,
-          plugins: { legend: { display: false } },
+          animation: { duration: 400 },
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              callbacks: {
+                label: (ctx) => ` ${ctx.parsed.y.toLocaleString()} سؤالاً مطابقاً`
+              }
+            }
+          },
           scales: {
-            x: { ticks: { color: textColor, font: { family: 'Cairo', size: 11 } }, grid: { color: gridColor } },
-            y: { ticks: { color: textColor, font: { family: 'Plus Jakarta Sans', size: 11 } }, grid: { color: gridColor } }
+            x: {
+              ticks: { color: textColor, font: { family: 'Cairo', size: 11 } },
+              grid: { color: gridColor }
+            },
+            y: {
+              beginAtZero: true,
+              ticks: { color: textColor, font: { family: 'Plus Jakarta Sans', size: 11 } },
+              grid: { color: gridColor }
+            }
           }
         }
       });
     }
 
-    // 2. Faith Doughnut Chart (Ground Truth LLM Religions)
+    // 2. Faith Doughnut Chart (Live Dynamic)
     const canvasFaith = document.getElementById("faithChart");
     if (canvasFaith) {
       if (this.faithChart) this.faithChart.destroy();
@@ -49,17 +87,29 @@ window.ChartService = {
       this.faithChart = new Chart(ctxFaith, {
         type: "doughnut",
         data: {
-          labels: ["الإسلام (مسلم)", "المسيحية", "غير محدد", "الإلحاد (ملحد)", "اللاأدرية", "الهندوسية", "أخرى"],
+          labels: ["الإسلام", "المسيحية", "غير محدد", "الإلحاد", "اللاأدرية", "الهندوسية", "أخرى"],
           datasets: [{
-            data: [5337, 2760, 1431, 880, 342, 334, 512],
-            backgroundColor: ["#059669", "#7c3aed", "#64748b", "#dc2626", "#f97316", "#c59b27", "#0284c7"]
+            data: [0, 0, 0, 0, 0, 0, 0],
+            backgroundColor: [
+              "#059669",
+              "#7c3aed",
+              "#64748b",
+              "#dc2626",
+              "#f97316",
+              "#c59b27",
+              "#0284c7"
+            ]
           }]
         },
         options: {
           responsive: true,
           maintainAspectRatio: false,
+          animation: { duration: 400 },
           plugins: {
-            legend: { position: 'right', labels: { color: textColor, font: { family: 'Cairo', size: 11 } } }
+            legend: {
+              position: 'right',
+              labels: { color: textColor, font: { family: 'Cairo', size: 11 } }
+            }
           }
         }
       });
@@ -67,20 +117,46 @@ window.ChartService = {
   },
 
   updateCharts(filteredQuestions) {
-    if (!this.faithChart) return;
+    if (!filteredQuestions) return;
 
-    const faithMap = {};
-    filteredQuestions.forEach(q => {
-      faithMap[q.faith_ar] = (faithMap[q.faith_ar] || 0) + 1;
-    });
+    // --- 1. Update Dynamic Timeline Line Chart ---
+    if (this.timelineChart) {
+      const monthCounts = {};
+      this.monthKeys.forEach(m => { monthCounts[m.key] = 0; });
 
-    const sortedFaith = Object.entries(faithMap).sort((a, b) => b[1] - a[1]).slice(0, 7);
-    this.faithChart.data.labels = sortedFaith.map(x => x[0]);
-    this.faithChart.data.datasets[0].data = sortedFaith.map(x => x[1]);
-    this.faithChart.update();
+      filteredQuestions.forEach(q => {
+        if (q.year && q.month) {
+          const ym = `${q.year}-${String(q.month).padStart(2, '0')}`;
+          if (monthCounts[ym] !== undefined) {
+            monthCounts[ym]++;
+          }
+        }
+      });
+
+      const timelineData = this.monthKeys.map(m => monthCounts[m.key] || 0);
+      this.timelineChart.data.datasets[0].data = timelineData;
+      this.timelineChart.update();
+    }
+
+    // --- 2. Update Dynamic Faith Doughnut Chart ---
+    if (this.faithChart) {
+      const faithMap = {};
+      filteredQuestions.forEach(q => {
+        const faith = q.faith_ar || "غير محدد";
+        faithMap[faith] = (faithMap[faith] || 0) + 1;
+      });
+
+      const sortedFaith = Object.entries(faithMap).sort((a, b) => b[1] - a[1]).slice(0, 7);
+      this.faithChart.data.labels = sortedFaith.map(x => x[0]);
+      this.faithChart.data.datasets[0].data = sortedFaith.map(x => x[1]);
+      this.faithChart.update();
+    }
   },
 
-  reRenderCharts(isDarkTheme) {
+  reRenderCharts(isDarkTheme = false) {
     this.initCharts(isDarkTheme);
+    if (window.App && window.App.filteredQuestions) {
+      this.updateCharts(window.App.filteredQuestions);
+    }
   }
 };
