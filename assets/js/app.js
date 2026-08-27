@@ -6,6 +6,7 @@ window.App = {
   filteredQuestions: [],
   currentPage: 1,
   searchDebounceTimer: null,
+  toastTimeout: null,
 
   async init() {
     this.initTheme();
@@ -121,8 +122,32 @@ window.App = {
     const allChip = document.querySelector(".chip-btn");
     if (allChip) allChip.classList.add("active");
 
-    // Re-apply filters and refresh all UI components & charts
+    // Reset pagination to page 1
+    this.currentPage = 1;
+
+    // Re-apply filters to immediately refresh KPIs, charts, and cards
     this.applyFilters();
+
+    // Show visual confirmation toast
+    this.showToast("تمت استعادة كافة الفلاتر والبيانات بنجاح (11,596 سؤالاً)");
+  },
+
+  showToast(message) {
+    let toast = document.getElementById("app-toast-alert");
+    if (!toast) {
+      toast = document.createElement("div");
+      toast.id = "app-toast-alert";
+      toast.className = "toast-alert";
+      document.body.appendChild(toast);
+    }
+
+    toast.innerHTML = `<i class="fa-solid fa-circle-check"></i> <span>${message}</span>`;
+    toast.classList.add("show");
+
+    clearTimeout(this.toastTimeout);
+    this.toastTimeout = setTimeout(() => {
+      toast.classList.remove("show");
+    }, 2500);
   },
 
   setQuickYear(yearVal, btn) {

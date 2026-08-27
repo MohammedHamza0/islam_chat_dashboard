@@ -23,14 +23,14 @@ index_template = """<!DOCTYPE html>
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-  <!-- Modular Stylesheets (Microservices Architecture) -->
-  <link rel="stylesheet" href="assets/css/base.css">
-  <link rel="stylesheet" href="assets/css/navbar.css">
-  <link rel="stylesheet" href="assets/css/kpi.css">
-  <link rel="stylesheet" href="assets/css/filter-matrix.css">
-  <link rel="stylesheet" href="assets/css/qa-explorer.css">
-  <link rel="stylesheet" href="assets/css/macro-analytics.css">
-  <link rel="stylesheet" href="assets/css/modal.css">
+  <!-- Modular Stylesheets (Microservices Architecture with Cache Busting) -->
+  <link rel="stylesheet" href="assets/css/base.css?v=2.1">
+  <link rel="stylesheet" href="assets/css/navbar.css?v=2.1">
+  <link rel="stylesheet" href="assets/css/kpi.css?v=2.1">
+  <link rel="stylesheet" href="assets/css/filter-matrix.css?v=2.1">
+  <link rel="stylesheet" href="assets/css/qa-explorer.css?v=2.1">
+  <link rel="stylesheet" href="assets/css/macro-analytics.css?v=2.1">
+  <link rel="stylesheet" href="assets/css/modal.css?v=2.1">
 
   <!-- Chart.js for Dynamic Visualizations -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -151,7 +151,7 @@ index_template = """<!DOCTYPE html>
             <i class="fa-solid fa-sliders"></i> شريط الفلاتر الذكي المعتمد على الذكاء الاصطناعي (Smart Multi-Filter Matrix)
           </div>
           <div class="filter-actions">
-            <button class="btn-action" onclick="resetAllFilters()">
+            <button class="btn-action" onclick="resetAllFilters()" title="إعادة ضبط كافة الفلاتر وتحديث النتائج">
               <i class="fa-solid fa-rotate-left"></i> إعادة ضبط الفلاتر
             </button>
           </div>
@@ -468,17 +468,17 @@ index_template = """<!DOCTYPE html>
   </footer>
 
   <!-- Preloaded Data Objects (Guarantees zero CORS issue on file:/// protocol) -->
-  <script src="assets/data/enriched_qa_data.js"></script>
-  <script src="assets/data/conversations_data.js"></script>
+  <script src="assets/data/enriched_qa_data.js?v=2.1"></script>
+  <script src="assets/data/conversations_data.js?v=2.1"></script>
 
-  <!-- Modular Scripts (Microservices Architecture) -->
-  <script src="assets/js/services/api.service.js"></script>
-  <script src="assets/js/services/filter.service.js"></script>
-  <script src="assets/js/services/chart.service.js"></script>
-  <script src="assets/js/components/qa-card.component.js"></script>
-  <script src="assets/js/components/dialogue-modal.component.js"></script>
-  <script src="assets/js/components/lightbox.component.js"></script>
-  <script src="assets/js/app.js"></script>
+  <!-- Modular Scripts (Microservices Architecture with Cache Busting) -->
+  <script src="assets/js/services/api.service.js?v=2.1"></script>
+  <script src="assets/js/services/filter.service.js?v=2.1"></script>
+  <script src="assets/js/services/chart.service.js?v=2.1"></script>
+  <script src="assets/js/components/qa-card.component.js?v=2.1"></script>
+  <script src="assets/js/components/dialogue-modal.component.js?v=2.1"></script>
+  <script src="assets/js/components/lightbox.component.js?v=2.1"></script>
+  <script src="assets/js/app.js?v=2.1"></script>
 </body>
 </html>
 """
@@ -486,4 +486,4 @@ index_template = """<!DOCTYPE html>
 with open(INDEX_FILE, "w", encoding="utf-8") as f:
     f.write(index_template)
 
-print(f"Successfully assembled index.html with 100% LLM Ground Truth! Size: {INDEX_FILE.stat().st_size / 1024:.2f} KB")
+print(f"Successfully assembled index.html with Cache Busting (?v=2.1)! Size: {INDEX_FILE.stat().st_size / 1024:.2f} KB")
