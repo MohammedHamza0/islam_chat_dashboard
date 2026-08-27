@@ -1,5 +1,5 @@
 /**
- * ChartService: Dynamic Chart.js Rendering and Live Updates
+ * ChartService: Dynamic Chart.js Rendering and Live Updates (100% LLM Ground Truth)
  */
 window.ChartService = {
   timelineChart: null,
@@ -41,7 +41,7 @@ window.ChartService = {
       });
     }
 
-    // 2. Faith Doughnut Chart
+    // 2. Faith Doughnut Chart (Ground Truth LLM Religions)
     const canvasFaith = document.getElementById("faithChart");
     if (canvasFaith) {
       if (this.faithChart) this.faithChart.destroy();
@@ -49,10 +49,10 @@ window.ChartService = {
       this.faithChart = new Chart(ctxFaith, {
         type: "doughnut",
         data: {
-          labels: ["مسلم ممارس", "مسيحي", "أصول الإيمان", "باحث عن الحق", "هندوسي/بوذي", "ملحد", "مسلم جديد", "أخرى"],
+          labels: ["الإسلام (مسلم)", "المسيحية", "غير محدد", "الإلحاد (ملحد)", "اللاأدرية", "الهندوسية", "أخرى"],
           datasets: [{
-            data: [3224, 2272, 1634, 1073, 608, 488, 394, 1903],
-            backgroundColor: ["#059669", "#7c3aed", "#0284c7", "#c59b27", "#f97316", "#dc2626", "#10b981", "#64748b"]
+            data: [5337, 2760, 1431, 880, 342, 334, 512],
+            backgroundColor: ["#059669", "#7c3aed", "#64748b", "#dc2626", "#f97316", "#c59b27", "#0284c7"]
           }]
         },
         options: {
@@ -69,7 +69,6 @@ window.ChartService = {
   updateCharts(filteredQuestions) {
     if (!this.faithChart) return;
 
-    // Group faith counts from filtered questions
     const faithMap = {};
     filteredQuestions.forEach(q => {
       faithMap[q.faith_ar] = (faithMap[q.faith_ar] || 0) + 1;

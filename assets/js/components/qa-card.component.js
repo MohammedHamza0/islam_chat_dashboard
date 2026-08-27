@@ -1,5 +1,5 @@
 /**
- * QaCardComponent: Card Rendering, Answer Expansion, and Pagination UI
+ * QaCardComponent: Card Rendering, Answer Expansion, and Pagination UI (LLM Ground Truth)
  */
 window.QaCardComponent = {
   pageSize: 18,
@@ -27,6 +27,20 @@ window.QaCardComponent = {
       const card = document.createElement("div");
       card.className = "qa-card";
 
+      // Funnel badge
+      let funnelBadge = "";
+      if (q.funnel_stage === "Converted") {
+        funnelBadge = `<span class="badge" style="background: var(--benefit-green-soft); color: var(--benefit-green); border: 1px solid var(--benefit-green);"><i class="fa-solid fa-check-double"></i> اعتنق الإسلام (Converted)</span>`;
+      } else if (q.funnel_stage === "Bottom") {
+        funnelBadge = `<span class="badge" style="background: var(--brand-gold-light); color: #855d00; border: 1px solid var(--brand-gold);"><i class="fa-solid fa-star"></i> على مشارف الإسلام</span>`;
+      }
+
+      // Blocker badge
+      let blockerBadge = "";
+      if (q.key_blocker && q.key_blocker !== "N/A" && q.key_blocker !== "None") {
+        blockerBadge = `<span class="badge" style="background: var(--warning-amber-soft); color: var(--warning-amber);"><i class="fa-solid fa-shield-halved"></i> عائق: ${q.key_blocker_ar}</span>`;
+      }
+
       const trendingBadge = q.is_trending 
         ? `<span class="badge badge-trending"><i class="fa-solid fa-fire"></i> تكرر ${q.cluster_size} مرات</span>` 
         : "";
@@ -40,6 +54,8 @@ window.QaCardComponent = {
           <span class="badge badge-topic"><i class="fa-solid fa-tag"></i> ${q.topic_ar || q.topic}</span>
           <span class="badge badge-faith"><i class="fa-solid fa-user"></i> ${q.faith_ar}</span>
           <span class="badge badge-intent"><i class="fa-solid fa-bullseye"></i> ${q.intent_ar}</span>
+          ${funnelBadge}
+          ${blockerBadge}
           <span class="badge badge-lang"><i class="fa-solid fa-globe"></i> ${q.language}</span>
           ${trendingBadge}
           ${followupBadge}

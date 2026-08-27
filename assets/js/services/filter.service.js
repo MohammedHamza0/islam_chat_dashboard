@@ -1,5 +1,5 @@
 /**
- * FilterService: Multi-Dimensional Fast Filtering and Sorting Engine
+ * FilterService: Multi-Dimensional Fast Filtering and Sorting Engine (100% LLM Ground Truth)
  */
 window.FilterService = {
   filterQuestions(allQuestions, filterCriteria) {
@@ -7,6 +7,9 @@ window.FilterService = {
       year = "all",
       faith = "all",
       intent = "all",
+      funnel = "all",
+      blocker = "all",
+      convType = "all",
       topic = "all",
       language = "all",
       region = "all",
@@ -21,6 +24,9 @@ window.FilterService = {
       if (year !== "all" && q.year !== year) return false;
       if (faith !== "all" && q.faith_ar !== faith) return false;
       if (intent !== "all" && q.intent_ar !== intent) return false;
+      if (funnel !== "all" && q.funnel_stage_ar !== funnel) return false;
+      if (blocker !== "all" && q.key_blocker_ar !== blocker) return false;
+      if (convType !== "all" && q.conversation_type_ar !== convType) return false;
       if (topic !== "all" && q.topic_ar !== topic) return false;
       if (language !== "all" && q.language !== language) return false;
       if (region !== "all" && q.region_ar !== region) return false;
@@ -33,7 +39,8 @@ window.FilterService = {
         const matchQ = (q.question || "").toLowerCase().includes(query);
         const matchA = (q.answer || "").toLowerCase().includes(query);
         const matchT = (q.topic || "").toLowerCase().includes(query) || (q.topic_ar || "").toLowerCase().includes(query);
-        if (!matchQ && !matchA && !matchT) return false;
+        const matchB = (q.key_blocker_ar || "").toLowerCase().includes(query);
+        if (!matchQ && !matchA && !matchT && !matchB) return false;
       }
 
       return true;
@@ -59,20 +66,20 @@ window.FilterService = {
     const totalAll = totalAllQuestionsCount || 1;
     const percentage = ((count / totalAll) * 100).toFixed(1);
 
+    const genuineSeekers = filteredQuestions.filter(q => q.intent === "Genuine Seeker").length;
+    const challengers = filteredQuestions.filter(q => q.intent === "Challenger").length;
+    const converted = filteredQuestions.filter(q => q.funnel_stage === "Converted").length;
+    const conversionInterest = filteredQuestions.filter(q => q.intent === "Conversion Interest").length;
     const languages = new Set(filteredQuestions.map(q => q.language));
-    const comparativeCount = filteredQuestions.filter(q => q.intent_ar === "مقارنة أديان ورد شبهات").length;
-    const comparativePct = count > 0 ? ((comparativeCount / count) * 100).toFixed(1) : 0;
-    const trendingCount = filteredQuestions.filter(q => q.is_trending).length;
-    const conversionCount = filteredQuestions.filter(q => q.intent_ar === "رغبة في اعتناق الإسلام والشهادة").length;
 
     return {
       filteredCount: count,
       percentageBadge: `${percentage}% من إجمالي الأسئلة`,
-      languagesCount: languages.size,
-      comparativeCount,
-      comparativePct: `${comparativePct}% من النتائج`,
-      trendingCount,
-      conversionCount
+      genuineSeekers,
+      challengers,
+      converted,
+      conversionInterest,
+      languagesCount: languages.size
     };
   }
 };

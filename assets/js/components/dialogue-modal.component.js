@@ -1,5 +1,5 @@
 /**
- * DialogueModalComponent: Full Raw Dialogue Modal Viewer
+ * DialogueModalComponent: Full Raw Dialogue Modal Viewer with AI Summary (LLM Ground Truth)
  */
 window.DialogueModalComponent = {
   async openModal(chatId) {
@@ -10,7 +10,7 @@ window.DialogueModalComponent = {
     if (!modal || !body) return;
 
     if (titleId) titleId.textContent = chatId;
-    body.innerHTML = `<div style="text-align:center; padding: 30px;"><i class="fa-solid fa-spinner fa-spin" style="font-size:24px;"></i> جاري تحميل المحادثة الأصلية...</div>`;
+    body.innerHTML = `<div style="text-align:center; padding: 30px;"><i class="fa-solid fa-spinner fa-spin" style="font-size:24px;"></i> جاري تحميل المحادثة الأصلية وملخص الذكاء الاصطناعي...</div>`;
     modal.classList.add("active");
 
     const conv = await ApiService.getConversationById(chatId);
@@ -20,21 +20,44 @@ window.DialogueModalComponent = {
       return;
     }
 
+    // 1. AI Summary Header Box
+    let summaryHtml = "";
+    if (conv.summary) {
+      const isMuslimBadge = conv.is_muslim ? '<span class="badge badge-topic"><i class="fa-solid fa-check"></i> مسلم قائم</span>' : '<span class="badge badge-faith"><i class="fa-solid fa-user-plus"></i> غير مسلم / مستهدف</span>';
+      const blockerBadge = (conv.key_blocker && conv.key_blocker !== "N/A" && conv.key_blocker !== "None") ? `<span class="badge" style="background:var(--warning-amber-soft); color:var(--warning-amber);"><i class="fa-solid fa-shield-halved"></i> عائق: ${conv.key_blocker}</span>` : "";
+
+      summaryHtml = `
+        <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 16px; margin-bottom: 16px;">
+          <div style="font-size: 13px; font-weight: 800; color: var(--brand-teal); margin-bottom: 8px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
+            <span><i class="fa-solid fa-wand-magic-sparkles"></i> ملخص المحادثة بالذكاء الاصطناعي (AI Summary)</span>
+            <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+              ${isMuslimBadge}
+              <span class="badge badge-intent"><i class="fa-solid fa-bullseye"></i> ${conv.intent || ''}</span>
+              ${blockerBadge}
+              <span class="badge badge-lang"><i class="fa-solid fa-heart-pulse"></i> ${conv.start_mood || 'Neutral'} ⬅️ ${conv.end_mood || 'Neutral'}</span>
+            </div>
+          </div>
+          <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.65; margin: 0;">${QaCardComponent.escapeHtml(conv.summary)}</p>
+        </div>
+      `;
+    }
+
+    // 2. Chat Bubbles
     const lines = conv.full_conversation.split("\n");
-    let html = "";
+    let messagesHtml = "";
     lines.forEach(line => {
       const trimmed = line.trim();
       if (!trimmed) return;
       if (trimmed.startsWith("User:")) {
-        html += `<div class="chat-bubble chat-bubble-user"><strong><i class="fa-solid fa-user"></i> المستخدم:</strong><br>${QaCardComponent.escapeHtml(trimmed.replace(/^User:\s*/, ''))}</div>`;
+        messagesHtml += `<div class="chat-bubble chat-bubble-user"><strong><i class="fa-solid fa-user"></i> المستخدم:</strong><br>${QaCardComponent.escapeHtml(trimmed.replace(/^User:\s*/, ''))}</div>`;
       } else if (trimmed.startsWith("AI:") || trimmed.startsWith("Bot:")) {
-        html += `<div class="chat-bubble chat-bubble-ai"><strong><i class="fa-solid fa-robot"></i> البوت:</strong><br>${QaCardComponent.escapeHtml(trimmed.replace(/^(AI|Bot):\s*/, '')).replace(/\n/g, '<br>')}</div>`;
+        messagesHtml += `<div class="chat-bubble chat-bubble-ai"><strong><i class="fa-solid fa-robot"></i> البوت:</strong><br>${QaCardComponent.escapeHtml(trimmed.replace(/^(AI|Bot):\s*/, '')).replace(/\n/g, '<br>')}</div>`;
       } else {
-        html += `<div class="chat-bubble chat-bubble-user">${QaCardComponent.escapeHtml(trimmed)}</div>`;
+        messagesHtml += `<div class="chat-bubble chat-bubble-user">${QaCardComponent.escapeHtml(trimmed)}</div>`;
       }
     });
 
-    body.innerHTML = html;
+    body.innerHTML = summaryHtml + messagesHtml;
   },
 
   closeModal(event) {

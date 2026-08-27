@@ -1,5 +1,5 @@
 /**
- * Main Application Orchestrator & Controller
+ * Main Application Orchestrator & Controller (100% LLM Ground Truth)
  */
 window.App = {
   allQuestions: [],
@@ -62,6 +62,9 @@ window.App = {
     const year = document.getElementById("filter-year")?.value || "all";
     const faith = document.getElementById("filter-faith")?.value || "all";
     const intent = document.getElementById("filter-intent")?.value || "all";
+    const funnel = document.getElementById("filter-funnel")?.value || "all";
+    const blocker = document.getElementById("filter-blocker")?.value || "all";
+    const convType = document.getElementById("filter-convtype")?.value || "all";
     const topic = document.getElementById("filter-topic")?.value || "all";
     const language = document.getElementById("filter-language")?.value || "all";
     const region = document.getElementById("filter-region")?.value || "all";
@@ -71,7 +74,7 @@ window.App = {
 
     // 1. Filter
     this.filteredQuestions = FilterService.filterQuestions(this.allQuestions, {
-      year, faith, intent, topic, language, region, trending, followup, searchQuery
+      year, faith, intent, funnel, blocker, convType, topic, language, region, trending, followup, searchQuery
     });
 
     // 2. Sort
@@ -94,6 +97,9 @@ window.App = {
     document.getElementById("filter-year").value = "all";
     document.getElementById("filter-faith").value = "all";
     document.getElementById("filter-intent").value = "all";
+    if (document.getElementById("filter-funnel")) document.getElementById("filter-funnel").value = "all";
+    if (document.getElementById("filter-blocker")) document.getElementById("filter-blocker").value = "all";
+    if (document.getElementById("filter-convtype")) document.getElementById("filter-convtype").value = "all";
     document.getElementById("filter-topic").value = "all";
     document.getElementById("filter-language").value = "all";
     document.getElementById("filter-region").value = "all";
@@ -134,11 +140,11 @@ window.App = {
     document.getElementById("kpi-filtered-count").textContent = kpi.filteredCount.toLocaleString();
     document.getElementById("results-count").textContent = kpi.filteredCount.toLocaleString();
     document.getElementById("kpi-percentage-badge").textContent = kpi.percentageBadge;
-    document.getElementById("kpi-languages-count").textContent = kpi.languagesCount;
-    document.getElementById("kpi-comparative-count").textContent = kpi.comparativeCount.toLocaleString();
-    document.getElementById("kpi-comparative-pct").textContent = kpi.comparativePct;
-    document.getElementById("kpi-trending-count").textContent = kpi.trendingCount.toLocaleString();
-    document.getElementById("kpi-conversion-count").textContent = kpi.conversionCount.toLocaleString();
+    
+    document.getElementById("kpi-seekers-count").textContent = kpi.genuineSeekers.toLocaleString();
+    document.getElementById("kpi-challengers-count").textContent = kpi.challengers.toLocaleString();
+    document.getElementById("kpi-converted-count").textContent = kpi.converted.toLocaleString();
+    document.getElementById("kpi-interest-count").textContent = kpi.conversionInterest.toLocaleString();
   },
 
   renderCurrentPage() {
@@ -160,7 +166,7 @@ window.App = {
       return;
     }
 
-    const headers = ["ID", "Conversation_ID", "Question", "Answer", "Topic", "Faith", "Intent", "Language", "Region", "Date", "Cluster_Size"];
+    const headers = ["ID", "Conversation_ID", "Question", "Answer", "Topic", "Faith", "Intent", "Funnel_Stage", "Key_Blocker", "Conversation_Type", "Language", "Region", "Date", "Cluster_Size"];
     const rows = this.filteredQuestions.map(q => [
       q.id,
       q.conversation_id,
@@ -169,6 +175,9 @@ window.App = {
       `"${q.topic_ar || q.topic}"`,
       `"${q.faith_ar}"`,
       `"${q.intent_ar}"`,
+      `"${q.funnel_stage_ar}"`,
+      `"${q.key_blocker_ar}"`,
+      `"${q.conversation_type_ar}"`,
       `"${q.language}"`,
       `"${q.region_ar}"`,
       q.date || '',
@@ -180,7 +189,7 @@ window.App = {
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.setAttribute("href", url);
-    link.setAttribute("download", `islam_chat_filtered_qa_${new Date().toISOString().slice(0,10)}.csv`);
+    link.setAttribute("download", `islam_chat_llm_filtered_qa_${new Date().toISOString().slice(0,10)}.csv`);
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
