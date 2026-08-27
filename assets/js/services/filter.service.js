@@ -5,6 +5,7 @@ window.FilterService = {
   filterQuestions(allQuestions, filterCriteria) {
     const {
       year = "all",
+      month = "all",
       faith = "all",
       intent = "all",
       funnel = "all",
@@ -22,6 +23,12 @@ window.FilterService = {
 
     return allQuestions.filter(q => {
       if (year !== "all" && q.year !== year) return false;
+      
+      if (month !== "all") {
+        const qMonth = String(q.month).padStart(2, '0');
+        if (qMonth !== month) return false;
+      }
+
       if (faith !== "all" && q.faith_ar !== faith) return false;
       if (intent !== "all" && q.intent_ar !== intent) return false;
       if (funnel !== "all" && q.funnel_stage_ar !== funnel) return false;
@@ -61,25 +68,30 @@ window.FilterService = {
     return sorted;
   },
 
-  calculateKPIs(filteredQuestions, totalAllQuestionsCount) {
-    const count = filteredQuestions.length;
-    const totalAll = totalAllQuestionsCount || 1;
-    const percentage = ((count / totalAll) * 100).toFixed(1);
+  calculateKPIs(filteredQuestions, totalCount) {
+    const filteredCount = filteredQuestions.length;
+    const percentageBadge = `${((filteredCount / totalCount) * 100).toFixed(1)}% من إجمالي الأسئلة`;
 
-    const genuineSeekers = filteredQuestions.filter(q => q.intent === "Genuine Seeker").length;
-    const challengers = filteredQuestions.filter(q => q.intent === "Challenger").length;
-    const converted = filteredQuestions.filter(q => q.funnel_stage === "Converted").length;
-    const conversionInterest = filteredQuestions.filter(q => q.intent === "Conversion Interest").length;
-    const languages = new Set(filteredQuestions.map(q => q.language));
+    let genuineSeekers = 0;
+    let challengers = 0;
+    let converted = 0;
+    let conversionInterest = 0;
+
+    for (let i = 0; i < filteredCount; i++) {
+      const q = filteredQuestions[i];
+      if (q.intent_ar === "باحث صادق عن الحقيقة") genuineSeekers++;
+      if (q.intent_ar === "مناظر ومشكك يتحدى البوت") challengers++;
+      if (q.funnel_stage_ar === "اعتنق الإسلام بالفعل (Converted)") converted++;
+      if (q.intent_ar === "مهتم باعتناق الإسلام" || q.funnel_stage_ar === "المرحلة الختامية (على مشارف الإسلام)") conversionInterest++;
+    }
 
     return {
-      filteredCount: count,
-      percentageBadge: `${percentage}% من إجمالي الأسئلة`,
+      filteredCount,
+      percentageBadge,
       genuineSeekers,
       challengers,
       converted,
-      conversionInterest,
-      languagesCount: languages.size
+      conversionInterest
     };
   }
 };

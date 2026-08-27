@@ -5,8 +5,42 @@ window.App = {
   allQuestions: [],
   filteredQuestions: [],
   currentPage: 1,
+  currentMonth: "all",
   searchDebounceTimer: null,
   toastTimeout: null,
+
+  availableMonthsData: {
+    "all": [
+      { key: "all", label: "كل الشهور (18 شهراً)" }
+    ],
+    "2024": [
+      { key: "all", label: "كل شهور 2024" },
+      { key: "10", label: "أكتوبر (12)" },
+      { key: "11", label: "نوفمبر (2)" },
+      { key: "12", label: "ديسمبر (22)" }
+    ],
+    "2025": [
+      { key: "all", label: "كل شهور 2025" },
+      { key: "01", label: "يناير (127)" },
+      { key: "02", label: "فبراير (38)" },
+      { key: "03", label: "مارس (1,884)" },
+      { key: "04", label: "أبريل (562)" },
+      { key: "05", label: "مايو (498)" },
+      { key: "06", label: "يونيو (1,700)" },
+      { key: "07", label: "يوليو (989)" },
+      { key: "08", label: "أغسطس (732)" },
+      { key: "09", label: "سبتمبر (688)" },
+      { key: "10", label: "أكتوبر (1,126)" },
+      { key: "11", label: "نوفمبر (781)" },
+      { key: "12", label: "ديسمبر (820)" }
+    ],
+    "2026": [
+      { key: "all", label: "كل شهور 2026" },
+      { key: "01", label: "يناير (578)" },
+      { key: "02", label: "فبراير (535)" },
+      { key: "03", label: "مارس (502)" }
+    ]
+  },
 
   async init() {
     this.initTheme();
@@ -15,6 +49,9 @@ window.App = {
     // Fetch dataset
     this.allQuestions = await ApiService.getEnrichedDataset();
     this.filteredQuestions = [...this.allQuestions];
+
+    // Initialize Month Chips
+    this.renderMonthChips("all");
 
     // Initialize Chart.js
     const isDark = document.body.getAttribute("data-theme") === "dark";
@@ -59,8 +96,64 @@ window.App = {
     window.scrollTo({ top: 0, behavior: "smooth" });
   },
 
+  renderMonthChips(yearVal = "all") {
+    const container = document.getElementById("quick-months-container");
+    if (!container) return;
+
+    const months = this.availableMonthsData[yearVal] || this.availableMonthsData["all"];
+    
+    container.innerHTML = `
+      <div class="quick-months-wrapper">
+        <div class="quick-months-title">
+          <i class="fa-solid fa-calendar-days"></i> الشهور المتاحة لسنة ${yearVal === "all" ? "المنصة" : yearVal}:
+        </div>
+        <div class="quick-month-chips">
+          ${months.map(m => `
+            <button class="month-chip-btn ${m.key === this.currentMonth ? 'active' : ''}" 
+                    onclick="setQuickMonth('${m.key}', this)">
+              ${m.label}
+            </button>
+          `).join("")}
+        </div>
+      </div>
+    `;
+  },
+
+  onYearDropdownChange() {
+    const yearVal = document.getElementById("filter-year")?.value || "all";
+    
+    // Sync chip buttons
+    document.querySelectorAll(".chip-btn").forEach(b => {
+      const isMatch = b.getAttribute("onclick")?.includes(`'${yearVal}'`);
+      b.classList.toggle("active", isMatch);
+    });
+
+    this.currentMonth = "all";
+    this.renderMonthChips(yearVal);
+    this.applyFilters();
+  },
+
+  setQuickYear(yearVal, btn) {
+    const el = document.getElementById("filter-year");
+    if (el) el.value = yearVal;
+    document.querySelectorAll(".chip-btn").forEach(b => b.classList.remove("active"));
+    if (btn) btn.classList.add("active");
+
+    this.currentMonth = "all";
+    this.renderMonthChips(yearVal);
+    this.applyFilters();
+  },
+
+  setQuickMonth(monthVal, btn) {
+    this.currentMonth = monthVal;
+    document.querySelectorAll(".month-chip-btn").forEach(b => b.classList.remove("active"));
+    if (btn) btn.classList.add("active");
+    this.applyFilters();
+  },
+
   applyFilters() {
     const year = document.getElementById("filter-year")?.value || "all";
+    const month = this.currentMonth || "all";
     const faith = document.getElementById("filter-faith")?.value || "all";
     const intent = document.getElementById("filter-intent")?.value || "all";
     const funnel = document.getElementById("filter-funnel")?.value || "all";
@@ -74,7 +167,7 @@ window.App = {
 
     // 1. Filter
     this.filteredQuestions = FilterService.filterQuestions(this.allQuestions, {
-      year, faith, intent, funnel, blocker, convType, topic, language, region, trending, searchQuery
+      year, month, faith, intent, funnel, blocker, convType, topic, language, region, trending, searchQuery
     });
 
     // 2. Sort
@@ -122,6 +215,10 @@ window.App = {
     const allChip = document.querySelector(".chip-btn");
     if (allChip) allChip.classList.add("active");
 
+    // Reset month state and re-render chips
+    this.currentMonth = "all";
+    this.renderMonthChips("all");
+
     // Reset pagination to page 1
     this.currentPage = 1;
 
@@ -148,14 +245,6 @@ window.App = {
     this.toastTimeout = setTimeout(() => {
       toast.classList.remove("show");
     }, 2500);
-  },
-
-  setQuickYear(yearVal, btn) {
-    const el = document.getElementById("filter-year");
-    if (el) el.value = yearVal;
-    document.querySelectorAll(".chip-btn").forEach(b => b.classList.remove("active"));
-    if (btn) btn.classList.add("active");
-    this.applyFilters();
   },
 
   onSearchInput() {
@@ -261,6 +350,8 @@ window.switchMainTab = (tabId) => App.switchMainTab(tabId);
 window.applyFilters = () => App.applyFilters();
 window.resetAllFilters = () => App.resetAllFilters();
 window.setQuickYear = (year, btn) => App.setQuickYear(year, btn);
+window.setQuickMonth = (month, btn) => App.setQuickMonth(month, btn);
+window.onYearDropdownChange = () => App.onYearDropdownChange();
 window.onSearchInput = () => App.onSearchInput();
 window.applySort = () => App.applySort();
 window.exportFilteredDataCSV = () => App.exportFilteredDataCSV();

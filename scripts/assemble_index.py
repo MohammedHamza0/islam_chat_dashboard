@@ -24,14 +24,14 @@ index_template = """<!DOCTYPE html>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- Modular Stylesheets (Microservices Architecture with Cache Busting) -->
-  <link rel="stylesheet" href="assets/css/base.css?v=2.3">
-  <link rel="stylesheet" href="assets/css/navbar.css?v=2.3">
-  <link rel="stylesheet" href="assets/css/kpi.css?v=2.3">
-  <link rel="stylesheet" href="assets/css/filter-matrix.css?v=2.3">
-  <link rel="stylesheet" href="assets/css/qa-explorer.css?v=2.3">
-  <link rel="stylesheet" href="assets/css/macro-analytics.css?v=2.3">
-  <link rel="stylesheet" href="assets/css/modal.css?v=2.3">
-  <link rel="stylesheet" href="assets/css/playbooks.css?v=2.3">
+  <link rel="stylesheet" href="assets/css/base.css?v=2.4">
+  <link rel="stylesheet" href="assets/css/navbar.css?v=2.4">
+  <link rel="stylesheet" href="assets/css/kpi.css?v=2.4">
+  <link rel="stylesheet" href="assets/css/filter-matrix.css?v=2.4">
+  <link rel="stylesheet" href="assets/css/qa-explorer.css?v=2.4">
+  <link rel="stylesheet" href="assets/css/macro-analytics.css?v=2.4">
+  <link rel="stylesheet" href="assets/css/modal.css?v=2.4">
+  <link rel="stylesheet" href="assets/css/playbooks.css?v=2.4">
 
   <!-- Chart.js for Dynamic Visualizations -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -159,10 +159,10 @@ index_template = """<!DOCTYPE html>
         </div>
 
         <div class="filter-grid">
-          <!-- Filter 1: Year / Date -->
+          <!-- Filter 1: Year & Dynamic Months -->
           <div class="filter-group">
             <label class="filter-label"><i class="fa-solid fa-calendar"></i> السنة / النطاق الزمني</label>
-            <select id="filter-year" class="filter-select" onchange="applyFilters()">
+            <select id="filter-year" class="filter-select" onchange="onYearDropdownChange()">
               <option value="all">كل السنوات (2024 - 2026)</option>
               <option value="2026">2026 (الربع الأول)</option>
               <option value="2025">2025 (سنة الانتشار الكبرى)</option>
@@ -174,6 +174,8 @@ index_template = """<!DOCTYPE html>
               <button class="chip-btn" onclick="setQuickYear('2025', this)">2025</button>
               <button class="chip-btn" onclick="setQuickYear('2024', this)">2024</button>
             </div>
+            <!-- Dynamic Month Chips Container (Option 1) -->
+            <div id="quick-months-container"></div>
           </div>
 
           <!-- Filter 2: Faith & User Belief (LLM Ground Truth) -->
@@ -596,18 +598,18 @@ index_template = """<!DOCTYPE html>
   </footer>
 
   <!-- Preloaded Data Objects (Guarantees zero CORS issue on file:/// protocol) -->
-  <script src="assets/data/enriched_qa_data.js?v=2.3"></script>
-  <script src="assets/data/conversations_data.js?v=2.3"></script>
+  <script src="assets/data/enriched_qa_data.js?v=2.4"></script>
+  <script src="assets/data/conversations_data.js?v=2.4"></script>
 
   <!-- Modular Scripts (Microservices Architecture with Cache Busting) -->
-  <script src="assets/js/services/api.service.js?v=2.3"></script>
-  <script src="assets/js/services/filter.service.js?v=2.3"></script>
-  <script src="assets/js/services/chart.service.js?v=2.3"></script>
-  <script src="assets/js/components/qa-card.component.js?v=2.3"></script>
-  <script src="assets/js/components/dialogue-modal.component.js?v=2.3"></script>
-  <script src="assets/js/components/lightbox.component.js?v=2.3"></script>
-  <script src="assets/js/components/playbooks.component.js?v=2.3"></script>
-  <script src="assets/js/app.js?v=2.3"></script>
+  <script src="assets/js/services/api.service.js?v=2.4"></script>
+  <script src="assets/js/services/filter.service.js?v=2.4"></script>
+  <script src="assets/js/services/chart.service.js?v=2.4"></script>
+  <script src="assets/js/components/qa-card.component.js?v=2.4"></script>
+  <script src="assets/js/components/dialogue-modal.component.js?v=2.4"></script>
+  <script src="assets/js/components/lightbox.component.js?v=2.4"></script>
+  <script src="assets/js/components/playbooks.component.js?v=2.4"></script>
+  <script src="assets/js/app.js?v=2.4"></script>
 </body>
 </html>
 """
@@ -615,4 +617,4 @@ index_template = """<!DOCTYPE html>
 with open(INDEX_FILE, "w", encoding="utf-8") as f:
     f.write(index_template)
 
-print(f"Successfully assembled index.html with Dynamic Timeline Updates (?v=2.3)! Size: {INDEX_FILE.stat().st_size / 1024:.2f} KB")
+print(f"Successfully assembled index.html with Dynamic Month Chips (?v=2.4)! Size: {INDEX_FILE.stat().st_size / 1024:.2f} KB")
