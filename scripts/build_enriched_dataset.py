@@ -9,6 +9,7 @@ csv.field_size_limit(sys.maxsize)
 WORKSPACE = Path(r"d:\Midade.Com\islam_chat_dashboard")
 POINTS_JSON = WORKSPACE / "LLM point extraction and analysis" / "full_conversation_points_extraction.json"
 DEDUPED_JSON = WORKSPACE / "QA_Extraction_task" / "without duplicate" / "Islam_chat_questions_extraction_deduped.json"
+UNIQUE_JSON = WORKSPACE / "QA_Extraction_task" / "without duplicate" / "Islam_chat_questions_unique.json"
 CSV_CONV = WORKSPACE / "dataset" / "organized_conversations_with_language.csv"
 OUTPUT_JSON = WORKSPACE / "assets" / "data" / "enriched_qa_dataset.json"
 
@@ -28,7 +29,15 @@ with open(CSV_CONV, "r", encoding="utf-8-sig", errors="ignore") as f:
         except Exception:
             continue
 
-print("3. Loading deduplicated Q&A pairs (11,596)...")
+print("3. Loading cluster sizes from Islam_chat_questions_unique.json...")
+with open(UNIQUE_JSON, "r", encoding="utf-8") as f:
+    u_data = json.load(f)
+u_cluster_lookup = {}
+for q in u_data.get("unique_qa_pairs", []):
+    key = (q.get("conversation_id"), q.get("question", "").strip())
+    u_cluster_lookup[key] = q.get("cluster_size", 1)
+
+print("4. Loading deduplicated Q&A pairs (11,596)...")
 with open(DEDUPED_JSON, "r", encoding="utf-8") as f:
     deduped_raw = json.load(f)
 
@@ -177,10 +186,8 @@ for conv in deduped_raw.get("results", []):
     pt = points_lookup.get(cid, {})
     csv_row = csv_metadata.get(cid, {})
     
-    # Accurate conversation language from CSV
     conv_lang = csv_row.get("conversation_language") or conv.get("conversation_language") or "English"
     
-    # Extract Ground Truth attributes
     user_demo = pt.get("user_demographics", {})
     suspected_rel = user_demo.get("suspected_religion", "Unknown")
     is_existing_muslim = user_demo.get("is_existing_muslim")
@@ -196,14 +203,12 @@ for conv in deduped_raw.get("results", []):
     
     conv_type = pt.get("conversation_type", "Dawah")
     
-    # Arabic labels
     religion_ar = RELIGION_AR_MAP.get(suspected_rel, suspected_rel)
     intent_ar = INTENT_AR_MAP.get(user_intent, user_intent)
     funnel_ar = FUNNEL_AR_MAP.get(funnel_stage, funnel_stage)
     blocker_ar = BLOCKER_AR_MAP.get(key_blocker, key_blocker)
     conv_type_ar = CONV_TYPE_AR_MAP.get(conv_type, conv_type)
     
-    # Metadata
     start_time_str = csv_row.get("start_time", "")
     date_str = start_time_str[:10] if start_time_str else ""
     year_str = start_time_str[:4] if len(start_time_str) >= 4 else "2025"
@@ -217,13 +222,14 @@ for conv in deduped_raw.get("results", []):
         topic_raw = qa.get("topic_category", "Aqeedah")
         topic_ar = TOPIC_AR_MAP.get(topic_raw, topic_raw)
         
-        cluster_size = qa.get("cluster_size", 1)
+        q_text = qa.get("question", "").strip()
+        cluster_size = u_cluster_lookup.get((cid, q_text), qa.get("cluster_size", 1))
         is_trending = cluster_size > 1
         
         q_obj = {
             "id": q_counter,
             "conversation_id": cid,
-            "question": qa.get("question", "").strip(),
+            "question": q_text,
             "answer": qa.get("answer", "").strip(),
             "topic": topic_raw,
             "topic_ar": topic_ar,
@@ -252,13 +258,13 @@ for conv in deduped_raw.get("results", []):
         }
         enriched_questions.append(q_obj)
 
-print(f"Processed {len(enriched_questions)} total enriched questions.")
+print(f"Processed {len(enriched_questions)} total enriched questions with exact cluster sizes.")
 
 metadata = {
     "total_questions": len(enriched_questions),
     "total_conversations": len(deduped_raw.get("results", [])),
     "ground_truth_source": "LLM Gemini 3.1 Flash Lite Conversation Point Extraction",
-    "generated_at": "2026-08-26",
+    "generated_at": "2026-08-27",
     "religions_breakdown": dict(Counter(q["faith_ar"] for q in enriched_questions)),
     "intents_breakdown": dict(Counter(q["intent_ar"] for q in enriched_questions)),
     "funnel_breakdown": dict(Counter(q["funnel_stage_ar"] for q in enriched_questions)),

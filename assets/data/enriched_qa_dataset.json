@@ -3,7 +3,7 @@
     "total_questions": 11596,
     "total_conversations": 12448,
     "ground_truth_source": "LLM Gemini 3.1 Flash Lite Conversation Point Extraction",
-    "generated_at": "2026-08-26",
+    "generated_at": "2026-08-27",
     "religions_breakdown": {
       "الإسلام (مسلم)": 5337,
       "غير محدد / غير معلن": 1431,
@@ -131,8 +131,8 @@
       "start_hour": 20,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 679
     },
     {
@@ -161,8 +161,8 @@
       "start_hour": 15,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 1004
     },
     {
@@ -191,8 +191,8 @@
       "start_hour": 17,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 4,
+      "is_trending": true,
       "answer_richness": 787
     },
     {
@@ -251,8 +251,8 @@
       "start_hour": 17,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 853
     },
     {
@@ -431,8 +431,8 @@
       "start_hour": 13,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 56,
+      "is_trending": true,
       "answer_richness": 1157
     },
     {
@@ -521,8 +521,8 @@
       "start_hour": 21,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 4,
+      "is_trending": true,
       "answer_richness": 441
     },
     {
@@ -1061,8 +1061,8 @@
       "start_hour": 0,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 1120
     },
     {
@@ -1151,8 +1151,8 @@
       "start_hour": 22,
       "day_of_week": "Tuesday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 521
     },
     {
@@ -1181,8 +1181,8 @@
       "start_hour": 8,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 598
     },
     {
@@ -1271,8 +1271,8 @@
       "start_hour": 18,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 736
     },
     {
@@ -1301,8 +1301,8 @@
       "start_hour": 18,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 579
     },
     {
@@ -1331,8 +1331,8 @@
       "start_hour": 12,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 23,
+      "is_trending": true,
       "answer_richness": 993
     },
     {
@@ -1361,8 +1361,8 @@
       "start_hour": 14,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 632
     },
     {
@@ -1391,8 +1391,8 @@
       "start_hour": 17,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 16,
+      "is_trending": true,
       "answer_richness": 745
     },
     {
@@ -1571,8 +1571,8 @@
       "start_hour": 23,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 13,
+      "is_trending": true,
       "answer_richness": 591
     },
     {
@@ -1601,8 +1601,8 @@
       "start_hour": 1,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 477
     },
     {
@@ -1991,8 +1991,8 @@
       "start_hour": 9,
       "day_of_week": "Monday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 356
     },
     {
@@ -2501,8 +2501,8 @@
       "start_hour": 21,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 650
     },
     {
@@ -2771,8 +2771,8 @@
       "start_hour": 23,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 9,
+      "is_trending": true,
       "answer_richness": 814
     },
     {
@@ -3341,8 +3341,8 @@
       "start_hour": 9,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 5,
+      "is_trending": true,
       "answer_richness": 978
     },
     {
@@ -3371,8 +3371,8 @@
       "start_hour": 10,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 7,
+      "is_trending": true,
       "answer_richness": 823
     },
     {
@@ -3461,8 +3461,8 @@
       "start_hour": 13,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 4,
+      "is_trending": true,
       "answer_richness": 639
     },
     {
@@ -3551,8 +3551,8 @@
       "start_hour": 15,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 639
     },
     {
@@ -3581,8 +3581,8 @@
       "start_hour": 16,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 868
     },
     {
@@ -3611,8 +3611,8 @@
       "start_hour": 20,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 5,
+      "is_trending": true,
       "answer_richness": 660
     },
     {
@@ -3671,8 +3671,8 @@
       "start_hour": 23,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 751
     },
     {
@@ -3791,8 +3791,8 @@
       "start_hour": 1,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 872
     },
     {
@@ -4271,8 +4271,8 @@
       "start_hour": 8,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 4,
+      "is_trending": true,
       "answer_richness": 674
     },
     {
@@ -4331,8 +4331,8 @@
       "start_hour": 13,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 71,
+      "is_trending": true,
       "answer_richness": 951
     },
     {
@@ -4841,8 +4841,8 @@
       "start_hour": 6,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 7,
+      "is_trending": true,
       "answer_richness": 886
     },
     {
@@ -5171,8 +5171,8 @@
       "start_hour": 11,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 843
     },
     {
@@ -5231,8 +5231,8 @@
       "start_hour": 1,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 743
     },
     {
@@ -5471,8 +5471,8 @@
       "start_hour": 14,
       "day_of_week": "Monday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 738
     },
     {
@@ -5771,8 +5771,8 @@
       "start_hour": 19,
       "day_of_week": "Wednesday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 4,
+      "is_trending": true,
       "answer_richness": 672
     },
     {
@@ -5801,8 +5801,8 @@
       "start_hour": 19,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 10,
+      "is_trending": true,
       "answer_richness": 776
     },
     {
@@ -5861,8 +5861,8 @@
       "start_hour": 19,
       "day_of_week": "Thursday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 448
     },
     {
@@ -6431,8 +6431,8 @@
       "start_hour": 18,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 929
     },
     {
@@ -6551,8 +6551,8 @@
       "start_hour": 1,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 374
     },
     {
@@ -6581,8 +6581,8 @@
       "start_hour": 1,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 10,
+      "is_trending": true,
       "answer_richness": 1326
     },
     {
@@ -6731,8 +6731,8 @@
       "start_hour": 1,
       "day_of_week": "Wednesday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 881
     },
     {
@@ -7661,8 +7661,8 @@
       "start_hour": 12,
       "day_of_week": "Thursday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 541
     },
     {
@@ -7811,8 +7811,8 @@
       "start_hour": 13,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 17,
+      "is_trending": true,
       "answer_richness": 1195
     },
     {
@@ -7841,8 +7841,8 @@
       "start_hour": 14,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 5,
+      "is_trending": true,
       "answer_richness": 1088
     },
     {
@@ -7991,8 +7991,8 @@
       "start_hour": 14,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 1211
     },
     {
@@ -8171,8 +8171,8 @@
       "start_hour": 14,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 8,
+      "is_trending": true,
       "answer_richness": 860
     },
     {
@@ -9371,8 +9371,8 @@
       "start_hour": 4,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 1110
     },
     {
@@ -9701,8 +9701,8 @@
       "start_hour": 11,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 686
     },
     {
@@ -9911,8 +9911,8 @@
       "start_hour": 12,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 914
     },
     {
@@ -10061,8 +10061,8 @@
       "start_hour": 13,
       "day_of_week": "Friday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 583
     },
     {
@@ -10121,8 +10121,8 @@
       "start_hour": 14,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 828
     },
     {
@@ -11111,8 +11111,8 @@
       "start_hour": 15,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 10,
+      "is_trending": true,
       "answer_richness": 1113
     },
     {
@@ -11621,8 +11621,8 @@
       "start_hour": 17,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 710
     },
     {
@@ -12011,8 +12011,8 @@
       "start_hour": 18,
       "day_of_week": "Friday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 609
     },
     {
@@ -12671,8 +12671,8 @@
       "start_hour": 19,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 488
     },
     {
@@ -12791,8 +12791,8 @@
       "start_hour": 20,
       "day_of_week": "Friday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 589
     },
     {
@@ -13091,8 +13091,8 @@
       "start_hour": 23,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 852
     },
     {
@@ -13151,8 +13151,8 @@
       "start_hour": 23,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 736
     },
     {
@@ -13181,8 +13181,8 @@
       "start_hour": 23,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 980
     },
     {
@@ -13481,8 +13481,8 @@
       "start_hour": 0,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 916
     },
     {
@@ -13691,8 +13691,8 @@
       "start_hour": 0,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 602
     },
     {
@@ -13721,8 +13721,8 @@
       "start_hour": 0,
       "day_of_week": "Saturday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 704
     },
     {
@@ -13811,8 +13811,8 @@
       "start_hour": 1,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 872
     },
     {
@@ -14501,8 +14501,8 @@
       "start_hour": 8,
       "day_of_week": "Saturday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 724
     },
     {
@@ -14831,8 +14831,8 @@
       "start_hour": 10,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 51,
+      "is_trending": true,
       "answer_richness": 1333
     },
     {
@@ -15101,8 +15101,8 @@
       "start_hour": 11,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 873
     },
     {
@@ -15131,8 +15131,8 @@
       "start_hour": 11,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 585
     },
     {
@@ -15371,8 +15371,8 @@
       "start_hour": 12,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 1230
     },
     {
@@ -15551,8 +15551,8 @@
       "start_hour": 13,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 6,
+      "is_trending": true,
       "answer_richness": 827
     },
     {
@@ -15581,8 +15581,8 @@
       "start_hour": 13,
       "day_of_week": "Saturday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 635
     },
     {
@@ -17561,8 +17561,8 @@
       "start_hour": 20,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 573
     },
     {
@@ -18101,8 +18101,8 @@
       "start_hour": 21,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 607
     },
     {
@@ -18521,8 +18521,8 @@
       "start_hour": 1,
       "day_of_week": "Sunday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 340
     },
     {
@@ -19331,8 +19331,8 @@
       "start_hour": 7,
       "day_of_week": "Sunday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 657
     },
     {
@@ -21311,8 +21311,8 @@
       "start_hour": 10,
       "day_of_week": "Monday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 14,
+      "is_trending": true,
       "answer_richness": 929
     },
     {
@@ -21341,8 +21341,8 @@
       "start_hour": 10,
       "day_of_week": "Monday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 648
     },
     {
@@ -21371,8 +21371,8 @@
       "start_hour": 10,
       "day_of_week": "Monday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 654
     },
     {
@@ -21731,8 +21731,8 @@
       "start_hour": 12,
       "day_of_week": "Monday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 4,
+      "is_trending": true,
       "answer_richness": 760
     },
     {
@@ -21791,8 +21791,8 @@
       "start_hour": 16,
       "day_of_week": "Monday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 642
     },
     {
@@ -21851,8 +21851,8 @@
       "start_hour": 17,
       "day_of_week": "Monday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 1097
     },
     {
@@ -21941,8 +21941,8 @@
       "start_hour": 18,
       "day_of_week": "Monday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 881
     },
     {
@@ -22271,8 +22271,8 @@
       "start_hour": 4,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 5,
+      "is_trending": true,
       "answer_richness": 1337
     },
     {
@@ -22451,8 +22451,8 @@
       "start_hour": 9,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 1059
     },
     {
@@ -23201,8 +23201,8 @@
       "start_hour": 2,
       "day_of_week": "Wednesday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 928
     },
     {
@@ -24191,8 +24191,8 @@
       "start_hour": 6,
       "day_of_week": "Wednesday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 356
     },
     {
@@ -24281,8 +24281,8 @@
       "start_hour": 6,
       "day_of_week": "Wednesday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 458
     },
     {
@@ -24461,8 +24461,8 @@
       "start_hour": 11,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 9,
+      "is_trending": true,
       "answer_richness": 1336
     },
     {
@@ -24971,8 +24971,8 @@
       "start_hour": 22,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 451
     },
     {
@@ -25631,8 +25631,8 @@
       "start_hour": 0,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 580
     },
     {
@@ -26711,8 +26711,8 @@
       "start_hour": 4,
       "day_of_week": "Thursday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 264
     },
     {
@@ -26951,8 +26951,8 @@
       "start_hour": 5,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 8,
+      "is_trending": true,
       "answer_richness": 624
     },
     {
@@ -27251,8 +27251,8 @@
       "start_hour": 9,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 876
     },
     {
@@ -27281,8 +27281,8 @@
       "start_hour": 9,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 631
     },
     {
@@ -28721,8 +28721,8 @@
       "start_hour": 13,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 558
     },
     {
@@ -30131,8 +30131,8 @@
       "start_hour": 17,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 4,
+      "is_trending": true,
       "answer_richness": 1284
     },
     {
@@ -30431,8 +30431,8 @@
       "start_hour": 18,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 583
     },
     {
@@ -31031,8 +31031,8 @@
       "start_hour": 19,
       "day_of_week": "Thursday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 826
     },
     {
@@ -31421,8 +31421,8 @@
       "start_hour": 20,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 297
     },
     {
@@ -31601,8 +31601,8 @@
       "start_hour": 21,
       "day_of_week": "Thursday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 598
     },
     {
@@ -31841,8 +31841,8 @@
       "start_hour": 22,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 7,
+      "is_trending": true,
       "answer_richness": 784
     },
     {
@@ -32231,8 +32231,8 @@
       "start_hour": 0,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 4,
+      "is_trending": true,
       "answer_richness": 512
     },
     {
@@ -33011,8 +33011,8 @@
       "start_hour": 4,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 8,
+      "is_trending": true,
       "answer_richness": 1365
     },
     {
@@ -33761,8 +33761,8 @@
       "start_hour": 6,
       "day_of_week": "Friday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 652
     },
     {
@@ -34061,8 +34061,8 @@
       "start_hour": 7,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 518
     },
     {
@@ -34781,8 +34781,8 @@
       "start_hour": 12,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 635
     },
     {
@@ -34811,8 +34811,8 @@
       "start_hour": 12,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 608
     },
     {
@@ -35051,8 +35051,8 @@
       "start_hour": 13,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 566
     },
     {
@@ -35351,8 +35351,8 @@
       "start_hour": 14,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 497
     },
     {
@@ -36041,8 +36041,8 @@
       "start_hour": 18,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 570
     },
     {
@@ -36341,8 +36341,8 @@
       "start_hour": 20,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 5,
+      "is_trending": true,
       "answer_richness": 1282
     },
     {
@@ -36401,8 +36401,8 @@
       "start_hour": 22,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 635
     },
     {
@@ -37601,8 +37601,8 @@
       "start_hour": 11,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 726
     },
     {
@@ -38681,8 +38681,8 @@
       "start_hour": 16,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 871
     },
     {
@@ -38891,8 +38891,8 @@
       "start_hour": 19,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 1187
     },
     {
@@ -40031,8 +40031,8 @@
       "start_hour": 5,
       "day_of_week": "Sunday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 469
     },
     {
@@ -40061,8 +40061,8 @@
       "start_hour": 5,
       "day_of_week": "Sunday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 898
     },
     {
@@ -42191,8 +42191,8 @@
       "start_hour": 22,
       "day_of_week": "Sunday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 786
     },
     {
@@ -42881,8 +42881,8 @@
       "start_hour": 3,
       "day_of_week": "Monday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 746
     },
     {
@@ -43601,8 +43601,8 @@
       "start_hour": 11,
       "day_of_week": "Monday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 589
     },
     {
@@ -44231,8 +44231,8 @@
       "start_hour": 15,
       "day_of_week": "Monday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 4,
+      "is_trending": true,
       "answer_richness": 494
     },
     {
@@ -44291,8 +44291,8 @@
       "start_hour": 15,
       "day_of_week": "Monday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 745
     },
     {
@@ -44741,8 +44741,8 @@
       "start_hour": 17,
       "day_of_week": "Monday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 868
     },
     {
@@ -44921,8 +44921,8 @@
       "start_hour": 19,
       "day_of_week": "Monday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 1092
     },
     {
@@ -45371,8 +45371,8 @@
       "start_hour": 23,
       "day_of_week": "Monday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 10,
+      "is_trending": true,
       "answer_richness": 1323
     },
     {
@@ -45401,8 +45401,8 @@
       "start_hour": 0,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 1283
     },
     {
@@ -45431,8 +45431,8 @@
       "start_hour": 0,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 750
     },
     {
@@ -46271,8 +46271,8 @@
       "start_hour": 10,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 278
     },
     {
@@ -46541,8 +46541,8 @@
       "start_hour": 14,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 13,
+      "is_trending": true,
       "answer_richness": 1034
     },
     {
@@ -46841,8 +46841,8 @@
       "start_hour": 23,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 1264
     },
     {
@@ -46901,8 +46901,8 @@
       "start_hour": 2,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 421
     },
     {
@@ -47441,8 +47441,8 @@
       "start_hour": 14,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 528
     },
     {
@@ -47531,8 +47531,8 @@
       "start_hour": 14,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 940
     },
     {
@@ -48131,8 +48131,8 @@
       "start_hour": 3,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 4,
+      "is_trending": true,
       "answer_richness": 920
     },
     {
@@ -48161,8 +48161,8 @@
       "start_hour": 3,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 4,
+      "is_trending": true,
       "answer_richness": 954
     },
     {
@@ -49451,8 +49451,8 @@
       "start_hour": 23,
       "day_of_week": "Thursday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 209
     },
     {
@@ -50051,8 +50051,8 @@
       "start_hour": 14,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 1195
     },
     {
@@ -50171,8 +50171,8 @@
       "start_hour": 0,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 965
     },
     {
@@ -50321,8 +50321,8 @@
       "start_hour": 1,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 982
     },
     {
@@ -50441,8 +50441,8 @@
       "start_hour": 1,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 1024
     },
     {
@@ -51041,8 +51041,8 @@
       "start_hour": 17,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 30,
+      "is_trending": true,
       "answer_richness": 1079
     },
     {
@@ -52541,8 +52541,8 @@
       "start_hour": 18,
       "day_of_week": "Sunday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 776
     },
     {
@@ -52601,8 +52601,8 @@
       "start_hour": 18,
       "day_of_week": "Sunday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 401
     },
     {
@@ -52781,8 +52781,8 @@
       "start_hour": 22,
       "day_of_week": "Sunday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 697
     },
     {
@@ -53471,8 +53471,8 @@
       "start_hour": 17,
       "day_of_week": "Monday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 1087
     },
     {
@@ -54041,8 +54041,8 @@
       "start_hour": 23,
       "day_of_week": "Monday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 1261
     },
     {
@@ -56411,8 +56411,8 @@
       "start_hour": 12,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 819
     },
     {
@@ -57011,8 +57011,8 @@
       "start_hour": 18,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 32,
+      "is_trending": true,
       "answer_richness": 1092
     },
     {
@@ -57041,8 +57041,8 @@
       "start_hour": 18,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 556
     },
     {
@@ -57131,8 +57131,8 @@
       "start_hour": 19,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 8,
+      "is_trending": true,
       "answer_richness": 906
     },
     {
@@ -58061,8 +58061,8 @@
       "start_hour": 23,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 14,
+      "is_trending": true,
       "answer_richness": 1473
     },
     {
@@ -60011,8 +60011,8 @@
       "start_hour": 23,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 851
     },
     {
@@ -60461,8 +60461,8 @@
       "start_hour": 0,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 891
     },
     {
@@ -60791,8 +60791,8 @@
       "start_hour": 5,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 575
     },
     {
@@ -61841,8 +61841,8 @@
       "start_hour": 6,
       "day_of_week": "Sunday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 354
     },
     {
@@ -62111,8 +62111,8 @@
       "start_hour": 5,
       "day_of_week": "Monday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 389
     },
     {
@@ -62141,8 +62141,8 @@
       "start_hour": 7,
       "day_of_week": "Monday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 662
     },
     {
@@ -63101,8 +63101,8 @@
       "start_hour": 19,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 596
     },
     {
@@ -63131,8 +63131,8 @@
       "start_hour": 20,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 710
     },
     {
@@ -64511,8 +64511,8 @@
       "start_hour": 21,
       "day_of_week": "Thursday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 648
     },
     {
@@ -65261,8 +65261,8 @@
       "start_hour": 12,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 835
     },
     {
@@ -65501,8 +65501,8 @@
       "start_hour": 1,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 1086
     },
     {
@@ -67331,8 +67331,8 @@
       "start_hour": 17,
       "day_of_week": "Monday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 4,
+      "is_trending": true,
       "answer_richness": 718
     },
     {
@@ -68351,8 +68351,8 @@
       "start_hour": 1,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 7,
+      "is_trending": true,
       "answer_richness": 1522
     },
     {
@@ -68891,8 +68891,8 @@
       "start_hour": 14,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 5,
+      "is_trending": true,
       "answer_richness": 575
     },
     {
@@ -69041,8 +69041,8 @@
       "start_hour": 23,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 853
     },
     {
@@ -70091,8 +70091,8 @@
       "start_hour": 14,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 16,
+      "is_trending": true,
       "answer_richness": 954
     },
     {
@@ -70121,8 +70121,8 @@
       "start_hour": 14,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 605
     },
     {
@@ -70691,8 +70691,8 @@
       "start_hour": 16,
       "day_of_week": "Sunday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 363
     },
     {
@@ -71081,8 +71081,8 @@
       "start_hour": 21,
       "day_of_week": "Sunday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 5,
+      "is_trending": true,
       "answer_richness": 902
     },
     {
@@ -71621,8 +71621,8 @@
       "start_hour": 0,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 20,
+      "is_trending": true,
       "answer_richness": 901
     },
     {
@@ -71891,8 +71891,8 @@
       "start_hour": 6,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 848
     },
     {
@@ -72101,8 +72101,8 @@
       "start_hour": 16,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 5,
+      "is_trending": true,
       "answer_richness": 1240
     },
     {
@@ -73601,8 +73601,8 @@
       "start_hour": 15,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 865
     },
     {
@@ -74741,8 +74741,8 @@
       "start_hour": 16,
       "day_of_week": "Saturday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 657
     },
     {
@@ -77111,8 +77111,8 @@
       "start_hour": 20,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 489
     },
     {
@@ -77441,8 +77441,8 @@
       "start_hour": 20,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 4,
+      "is_trending": true,
       "answer_richness": 440
     },
     {
@@ -77951,8 +77951,8 @@
       "start_hour": 4,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 6,
+      "is_trending": true,
       "answer_richness": 811
     },
     {
@@ -78221,8 +78221,8 @@
       "start_hour": 16,
       "day_of_week": "Saturday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 674
     },
     {
@@ -78581,8 +78581,8 @@
       "start_hour": 11,
       "day_of_week": "Sunday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 4,
+      "is_trending": true,
       "answer_richness": 838
     },
     {
@@ -79061,8 +79061,8 @@
       "start_hour": 3,
       "day_of_week": "Tuesday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 583
     },
     {
@@ -79091,8 +79091,8 @@
       "start_hour": 6,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 693
     },
     {
@@ -79481,8 +79481,8 @@
       "start_hour": 22,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 1000
     },
     {
@@ -79751,8 +79751,8 @@
       "start_hour": 17,
       "day_of_week": "Thursday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 500
     },
     {
@@ -80201,8 +80201,8 @@
       "start_hour": 14,
       "day_of_week": "Sunday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 10,
+      "is_trending": true,
       "answer_richness": 1301
     },
     {
@@ -81431,8 +81431,8 @@
       "start_hour": 5,
       "day_of_week": "Sunday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 8,
+      "is_trending": true,
       "answer_richness": 958
     },
     {
@@ -81551,8 +81551,8 @@
       "start_hour": 13,
       "day_of_week": "Sunday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 846
     },
     {
@@ -81971,8 +81971,8 @@
       "start_hour": 23,
       "day_of_week": "Sunday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 926
     },
     {
@@ -82751,8 +82751,8 @@
       "start_hour": 19,
       "day_of_week": "Tuesday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 391
     },
     {
@@ -83141,8 +83141,8 @@
       "start_hour": 9,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 487
     },
     {
@@ -83201,8 +83201,8 @@
       "start_hour": 9,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 546
     },
     {
@@ -83231,8 +83231,8 @@
       "start_hour": 9,
       "day_of_week": "Wednesday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 718
     },
     {
@@ -83291,8 +83291,8 @@
       "start_hour": 9,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 667
     },
     {
@@ -83321,8 +83321,8 @@
       "start_hour": 9,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 477
     },
     {
@@ -85901,8 +85901,8 @@
       "start_hour": 23,
       "day_of_week": "Sunday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 602
     },
     {
@@ -87191,8 +87191,8 @@
       "start_hour": 14,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 558
     },
     {
@@ -88811,8 +88811,8 @@
       "start_hour": 20,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 4,
+      "is_trending": true,
       "answer_richness": 738
     },
     {
@@ -89411,8 +89411,8 @@
       "start_hour": 10,
       "day_of_week": "Thursday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 48,
+      "is_trending": true,
       "answer_richness": 948
     },
     {
@@ -89651,8 +89651,8 @@
       "start_hour": 11,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 365
     },
     {
@@ -90041,8 +90041,8 @@
       "start_hour": 12,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 289
     },
     {
@@ -90071,8 +90071,8 @@
       "start_hour": 12,
       "day_of_week": "Thursday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 608
     },
     {
@@ -90761,8 +90761,8 @@
       "start_hour": 15,
       "day_of_week": "Thursday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 407
     },
     {
@@ -93881,8 +93881,8 @@
       "start_hour": 7,
       "day_of_week": "Saturday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 747
     },
     {
@@ -94031,8 +94031,8 @@
       "start_hour": 11,
       "day_of_week": "Saturday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 4,
+      "is_trending": true,
       "answer_richness": 509
     },
     {
@@ -95051,8 +95051,8 @@
       "start_hour": 8,
       "day_of_week": "Sunday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 619
     },
     {
@@ -95561,8 +95561,8 @@
       "start_hour": 22,
       "day_of_week": "Sunday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 398
     },
     {
@@ -97361,8 +97361,8 @@
       "start_hour": 14,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 502
     },
     {
@@ -97811,8 +97811,8 @@
       "start_hour": 6,
       "day_of_week": "Thursday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 404
     },
     {
@@ -99011,8 +99011,8 @@
       "start_hour": 21,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 25,
+      "is_trending": true,
       "answer_richness": 1216
     },
     {
@@ -99101,8 +99101,8 @@
       "start_hour": 2,
       "day_of_week": "Sunday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 488
     },
     {
@@ -99281,8 +99281,8 @@
       "start_hour": 7,
       "day_of_week": "Sunday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 659
     },
     {
@@ -99371,8 +99371,8 @@
       "start_hour": 6,
       "day_of_week": "Monday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 613
     },
     {
@@ -99431,8 +99431,8 @@
       "start_hour": 6,
       "day_of_week": "Monday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 170
     },
     {
@@ -99911,8 +99911,8 @@
       "start_hour": 17,
       "day_of_week": "Monday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 610
     },
     {
@@ -100241,8 +100241,8 @@
       "start_hour": 2,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 644
     },
     {
@@ -100481,8 +100481,8 @@
       "start_hour": 23,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 5,
+      "is_trending": true,
       "answer_richness": 749
     },
     {
@@ -101591,8 +101591,8 @@
       "start_hour": 14,
       "day_of_week": "Thursday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 727
     },
     {
@@ -101681,8 +101681,8 @@
       "start_hour": 19,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 9,
+      "is_trending": true,
       "answer_richness": 860
     },
     {
@@ -101861,8 +101861,8 @@
       "start_hour": 22,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 4,
+      "is_trending": true,
       "answer_richness": 661
     },
     {
@@ -102071,8 +102071,8 @@
       "start_hour": 23,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 647
     },
     {
@@ -102311,8 +102311,8 @@
       "start_hour": 2,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 9,
+      "is_trending": true,
       "answer_richness": 878
     },
     {
@@ -102551,8 +102551,8 @@
       "start_hour": 9,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 4,
+      "is_trending": true,
       "answer_richness": 654
     },
     {
@@ -102821,8 +102821,8 @@
       "start_hour": 12,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 998
     },
     {
@@ -102881,8 +102881,8 @@
       "start_hour": 12,
       "day_of_week": "Friday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 500
     },
     {
@@ -103931,8 +103931,8 @@
       "start_hour": 12,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 501
     },
     {
@@ -104621,8 +104621,8 @@
       "start_hour": 20,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 12,
+      "is_trending": true,
       "answer_richness": 1171
     },
     {
@@ -104681,8 +104681,8 @@
       "start_hour": 20,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 1287
     },
     {
@@ -104861,8 +104861,8 @@
       "start_hour": 20,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 868
     },
     {
@@ -106271,8 +106271,8 @@
       "start_hour": 22,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 646
     },
     {
@@ -106511,8 +106511,8 @@
       "start_hour": 23,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 886
     },
     {
@@ -106631,8 +106631,8 @@
       "start_hour": 23,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 1329
     },
     {
@@ -106721,8 +106721,8 @@
       "start_hour": 0,
       "day_of_week": "Sunday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 826
     },
     {
@@ -108431,8 +108431,8 @@
       "start_hour": 3,
       "day_of_week": "Sunday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 598
     },
     {
@@ -109271,8 +109271,8 @@
       "start_hour": 7,
       "day_of_week": "Sunday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 466
     },
     {
@@ -109631,8 +109631,8 @@
       "start_hour": 8,
       "day_of_week": "Sunday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 1041
     },
     {
@@ -109691,8 +109691,8 @@
       "start_hour": 8,
       "day_of_week": "Sunday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 4,
+      "is_trending": true,
       "answer_richness": 624
     },
     {
@@ -109781,8 +109781,8 @@
       "start_hour": 9,
       "day_of_week": "Sunday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 946
     },
     {
@@ -109811,8 +109811,8 @@
       "start_hour": 9,
       "day_of_week": "Sunday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 4,
+      "is_trending": true,
       "answer_richness": 767
     },
     {
@@ -110051,8 +110051,8 @@
       "start_hour": 9,
       "day_of_week": "Sunday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 689
     },
     {
@@ -110681,8 +110681,8 @@
       "start_hour": 11,
       "day_of_week": "Sunday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 1074
     },
     {
@@ -110891,8 +110891,8 @@
       "start_hour": 12,
       "day_of_week": "Sunday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 37,
+      "is_trending": true,
       "answer_richness": 1110
     },
     {
@@ -111701,8 +111701,8 @@
       "start_hour": 16,
       "day_of_week": "Sunday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 1114
     },
     {
@@ -112091,8 +112091,8 @@
       "start_hour": 17,
       "day_of_week": "Sunday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 1316
     },
     {
@@ -112121,8 +112121,8 @@
       "start_hour": 18,
       "day_of_week": "Sunday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 648
     },
     {
@@ -112451,8 +112451,8 @@
       "start_hour": 20,
       "day_of_week": "Sunday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 670
     },
     {
@@ -113141,8 +113141,8 @@
       "start_hour": 22,
       "day_of_week": "Sunday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 431
     },
     {
@@ -113231,8 +113231,8 @@
       "start_hour": 23,
       "day_of_week": "Sunday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 4,
+      "is_trending": true,
       "answer_richness": 1478
     },
     {
@@ -113291,8 +113291,8 @@
       "start_hour": 23,
       "day_of_week": "Sunday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 10,
+      "is_trending": true,
       "answer_richness": 1336
     },
     {
@@ -113471,8 +113471,8 @@
       "start_hour": 0,
       "day_of_week": "Monday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 160
     },
     {
@@ -114761,8 +114761,8 @@
       "start_hour": 6,
       "day_of_week": "Monday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 526
     },
     {
@@ -117401,8 +117401,8 @@
       "start_hour": 19,
       "day_of_week": "Monday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 569
     },
     {
@@ -117551,8 +117551,8 @@
       "start_hour": 21,
       "day_of_week": "Monday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 925
     },
     {
@@ -117941,8 +117941,8 @@
       "start_hour": 7,
       "day_of_week": "Tuesday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 655
     },
     {
@@ -117971,8 +117971,8 @@
       "start_hour": 7,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 765
     },
     {
@@ -118001,8 +118001,8 @@
       "start_hour": 7,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 1264
     },
     {
@@ -118061,8 +118061,8 @@
       "start_hour": 8,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 776
     },
     {
@@ -118121,8 +118121,8 @@
       "start_hour": 9,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 25,
+      "is_trending": true,
       "answer_richness": 980
     },
     {
@@ -118451,8 +118451,8 @@
       "start_hour": 11,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 1661
     },
     {
@@ -119951,8 +119951,8 @@
       "start_hour": 23,
       "day_of_week": "Tuesday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 821
     },
     {
@@ -120221,8 +120221,8 @@
       "start_hour": 5,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 5,
+      "is_trending": true,
       "answer_richness": 738
     },
     {
@@ -120551,8 +120551,8 @@
       "start_hour": 10,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 555
     },
     {
@@ -120641,8 +120641,8 @@
       "start_hour": 11,
       "day_of_week": "Wednesday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 636
     },
     {
@@ -120941,8 +120941,8 @@
       "start_hour": 13,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 14,
+      "is_trending": true,
       "answer_richness": 518
     },
     {
@@ -121451,8 +121451,8 @@
       "start_hour": 19,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 1129
     },
     {
@@ -121751,8 +121751,8 @@
       "start_hour": 22,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 648
     },
     {
@@ -121871,8 +121871,8 @@
       "start_hour": 23,
       "day_of_week": "Wednesday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 676
     },
     {
@@ -122771,8 +122771,8 @@
       "start_hour": 14,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 755
     },
     {
@@ -123101,8 +123101,8 @@
       "start_hour": 20,
       "day_of_week": "Thursday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 633
     },
     {
@@ -123611,8 +123611,8 @@
       "start_hour": 23,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 621
     },
     {
@@ -123761,8 +123761,8 @@
       "start_hour": 6,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 6,
+      "is_trending": true,
       "answer_richness": 942
     },
     {
@@ -124121,8 +124121,8 @@
       "start_hour": 10,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 20,
+      "is_trending": true,
       "answer_richness": 898
     },
     {
@@ -124241,8 +124241,8 @@
       "start_hour": 13,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 708
     },
     {
@@ -124421,8 +124421,8 @@
       "start_hour": 14,
       "day_of_week": "Friday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 668
     },
     {
@@ -124661,8 +124661,8 @@
       "start_hour": 16,
       "day_of_week": "Friday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 794
     },
     {
@@ -124991,8 +124991,8 @@
       "start_hour": 19,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 969
     },
     {
@@ -125021,8 +125021,8 @@
       "start_hour": 20,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 148,
+      "is_trending": true,
       "answer_richness": 1362
     },
     {
@@ -125531,8 +125531,8 @@
       "start_hour": 22,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 630
     },
     {
@@ -125921,8 +125921,8 @@
       "start_hour": 1,
       "day_of_week": "Saturday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 367
     },
     {
@@ -126311,8 +126311,8 @@
       "start_hour": 7,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 704
     },
     {
@@ -126581,8 +126581,8 @@
       "start_hour": 8,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 36,
+      "is_trending": true,
       "answer_richness": 1134
     },
     {
@@ -127031,8 +127031,8 @@
       "start_hour": 18,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 837
     },
     {
@@ -128771,8 +128771,8 @@
       "start_hour": 21,
       "day_of_week": "Sunday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 460
     },
     {
@@ -129101,8 +129101,8 @@
       "start_hour": 11,
       "day_of_week": "Monday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 747
     },
     {
@@ -129311,8 +129311,8 @@
       "start_hour": 12,
       "day_of_week": "Monday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 378
     },
     {
@@ -130001,8 +130001,8 @@
       "start_hour": 21,
       "day_of_week": "Monday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 472
     },
     {
@@ -130031,8 +130031,8 @@
       "start_hour": 21,
       "day_of_week": "Monday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 10,
+      "is_trending": true,
       "answer_richness": 522
     },
     {
@@ -130391,8 +130391,8 @@
       "start_hour": 8,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 931
     },
     {
@@ -130691,8 +130691,8 @@
       "start_hour": 10,
       "day_of_week": "Tuesday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 4,
+      "is_trending": true,
       "answer_richness": 1048
     },
     {
@@ -131441,8 +131441,8 @@
       "start_hour": 17,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 341
     },
     {
@@ -131861,8 +131861,8 @@
       "start_hour": 18,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 804
     },
     {
@@ -132761,8 +132761,8 @@
       "start_hour": 5,
       "day_of_week": "Wednesday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 614
     },
     {
@@ -133721,8 +133721,8 @@
       "start_hour": 21,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 819
     },
     {
@@ -133781,8 +133781,8 @@
       "start_hour": 22,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 597
     },
     {
@@ -136181,8 +136181,8 @@
       "start_hour": 17,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 1266
     },
     {
@@ -138011,8 +138011,8 @@
       "start_hour": 7,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 641
     },
     {
@@ -138221,8 +138221,8 @@
       "start_hour": 13,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 226
     },
     {
@@ -138281,8 +138281,8 @@
       "start_hour": 14,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 1117
     },
     {
@@ -138761,8 +138761,8 @@
       "start_hour": 14,
       "day_of_week": "Friday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 460
     },
     {
@@ -141431,8 +141431,8 @@
       "start_hour": 14,
       "day_of_week": "Saturday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 435
     },
     {
@@ -141521,8 +141521,8 @@
       "start_hour": 15,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 4,
+      "is_trending": true,
       "answer_richness": 1134
     },
     {
@@ -141551,8 +141551,8 @@
       "start_hour": 17,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 19,
+      "is_trending": true,
       "answer_richness": 1165
     },
     {
@@ -141581,8 +141581,8 @@
       "start_hour": 17,
       "day_of_week": "Saturday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 5,
+      "is_trending": true,
       "answer_richness": 913
     },
     {
@@ -141851,8 +141851,8 @@
       "start_hour": 21,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 862
     },
     {
@@ -141911,8 +141911,8 @@
       "start_hour": 21,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 642
     },
     {
@@ -142301,8 +142301,8 @@
       "start_hour": 23,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 4,
+      "is_trending": true,
       "answer_richness": 2026
     },
     {
@@ -144131,8 +144131,8 @@
       "start_hour": 9,
       "day_of_week": "Monday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 344
     },
     {
@@ -144191,8 +144191,8 @@
       "start_hour": 10,
       "day_of_week": "Monday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 873
     },
     {
@@ -144311,8 +144311,8 @@
       "start_hour": 12,
       "day_of_week": "Monday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 8,
+      "is_trending": true,
       "answer_richness": 827
     },
     {
@@ -144371,8 +144371,8 @@
       "start_hour": 13,
       "day_of_week": "Monday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 4,
+      "is_trending": true,
       "answer_richness": 689
     },
     {
@@ -146111,8 +146111,8 @@
       "start_hour": 10,
       "day_of_week": "Tuesday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 423
     },
     {
@@ -146141,8 +146141,8 @@
       "start_hour": 12,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 9,
+      "is_trending": true,
       "answer_richness": 863
     },
     {
@@ -146771,8 +146771,8 @@
       "start_hour": 20,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 508
     },
     {
@@ -147221,8 +147221,8 @@
       "start_hour": 7,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 531
     },
     {
@@ -148541,8 +148541,8 @@
       "start_hour": 18,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 11,
+      "is_trending": true,
       "answer_richness": 952
     },
     {
@@ -149621,8 +149621,8 @@
       "start_hour": 12,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 299
     },
     {
@@ -149651,8 +149651,8 @@
       "start_hour": 12,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 408
     },
     {
@@ -149681,8 +149681,8 @@
       "start_hour": 12,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 359
     },
     {
@@ -150221,8 +150221,8 @@
       "start_hour": 16,
       "day_of_week": "Thursday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 455
     },
     {
@@ -150911,8 +150911,8 @@
       "start_hour": 20,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 958
     },
     {
@@ -151181,8 +151181,8 @@
       "start_hour": 22,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 603
     },
     {
@@ -151241,8 +151241,8 @@
       "start_hour": 22,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 1176
     },
     {
@@ -151481,8 +151481,8 @@
       "start_hour": 14,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 817
     },
     {
@@ -151541,8 +151541,8 @@
       "start_hour": 18,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 4,
+      "is_trending": true,
       "answer_richness": 463
     },
     {
@@ -152411,8 +152411,8 @@
       "start_hour": 10,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 604
     },
     {
@@ -152711,8 +152711,8 @@
       "start_hour": 21,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 560
     },
     {
@@ -153551,8 +153551,8 @@
       "start_hour": 16,
       "day_of_week": "Sunday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 248,
+      "is_trending": true,
       "answer_richness": 1258
     },
     {
@@ -154001,8 +154001,8 @@
       "start_hour": 7,
       "day_of_week": "Monday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 22,
+      "is_trending": true,
       "answer_richness": 803
     },
     {
@@ -155621,8 +155621,8 @@
       "start_hour": 17,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 580
     },
     {
@@ -155681,8 +155681,8 @@
       "start_hour": 21,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 4,
+      "is_trending": true,
       "answer_richness": 892
     },
     {
@@ -156761,8 +156761,8 @@
       "start_hour": 20,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 398
     },
     {
@@ -157301,8 +157301,8 @@
       "start_hour": 19,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 899
     },
     {
@@ -158231,8 +158231,8 @@
       "start_hour": 12,
       "day_of_week": "Sunday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 666
     },
     {
@@ -158861,8 +158861,8 @@
       "start_hour": 22,
       "day_of_week": "Sunday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 710
     },
     {
@@ -159461,8 +159461,8 @@
       "start_hour": 20,
       "day_of_week": "Monday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 666
     },
     {
@@ -159491,8 +159491,8 @@
       "start_hour": 20,
       "day_of_week": "Monday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 501
     },
     {
@@ -159941,8 +159941,8 @@
       "start_hour": 6,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 42,
+      "is_trending": true,
       "answer_richness": 1218
     },
     {
@@ -160001,8 +160001,8 @@
       "start_hour": 7,
       "day_of_week": "Tuesday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 809
     },
     {
@@ -160181,8 +160181,8 @@
       "start_hour": 8,
       "day_of_week": "Tuesday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 636
     },
     {
@@ -160211,8 +160211,8 @@
       "start_hour": 8,
       "day_of_week": "Tuesday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 531
     },
     {
@@ -160241,8 +160241,8 @@
       "start_hour": 8,
       "day_of_week": "Tuesday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 578
     },
     {
@@ -160361,8 +160361,8 @@
       "start_hour": 9,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 748
     },
     {
@@ -160391,8 +160391,8 @@
       "start_hour": 9,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 5,
+      "is_trending": true,
       "answer_richness": 828
     },
     {
@@ -163361,8 +163361,8 @@
       "start_hour": 13,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 1306
     },
     {
@@ -163871,8 +163871,8 @@
       "start_hour": 22,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 4,
+      "is_trending": true,
       "answer_richness": 742
     },
     {
@@ -164081,8 +164081,8 @@
       "start_hour": 0,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 25,
+      "is_trending": true,
       "answer_richness": 1434
     },
     {
@@ -165761,8 +165761,8 @@
       "start_hour": 12,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 446
     },
     {
@@ -166631,8 +166631,8 @@
       "start_hour": 16,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 461
     },
     {
@@ -167081,8 +167081,8 @@
       "start_hour": 22,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 562
     },
     {
@@ -168581,8 +168581,8 @@
       "start_hour": 21,
       "day_of_week": "Monday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 4,
+      "is_trending": true,
       "answer_richness": 622
     },
     {
@@ -169331,8 +169331,8 @@
       "start_hour": 11,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 592
     },
     {
@@ -169391,8 +169391,8 @@
       "start_hour": 11,
       "day_of_week": "Wednesday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 538
     },
     {
@@ -170261,8 +170261,8 @@
       "start_hour": 11,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 740
     },
     {
@@ -170441,8 +170441,8 @@
       "start_hour": 22,
       "day_of_week": "Thursday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 566
     },
     {
@@ -171281,8 +171281,8 @@
       "start_hour": 22,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 511
     },
     {
@@ -172301,8 +172301,8 @@
       "start_hour": 22,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 484
     },
     {
@@ -173921,8 +173921,8 @@
       "start_hour": 8,
       "day_of_week": "Wednesday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 434
     },
     {
@@ -174131,8 +174131,8 @@
       "start_hour": 13,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 927
     },
     {
@@ -175721,8 +175721,8 @@
       "start_hour": 0,
       "day_of_week": "Saturday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 355
     },
     {
@@ -175781,8 +175781,8 @@
       "start_hour": 1,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 8,
+      "is_trending": true,
       "answer_richness": 929
     },
     {
@@ -176231,8 +176231,8 @@
       "start_hour": 12,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 71,
+      "is_trending": true,
       "answer_richness": 1527
     },
     {
@@ -176561,8 +176561,8 @@
       "start_hour": 23,
       "day_of_week": "Saturday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 442
     },
     {
@@ -177191,8 +177191,8 @@
       "start_hour": 20,
       "day_of_week": "Sunday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 700
     },
     {
@@ -178181,8 +178181,8 @@
       "start_hour": 2,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 583
     },
     {
@@ -180011,8 +180011,8 @@
       "start_hour": 11,
       "day_of_week": "Friday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 567
     },
     {
@@ -180401,8 +180401,8 @@
       "start_hour": 22,
       "day_of_week": "Friday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 438
     },
     {
@@ -180941,8 +180941,8 @@
       "start_hour": 22,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 487
     },
     {
@@ -181031,8 +181031,8 @@
       "start_hour": 22,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 502
     },
     {
@@ -181361,8 +181361,8 @@
       "start_hour": 18,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 734
     },
     {
@@ -182471,8 +182471,8 @@
       "start_hour": 10,
       "day_of_week": "Sunday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 483
     },
     {
@@ -182711,8 +182711,8 @@
       "start_hour": 16,
       "day_of_week": "Sunday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 4,
+      "is_trending": true,
       "answer_richness": 670
     },
     {
@@ -182951,8 +182951,8 @@
       "start_hour": 16,
       "day_of_week": "Sunday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 419
     },
     {
@@ -184631,8 +184631,8 @@
       "start_hour": 6,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 4,
+      "is_trending": true,
       "answer_richness": 641
     },
     {
@@ -186101,8 +186101,8 @@
       "start_hour": 14,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 949
     },
     {
@@ -188831,8 +188831,8 @@
       "start_hour": 4,
       "day_of_week": "Monday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 9,
+      "is_trending": true,
       "answer_richness": 1017
     },
     {
@@ -190961,8 +190961,8 @@
       "start_hour": 13,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 450
     },
     {
@@ -191621,8 +191621,8 @@
       "start_hour": 19,
       "day_of_week": "Sunday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 1015
     },
     {
@@ -191741,8 +191741,8 @@
       "start_hour": 19,
       "day_of_week": "Sunday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 6,
+      "is_trending": true,
       "answer_richness": 736
     },
     {
@@ -192581,8 +192581,8 @@
       "start_hour": 20,
       "day_of_week": "Monday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 689
     },
     {
@@ -194411,8 +194411,8 @@
       "start_hour": 8,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 742
     },
     {
@@ -194441,8 +194441,8 @@
       "start_hour": 8,
       "day_of_week": "Thursday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 598
     },
     {
@@ -194531,8 +194531,8 @@
       "start_hour": 8,
       "day_of_week": "Thursday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 687
     },
     {
@@ -194681,8 +194681,8 @@
       "start_hour": 15,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 4,
+      "is_trending": true,
       "answer_richness": 853
     },
     {
@@ -195101,8 +195101,8 @@
       "start_hour": 20,
       "day_of_week": "Thursday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 401
     },
     {
@@ -195701,8 +195701,8 @@
       "start_hour": 20,
       "day_of_week": "Friday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 439
     },
     {
@@ -196181,8 +196181,8 @@
       "start_hour": 6,
       "day_of_week": "Saturday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 461
     },
     {
@@ -196961,8 +196961,8 @@
       "start_hour": 23,
       "day_of_week": "Sunday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 374
     },
     {
@@ -197141,8 +197141,8 @@
       "start_hour": 7,
       "day_of_week": "Monday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 13,
+      "is_trending": true,
       "answer_richness": 827
     },
     {
@@ -197471,8 +197471,8 @@
       "start_hour": 4,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 1312
     },
     {
@@ -197681,8 +197681,8 @@
       "start_hour": 8,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 467
     },
     {
@@ -197801,8 +197801,8 @@
       "start_hour": 10,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 1210
     },
     {
@@ -198341,8 +198341,8 @@
       "start_hour": 17,
       "day_of_week": "Tuesday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 700
     },
     {
@@ -199301,8 +199301,8 @@
       "start_hour": 23,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 5,
+      "is_trending": true,
       "answer_richness": 1358
     },
     {
@@ -199511,8 +199511,8 @@
       "start_hour": 0,
       "day_of_week": "Wednesday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 1026
     },
     {
@@ -199931,8 +199931,8 @@
       "start_hour": 5,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 5,
+      "is_trending": true,
       "answer_richness": 822
     },
     {
@@ -201611,8 +201611,8 @@
       "start_hour": 19,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 931
     },
     {
@@ -201701,8 +201701,8 @@
       "start_hour": 20,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 961
     },
     {
@@ -201851,8 +201851,8 @@
       "start_hour": 23,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 1145
     },
     {
@@ -201911,8 +201911,8 @@
       "start_hour": 4,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 496
     },
     {
@@ -201941,8 +201941,8 @@
       "start_hour": 4,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 642
     },
     {
@@ -202301,8 +202301,8 @@
       "start_hour": 13,
       "day_of_week": "Thursday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 462
     },
     {
@@ -202481,8 +202481,8 @@
       "start_hour": 15,
       "day_of_week": "Thursday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 659
     },
     {
@@ -203141,8 +203141,8 @@
       "start_hour": 23,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 645
     },
     {
@@ -203891,8 +203891,8 @@
       "start_hour": 16,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 534
     },
     {
@@ -205361,8 +205361,8 @@
       "start_hour": 19,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 18,
+      "is_trending": true,
       "answer_richness": 839
     },
     {
@@ -205391,8 +205391,8 @@
       "start_hour": 19,
       "day_of_week": "Tuesday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 754
     },
     {
@@ -205661,8 +205661,8 @@
       "start_hour": 21,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 158
     },
     {
@@ -206081,8 +206081,8 @@
       "start_hour": 11,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 807
     },
     {
@@ -207881,8 +207881,8 @@
       "start_hour": 19,
       "day_of_week": "Friday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 664
     },
     {
@@ -208121,8 +208121,8 @@
       "start_hour": 15,
       "day_of_week": "Sunday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 1047
     },
     {
@@ -208721,8 +208721,8 @@
       "start_hour": 16,
       "day_of_week": "Monday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 14,
+      "is_trending": true,
       "answer_richness": 946
     },
     {
@@ -211841,8 +211841,8 @@
       "start_hour": 9,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 468
     },
     {
@@ -212441,8 +212441,8 @@
       "start_hour": 8,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 669
     },
     {
@@ -213101,8 +213101,8 @@
       "start_hour": 18,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 4,
+      "is_trending": true,
       "answer_richness": 1046
     },
     {
@@ -213371,8 +213371,8 @@
       "start_hour": 12,
       "day_of_week": "Sunday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 453
     },
     {
@@ -213581,8 +213581,8 @@
       "start_hour": 17,
       "day_of_week": "Sunday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 511
     },
     {
@@ -214091,8 +214091,8 @@
       "start_hour": 22,
       "day_of_week": "Monday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 638
     },
     {
@@ -214121,8 +214121,8 @@
       "start_hour": 22,
       "day_of_week": "Monday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 640
     },
     {
@@ -214211,8 +214211,8 @@
       "start_hour": 7,
       "day_of_week": "Tuesday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 577
     },
     {
@@ -215081,8 +215081,8 @@
       "start_hour": 17,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 777
     },
     {
@@ -215111,8 +215111,8 @@
       "start_hour": 17,
       "day_of_week": "Wednesday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 561
     },
     {
@@ -215531,8 +215531,8 @@
       "start_hour": 11,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 786
     },
     {
@@ -215741,8 +215741,8 @@
       "start_hour": 22,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 566
     },
     {
@@ -216311,8 +216311,8 @@
       "start_hour": 15,
       "day_of_week": "Sunday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 216
     },
     {
@@ -217601,8 +217601,8 @@
       "start_hour": 13,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 5,
+      "is_trending": true,
       "answer_richness": 700
     },
     {
@@ -217721,8 +217721,8 @@
       "start_hour": 5,
       "day_of_week": "Wednesday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 528
     },
     {
@@ -217811,8 +217811,8 @@
       "start_hour": 12,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 13,
+      "is_trending": true,
       "answer_richness": 847
     },
     {
@@ -220541,8 +220541,8 @@
       "start_hour": 19,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 4,
+      "is_trending": true,
       "answer_richness": 557
     },
     {
@@ -220691,8 +220691,8 @@
       "start_hour": 14,
       "day_of_week": "Saturday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 7,
+      "is_trending": true,
       "answer_richness": 447
     },
     {
@@ -221081,8 +221081,8 @@
       "start_hour": 19,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 896
     },
     {
@@ -222071,8 +222071,8 @@
       "start_hour": 17,
       "day_of_week": "Monday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 843
     },
     {
@@ -222431,8 +222431,8 @@
       "start_hour": 11,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 774
     },
     {
@@ -222911,8 +222911,8 @@
       "start_hour": 22,
       "day_of_week": "Wednesday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 547
     },
     {
@@ -223901,8 +223901,8 @@
       "start_hour": 23,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 858
     },
     {
@@ -225431,8 +225431,8 @@
       "start_hour": 10,
       "day_of_week": "Sunday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 8,
+      "is_trending": true,
       "answer_richness": 914
     },
     {
@@ -225851,8 +225851,8 @@
       "start_hour": 8,
       "day_of_week": "Monday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 754
     },
     {
@@ -229241,8 +229241,8 @@
       "start_hour": 18,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 544
     },
     {
@@ -229301,8 +229301,8 @@
       "start_hour": 18,
       "day_of_week": "Wednesday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 593
     },
     {
@@ -229691,8 +229691,8 @@
       "start_hour": 22,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 625
     },
     {
@@ -230981,8 +230981,8 @@
       "start_hour": 9,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 885
     },
     {
@@ -232211,8 +232211,8 @@
       "start_hour": 12,
       "day_of_week": "Monday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 883
     },
     {
@@ -232661,8 +232661,8 @@
       "start_hour": 2,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 731
     },
     {
@@ -232691,8 +232691,8 @@
       "start_hour": 5,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 6,
+      "is_trending": true,
       "answer_richness": 910
     },
     {
@@ -233681,8 +233681,8 @@
       "start_hour": 14,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 5,
+      "is_trending": true,
       "answer_richness": 858
     },
     {
@@ -233861,8 +233861,8 @@
       "start_hour": 16,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 825
     },
     {
@@ -233981,8 +233981,8 @@
       "start_hour": 17,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 959
     },
     {
@@ -234521,8 +234521,8 @@
       "start_hour": 22,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 6,
+      "is_trending": true,
       "answer_richness": 945
     },
     {
@@ -234911,8 +234911,8 @@
       "start_hour": 18,
       "day_of_week": "Wednesday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 586
     },
     {
@@ -235031,8 +235031,8 @@
       "start_hour": 21,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 977
     },
     {
@@ -237191,8 +237191,8 @@
       "start_hour": 9,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 409
     },
     {
@@ -237311,8 +237311,8 @@
       "start_hour": 14,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 839
     },
     {
@@ -237461,8 +237461,8 @@
       "start_hour": 21,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 790
     },
     {
@@ -238361,8 +238361,8 @@
       "start_hour": 23,
       "day_of_week": "Sunday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 4,
+      "is_trending": true,
       "answer_richness": 1076
     },
     {
@@ -238751,8 +238751,8 @@
       "start_hour": 14,
       "day_of_week": "Monday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 436
     },
     {
@@ -239441,8 +239441,8 @@
       "start_hour": 1,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 414
     },
     {
@@ -239471,8 +239471,8 @@
       "start_hour": 1,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 431
     },
     {
@@ -240491,8 +240491,8 @@
       "start_hour": 17,
       "day_of_week": "Tuesday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 674
     },
     {
@@ -240611,8 +240611,8 @@
       "start_hour": 19,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 411
     },
     {
@@ -241031,8 +241031,8 @@
       "start_hour": 22,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 714
     },
     {
@@ -241421,8 +241421,8 @@
       "start_hour": 12,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 941
     },
     {
@@ -242111,8 +242111,8 @@
       "start_hour": 13,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 1034
     },
     {
@@ -242171,8 +242171,8 @@
       "start_hour": 14,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 788
     },
     {
@@ -242441,8 +242441,8 @@
       "start_hour": 14,
       "day_of_week": "Wednesday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 563
     },
     {
@@ -243011,8 +243011,8 @@
       "start_hour": 14,
       "day_of_week": "Wednesday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 871
     },
     {
@@ -243491,8 +243491,8 @@
       "start_hour": 14,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 822
     },
     {
@@ -244871,8 +244871,8 @@
       "start_hour": 18,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 1009
     },
     {
@@ -245681,8 +245681,8 @@
       "start_hour": 20,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 980
     },
     {
@@ -246311,8 +246311,8 @@
       "start_hour": 22,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 999
     },
     {
@@ -246701,8 +246701,8 @@
       "start_hour": 2,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 1183
     },
     {
@@ -246941,8 +246941,8 @@
       "start_hour": 6,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 902
     },
     {
@@ -247121,8 +247121,8 @@
       "start_hour": 7,
       "day_of_week": "Thursday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 621
     },
     {
@@ -247601,8 +247601,8 @@
       "start_hour": 9,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 884
     },
     {
@@ -249791,8 +249791,8 @@
       "start_hour": 17,
       "day_of_week": "Thursday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 301
     },
     {
@@ -249851,8 +249851,8 @@
       "start_hour": 18,
       "day_of_week": "Thursday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 562
     },
     {
@@ -249881,8 +249881,8 @@
       "start_hour": 18,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 820
     },
     {
@@ -250181,8 +250181,8 @@
       "start_hour": 22,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 1145
     },
     {
@@ -250301,8 +250301,8 @@
       "start_hour": 0,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 697
     },
     {
@@ -250901,8 +250901,8 @@
       "start_hour": 15,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 760
     },
     {
@@ -251831,8 +251831,8 @@
       "start_hour": 14,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 619
     },
     {
@@ -251861,8 +251861,8 @@
       "start_hour": 15,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 839
     },
     {
@@ -252161,8 +252161,8 @@
       "start_hour": 21,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 895
     },
     {
@@ -252251,8 +252251,8 @@
       "start_hour": 22,
       "day_of_week": "Saturday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 497
     },
     {
@@ -252581,8 +252581,8 @@
       "start_hour": 10,
       "day_of_week": "Sunday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 574
     },
     {
@@ -253031,8 +253031,8 @@
       "start_hour": 17,
       "day_of_week": "Sunday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 749
     },
     {
@@ -253511,8 +253511,8 @@
       "start_hour": 20,
       "day_of_week": "Sunday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 47,
+      "is_trending": true,
       "answer_richness": 1020
     },
     {
@@ -254201,8 +254201,8 @@
       "start_hour": 14,
       "day_of_week": "Monday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 1021
     },
     {
@@ -254261,8 +254261,8 @@
       "start_hour": 15,
       "day_of_week": "Monday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 606
     },
     {
@@ -254351,8 +254351,8 @@
       "start_hour": 16,
       "day_of_week": "Monday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 582
     },
     {
@@ -254471,8 +254471,8 @@
       "start_hour": 16,
       "day_of_week": "Monday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 5,
+      "is_trending": true,
       "answer_richness": 1109
     },
     {
@@ -255281,8 +255281,8 @@
       "start_hour": 21,
       "day_of_week": "Monday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 8,
+      "is_trending": true,
       "answer_richness": 1185
     },
     {
@@ -255341,8 +255341,8 @@
       "start_hour": 21,
       "day_of_week": "Monday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 655
     },
     {
@@ -255521,8 +255521,8 @@
       "start_hour": 23,
       "day_of_week": "Monday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 10,
+      "is_trending": true,
       "answer_richness": 1194
     },
     {
@@ -255731,8 +255731,8 @@
       "start_hour": 11,
       "day_of_week": "Tuesday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 383
     },
     {
@@ -256181,8 +256181,8 @@
       "start_hour": 13,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 735
     },
     {
@@ -256931,8 +256931,8 @@
       "start_hour": 9,
       "day_of_week": "Wednesday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 565
     },
     {
@@ -257351,8 +257351,8 @@
       "start_hour": 13,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 775
     },
     {
@@ -257381,8 +257381,8 @@
       "start_hour": 13,
       "day_of_week": "Wednesday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 508
     },
     {
@@ -257411,8 +257411,8 @@
       "start_hour": 13,
       "day_of_week": "Wednesday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 701
     },
     {
@@ -257561,8 +257561,8 @@
       "start_hour": 19,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 492
     },
     {
@@ -257681,8 +257681,8 @@
       "start_hour": 20,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 548
     },
     {
@@ -258101,8 +258101,8 @@
       "start_hour": 21,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 822
     },
     {
@@ -258311,8 +258311,8 @@
       "start_hour": 23,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 901
     },
     {
@@ -258521,8 +258521,8 @@
       "start_hour": 9,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 454
     },
     {
@@ -258701,8 +258701,8 @@
       "start_hour": 11,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 648
     },
     {
@@ -258821,8 +258821,8 @@
       "start_hour": 14,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 947
     },
     {
@@ -260891,8 +260891,8 @@
       "start_hour": 19,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 7,
+      "is_trending": true,
       "answer_richness": 656
     },
     {
@@ -261401,8 +261401,8 @@
       "start_hour": 23,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 828
     },
     {
@@ -261491,8 +261491,8 @@
       "start_hour": 23,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 547
     },
     {
@@ -261791,8 +261791,8 @@
       "start_hour": 10,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 1083
     },
     {
@@ -261971,8 +261971,8 @@
       "start_hour": 12,
       "day_of_week": "Wednesday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 764
     },
     {
@@ -262601,8 +262601,8 @@
       "start_hour": 9,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 812
     },
     {
@@ -262631,8 +262631,8 @@
       "start_hour": 9,
       "day_of_week": "Thursday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 660
     },
     {
@@ -263111,8 +263111,8 @@
       "start_hour": 18,
       "day_of_week": "Friday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 784
     },
     {
@@ -263381,8 +263381,8 @@
       "start_hour": 14,
       "day_of_week": "Saturday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 986
     },
     {
@@ -263801,8 +263801,8 @@
       "start_hour": 21,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 711
     },
     {
@@ -264521,8 +264521,8 @@
       "start_hour": 6,
       "day_of_week": "Monday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 539
     },
     {
@@ -265001,8 +265001,8 @@
       "start_hour": 7,
       "day_of_week": "Monday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 6,
+      "is_trending": true,
       "answer_richness": 789
     },
     {
@@ -265571,8 +265571,8 @@
       "start_hour": 16,
       "day_of_week": "Monday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 10,
+      "is_trending": true,
       "answer_richness": 912
     },
     {
@@ -266171,8 +266171,8 @@
       "start_hour": 0,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 495
     },
     {
@@ -267851,8 +267851,8 @@
       "start_hour": 16,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 149,
+      "is_trending": true,
       "answer_richness": 1240
     },
     {
@@ -268961,8 +268961,8 @@
       "start_hour": 17,
       "day_of_week": "Thursday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 691
     },
     {
@@ -269021,8 +269021,8 @@
       "start_hour": 17,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 869
     },
     {
@@ -269081,8 +269081,8 @@
       "start_hour": 21,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 822
     },
     {
@@ -270911,8 +270911,8 @@
       "start_hour": 22,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 391
     },
     {
@@ -271061,8 +271061,8 @@
       "start_hour": 11,
       "day_of_week": "Sunday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 857
     },
     {
@@ -271271,8 +271271,8 @@
       "start_hour": 20,
       "day_of_week": "Sunday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 759
     },
     {
@@ -271301,8 +271301,8 @@
       "start_hour": 20,
       "day_of_week": "Sunday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 4,
+      "is_trending": true,
       "answer_richness": 914
     },
     {
@@ -271721,8 +271721,8 @@
       "start_hour": 11,
       "day_of_week": "Monday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 4,
+      "is_trending": true,
       "answer_richness": 727
     },
     {
@@ -271991,8 +271991,8 @@
       "start_hour": 23,
       "day_of_week": "Monday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 319
     },
     {
@@ -273011,8 +273011,8 @@
       "start_hour": 14,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 7,
+      "is_trending": true,
       "answer_richness": 1143
     },
     {
@@ -273581,8 +273581,8 @@
       "start_hour": 8,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 8,
+      "is_trending": true,
       "answer_richness": 1206
     },
     {
@@ -274211,8 +274211,8 @@
       "start_hour": 3,
       "day_of_week": "Sunday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 4,
+      "is_trending": true,
       "answer_richness": 891
     },
     {
@@ -274811,8 +274811,8 @@
       "start_hour": 20,
       "day_of_week": "Sunday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 1333
     },
     {
@@ -276221,8 +276221,8 @@
       "start_hour": 23,
       "day_of_week": "Monday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 515
     },
     {
@@ -276461,8 +276461,8 @@
       "start_hour": 4,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 463
     },
     {
@@ -278141,8 +278141,8 @@
       "start_hour": 14,
       "day_of_week": "Thursday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 393
     },
     {
@@ -278711,8 +278711,8 @@
       "start_hour": 22,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 1301
     },
     {
@@ -278831,8 +278831,8 @@
       "start_hour": 8,
       "day_of_week": "Friday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 8,
+      "is_trending": true,
       "answer_richness": 592
     },
     {
@@ -278951,8 +278951,8 @@
       "start_hour": 12,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 891
     },
     {
@@ -280961,8 +280961,8 @@
       "start_hour": 22,
       "day_of_week": "Sunday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 940
     },
     {
@@ -281261,8 +281261,8 @@
       "start_hour": 11,
       "day_of_week": "Monday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 418
     },
     {
@@ -281501,8 +281501,8 @@
       "start_hour": 21,
       "day_of_week": "Monday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 440
     },
     {
@@ -282191,8 +282191,8 @@
       "start_hour": 6,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 819
     },
     {
@@ -282491,8 +282491,8 @@
       "start_hour": 6,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 983
     },
     {
@@ -282551,8 +282551,8 @@
       "start_hour": 6,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 4,
+      "is_trending": true,
       "answer_richness": 1062
     },
     {
@@ -282611,8 +282611,8 @@
       "start_hour": 6,
       "day_of_week": "Tuesday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 4,
+      "is_trending": true,
       "answer_richness": 924
     },
     {
@@ -282731,8 +282731,8 @@
       "start_hour": 6,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 12,
+      "is_trending": true,
       "answer_richness": 1007
     },
     {
@@ -282821,8 +282821,8 @@
       "start_hour": 6,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 810
     },
     {
@@ -283001,8 +283001,8 @@
       "start_hour": 6,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 700
     },
     {
@@ -283151,8 +283151,8 @@
       "start_hour": 6,
       "day_of_week": "Tuesday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 648
     },
     {
@@ -283271,8 +283271,8 @@
       "start_hour": 6,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 1276
     },
     {
@@ -284051,8 +284051,8 @@
       "start_hour": 9,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 546
     },
     {
@@ -284771,8 +284771,8 @@
       "start_hour": 17,
       "day_of_week": "Tuesday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 5,
+      "is_trending": true,
       "answer_richness": 971
     },
     {
@@ -285161,8 +285161,8 @@
       "start_hour": 1,
       "day_of_week": "Wednesday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 569
     },
     {
@@ -285611,8 +285611,8 @@
       "start_hour": 9,
       "day_of_week": "Wednesday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 907
     },
     {
@@ -287261,8 +287261,8 @@
       "start_hour": 1,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 991
     },
     {
@@ -288311,8 +288311,8 @@
       "start_hour": 20,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 508
     },
     {
@@ -288401,8 +288401,8 @@
       "start_hour": 23,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 22,
+      "is_trending": true,
       "answer_richness": 1090
     },
     {
@@ -290321,8 +290321,8 @@
       "start_hour": 7,
       "day_of_week": "Tuesday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 582
     },
     {
@@ -290531,8 +290531,8 @@
       "start_hour": 14,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 719
     },
     {
@@ -291461,8 +291461,8 @@
       "start_hour": 7,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 16,
+      "is_trending": true,
       "answer_richness": 1284
     },
     {
@@ -292091,8 +292091,8 @@
       "start_hour": 13,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 920
     },
     {
@@ -292841,8 +292841,8 @@
       "start_hour": 11,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 486
     },
     {
@@ -293471,8 +293471,8 @@
       "start_hour": 3,
       "day_of_week": "Sunday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 1010
     },
     {
@@ -294041,8 +294041,8 @@
       "start_hour": 23,
       "day_of_week": "Sunday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 393
     },
     {
@@ -297131,8 +297131,8 @@
       "start_hour": 16,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 973
     },
     {
@@ -298211,8 +298211,8 @@
       "start_hour": 19,
       "day_of_week": "Sunday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 594
     },
     {
@@ -299411,8 +299411,8 @@
       "start_hour": 16,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 700
     },
     {
@@ -299951,8 +299951,8 @@
       "start_hour": 18,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 724
     },
     {
@@ -300431,8 +300431,8 @@
       "start_hour": 21,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 273
     },
     {
@@ -300461,8 +300461,8 @@
       "start_hour": 21,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 237
     },
     {
@@ -300551,8 +300551,8 @@
       "start_hour": 21,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 239
     },
     {
@@ -300641,8 +300641,8 @@
       "start_hour": 21,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 226
     },
     {
@@ -300671,8 +300671,8 @@
       "start_hour": 21,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 246
     },
     {
@@ -301001,8 +301001,8 @@
       "start_hour": 12,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 987
     },
     {
@@ -301031,8 +301031,8 @@
       "start_hour": 18,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 6,
+      "is_trending": true,
       "answer_richness": 683
     },
     {
@@ -301601,8 +301601,8 @@
       "start_hour": 14,
       "day_of_week": "Monday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 413
     },
     {
@@ -302141,8 +302141,8 @@
       "start_hour": 23,
       "day_of_week": "Sunday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 1046
     },
     {
@@ -302651,8 +302651,8 @@
       "start_hour": 22,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 1038
     },
     {
@@ -302921,8 +302921,8 @@
       "start_hour": 2,
       "day_of_week": "Wednesday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 422
     },
     {
@@ -303551,8 +303551,8 @@
       "start_hour": 18,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 6,
+      "is_trending": true,
       "answer_richness": 635
     },
     {
@@ -303581,8 +303581,8 @@
       "start_hour": 18,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 5,
+      "is_trending": true,
       "answer_richness": 716
     },
     {
@@ -304301,8 +304301,8 @@
       "start_hour": 13,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 663
     },
     {
@@ -304991,8 +304991,8 @@
       "start_hour": 0,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 382
     },
     {
@@ -305051,8 +305051,8 @@
       "start_hour": 0,
       "day_of_week": "Friday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 481
     },
     {
@@ -306491,8 +306491,8 @@
       "start_hour": 5,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 726
     },
     {
@@ -307511,8 +307511,8 @@
       "start_hour": 23,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 480
     },
     {
@@ -307721,8 +307721,8 @@
       "start_hour": 13,
       "day_of_week": "Monday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 610
     },
     {
@@ -307751,8 +307751,8 @@
       "start_hour": 14,
       "day_of_week": "Monday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 840
     },
     {
@@ -307931,8 +307931,8 @@
       "start_hour": 18,
       "day_of_week": "Monday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 921
     },
     {
@@ -309881,8 +309881,8 @@
       "start_hour": 6,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 1001
     },
     {
@@ -310091,8 +310091,8 @@
       "start_hour": 16,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 4,
+      "is_trending": true,
       "answer_richness": 558
     },
     {
@@ -311831,8 +311831,8 @@
       "start_hour": 8,
       "day_of_week": "Tuesday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 689
     },
     {
@@ -312131,8 +312131,8 @@
       "start_hour": 10,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 1021
     },
     {
@@ -312431,8 +312431,8 @@
       "start_hour": 16,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 508
     },
     {
@@ -312551,8 +312551,8 @@
       "start_hour": 19,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 674
     },
     {
@@ -312881,8 +312881,8 @@
       "start_hour": 22,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 1038
     },
     {
@@ -314351,8 +314351,8 @@
       "start_hour": 10,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 12,
+      "is_trending": true,
       "answer_richness": 980
     },
     {
@@ -314381,8 +314381,8 @@
       "start_hour": 12,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 8,
+      "is_trending": true,
       "answer_richness": 1114
     },
     {
@@ -314501,8 +314501,8 @@
       "start_hour": 17,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 653
     },
     {
@@ -315401,8 +315401,8 @@
       "start_hour": 17,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 1024
     },
     {
@@ -315491,8 +315491,8 @@
       "start_hour": 5,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 563
     },
     {
@@ -315521,8 +315521,8 @@
       "start_hour": 5,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 601
     },
     {
@@ -316241,8 +316241,8 @@
       "start_hour": 14,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 1188
     },
     {
@@ -316811,8 +316811,8 @@
       "start_hour": 22,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 583
     },
     {
@@ -317081,8 +317081,8 @@
       "start_hour": 11,
       "day_of_week": "Monday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 609
     },
     {
@@ -317231,8 +317231,8 @@
       "start_hour": 13,
       "day_of_week": "Monday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 388
     },
     {
@@ -317351,8 +317351,8 @@
       "start_hour": 20,
       "day_of_week": "Monday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 5,
+      "is_trending": true,
       "answer_richness": 672
     },
     {
@@ -317441,8 +317441,8 @@
       "start_hour": 22,
       "day_of_week": "Monday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 544
     },
     {
@@ -317471,8 +317471,8 @@
       "start_hour": 6,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 11,
+      "is_trending": true,
       "answer_richness": 929
     },
     {
@@ -317531,8 +317531,8 @@
       "start_hour": 10,
       "day_of_week": "Tuesday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 643
     },
     {
@@ -318071,8 +318071,8 @@
       "start_hour": 23,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 497
     },
     {
@@ -318581,8 +318581,8 @@
       "start_hour": 13,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 740
     },
     {
@@ -319211,8 +319211,8 @@
       "start_hour": 2,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 1135
     },
     {
@@ -319991,8 +319991,8 @@
       "start_hour": 23,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 539
     },
     {
@@ -320321,8 +320321,8 @@
       "start_hour": 0,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 891
     },
     {
@@ -321341,8 +321341,8 @@
       "start_hour": 3,
       "day_of_week": "Sunday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 585
     },
     {
@@ -321761,8 +321761,8 @@
       "start_hour": 11,
       "day_of_week": "Sunday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 693
     },
     {
@@ -322091,8 +322091,8 @@
       "start_hour": 5,
       "day_of_week": "Thursday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 4,
+      "is_trending": true,
       "answer_richness": 551
     },
     {
@@ -322241,8 +322241,8 @@
       "start_hour": 6,
       "day_of_week": "Thursday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 597
     },
     {
@@ -322781,8 +322781,8 @@
       "start_hour": 21,
       "day_of_week": "Thursday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 678
     },
     {
@@ -322841,8 +322841,8 @@
       "start_hour": 23,
       "day_of_week": "Thursday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 731
     },
     {
@@ -323921,8 +323921,8 @@
       "start_hour": 20,
       "day_of_week": "Saturday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 821
     },
     {
@@ -324911,8 +324911,8 @@
       "start_hour": 10,
       "day_of_week": "Monday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 9,
+      "is_trending": true,
       "answer_richness": 606
     },
     {
@@ -325121,8 +325121,8 @@
       "start_hour": 15,
       "day_of_week": "Monday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 944
     },
     {
@@ -325211,8 +325211,8 @@
       "start_hour": 17,
       "day_of_week": "Monday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 636
     },
     {
@@ -325511,8 +325511,8 @@
       "start_hour": 12,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 895
     },
     {
@@ -325691,8 +325691,8 @@
       "start_hour": 23,
       "day_of_week": "Wednesday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 626
     },
     {
@@ -326171,8 +326171,8 @@
       "start_hour": 23,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 4,
+      "is_trending": true,
       "answer_richness": 617
     },
     {
@@ -326651,8 +326651,8 @@
       "start_hour": 2,
       "day_of_week": "Saturday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 1024
     },
     {
@@ -328841,8 +328841,8 @@
       "start_hour": 19,
       "day_of_week": "Monday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 719
     },
     {
@@ -329051,8 +329051,8 @@
       "start_hour": 8,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 716
     },
     {
@@ -329201,8 +329201,8 @@
       "start_hour": 19,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 755
     },
     {
@@ -329231,8 +329231,8 @@
       "start_hour": 22,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 513
     },
     {
@@ -330641,8 +330641,8 @@
       "start_hour": 19,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 599
     },
     {
@@ -331061,8 +331061,8 @@
       "start_hour": 0,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 860
     },
     {
@@ -331781,8 +331781,8 @@
       "start_hour": 5,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 850
     },
     {
@@ -332021,8 +332021,8 @@
       "start_hour": 9,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 557
     },
     {
@@ -332111,8 +332111,8 @@
       "start_hour": 14,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 709
     },
     {
@@ -333821,8 +333821,8 @@
       "start_hour": 1,
       "day_of_week": "Tuesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 12,
+      "is_trending": true,
       "answer_richness": 692
     },
     {
@@ -334661,8 +334661,8 @@
       "start_hour": 0,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 555
     },
     {
@@ -335561,8 +335561,8 @@
       "start_hour": 20,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 4,
+      "is_trending": true,
       "answer_richness": 920
     },
     {
@@ -336521,8 +336521,8 @@
       "start_hour": 14,
       "day_of_week": "Saturday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 259
     },
     {
@@ -337571,8 +337571,8 @@
       "start_hour": 14,
       "day_of_week": "Sunday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 4,
+      "is_trending": true,
       "answer_richness": 842
     },
     {
@@ -337841,8 +337841,8 @@
       "start_hour": 15,
       "day_of_week": "Monday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 569
     },
     {
@@ -337931,8 +337931,8 @@
       "start_hour": 21,
       "day_of_week": "Monday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 809
     },
     {
@@ -338201,8 +338201,8 @@
       "start_hour": 6,
       "day_of_week": "Tuesday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 408
     },
     {
@@ -338831,8 +338831,8 @@
       "start_hour": 3,
       "day_of_week": "Wednesday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 1013
     },
     {
@@ -339581,8 +339581,8 @@
       "start_hour": 5,
       "day_of_week": "Thursday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 644
     },
     {
@@ -340571,8 +340571,8 @@
       "start_hour": 17,
       "day_of_week": "Friday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 4,
+      "is_trending": true,
       "answer_richness": 753
     },
     {
@@ -341291,8 +341291,8 @@
       "start_hour": 2,
       "day_of_week": "Sunday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 686
     },
     {
@@ -342401,8 +342401,8 @@
       "start_hour": 19,
       "day_of_week": "Monday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 986
     },
     {
@@ -343061,8 +343061,8 @@
       "start_hour": 11,
       "day_of_week": "Tuesday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 545
     },
     {
@@ -343391,8 +343391,8 @@
       "start_hour": 1,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 847
     },
     {
@@ -343421,8 +343421,8 @@
       "start_hour": 3,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 1053
     },
     {
@@ -343871,8 +343871,8 @@
       "start_hour": 16,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 1123
     },
     {
@@ -344021,8 +344021,8 @@
       "start_hour": 22,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 8,
+      "is_trending": true,
       "answer_richness": 828
     },
     {
@@ -344081,8 +344081,8 @@
       "start_hour": 22,
       "day_of_week": "Wednesday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 694
     },
     {
@@ -345671,8 +345671,8 @@
       "start_hour": 5,
       "day_of_week": "Saturday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 646
     },
     {
@@ -346571,8 +346571,8 @@
       "start_hour": 15,
       "day_of_week": "Monday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 5,
+      "is_trending": true,
       "answer_richness": 731
     },
     {
@@ -346721,8 +346721,8 @@
       "start_hour": 22,
       "day_of_week": "Monday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 4,
+      "is_trending": true,
       "answer_richness": 774
     },
     {
@@ -346901,8 +346901,8 @@
       "start_hour": 2,
       "day_of_week": "Tuesday",
       "is_follow_up": true,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 2,
+      "is_trending": true,
       "answer_richness": 455
     },
     {
@@ -347261,8 +347261,8 @@
       "start_hour": 0,
       "day_of_week": "Wednesday",
       "is_follow_up": false,
-      "cluster_size": 1,
-      "is_trending": false,
+      "cluster_size": 3,
+      "is_trending": true,
       "answer_richness": 874
     },
     {
