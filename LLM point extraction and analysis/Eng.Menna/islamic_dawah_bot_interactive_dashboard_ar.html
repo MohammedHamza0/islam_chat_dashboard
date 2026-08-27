@@ -1,0 +1,595 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>لوحة تحليل محادثات بوت الدعوة الإسلامية</title>
+  <style>
+    :root {
+      --ink: #10212b;
+      --muted: #5f6f79;
+      --bg: #f6faf8;
+      --panel: #ffffff;
+      --line: #dfe9e5;
+      --teal: #176d89;
+      --green: #5c8a4a;
+      --gold: #f4b63e;
+      --rose: #d95f59;
+      --violet: #6d5bd0;
+      --shadow: 0 16px 44px rgba(16, 33, 43, .11);
+      --radius: 8px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, Tahoma, sans-serif;
+      color: var(--ink);
+      background:
+        linear-gradient(135deg, rgba(23,109,137,.10), transparent 30%),
+        linear-gradient(315deg, rgba(244,182,62,.16), transparent 32%),
+        var(--bg);
+      line-height: 1.55;
+    }
+    .shell { max-width: 1480px; margin: 0 auto; padding: 22px; }
+    header {
+      display: grid;
+      grid-template-columns: 1.4fr .8fr;
+      gap: 18px;
+      align-items: stretch;
+      margin-bottom: 18px;
+    }
+    .hero, .quick-panel, .card, .chart-card, .drawer {
+      background: rgba(255,255,255,.92);
+      border: 1px solid rgba(223,233,229,.95);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+    }
+    .hero { padding: 26px; position: relative; overflow: hidden; }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(23,109,137,.14), rgba(92,138,74,.10), rgba(244,182,62,.16));
+      pointer-events: none;
+    }
+    .hero > * { position: relative; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: #e8f4f1;
+      color: #176d89;
+      font-weight: 700;
+      font-size: 13px;
+    }
+    h1 { font-size: 34px; margin: 14px 0 8px; line-height: 1.18; }
+    .hero p { max-width: 850px; color: var(--muted); margin: 0; font-size: 16px; }
+    .quick-panel { padding: 18px; display: grid; gap: 12px; }
+    .big-number { font-size: 34px; font-weight: 800; color: var(--teal); }
+    .quick-label { color: var(--muted); font-size: 14px; }
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      padding: 12px 0;
+      backdrop-filter: blur(14px);
+      background: rgba(246,250,248,.78);
+    }
+    .nav button, .control button {
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--ink);
+      border-radius: 999px;
+      padding: 10px 14px;
+      font: inherit;
+      cursor: pointer;
+      transition: .18s ease;
+      font-weight: 700;
+    }
+    .nav button:hover, .control button:hover { transform: translateY(-1px); box-shadow: 0 8px 18px rgba(16,33,43,.10); }
+    .nav button.active, .control button.active { background: var(--teal); color: white; border-color: var(--teal); }
+    section { display: none; animation: rise .24s ease; }
+    section.active { display: block; }
+    @keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+    .grid { display: grid; gap: 14px; }
+    .metrics { grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 10px 0 18px; }
+    .card { padding: 18px; min-height: 126px; }
+    .card .label { color: var(--muted); font-size: 14px; }
+    .card .value { font-size: 30px; font-weight: 800; margin: 5px 0; }
+    .card .hint { color: var(--muted); font-size: 13px; }
+    .accent-teal { border-top: 4px solid var(--teal); }
+    .accent-green { border-top: 4px solid var(--green); }
+    .accent-gold { border-top: 4px solid var(--gold); }
+    .accent-rose { border-top: 4px solid var(--rose); }
+    .two-col { grid-template-columns: minmax(0, 1.1fr) minmax(320px, .9fr); }
+    .three-col { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .chart-card { padding: 18px; overflow: hidden; }
+    .chart-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 12px; }
+    h2 { margin: 0 0 8px; font-size: 24px; }
+    h3 { margin: 0; font-size: 18px; }
+    .subtle { color: var(--muted); margin: 0; }
+    .bar-list { display: grid; gap: 10px; }
+    .bar-row {
+      display: grid;
+      grid-template-columns: minmax(190px, 280px) minmax(180px, 1fr) 86px;
+      gap: 12px;
+      align-items: center;
+      padding: 9px;
+      border: 1px solid #edf3f0;
+      border-radius: 8px;
+      cursor: pointer;
+      background: #fff;
+    }
+    .bar-row:hover { border-color: rgba(23,109,137,.45); background: #f8fcfb; }
+    .bar-label { font-weight: 700; }
+    .track { height: 20px; border-radius: 999px; background: #e9f1ee; overflow: hidden; position: relative; }
+    .fill { height: 100%; min-width: 5px; border-radius: inherit; background: linear-gradient(90deg, var(--teal), #23a0a8); transition: width .55s ease; }
+    .fill.green { background: linear-gradient(90deg, var(--green), #8ab15f); }
+    .fill.rose { background: linear-gradient(90deg, var(--rose), #f29568); }
+    .bar-value { font-weight: 800; direction: ltr; text-align: left; }
+    .drawer { padding: 18px; border-right: 5px solid var(--teal); min-height: 160px; }
+    .drawer .tag {
+      display: inline-block;
+      padding: 5px 9px;
+      border-radius: 999px;
+      background: #e8f4f1;
+      color: var(--teal);
+      font-weight: 700;
+      margin-bottom: 8px;
+      font-size: 13px;
+    }
+    .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; }
+    table { width: 100%; border-collapse: collapse; background: white; min-width: 720px; }
+    th, td { padding: 12px; border-bottom: 1px solid var(--line); text-align: right; vertical-align: top; }
+    th { background: #f2f6f4; color: #29424d; font-size: 13px; }
+    tr:last-child td { border-bottom: 0; }
+    .heatmap { display: grid; grid-template-columns: 2fr repeat(4, 1fr); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+    .heatmap > div { padding: 12px; border-bottom: 1px solid var(--line); border-left: 1px solid var(--line); background: #fff; }
+    .heatmap .head { background: #214f70; color: white; font-weight: 800; }
+    .heatmap .cell { text-align: center; font-weight: 800; }
+    .playbook-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .playbook {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px;
+      background: #fff;
+      cursor: pointer;
+      transition: .18s ease;
+    }
+    .playbook:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(16,33,43,.10); }
+    .pill { display:inline-flex; padding: 5px 9px; border-radius: 999px; background:#fff3d8; color:#815a00; font-weight:800; font-size:12px; }
+    .roadmap { display: grid; gap: 12px; counter-reset: step; }
+    .step {
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      gap: 12px;
+      align-items: start;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: white;
+    }
+    .step::before {
+      counter-increment: step;
+      content: counter(step);
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--teal);
+      color: white;
+      font-weight: 900;
+    }
+    .search {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px 14px;
+      font: inherit;
+      margin-bottom: 12px;
+      background: white;
+    }
+    .control { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+    footer { color: var(--muted); padding: 22px 0 8px; font-size: 13px; }
+    @media (max-width: 980px) {
+      header, .two-col, .three-col, .metrics { grid-template-columns: 1fr; }
+      .playbook-list { grid-template-columns: 1fr; }
+      .bar-row { grid-template-columns: 1fr; }
+      .heatmap { grid-template-columns: 1.5fr repeat(4, minmax(72px, 1fr)); font-size: 13px; }
+      h1 { font-size: 28px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header>
+      <div class="hero">
+        <span class="eyebrow">لوحة تفاعلية للمورّد</span>
+        <h1>تحليل محادثات بوت الدعوة الإسلامية</h1>
+        <p>لوحة سهلة القراءة تعرض أهم الموضوعات، حجم المستخدمين المسلمين بالفعل، أسباب الاعتراض، والاختلافات حسب خلفية المستخدم. الهدف: تحويل الأرقام إلى قرارات واضحة لتحسين البوت.</p>
+      </div>
+      <div class="quick-panel">
+        <div>
+          <div class="quick-label">إجمالي المحادثات</div>
+          <div class="big-number" id="quickTotal"></div>
+        </div>
+        <div>
+          <div class="quick-label">أكبر توصية منتجية</div>
+          <strong>إنشاء مسارات منفصلة: باحث عن الإسلام، مساعد المسلم، وتدريب على الدعوة.</strong>
+        </div>
+      </div>
+    </header>
+
+    <nav class="nav" aria-label="أقسام لوحة البيانات">
+      <button data-tab="overview" class="active">نظرة عامة</button>
+      <button data-tab="topics">الموضوعات</button>
+      <button data-tab="muslim">المستخدمون المسلمون</button>
+      <button data-tab="barriers">الاعتراضات والعوائق</button>
+      <button data-tab="religions">حسب الدين</button>
+      <button data-tab="performance">الأداء والتفاعل</button>
+      <button data-tab="journey">الرحلة والجودة</button>
+      <button data-tab="roadmap">خارطة العمل</button>
+    </nav>
+
+    <section id="overview" class="active">
+      <div class="grid metrics" id="overviewMetrics"></div>
+      <div class="grid two-col">
+        <div class="chart-card">
+          <div class="chart-head">
+            <div>
+              <h2>أهم الرسائل للمورّد</h2>
+              <p class="subtle">هذه النقاط تصلح كبداية عرض تقديمي أو اجتماع قرار.</p>
+            </div>
+          </div>
+          <div class="roadmap">
+            <div class="step"><div><h3>جزء كبير من المرور ليس الجمهور المستهدف</h3><p class="subtle">37.0% من المحادثات تأتي من مسلمين بالفعل، لذلك نحتاج مسارا منفصلا يخدمهم بدون إرباك مسار الدعوة.</p></div></div>
+            <div class="step"><div><h3>الاعتراضات تحتاج تصنيفا قبل الرد</h3><p class="subtle">ثلث المحادثات تقريبا فيها عائق أو اعتراض واضح. الرد الأفضل يبدأ بتحديد نوع العائق.</p></div></div>
+            <div class="step"><div><h3>كل خلفية دينية تحتاج طريقة مختلفة</h3><p class="subtle">المسيحيون يركزون على عيسى والثالوث، والملحدون على أدلة وجود الله، وغير المعروفين يحتاجون سؤال توجيهي سريع.</p></div></div>
+          </div>
+        </div>
+        <div class="drawer" id="overviewDrawer">
+          <span class="tag">الخلاصة</span>
+          <h2>لا يوجد مسار واحد يناسب الجميع</h2>
+          <p>أفضل تحسين هو تحويل البوت من رد عام إلى نظام توجيه: يسأل المستخدم أولا عن نوع احتياجه، ثم يختار المسار المناسب.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="topics">
+      <div class="grid two-col">
+        <div class="chart-card">
+          <div class="chart-head">
+            <div>
+              <h2>أكثر الموضوعات تكرارا</h2>
+              <p class="subtle">اضغط على أي شريط لعرض تفسير سريع.</p>
+            </div>
+          </div>
+          <div id="topicBars" class="bar-list"></div>
+        </div>
+        <div class="drawer" id="topicDrawer"></div>
+      </div>
+      <div class="chart-card" style="margin-top:14px">
+        <h2>أكثر الكلمات/العناوين الأصلية كما استخرجها النموذج</h2>
+        <div class="table-wrap"><table id="exactTopicsTable"></table></div>
+      </div>
+    </section>
+
+    <section id="muslim">
+      <div class="grid metrics" id="muslimMetrics"></div>
+      <div class="grid two-col">
+        <div class="chart-card">
+          <h2>أنواع محادثات المسلمين بالفعل</h2>
+          <div id="muslimTypeBars" class="bar-list"></div>
+        </div>
+        <div class="chart-card">
+          <h2>ماذا يطلب المسلمون من البوت؟</h2>
+          <div id="muslimNeedBars" class="bar-list"></div>
+        </div>
+      </div>
+      <div class="drawer" style="margin-top:14px">
+        <span class="tag">قرار منتجي</span>
+        <h2>مساعد المسلم ليس ميزة جانبية</h2>
+        <p>عندما يكون أكثر من ثلث المرور من مسلمين بالفعل، فالمسار المنفصل يصبح ضروريا: فقه، عبادة، قرآن وحديث، تدريب على الدعوة، ومساعدة في كتابة المحتوى.</p>
+      </div>
+    </section>
+
+    <section id="barriers">
+      <div class="grid two-col">
+        <div class="chart-card">
+          <div class="chart-head">
+            <div>
+              <h2>أهم العوائق أمام قبول الإسلام</h2>
+              <p class="subtle">اضغط على العائق لمعرفة نوع المحتوى المطلوب.</p>
+            </div>
+          </div>
+          <div id="barrierBars" class="bar-list"></div>
+        </div>
+        <div class="drawer" id="barrierDrawer"></div>
+      </div>
+      <div class="chart-card" style="margin-top:14px">
+        <h2>خريطة حرارية: العوائق حسب الدين المتوقع</h2>
+        <p class="subtle">اللون الأقوى يعني عددا أعلى داخل نفس الجدول.</p>
+        <div id="heatmap" class="heatmap"></div>
+      </div>
+    </section>
+
+    <section id="religions">
+      <div class="grid two-col">
+        <div class="chart-card">
+          <h2>حجم المحادثات حسب الدين المتوقع</h2>
+          <input id="religionSearch" class="search" type="search" placeholder="ابحث عن شريحة مثل: المسيحية، الإلحاد، الإسلام">
+          <div id="religionBars" class="bar-list"></div>
+        </div>
+        <div class="drawer" id="religionDrawer"></div>
+      </div>
+      <div class="chart-card" style="margin-top:14px">
+        <h2>بطاقات مختصرة لكل شريحة</h2>
+        <div id="playbooks" class="playbook-list"></div>
+      </div>
+    </section>
+
+    <section id="performance">
+      <div class="grid metrics" id="performanceMetrics"></div>
+      <div class="grid two-col">
+        <div class="chart-card">
+          <h2>اللغات الأكثر استخداما</h2>
+          <p class="subtle">العربية والإنجليزية تمثلان معظم المحادثات، لذلك تحسينهما له أثر مباشر.</p>
+          <div id="languageBars" class="bar-list"></div>
+        </div>
+        <div class="chart-card">
+          <h2>جودة البوت حسب اللغة</h2>
+          <p class="subtle">الدرجة من 5. اللغات الصغيرة جدا غير معروضة حتى لا نعتمد على عينات ضعيفة.</p>
+          <div id="languageQualityBars" class="bar-list"></div>
+        </div>
+      </div>
+      <div class="grid two-col" style="margin-top:14px">
+        <div class="chart-card">
+          <h2>درجات التفاعل</h2>
+          <p class="subtle">ما يقرب من نصف المحادثات لا تصل إلى تفاعل حقيقي.</p>
+          <div id="engagementBars" class="bar-list"></div>
+        </div>
+        <div class="chart-card">
+          <h2>من يقود المحادثة؟</h2>
+          <p class="subtle">المحادثات المتوازنة تحقق تفاعلا أعلى بكثير من محادثات يسيطر عليها البوت.</p>
+          <div id="flowBars" class="bar-list"></div>
+        </div>
+      </div>
+      <div class="grid two-col" style="margin-top:14px">
+        <div class="chart-card">
+          <h2>حالة المستخدم عند البداية</h2>
+          <div id="moodBars" class="bar-list"></div>
+        </div>
+        <div class="chart-card">
+          <h2>كيف تنتهي المحادثات؟</h2>
+          <div id="endingBars" class="bar-list"></div>
+        </div>
+      </div>
+      <div class="drawer" style="margin-top:14px">
+        <span class="tag">تشخيص الأداء</span>
+        <h2>المشكلة ليست عداء المستخدمين، بل أسلوب الحوار</h2>
+        <p>أغلب المستخدمين يبدأون محايدين، لكن 59.4% يختفون قبل الوصول إلى نتيجة. وعندما يكون الحوار متوازنا يصل متوسط التفاعل إلى 4.26، بينما ينخفض إلى 1.81 عندما يسيطر البوت على الكلام. هذا يعني أن أكبر فرصة تحسين هي أن يسأل البوت أكثر ويستمع أكثر ويقلل المحاضرات الطويلة.</p>
+      </div>
+    </section>
+
+    <section id="journey">
+      <div class="grid metrics" id="journeyMetrics"></div>
+      <div class="grid two-col">
+        <div class="chart-card">
+          <h2>نية المستخدم الحقيقية</h2>
+          <p class="subtle">ليس كل زائر فرصة تحويل. الهدف هو التعرف بسرعة على الباحث الجاد ورعايته.</p>
+          <div id="intentBars" class="bar-list"></div>
+        </div>
+        <div class="chart-card">
+          <h2>رحلة غير المسلمين داخل مسار الدعوة</h2>
+          <p class="subtle">العينة هنا 5,013 محادثة دعوية مع غير المسلمين.</p>
+          <div id="funnelBars" class="bar-list"></div>
+        </div>
+      </div>
+      <div class="grid two-col" style="margin-top:14px">
+        <div class="chart-card">
+          <h2>إلقاء النصوص الطويلة</h2>
+          <p class="subtle">عندما يلقي البوت نصوصا عامة طويلة تنخفض الجودة بوضوح.</p>
+          <div id="scriptBars" class="bar-list"></div>
+        </div>
+        <div class="chart-card">
+          <h2>توزيع جودة ردود البوت</h2>
+          <p class="subtle">معظم الردود مقبولة لكنها عامة؛ الفرصة هي رفع درجات 3 إلى 4 و5.</p>
+          <div id="qualityBars" class="bar-list"></div>
+        </div>
+      </div>
+      <div class="chart-card" style="margin-top:14px">
+        <h2>متوسط الجودة حسب نوع المحادثة</h2>
+        <div id="qualityPurposeBars" class="bar-list"></div>
+      </div>
+      <div class="drawer" style="margin-top:14px">
+        <span class="tag">فرصة التحسين</span>
+        <h2>التحويل موجود، لكن المرحلة الأخيرة ضعيفة</h2>
+        <p>يوجد 2,013 باحثا جادا و262 مستخدما أظهروا اهتماما بالدخول في الإسلام. وفي مسار الدعوة لغير المسلمين، أعلن 146 مستخدما الدخول في الإسلام، لكن عدد القريبين من القرار قليل جدا. لذلك يجب التركيز على نقل المستخدم من مرحلة فهم الأدلة إلى مرحلة قرار واضحة، بدون ضغط أو إطالة.</p>
+      </div>
+    </section>
+
+    <section id="roadmap">
+      <div class="chart-card">
+        <h2>خارطة عمل مقترحة للمورّد</h2>
+        <p class="subtle">مرتبة حسب الأثر المتوقع وسهولة النقاش مع فريق المنتج.</p>
+        <div class="roadmap" style="margin-top:12px">
+          <div class="step"><div><h3>سؤال توجيهي في بداية المحادثة</h3><p>يفصل الباحث عن الإسلام عن المسلم وعن المستخدم خارج الموضوع. هذا يقلل الردود الطويلة غير المناسبة.</p></div></div>
+          <div class="step"><div><h3>مسار مساعد المسلم</h3><p>لأن 37.0% من المحادثات تأتي من مسلمين بالفعل. المسار يخدم الفقه والعبادة والتدريب على الدعوة.</p></div></div>
+          <div class="step"><div><h3>محرك يحدد الاعتراض أولا</h3><p>يصنف الاعتراض إلى عقلي، عاطفي، أخلاقي، أو متعلق بالنصوص، ثم يختار الرد المناسب.</p></div></div>
+          <div class="step"><div><h3>نصوص مختلفة حسب خلفية المستخدم</h3><p>المسيحي يحتاج مسار عيسى والثالوث، والملحد يحتاج مسار أدلة الخالق، وغير المعروف يحتاج سؤال تحديد سريع.</p></div></div>
+          <div class="step"><div><h3>مراجعة شهرية للفئات الطويلة</h3><p>فئات أخرى/طويلة الذيل تحتوي على إشارات مبكرة لموضوعات جديدة يجب تحويلها إلى محتوى تدريبي.</p></div></div>
+        </div>
+      </div>
+      <div class="chart-card" style="margin-top:14px">
+        <h2>ملفات التحليل المصدر</h2>
+        <div class="table-wrap"><table id="sourceTable"></table></div>
+      </div>
+    </section>
+
+    <footer>تم إنشاء هذه اللوحة من ملفات التحليل نفسها. أعمدة التوكنات غير مستخدمة في أي رقم داخل اللوحة.</footer>
+  </div>
+
+  <script>
+    const DATA = {"metrics": {"total": 12448, "topicConversations": 7394, "noTopic": 5054, "topicMentions": 22028, "muslim": 4601, "muslimShare": "37.0%", "nonMuslim": 7847, "barrierConversations": 4149, "barrierShare": "33.3%", "barrierMentions": 8732, "religionProfiles": 10, "botDominated": 9876, "botDominatedShare": "79.3%", "ghosted": 7391, "ghostedShare": "59.4%", "scriptDumping": 3853, "scriptDumpingShare": "31.0%", "converted": 146}, "topicRows": [{"label": "العبادات وأركان الإسلام", "source": "Islamic Practice and Pillars", "value": 1862, "conversations": 1313, "share": "17.8%", "note": "Five Pillars of Islam, Salah, Wudu, Dua, Pillars of Islam"}, {"label": "التوحيد", "source": "Tawhid / Monotheism", "value": 1596, "conversations": 1511, "share": "20.4%", "note": "Tawhid, Tawheed, Monotheism, Oneness of God, Shirk"}, {"label": "القرآن: الحفظ والمصداقية والدراسة", "source": "Quran: Preservation, Authenticity, and Study", "value": 1523, "conversations": 1228, "share": "16.6%", "note": "Quranic preservation, Preservation of the Quran, Scientific miracles in the Quran, Quran, Authenticity of the Quran"}, {"label": "عيسى عليه السلام: طبيعته ومكانته", "source": "Jesus: Nature, Divinity, and Role", "value": 1374, "conversations": 1133, "share": "15.3%", "note": "Divinity of Jesus, Nature of Jesus, Prophethood of Jesus, Crucifixion of Jesus, Divinity of Christ"}, {"label": "أدلة وجود الخالق", "source": "Creator / Existence Arguments", "value": 1270, "conversations": 839, "share": "11.3%", "note": "Existence of a Creator, Existence of God, Fine-tuning of the universe, Origin of the universe, Purpose of creation"}, {"label": "المرأة والحجاب والزواج", "source": "Women, Modesty, and Marriage", "value": 836, "conversations": 614, "share": "8.3%", "note": "Hijab, Niqab, Polygamy, Modesty, Women's rights in Islam"}, {"label": "النبوة والنبي محمد", "source": "Prophethood and Prophet Muhammad", "value": 821, "conversations": 773, "share": "10.5%", "note": "Prophethood of Muhammad, Prophethood, Finality of Prophethood, Prophet Muhammad, Prophet Muhammad's marriage to Aisha"}, {"label": "الثالوث", "source": "Trinity", "value": 727, "conversations": 727, "share": "9.8%", "note": "Trinity, The Trinity, Rejection of Trinity, Holy Trinity, Refutation of Trinity"}, {"label": "الكتاب المقدس والنبوءات", "source": "Bible, Scripture, and Biblical Prophecy", "value": 681, "conversations": 583, "share": "7.9%", "note": "Biblical interpretation, Biblical corruption, Deuteronomy 18:18, Biblical contradictions, Preservation of Scripture"}, {"label": "الشريعة والأخلاق والقضايا الاجتماعية", "source": "Islamic Law, Ethics, and Social Issues", "value": 673, "conversations": 575, "share": "7.8%", "note": "Jihad, Islamic jurisprudence, Slavery in Islam, Apostasy, Prohibition of pork"}, {"label": "الدعوة والحوار بين الأديان", "source": "Dawah and Interfaith Dialogue", "value": 552, "conversations": 471, "share": "6.4%", "note": "Dawah methodology, Interfaith dialogue techniques, Interfaith communication, Interfaith dialogue, Christian-Muslim dialogue"}, {"label": "صفات الله", "source": "God's Nature and Attributes", "value": 538, "conversations": 523, "share": "7.1%", "note": "Nature of God, Attributes of Allah, Attributes of God, Nature of Allah, Concept of God"}], "exactTopicRows": [{"label": "Tawhid", "value": 906, "conversations": 906}, {"label": "Trinity", "value": 723, "conversations": 723}, {"label": "Divinity of Jesus", "value": 449, "conversations": 449}, {"label": "Dawah methodology", "value": 299, "conversations": 299}, {"label": "Nature of Jesus", "value": 280, "conversations": 280}, {"label": "Existence of a Creator", "value": 229, "conversations": 229}, {"label": "Nature of God", "value": 225, "conversations": 225}, {"label": "Purpose of life", "value": 225, "conversations": 225}, {"label": "Shahada", "value": 224, "conversations": 224}, {"label": "Five Pillars of Islam", "value": 207, "conversations": 207}, {"label": "Tawheed", "value": 204, "conversations": 204}, {"label": "Existence of God", "value": 180, "conversations": 180}], "muslimTypeRows": [{"label": "إرشاد إسلامي", "value": 2690, "share": "58.5%"}, {"label": "تدريب على الدعوة", "value": 838, "share": "18.2%"}, {"label": "تفاعل قليل أو معدوم", "value": 537, "share": "11.7%"}, {"label": "خارج نطاق الموضوع", "value": 311, "share": "6.8%"}, {"label": "مساعدة في المحتوى", "value": 117, "share": "2.5%"}, {"label": "نقاش عقائدي", "value": 37, "share": "0.8%"}, {"label": "دعوة", "value": 34, "share": "0.7%"}, {"label": "دعم نفسي أو شخصي", "value": 29, "share": "0.6%"}, {"label": "مسلم يتعلم الأساسيات", "value": 8, "share": "0.2%"}], "muslimNeedRows": [{"label": "فقه وإرشاد إسلامي", "value": 2251, "share": "48.9%"}, {"label": "خارج الموضوع أو تفاعل ضعيف", "value": 1125, "share": "24.5%"}, {"label": "تدريب على الدعوة والرد على الشبهات", "value": 926, "share": "20.1%"}, {"label": "دعم نفسي أو شخصي", "value": 158, "share": "3.4%"}, {"label": "مساعدة في الكتابة والمحتوى", "value": 119, "share": "2.6%"}, {"label": "احتياج آخر لمستخدم مسلم", "value": 12, "share": "0.3%"}, {"label": "تعلم أساسيات العقيدة والقرآن والحديث", "value": 10, "share": "0.2%"}], "barrierRows": [{"label": "أدلة وجود الله / الشك العقلي", "source": "Evidence for God / Logical Skepticism", "type": "Intellectual / Philosophical", "value": 1452, "mentions": 1857, "share": "35.0%", "need": "مكتبة قصيرة لأدلة وجود الخالق: السببية، الإتقان، الغاية، وسؤال من خلق الله؟"}, {"label": "ضعف الاهتمام أو عدم الرغبة", "source": "Apathy / Lack of Interest", "type": "Emotional / Motivational", "value": 1046, "mentions": 1049, "share": "25.2%", "need": "أسلوب هادئ يبدأ بالاهتمام والمعنى، بدون إطالة أو ضغط على المستخدم."}, {"label": "الثالوث وألوهية عيسى في العقيدة المسيحية", "source": "Christian Doctrine: Trinity and Jesus' Divinity", "type": "Intellectual / Theological", "value": 710, "mentions": 1141, "share": "17.1%", "need": "مسار واضح عن التوحيد ومكانة عيسى عليه السلام، والثالوث والخلاص والصلب."}, {"label": "اعتراضات أخلاقية: المرأة والجنس والأسرة", "source": "Moral Objections: Gender, Sexual Ethics, and Family", "type": "Moral / Social", "value": 381, "mentions": 543, "share": "9.2%", "need": "إجابات حساسة عن المرأة والحجاب والزواج والأسرة بنبرة رحيمة."}, {"label": "موثوقية النصوص الدينية وحفظها", "source": "Scripture Authority and Preservation", "type": "Intellectual / Textual", "value": 300, "mentions": 351, "share": "7.2%", "need": "شرح حفظ القرآن ومعايير معرفة الوحي الصحيح ومقارنة النصوص."}, {"label": "النبوة والنبي محمد", "source": "Prophethood and Prophet Muhammad", "type": "Intellectual / Theological", "value": 291, "mentions": 333, "share": "7.0%", "need": "عرض دلائل النبوة وشخصية النبي محمد والرد على الشبهات المتكررة."}, {"label": "مشكلة في تجربة البوت وليست اعتراضا حقيقيا", "source": "Bot / UX Friction Instead of Real Objection", "type": "Bot Training / UX", "value": 197, "mentions": 252, "share": "4.7%", "need": "تحسين تجربة البوت: أسئلة أقصر، فهم أفضل، وردود أقل عمومية."}, {"label": "العنف والإرهاب والصورة الإعلامية السلبية", "source": "Violence, Terrorism, and Negative Media Image", "type": "Moral / Media Perception", "value": 192, "mentions": 262, "share": "4.6%", "need": "تفريق واضح بين الإسلام وتصرفات الأفراد، مع شرح الرحمة والعدل."}, {"label": "الهوية والثقافة والتكلفة الاجتماعية", "source": "Identity, Culture, and Social Cost", "type": "Cultural / Social", "value": 169, "mentions": 186, "share": "4.1%", "need": "مراجعة أمثلة المحادثات لتحديد هل نحتاج مسارا جديدا."}, {"label": "ارتباك مذهبي داخل الإسلام", "source": "Sectarian Confusion / Intra-Muslim Complexity", "type": "Intellectual / Community", "value": 105, "mentions": 129, "share": "2.5%", "need": "مراجعة أمثلة المحادثات لتحديد هل نحتاج مسارا جديدا."}, {"label": "Distrust, Trauma, or Personal Suffering", "source": "Distrust, Trauma, or Personal Suffering", "type": "Emotional / Trust", "value": 61, "mentions": 66, "share": "1.5%", "need": "مراجعة أمثلة المحادثات لتحديد هل نحتاج مسارا جديدا."}, {"label": "Free Will, Predestination, and Divine Justice", "source": "Free Will, Predestination, and Divine Justice", "type": "Intellectual / Philosophical", "value": 56, "mentions": 69, "share": "1.3%", "need": "مراجعة أمثلة المحادثات لتحديد هل نحتاج مسارا جديدا."}], "matrix": [{"label": "أدلة وجود الله / الشك العقلي", "Christianity": 462, "Atheism": 573, "Islam": 37, "Unknown": 101}, {"label": "ضعف الاهتمام أو عدم الرغبة", "Christianity": 251, "Atheism": 21, "Islam": 1, "Unknown": 588}, {"label": "الثالوث وألوهية عيسى في العقيدة المسيحية", "Christianity": 658, "Atheism": 5, "Islam": 40, "Unknown": 1}, {"label": "اعتراضات أخلاقية: المرأة والجنس والأسرة", "Christianity": 99, "Atheism": 57, "Islam": 52, "Unknown": 114}, {"label": "موثوقية النصوص الدينية وحفظها", "Christianity": 197, "Atheism": 31, "Islam": 40, "Unknown": 13}, {"label": "النبوة والنبي محمد", "Christianity": 127, "Atheism": 26, "Islam": 55, "Unknown": 45}, {"label": "مشكلة في تجربة البوت وليست اعتراضا حقيقيا", "Christianity": 31, "Atheism": 18, "Islam": 98, "Unknown": 30}, {"label": "العنف والإرهاب والصورة الإعلامية السلبية", "Christianity": 72, "Atheism": 20, "Islam": 27, "Unknown": 45}], "religionRows": [{"label": "الإسلام", "source": "Islam", "value": 4552, "share": "36.6%", "topics": "Other / Long-tail Topics (3100); Islamic Practice and Pillars (1338); Quran: Preservation, Authenticity, and Study (783)", "objections": "Other / Unclustered Barrier (515); Bot / UX Friction Instead of Real Objection (135); Moral Objections: Gender, Sexual Ethics, and Family (68)", "script": "حوّل المستخدم إلى مسار مساعد المسلم: فقه، عبادة، قرآن وحديث، توبة، وتدريب على الدعوة.", "mood": "Neutral -> Ghosted"}, {"label": "غير معروف", "source": "Unknown", "value": 4412, "share": "35.4%", "topics": "Other / Long-tail Topics (850); Islamic Practice and Pillars (279); Quran: Preservation, Authenticity, and Study (245)", "objections": "Apathy / Lack of Interest (590); Other / Unclustered Barrier (166); Moral Objections: Gender, Sexual Ethics, and Family (165)", "script": "ابدأ بسؤال قصير لتحديد هل المستخدم مسلم، باحث، خارج الموضوع، أو يريد مساعدة أخرى.", "mood": "Neutral -> Ghosted"}, {"label": "المسيحية", "source": "Christianity", "value": 2036, "share": "16.4%", "topics": "Jesus: Nature, Divinity, and Role (1043); Other / Long-tail Topics (881); Tawhid / Monotheism (781)", "objections": "Christian Doctrine: Trinity and Jesus' Divinity (1080); Other / Unclustered Barrier (834); Evidence for God / Logical Skepticism (507)", "script": "ابدأ بالتوحيد ومكانة عيسى في الإسلام، ثم عالج الثالوث والخلاص والكتاب المقدس بهدوء.", "mood": "Neutral -> Ghosted"}, {"label": "الإلحاد", "source": "Atheism", "value": 671, "share": "5.4%", "topics": "Creator / Existence Arguments (665); Other / Long-tail Topics (447); Quran: Preservation, Authenticity, and Study (146)", "objections": "Evidence for God / Logical Skepticism (842); Other / Unclustered Barrier (464); Moral Objections: Gender, Sexual Ethics, and Family (83)", "script": "ابدأ بأدلة وجود الخالق والمعنى والغاية، ولا تبدأ بالنصوص الدينية مباشرة.", "mood": "Neutral -> Ghosted"}, {"label": "الهندوسية", "source": "Hinduism", "value": 212, "share": "1.7%", "topics": "Other / Long-tail Topics (125); Tawhid / Monotheism (115); Shahada / Conversion (57)", "objections": "Other / Unclustered Barrier (83); Apathy / Lack of Interest (53); Evidence for God / Logical Skepticism (32)", "script": "ركز على التوحيد الخالص، معنى الوحي، واحترام خلفية المستخدم.", "mood": "Neutral -> Ghosted"}, {"label": "اللاأدرية", "source": "Agnosticism", "value": 161, "share": "1.3%", "topics": "Other / Long-tail Topics (163); Creator / Existence Arguments (84); Divine Justice, Free Will, and Evil (48)", "objections": "Evidence for God / Logical Skepticism (143); Other / Unclustered Barrier (128); Moral Objections: Gender, Sexual Ethics, and Family (22)", "script": "استخدم أسلوب اكتشاف هادئ: ما الحقيقة؟ ما الدليل؟ وما معنى وجود خالق؟", "mood": "Neutral -> Ghosted"}, {"label": "غير متدين", "source": "Irreligion", "value": 107, "share": "0.9%", "topics": "Other / Long-tail Topics (86); Creator / Existence Arguments (45); Purpose of Life / Creation (26)", "objections": "Other / Unclustered Barrier (77); Evidence for God / Logical Skepticism (51); Apathy / Lack of Interest (29)", "script": "اسأل سؤالا قصيرا لتحديد الحاجة قبل تقديم إجابة طويلة.", "mood": "Neutral -> Ghosted"}, {"label": "أخرى", "source": "Other", "value": 106, "share": "0.9%", "topics": "Other / Long-tail Topics (121); Tawhid / Monotheism (34); Prophethood and Prophet Muhammad (28)", "objections": "Other / Unclustered Barrier (92); Evidence for God / Logical Skepticism (45); Apathy / Lack of Interest (23)", "script": "اسأل سؤالا قصيرا لتحديد الحاجة قبل تقديم إجابة طويلة.", "mood": "Neutral -> Ghosted"}, {"label": "البوذية", "source": "Buddhism", "value": 103, "share": "0.8%", "topics": "Other / Long-tail Topics (76); Creator / Existence Arguments (43); Purpose of Life / Creation (23)", "objections": "Apathy / Lack of Interest (45); Evidence for God / Logical Skepticism (44); Other / Unclustered Barrier (34)", "script": "اسأل سؤالا قصيرا لتحديد الحاجة قبل تقديم إجابة طويلة.", "mood": "Neutral -> Ghosted"}, {"label": "اليهودية", "source": "Judaism", "value": 88, "share": "0.7%", "topics": "Other / Long-tail Topics (60); Prophethood and Prophet Muhammad (33); Tawhid / Monotheism (31)", "objections": "Other / Unclustered Barrier (39); Evidence for God / Logical Skepticism (34); Apathy / Lack of Interest (27)", "script": "ركز على استمرار رسالة الأنبياء، ومكانة النبي محمد، وحفظ القرآن والتوراة.", "mood": "Neutral -> Ghosted"}], "languageRows": [{"label": "العربية", "value": 5709, "share": "45.9%"}, {"label": "الإنجليزية", "value": 4274, "share": "34.3%"}, {"label": "السواحيلية", "value": 613, "share": "4.9%"}, {"label": "اليابانية", "value": 355, "share": "2.9%"}, {"label": "الفرنسية", "value": 302, "share": "2.4%"}, {"label": "الكردية", "value": 194, "share": "1.6%"}, {"label": "التاغالوغ", "value": 158, "share": "1.3%"}, {"label": "الكورية", "value": 121, "share": "1.0%"}, {"label": "الإسبانية", "value": 96, "share": "0.8%"}, {"label": "الأردية", "value": 93, "share": "0.7%"}, {"label": "الصينية", "value": 71, "share": "0.6%"}, {"label": "الألمانية", "value": 51, "share": "0.4%"}], "languageQualityRows": [{"label": "السواحيلية", "value": 3.91, "users": 613}, {"label": "الكورية", "value": 3.52, "users": 121}, {"label": "اليابانية", "value": 3.5, "users": 355}, {"label": "العربية", "value": 3.05, "users": 5709}, {"label": "الفرنسية", "value": 2.96, "users": 302}, {"label": "الإنجليزية", "value": 2.92, "users": 4274}, {"label": "الإسبانية", "value": 2.79, "users": 96}, {"label": "الكردية", "value": 2.71, "users": 194}, {"label": "الصينية", "value": 2.51, "users": 71}], "purposeRows": [{"label": "الدعوة - المهمة الأساسية", "value": 3419, "share": "27.5%"}, {"label": "تفاعل قليل أو معدوم", "value": 2834, "share": "22.8%"}, {"label": "إرشاد إسلامي", "value": 2814, "share": "22.6%"}, {"label": "نقاش عقائدي", "value": 1354, "share": "10.9%"}, {"label": "تدريب على الدعوة", "value": 912, "share": "7.3%"}, {"label": "خارج الموضوع", "value": 783, "share": "6.3%"}, {"label": "مساعدة في المحتوى", "value": 269, "share": "2.2%"}, {"label": "دعم نفسي أو شخصي", "value": 54, "share": "0.4%"}], "purposeEngagementRows": [{"label": "نقاش عقائدي", "value": 3.68, "conversations": 1354}, {"label": "تدريب على الدعوة", "value": 3.35, "conversations": 912}, {"label": "إرشاد إسلامي", "value": 2.81, "conversations": 2814}, {"label": "دعم نفسي أو شخصي", "value": 2.63, "conversations": 54}, {"label": "مساعدة في المحتوى", "value": 2.23, "conversations": 269}, {"label": "الدعوة - المهمة الأساسية", "value": 2.21, "conversations": 3419}, {"label": "خارج الموضوع", "value": 1.78, "conversations": 783}, {"label": "تفاعل قليل أو معدوم", "value": 1.05, "conversations": 2834}], "engagementScoreRows": [{"label": "1 - لا يوجد تفاعل حقيقي", "value": 5595, "share": "44.9%"}, {"label": "2 - تفاعل بسيط", "value": 1752, "share": "14.1%"}, {"label": "3 - يرد فقط", "value": 1794, "share": "14.4%"}, {"label": "4 - تفاعل نشط", "value": 2379, "share": "19.1%"}, {"label": "5 - حوار عميق", "value": 927, "share": "7.4%"}], "flowRows": [{"label": "البوت يسيطر على الحديث", "value": 9876, "share": "79.3%", "score": 1.81}, {"label": "حوار متوازن", "value": 2373, "share": "19.1%", "score": 4.26}, {"label": "المستخدم يقود الحديث", "value": 198, "share": "1.6%", "score": 3.38}], "startMoodRows": [{"label": "محايد", "value": 10435, "share": "83.8%"}, {"label": "فضولي", "value": 606, "share": "4.9%"}, {"label": "متشكك", "value": 580, "share": "4.7%"}, {"label": "واثق", "value": 166, "share": "1.3%"}, {"label": "منزعج أو متألم", "value": 154, "share": "1.2%"}, {"label": "متدين أو معظم", "value": 136, "share": "1.1%"}, {"label": "عدائي", "value": 126, "share": "1.0%"}, {"label": "محترم", "value": 61, "share": "0.5%"}], "endingRows": [{"label": "اختفى قبل الوصول لنتيجة", "value": 7391, "share": "59.4%"}, {"label": "انتهى بشكل محايد", "value": 1734, "share": "13.9%"}, {"label": "راض", "value": 880, "share": "7.1%"}, {"label": "بقي متشككا", "value": 421, "share": "3.4%"}, {"label": "خرج بمعلومة", "value": 403, "share": "3.2%"}, {"label": "متفاعل", "value": 391, "share": "3.1%"}, {"label": "محبط", "value": 291, "share": "2.3%"}, {"label": "ممتن", "value": 272, "share": "2.2%"}, {"label": "متقبل", "value": 240, "share": "1.9%"}], "intentRows": [{"label": "مستمع سلبي", "value": 2798, "share": "22.5%"}, {"label": "مسلم يتعلم", "value": 2438, "share": "19.6%"}, {"label": "باحث جاد", "value": 2013, "share": "16.2%"}, {"label": "تحية فقط", "value": 1925, "share": "15.5%"}, {"label": "متحد أو مناظر", "value": 1546, "share": "12.4%"}, {"label": "خارج الموضوع", "value": 911, "share": "7.3%"}, {"label": "إزعاج أو رسائل غير جادة", "value": 340, "share": "2.7%"}, {"label": "اهتمام بالدخول في الإسلام", "value": 262, "share": "2.1%"}, {"label": "تدريب على الدعوة", "value": 192, "share": "1.5%"}], "funnelRows": [{"label": "بداية الفضول", "value": 2230, "share": "44.5%"}, {"label": "يتفاعل مع الأدلة", "value": 1727, "share": "34.5%"}, {"label": "قريب من القرار", "value": 102, "share": "2.0%"}, {"label": "أعلن الدخول في الإسلام", "value": 146, "share": "2.9%"}, {"label": "ترك الحوار أو فقد الاهتمام", "value": 807, "share": "16.1%"}], "scriptRows": [{"label": "لا يوجد إلقاء نصوص طويلة", "value": 8595, "share": "69.0%", "quality": 3.33}, {"label": "يوجد إلقاء نصوص طويلة", "value": 3853, "share": "31.0%", "quality": 2.41}], "qualityScoreRows": [{"label": "1 - مكسور أو غير مناسب", "value": 795, "share": "6.4%"}, {"label": "2 - لم يفهم المقصود", "value": 2909, "share": "23.4%"}, {"label": "3 - مقبول لكن عام", "value": 4907, "share": "39.4%"}, {"label": "4 - جيد", "value": 2600, "share": "20.9%"}, {"label": "5 - ممتاز", "value": 1235, "share": "9.9%"}], "qualityPurposeRows": [{"label": "تدريب على الدعوة", "value": 3.91, "conversations": 912}, {"label": "مساعدة في المحتوى", "value": 3.77, "conversations": 269}, {"label": "إرشاد إسلامي", "value": 3.51, "conversations": 2814}, {"label": "دعم نفسي أو شخصي", "value": 3.44, "conversations": 54}, {"label": "نقاش عقائدي", "value": 3.07, "conversations": 1354}, {"label": "خارج الموضوع", "value": 3.04, "conversations": 783}, {"label": "الدعوة - المهمة الأساسية", "value": 2.86, "conversations": 3419}, {"label": "تفاعل قليل أو معدوم", "value": 2.44, "conversations": 2834}], "sourceFiles": ["C:/Users/menna/Downloads/dawah_bot_report.pdf", "outputs/topic_analysis/islamic_dawah_topics_analysis.xlsx", "outputs/existing_muslim_analysis/existing_muslim_dawah_bot_analysis_no_tokens.xlsx", "outputs/barrier_analysis/objection_blocker_barrier_analysis.xlsx", "outputs/religion_playbooks/religion_specific_concern_playbooks.xlsx"]};
+    const fmt = new Intl.NumberFormat('en-US');
+    const $ = (sel) => document.querySelector(sel);
+    const $$ = (sel) => Array.from(document.querySelectorAll(sel));
+
+    function metricCard(label, value, hint, cls) {
+      return `<article class="card ${cls || ''}"><div class="label">${label}</div><div class="value">${value}</div><div class="hint">${hint || ''}</div></article>`;
+    }
+
+    function renderMetrics() {
+      $('#quickTotal').textContent = fmt.format(DATA.metrics.total);
+      $('#overviewMetrics').innerHTML = [
+        metricCard('كل المحادثات', fmt.format(DATA.metrics.total), 'حجم عينة التحليل', 'accent-teal'),
+        metricCard('محادثات بها موضوع', fmt.format(DATA.metrics.topicConversations), '59.4% من كل المحادثات', 'accent-green'),
+        metricCard('مستخدمون مسلمون بالفعل', fmt.format(DATA.metrics.muslim), DATA.metrics.muslimShare + ' من المحادثات', 'accent-gold'),
+        metricCard('محادثات بها اعتراض واضح', fmt.format(DATA.metrics.barrierConversations), DATA.metrics.barrierShare + ' من المحادثات', 'accent-rose')
+      ].join('');
+      $('#muslimMetrics').innerHTML = [
+        metricCard('محادثات مسلمين بالفعل', fmt.format(DATA.metrics.muslim), DATA.metrics.muslimShare, 'accent-green'),
+        metricCard('غير مسلمين أو غير معروفين', fmt.format(DATA.metrics.nonMuslim), 'باقي المرور', 'accent-teal'),
+        metricCard('محادثات بدون موضوع مستخرج', fmt.format(DATA.metrics.noTopic), 'تحتاج تحسين فهم/تصنيف', 'accent-gold'),
+        metricCard('ملفات حسب الدين', fmt.format(DATA.metrics.religionProfiles), 'شرائح قابلة للتخصيص', 'accent-rose')
+      ].join('');
+      $('#performanceMetrics').innerHTML = [
+        metricCard('البوت يسيطر على الحديث', fmt.format(DATA.metrics.botDominated), DATA.metrics.botDominatedShare + ' من المحادثات', 'accent-rose'),
+        metricCard('المستخدمون يختفون', fmt.format(DATA.metrics.ghosted), DATA.metrics.ghostedShare + ' من النهايات', 'accent-gold'),
+        metricCard('أعلى لغة استخداما', 'العربية', '5,709 محادثة', 'accent-green'),
+        metricCard('متوسط التفاعل العام', '2.3 / 5', 'من تقرير التحليل الإضافي', 'accent-teal')
+      ].join('');
+      $('#journeyMetrics').innerHTML = [
+        metricCard('باحثون جادون', '2,013', '16.2% من كل المستخدمين', 'accent-teal'),
+        metricCard('اهتمام بالدخول في الإسلام', '262', '2.1% من كل المستخدمين', 'accent-green'),
+        metricCard('إعلان دخول في الإسلام', fmt.format(DATA.metrics.converted), 'داخل مسار الدعوة لغير المسلمين', 'accent-gold'),
+        metricCard('إلقاء نصوص طويلة', fmt.format(DATA.metrics.scriptDumping), DATA.metrics.scriptDumpingShare + ' من المحادثات', 'accent-rose')
+      ].join('');
+    }
+
+    function barList(container, rows, opts = {}) {
+      const max = Math.max(...rows.map(r => r.value), 1);
+      container.innerHTML = rows.map((r, i) => `
+        <div class="bar-row" data-index="${i}" tabindex="0">
+          <div class="bar-label">${r.label}</div>
+          <div class="track"><div class="fill ${opts.color || ''}" style="width:${Math.max(2, r.value / max * 100)}%"></div></div>
+          <div class="bar-value">${fmt.format(r.value)}</div>
+        </div>
+      `).join('');
+      if (opts.onClick) {
+        container.querySelectorAll('.bar-row').forEach(el => {
+          el.addEventListener('click', () => opts.onClick(rows[Number(el.dataset.index)]));
+          el.addEventListener('keydown', (e) => { if (e.key === 'Enter') opts.onClick(rows[Number(el.dataset.index)]); });
+        });
+      }
+    }
+
+    function table(el, headers, rows) {
+      el.innerHTML = `<thead><tr>${headers.map(h => `<th>${h}</th>`).join('')}</tr></thead><tbody>${
+        rows.map(row => `<tr>${row.map(c => `<td>${c}</td>`).join('')}</tr>`).join('')
+      }</tbody>`;
+    }
+
+    function showTopic(row) {
+      $('#topicDrawer').innerHTML = `<span class="tag">موضوع مختار</span><h2>${row.label}</h2>
+      <p>ظهر هذا الموضوع <strong>${fmt.format(row.value)}</strong> مرة داخل <strong>${fmt.format(row.conversations)}</strong> محادثة.</p>
+      <p class="subtle">أمثلة من العناوين الأصلية: ${row.note}</p>
+      <p><strong>المعنى:</strong> هذا الموضوع يستحق مسارا واضحا داخل البوت حتى لا تكون الإجابات عامة أو طويلة.</p>`;
+    }
+
+    function showBarrier(row) {
+      $('#barrierDrawer').innerHTML = `<span class="tag">عائق مختار</span><h2>${row.label}</h2>
+      <p>ظهر في <strong>${fmt.format(row.value)}</strong> محادثة، ويمثل <strong>${row.share}</strong> من المحادثات التي فيها اعتراض واضح.</p>
+      <p><strong>المحتوى المطلوب:</strong> ${row.need}</p>`;
+    }
+
+    function showReligion(row) {
+      $('#religionDrawer').innerHTML = `<span class="tag">شريحة مختارة</span><h2>${row.label}</h2>
+      <p><strong>${fmt.format(row.value)}</strong> محادثة، أي <strong>${row.share}</strong> من كل العينة.</p>
+      <p><strong>ما يجب أن يؤكد عليه النص:</strong> ${row.script}</p>
+      <p class="subtle">مسار المزاج الأكثر تكرارا: ${row.mood}</p>`;
+    }
+
+    function renderHeatmap() {
+      const cols = ['المسيحية', 'الإلحاد', 'الإسلام', 'غير معروف'];
+      const keys = ['Christianity', 'Atheism', 'Islam', 'Unknown'];
+      const max = Math.max(...DATA.matrix.flatMap(r => keys.map(k => r[k])), 1);
+      let html = `<div class="head">العائق</div>${cols.map(c => `<div class="head">${c}</div>`).join('')}`;
+      DATA.matrix.forEach(r => {
+        html += `<div>${r.label}</div>`;
+        keys.forEach(k => {
+          const v = r[k];
+          const a = v / max;
+          const bg = `rgba(23, 109, 137, ${0.10 + a * 0.58})`;
+          html += `<div class="cell" style="background:${bg}">${fmt.format(v)}</div>`;
+        });
+      });
+      $('#heatmap').innerHTML = html;
+    }
+
+    function renderPlaybooks(rows) {
+      $('#playbooks').innerHTML = rows.map((r, i) => `<article class="playbook" data-index="${i}">
+        <span class="pill">${fmt.format(r.value)} محادثة</span>
+        <h3>${r.label}</h3>
+        <p class="subtle">${r.script}</p>
+      </article>`).join('');
+      $('#playbooks').querySelectorAll('.playbook').forEach(card => {
+        card.addEventListener('click', () => showReligion(rows[Number(card.dataset.index)]));
+      });
+    }
+
+    function renderAll() {
+      renderMetrics();
+      barList($('#topicBars'), DATA.topicRows, { onClick: showTopic });
+      showTopic(DATA.topicRows[0]);
+      table($('#exactTopicsTable'), ['العنوان الأصلي', 'مرات الذكر', 'عدد المحادثات'], DATA.exactTopicRows.map(r => [r.label, fmt.format(r.value), fmt.format(r.conversations)]));
+      barList($('#muslimTypeBars'), DATA.muslimTypeRows, { color: 'green' });
+      barList($('#muslimNeedBars'), DATA.muslimNeedRows, { color: 'green' });
+      barList($('#barrierBars'), DATA.barrierRows, { color: 'rose', onClick: showBarrier });
+      showBarrier(DATA.barrierRows[0]);
+      renderHeatmap();
+      barList($('#religionBars'), DATA.religionRows, { onClick: showReligion });
+      showReligion(DATA.religionRows[0]);
+      renderPlaybooks(DATA.religionRows);
+      barList($('#languageBars'), DATA.languageRows);
+      barList($('#languageQualityBars'), DATA.languageQualityRows);
+      barList($('#engagementBars'), DATA.engagementScoreRows);
+      barList($('#flowBars'), DATA.flowRows.map(r => ({...r, label: `${r.label} - تفاعل ${r.score}/5`})));
+      barList($('#moodBars'), DATA.startMoodRows);
+      barList($('#endingBars'), DATA.endingRows, { color: 'rose' });
+      barList($('#intentBars'), DATA.intentRows);
+      barList($('#funnelBars'), DATA.funnelRows, { color: 'green' });
+      barList($('#scriptBars'), DATA.scriptRows.map(r => ({...r, label: `${r.label} - جودة ${r.quality}/5`})), { color: 'rose' });
+      barList($('#qualityBars'), DATA.qualityScoreRows);
+      barList($('#qualityPurposeBars'), DATA.qualityPurposeRows.map(r => ({...r, label: `${r.label} - ${fmt.format(r.conversations)} محادثة`})));
+      table($('#sourceTable'), ['الملف', 'المسار'], DATA.sourceFiles.map((f, i) => [`تحليل رقم ${i + 1}`, f]));
+    }
+
+    $$('.nav button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        $$('.nav button').forEach(b => b.classList.remove('active'));
+        $$('section').forEach(s => s.classList.remove('active'));
+        btn.classList.add('active');
+        $('#' + btn.dataset.tab).classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+
+    $('#religionSearch').addEventListener('input', (e) => {
+      const q = e.target.value.trim();
+      const rows = DATA.religionRows.filter(r => !q || r.label.includes(q) || r.source.toLowerCase().includes(q.toLowerCase()));
+      barList($('#religionBars'), rows, { onClick: showReligion });
+      renderPlaybooks(rows);
+      if (rows[0]) showReligion(rows[0]);
+    });
+
+    renderAll();
+  </script>
+</body>
+</html>
