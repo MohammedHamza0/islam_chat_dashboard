@@ -24,14 +24,14 @@ index_template = """<!DOCTYPE html>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- Modular Stylesheets (Microservices Architecture with Cache Busting) -->
-  <link rel="stylesheet" href="assets/css/base.css?v=3.0">
-  <link rel="stylesheet" href="assets/css/navbar.css?v=3.0">
-  <link rel="stylesheet" href="assets/css/kpi.css?v=3.0">
-  <link rel="stylesheet" href="assets/css/filter-matrix.css?v=3.0">
-  <link rel="stylesheet" href="assets/css/qa-explorer.css?v=3.0">
-  <link rel="stylesheet" href="assets/css/macro-analytics.css?v=3.0">
-  <link rel="stylesheet" href="assets/css/modal.css?v=3.0">
-  <link rel="stylesheet" href="assets/css/playbooks.css?v=3.0">
+  <link rel="stylesheet" href="assets/css/base.css?v=3.1">
+  <link rel="stylesheet" href="assets/css/navbar.css?v=3.1">
+  <link rel="stylesheet" href="assets/css/kpi.css?v=3.1">
+  <link rel="stylesheet" href="assets/css/filter-matrix.css?v=3.1">
+  <link rel="stylesheet" href="assets/css/qa-explorer.css?v=3.1">
+  <link rel="stylesheet" href="assets/css/macro-analytics.css?v=3.1">
+  <link rel="stylesheet" href="assets/css/modal.css?v=3.1">
+  <link rel="stylesheet" href="assets/css/playbooks.css?v=3.1">
 
   <!-- Chart.js for Dynamic Visualizations -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -602,12 +602,22 @@ index_template = """<!DOCTYPE html>
 
   </div>
 
-  <!-- Dialogue Context Modal -->
+  <!-- Dialogue Context Modal with Reader Tools -->
   <div class="modal-overlay" id="dialogue-modal" onclick="closeDialogueModal(event)">
     <div class="modal-container" onclick="event.stopPropagation()">
       <div class="modal-header">
-        <h3 id="modal-title"><i class="fa-solid fa-comments"></i> <span data-i18n="modalDialogueTitle">سياق المحادثة الكاملة</span> (#<span id="modal-chat-id"></span>)</h3>
-        <button class="modal-close-btn" onclick="closeDialogueModal()"><i class="fa-solid fa-xmark"></i></button>
+        <div class="modal-header-left">
+          <h3 id="modal-title"><i class="fa-solid fa-comments"></i> <span data-i18n="modalDialogueTitle">سياق المحادثة الكاملة</span> (#<span id="modal-chat-id"></span>)</h3>
+        </div>
+        <div class="modal-reader-tools">
+          <div id="modal-stats-container"></div>
+          <div class="font-zoom-group" title="حجم خط المحادثة / Font Size">
+            <button class="btn-font-zoom" onclick="DialogueModalComponent.changeFontSize(-1)">A-</button>
+            <button class="btn-font-zoom" id="modal-font-pct-btn" onclick="DialogueModalComponent.resetFontSize()">100%</button>
+            <button class="btn-font-zoom" onclick="DialogueModalComponent.changeFontSize(1)">A+</button>
+          </div>
+          <button class="modal-close-btn" onclick="closeDialogueModal()"><i class="fa-solid fa-xmark"></i></button>
+        </div>
       </div>
       <div class="modal-body" id="modal-chat-body">
         <!-- Messages rendered dynamically via DialogueModalComponent -->
@@ -626,19 +636,19 @@ index_template = """<!DOCTYPE html>
   </footer>
 
   <!-- Preloaded Data Objects (Guarantees zero CORS issue on file:/// protocol) -->
-  <script src="assets/data/enriched_qa_data.js?v=3.0"></script>
-  <script src="assets/data/conversations_data.js?v=3.0"></script>
+  <script src="assets/data/enriched_qa_data.js?v=3.1"></script>
+  <script src="assets/data/conversations_data.js?v=3.1"></script>
 
   <!-- Modular Scripts (Microservices Architecture with Cache Busting) -->
-  <script src="assets/js/services/i18n.service.js?v=3.0"></script>
-  <script src="assets/js/services/api.service.js?v=3.0"></script>
-  <script src="assets/js/services/filter.service.js?v=3.0"></script>
-  <script src="assets/js/services/chart.service.js?v=3.0"></script>
-  <script src="assets/js/components/qa-card.component.js?v=3.0"></script>
-  <script src="assets/js/components/dialogue-modal.component.js?v=3.0"></script>
-  <script src="assets/js/components/lightbox.component.js?v=3.0"></script>
-  <script src="assets/js/components/playbooks.component.js?v=3.0"></script>
-  <script src="assets/js/app.js?v=3.0"></script>
+  <script src="assets/js/services/i18n.service.js?v=3.1"></script>
+  <script src="assets/js/services/api.service.js?v=3.1"></script>
+  <script src="assets/js/services/filter.service.js?v=3.1"></script>
+  <script src="assets/js/services/chart.service.js?v=3.1"></script>
+  <script src="assets/js/components/qa-card.component.js?v=3.1"></script>
+  <script src="assets/js/components/dialogue-modal.component.js?v=3.1"></script>
+  <script src="assets/js/components/lightbox.component.js?v=3.1"></script>
+  <script src="assets/js/components/playbooks.component.js?v=3.1"></script>
+  <script src="assets/js/app.js?v=3.1"></script>
 </body>
 </html>
 """
@@ -646,4 +656,4 @@ index_template = """<!DOCTYPE html>
 with open(INDEX_FILE, "w", encoding="utf-8") as f:
     f.write(index_template)
 
-print(f"Successfully assembled index.html with Bilingual Language Switcher (?v=3.0)! Size: {INDEX_FILE.stat().st_size / 1024:.2f} KB")
+print(f"Successfully assembled index.html with Enhanced Dialogue Formatting (?v=3.1)! Size: {INDEX_FILE.stat().st_size / 1024:.2f} KB")
