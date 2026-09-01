@@ -22,6 +22,7 @@
   <link rel="stylesheet" href="assets/css/macro-analytics.css?v=3.1">
   <link rel="stylesheet" href="assets/css/modal.css?v=3.1">
   <link rel="stylesheet" href="assets/css/playbooks.css?v=3.1">
+  <link rel="stylesheet" href="assets/css/ai-panel.css?v=3.2">
 
   <!-- Chart.js for Dynamic Visualizations -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -2698,6 +2699,108 @@
     <img id="lightbox-img" class="lightbox-content" src="" alt="Zoomed Chart">
   </div>
 
+  <!-- ================================================================
+       AI Analyst Floating Panel (Gemini-Powered Insights)
+       ================================================================ -->
+
+  <!-- FAB: Floating Action Button -->
+  <button id="ai-panel-fab" onclick="AIPanelComponent.toggle()" title="AI Analyst – تحليل الأسئلة الحالية">
+    <span class="fab-dot"></span>
+    <i class="fa-solid fa-wand-magic-sparkles"></i>
+    <span class="fab-text">AI Analyst</span>
+  </button>
+
+  <!-- Panel Container -->
+  <div id="ai-panel-container" role="dialog" aria-label="AI Analyst Panel">
+
+    <!-- Header -->
+    <div class="ai-panel-header">
+      <div class="ai-panel-header-left">
+        <div class="ai-panel-header-icon">
+          <i class="fa-solid fa-wand-magic-sparkles"></i>
+        </div>
+        <div class="ai-panel-header-text">
+          <h4>AI Analyst</h4>
+          <span>Powered by Google Gemini</span>
+        </div>
+      </div>
+      <div class="ai-panel-header-actions">
+        <button class="ai-panel-action-btn" onclick="AIPanelComponent.clearAndReanalyze()" title="تحليل جديد – Re-analyze">
+          <i class="fa-solid fa-rotate-right"></i>
+        </button>
+        <button class="ai-panel-action-btn" onclick="AIPanelComponent.resetApiKey()" title="تغيير مفتاح API – Change Key">
+          <i class="fa-solid fa-key"></i>
+        </button>
+        <button class="ai-panel-action-btn" onclick="AIPanelComponent.close()" title="إغلاق – Close">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- API Key Input Box -->
+    <div class="ai-panel-key-box" id="ai-key-box">
+      <div class="ai-key-label">
+        <i class="fa-solid fa-key"></i>
+        أدخل مفتاح Gemini API للبدء
+      </div>
+      <div class="ai-key-input-row">
+        <input
+          type="password"
+          id="ai-key-input"
+          class="ai-key-input"
+          placeholder="AIzaSy..."
+          onkeydown="if(event.key==='Enter') AIPanelComponent.submitApiKey()"
+          autocomplete="off"
+          spellcheck="false"
+        >
+        <button class="ai-key-submit-btn" onclick="AIPanelComponent.submitApiKey()">
+          <i class="fa-solid fa-bolt"></i>
+          بدء التحليل
+        </button>
+      </div>
+      <div class="ai-key-hint">
+        <i class="fa-solid fa-shield-halved"></i>
+        يُحفظ في الجلسة فقط، لا يُشارك مع أي جهة ·
+        <a href="https://aistudio.google.com/apikey" target="_blank">احصل على مفتاح مجاني</a>
+      </div>
+    </div>
+
+    <!-- Context Bar (shows active filters & question count) -->
+    <div id="ai-context-bar" class="hidden"></div>
+
+    <!-- Chat Body -->
+    <div id="ai-chat-body">
+      <div class="ai-welcome-state">
+        <i class="fa-solid fa-robot"></i>
+        <p>أدخل مفتاح Gemini API لبدء التحليل الذكي للأسئلة المعروضة</p>
+      </div>
+    </div>
+
+    <!-- Input Row -->
+    <div class="ai-panel-input-row input-disabled">
+      <textarea
+        id="ai-followup-input"
+        placeholder="اسأل عن هذه المجموعة... (Enter للإرسال، Shift+Enter لسطر جديد)"
+        rows="1"
+        disabled
+        onkeydown="AIPanelComponent.onInputKeyDown(event)"
+        oninput="AIPanelComponent.onInputResize(this)"
+      ></textarea>
+      <button id="ai-send-btn" onclick="AIPanelComponent.sendFollowUp()" title="إرسال" disabled>
+        <i class="fa-solid fa-paper-plane"></i>
+      </button>
+    </div>
+
+    <!-- Powered By -->
+    <div class="ai-powered-by">
+      Powered by <a href="https://ai.google.dev/" target="_blank">Google Gemini</a> · gemini-3.1-flash-lite
+    </div>
+
+  </div><!-- /ai-panel-container -->
+
+  <!-- Backdrop (closes panel on click) -->
+  <div id="ai-panel-backdrop" onclick="AIPanelComponent.close()"></div>
+
   <!-- Footer -->
   <footer class="dashboard-footer">
     <p data-i18n="footerText">Islam.chat Intelligence Hub & Analytics Suite • تم تحليل 12,448 محادثة و 11,596 سؤالاً شرعياً موثقاً بالـ LLM</p>
@@ -2717,5 +2820,9 @@
   <script src="assets/js/components/lightbox.component.js?v=3.1"></script>
   <script src="assets/js/components/playbooks.component.js?v=3.1"></script>
   <script src="assets/js/app.js?v=3.1"></script>
+
+  <!-- AI Analyst Panel Scripts -->
+  <script src="assets/js/services/gemini.service.js?v=3.2"></script>
+  <script src="assets/js/components/ai-panel.component.js?v=3.2"></script>
 </body>
 </html>
