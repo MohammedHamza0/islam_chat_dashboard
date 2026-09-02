@@ -23,6 +23,7 @@
   <link rel="stylesheet" href="assets/css/modal.css?v=3.1">
   <link rel="stylesheet" href="assets/css/playbooks.css?v=3.1">
   <link rel="stylesheet" href="assets/css/ai-panel.css?v=3.2">
+  <link rel="stylesheet" href="assets/css/stats-panel.css?v=3.3">
 
   <!-- Chart.js for Dynamic Visualizations -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -2801,6 +2802,65 @@
   <!-- Backdrop (closes panel on click) -->
   <div id="ai-panel-backdrop" onclick="AIPanelComponent.close()"></div>
 
+  <!-- ================================================================
+       Statistical Intelligence Floating Panel (Zero-API Instant Insights)
+       ================================================================ -->
+
+  <!-- FAB: Statistical Intelligence Action Button -->
+  <button id="stats-panel-fab" onclick="StatsPanelComponent.toggle()" title="التحليل الإحصائي الذكي – Instant Statistical Intelligence">
+    <span class="stats-fab-dot"></span>
+    <i class="fa-solid fa-chart-column"></i>
+    <span class="stats-fab-text">تحليل ذكي</span>
+  </button>
+
+  <!-- Panel Container -->
+  <div id="stats-panel-container" role="dialog" aria-label="Statistical Intelligence Panel">
+
+    <!-- Header -->
+    <div class="stats-panel-header">
+      <div class="stats-panel-header-left">
+        <div class="stats-panel-header-icon">
+          <i class="fa-solid fa-brain"></i>
+        </div>
+        <div class="stats-panel-header-text">
+          <h4>التحليل الإحصائي الذكي</h4>
+          <span><i class="fa-solid fa-bolt" style="color:#38bdf8;"></i> تحليل فوري لكامل البيانات</span>
+        </div>
+      </div>
+      <div class="stats-panel-header-actions">
+        <button class="stats-panel-action-btn" onclick="StatsPanelComponent.refreshReport()" title="تحديث التقرير – Refresh">
+          <i class="fa-solid fa-rotate-right"></i>
+        </button>
+        <button class="stats-panel-action-btn" onclick="StatsPanelComponent.exportMarkdownReport()" title="تصدير Markdown – Export">
+          <i class="fa-solid fa-file-arrow-down"></i>
+        </button>
+        <button class="stats-panel-action-btn" onclick="StatsPanelComponent.close()" title="إغلاق – Close">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Context & Metadata Bar -->
+    <div id="stats-context-bar" class="stats-context-bar"></div>
+
+    <!-- Scrollable Report Body -->
+    <div id="stats-report-body" class="stats-report-body">
+      <!-- Dynamically generated via StatsPanelComponent -->
+    </div>
+
+    <!-- Footer: Export Action -->
+    <div class="stats-panel-footer">
+      <button class="stats-export-btn" onclick="StatsPanelComponent.exportMarkdownReport()">
+        <i class="fa-solid fa-file-arrow-down"></i>
+        <span>تصدير التقرير كاملاً (Markdown)</span>
+      </button>
+    </div>
+
+  </div><!-- /stats-panel-container -->
+
+  <!-- Backdrop (closes stats panel on click) -->
+  <div id="stats-panel-backdrop" onclick="StatsPanelComponent.close()"></div>
+
   <!-- Footer -->
   <footer class="dashboard-footer">
     <p data-i18n="footerText">Islam.chat Intelligence Hub & Analytics Suite • تم تحليل 12,448 محادثة و 11,596 سؤالاً شرعياً موثقاً بالـ LLM</p>
@@ -2824,5 +2884,9 @@
   <!-- AI Analyst Panel Scripts -->
   <script src="assets/js/services/gemini.service.js?v=3.2"></script>
   <script src="assets/js/components/ai-panel.component.js?v=3.2"></script>
+
+  <!-- Statistical Intelligence Panel Scripts -->
+  <script src="assets/js/services/stats-engine.service.js?v=3.3"></script>
+  <script src="assets/js/components/stats-panel.component.js?v=3.3"></script>
 </body>
 </html>
