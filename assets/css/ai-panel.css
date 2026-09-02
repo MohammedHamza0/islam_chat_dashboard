@@ -642,3 +642,103 @@ html[dir="ltr"] .ai-msg-bubble.bubble-user {
     display: none;
   }
 }
+
+/* ── Context Change Marker Bubble ── */
+.ai-msg-bubble.bubble-context-marker {
+  background: var(--insight-purple-soft);
+  border: 1px dashed var(--insight-purple);
+  border-radius: 8px;
+  font-size: 11.5px;
+  color: var(--insight-purple);
+  font-weight: 600;
+  text-align: center;
+  padding: 9px 14px;
+  margin: 8px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  line-height: 1.5;
+  animation: contextMarkerFadeIn 0.4s ease;
+}
+
+[data-theme="dark"] .ai-msg-bubble.bubble-context-marker {
+  background: rgba(124, 58, 237, 0.12);
+  border-color: rgba(124, 58, 237, 0.35);
+  color: #c4b5fd;
+}
+
+@keyframes contextMarkerFadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Security Warning Box ── */
+.ai-security-warning {
+  background: var(--warning-amber-soft);
+  border: 1px solid var(--warning-amber);
+  border-radius: 10px;
+  padding: 11px 14px;
+  margin: 6px 0;
+  font-size: 12.5px;
+  color: var(--text-primary);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.5;
+  animation: contextMarkerFadeIn 0.3s ease;
+}
+
+.ai-security-warning i {
+  color: var(--warning-amber);
+}
+
+.ai-security-warning strong {
+  color: var(--warning-amber);
+  font-size: 13px;
+}
+
+[data-theme="dark"] .ai-security-warning {
+  background: rgba(217, 119, 6, 0.12);
+  border-color: rgba(217, 119, 6, 0.35);
+}
+
+/* ── Reanalyze Banner (Shown After Context Change) ── */
+.ai-reanalyze-banner {
+  margin: 8px 0;
+  padding: 9px 14px;
+  background: var(--brand-teal-soft);
+  border: 1px solid rgba(15, 61, 62, 0.25);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 12px;
+  animation: contextMarkerFadeIn 0.4s ease;
+}
+
+[data-theme="dark"] .ai-reanalyze-banner {
+  background: rgba(15, 61, 62, 0.2);
+  border-color: rgba(15, 61, 62, 0.35);
+}
+
+.ai-reanalyze-btn {
+  background: linear-gradient(135deg, var(--brand-teal), var(--brand-teal-light));
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 14px;
+  font-family: inherit;
+  font-size: 11.5px;
+  font-weight: 800;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.ai-reanalyze-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(15, 61, 62, 0.3);
+}

@@ -1,14 +1,25 @@
 /**
  * AIPanelComponent: AI-Powered Q&A Analysis Floating Sidebar (Bilingual Arabic & English)
- * Analyzes the 18 currently displayed questions using Gemini API with streaming support.
- * Includes multi-turn conversational follow-up with full chat history context.
+ * v3.3 — Context Intelligence & Security Shield
+ *
+ * Features:
+ * - Dynamic context injection: questions on current page are sent to the model in real-time
+ * - Multi-page memory: previous pages are summarized and retained for cross-page analysis
+ * - Context change detection: filter/page changes trigger silent context update + visual marker
+ * - Security shield: client-side injection detection + hardened system prompt
+ * - Multi-turn conversational follow-up with full chat history context
  */
 window.AIPanelComponent = {
   isOpen: false,
   isStreaming: false,
-  chatHistory: [],        // [{role:'user'|'assistant', text:'...'}]
+  chatHistory: [],            // [{role:'user'|'assistant', text:'...', isMarker?:bool, isSystem?:bool}]
   currentAssistantEl: null,
   currentAssistantText: '',
+
+  // Context Intelligence State
+  pageHistory: [],            // [{summary: '...', contextKey: '...'}]
+  currentContextKey: '',      // Unique key identifying current page+filter state
+  _previousPageQuestions: [], // Cached questions from before context change
 
   // ═══════════════════════════════════════════
   //  Panel Open / Close / Toggle
@@ -22,6 +33,11 @@ window.AIPanelComponent = {
     const backdrop = document.getElementById('ai-panel-backdrop');
     if (!panel || !backdrop) return;
 
+    // Close stats panel if open to avoid overlay conflicts
+    if (window.StatsPanelComponent && window.StatsPanelComponent.isOpen) {
+      window.StatsPanelComponent.close();
+    }
+
     panel.classList.add('ai-panel-open');
     backdrop.classList.add('active');
     this.isOpen = true;
@@ -30,8 +46,15 @@ window.AIPanelComponent = {
     if (GeminiService.hasApiKey()) {
       this._hideKeyBox();
       this._renderContextBar();
+
+      // Check if context changed while panel was closed
+      if (this._hasContextChanged()) {
+        this._applyContextChange();
+      }
+
       // Auto-analyze only if chat is empty
       if (this.chatHistory.length === 0) {
+        this.currentContextKey = this._buildContextKey();
         this.runAutoAnalysis();
       }
     } else {
@@ -59,11 +82,183 @@ window.AIPanelComponent = {
   },
 
   // ═══════════════════════════════════════════
+  //  Context Intelligence — Change Detection
+  // ═══════════════════════════════════════════
+  /**
+   * Builds a unique key representing the current page + filter state.
+   */
+  _buildContextKey() {
+    const page = (window.App && window.App.currentPage) ? window.App.currentPage : 1;
+    const filterHash = this._getActiveFilterLabels().join('|');
+    return `page${page}::${filterHash}`;
+  },
+
+  /**
+   * Detects if the context (filters/page) has changed since last known state.
+   */
+  _hasContextChanged() {
+    const newKey = this._buildContextKey();
+    return newKey !== this.currentContextKey && this.currentContextKey !== '';
+  },
+
+  /**
+   * Hook called from App.applyFilters() and App.renderCurrentPage() when
+   * the displayed questions change. Handles context update logic.
+   */
+  onPageContextChanged() {
+    if (!this._hasContextChanged() && this.currentContextKey !== '') return;
+
+    // Save previous page's questions for summary generation
+    if (this.currentContextKey && this._previousPageQuestions.length > 0) {
+      this._savePrevPageSummary(this._previousPageQuestions);
+    }
+
+    // Cache current questions before the switch (for next transition)
+    this._previousPageQuestions = this._getCurrentPageQuestions();
+
+    // Update context key
+    this.currentContextKey = this._buildContextKey();
+
+    if (!this.isOpen) return; // Silent update — will apply when panel opens
+
+    // Panel is open: inject context marker + show reanalyze button
+    this._renderContextBar();
+    this._injectContextMarker();
+    this._showReanalyzeBanner();
+  },
+
+  /**
+   * Saves a compressed statistical summary of the previous page's questions
+   * into pageHistory. Uses StatsEngineService for zero-cost instant stats.
+   */
+  _savePrevPageSummary(questions) {
+    if (!questions || questions.length === 0) return;
+
+    const isEn = window.I18nService && window.I18nService.currentLang === 'en';
+    const lang = isEn ? 'en' : 'ar';
+    const pageNum = this.pageHistory.length + 1;
+    const filterLabel = this._getFilterContextString();
+
+    const summary = GeminiService.buildPageSummary(questions, pageNum, filterLabel, lang);
+    if (summary) {
+      // Prevent duplicate entries for same context
+      const exists = this.pageHistory.some(p => p.contextKey === this.currentContextKey);
+      if (!exists) {
+        this.pageHistory.push({
+          contextKey: this.currentContextKey,
+          summary: summary
+        });
+        // Keep history manageable (last 8 pages)
+        if (this.pageHistory.length > 8) {
+          this.pageHistory.shift();
+        }
+      }
+    }
+  },
+
+  /**
+   * Applies a context change: injects a visual marker bubble into the chat
+   * and shows a "Reanalyze" banner for the new context.
+   */
+  _applyContextChange() {
+    // Save previous questions as summary
+    if (this._previousPageQuestions.length > 0) {
+      this._savePrevPageSummary(this._previousPageQuestions);
+    }
+
+    this._previousPageQuestions = this._getCurrentPageQuestions();
+    this.currentContextKey = this._buildContextKey();
+
+    this._renderContextBar();
+
+    if (this.chatHistory.length > 0) {
+      this._injectContextMarker();
+      this._showReanalyzeBanner();
+    }
+  },
+
+  /**
+   * Injects a visual context change marker into the chat conversation.
+   */
+  _injectContextMarker() {
+    const isEn = window.I18nService && window.I18nService.currentLang === 'en';
+    const questions = this._getCurrentPageQuestions();
+    const filters = this._getActiveFilterLabels();
+    const filterText = filters.length > 0 ? filters.join(' | ') : (isEn ? 'All Data' : 'كل البيانات');
+
+    const markerText = isEn
+      ? `📍 Context Updated: Now showing ${questions.length} new questions | Filters: ${filterText}`
+      : `📍 تم تحديث السياق: ${questions.length} سؤال جديد معروض الآن | الفلاتر: ${filterText}`;
+
+    // Add to history as a marker (won't be sent to API)
+    this.chatHistory.push({
+      role: 'assistant',
+      text: markerText,
+      isMarker: true
+    });
+
+    // Render the marker bubble
+    const body = document.getElementById('ai-chat-body');
+    if (body) {
+      const el = document.createElement('div');
+      el.className = 'ai-msg-bubble bubble-context-marker';
+      el.innerHTML = `<i class="fa-solid fa-location-dot" style="flex-shrink:0;"></i> ${this._esc(markerText)}`;
+      body.appendChild(el);
+      body.scrollTop = body.scrollHeight;
+    }
+  },
+
+  /**
+   * Shows a "Reanalyze with new context" banner in the chat.
+   */
+  _showReanalyzeBanner() {
+    const body = document.getElementById('ai-chat-body');
+    if (!body) return;
+
+    // Remove existing banner if any
+    const existing = body.querySelector('.ai-reanalyze-banner');
+    if (existing) existing.remove();
+
+    const isEn = window.I18nService && window.I18nService.currentLang === 'en';
+    const el = document.createElement('div');
+    el.className = 'ai-reanalyze-banner';
+    el.innerHTML = `
+      <span style="font-weight:700;color:var(--brand-teal);">
+        <i class="fa-solid fa-rotate"></i>
+        ${isEn ? 'New questions loaded. Reanalyze?' : 'تم تحميل أسئلة جديدة. إعادة التحليل؟'}
+      </span>
+      <button class="ai-reanalyze-btn" onclick="AIPanelComponent.reanalyzeNewContext()">
+        ${isEn ? '🔄 Analyze Now' : '🔄 تحليل فوري'}
+      </button>
+    `;
+    body.appendChild(el);
+    body.scrollTop = body.scrollHeight;
+  },
+
+  /**
+   * Triggered when the user clicks "Reanalyze" after a context change.
+   * Does NOT clear chat history — adds a new analysis on top.
+   */
+  reanalyzeNewContext() {
+    if (this.isStreaming) return;
+
+    // Remove the reanalyze banner
+    const body = document.getElementById('ai-chat-body');
+    const banner = body?.querySelector('.ai-reanalyze-banner');
+    if (banner) banner.remove();
+
+    this.runAutoAnalysis();
+  },
+
+  // ═══════════════════════════════════════════
   //  Clear Chat + Re-analyze
   // ═══════════════════════════════════════════
   clearAndReanalyze() {
     if (this.isStreaming) return;
     this.chatHistory = [];
+    this.pageHistory = [];
+    this._previousPageQuestions = [];
+    this.currentContextKey = this._buildContextKey();
     this.currentAssistantEl = null;
     this.currentAssistantText = '';
     const body = document.getElementById('ai-chat-body');
@@ -113,6 +308,11 @@ window.AIPanelComponent = {
     input.value = '';
     this._hideKeyBox();
     this._renderContextBar();
+
+    // Initialize context tracking
+    this.currentContextKey = this._buildContextKey();
+    this._previousPageQuestions = this._getCurrentPageQuestions();
+
     if (this.chatHistory.length === 0) {
       this.runAutoAnalysis();
     }
@@ -122,6 +322,9 @@ window.AIPanelComponent = {
     if (this.isStreaming) return;
     GeminiService.clearApiKey();
     this.chatHistory = [];
+    this.pageHistory = [];
+    this._previousPageQuestions = [];
+    this.currentContextKey = '';
     const body = document.getElementById('ai-chat-body');
     if (body) body.innerHTML = '';
     this._showKeyBox();
@@ -142,6 +345,7 @@ window.AIPanelComponent = {
     const questions = this._getCurrentPageQuestions();
     const total = window.App ? window.App.filteredQuestions.length : 0;
     const count = questions.length;
+    const historyCount = this.pageHistory.length;
 
     const filterLabel = isEn ? 'Filters:' : 'الفلاتر:';
     const countLabel = isEn
@@ -152,17 +356,24 @@ window.AIPanelComponent = {
       ? filters.map(f => `<span class="ai-context-badge" title="${f}">${f}</span>`).join('')
       : `<span class="ai-context-badge">${isEn ? 'All questions' : 'كل الأسئلة'}</span>`;
 
+    // Memory indicator
+    const memoryBadge = historyCount > 0
+      ? `<span class="ai-context-badge" style="background:var(--insight-purple-soft);color:var(--insight-purple);border-color:transparent;" title="${isEn ? 'Previous pages in memory' : 'صفحات سابقة في الذاكرة'}">
+           <i class="fa-solid fa-brain"></i> ${historyCount} ${isEn ? 'pages in memory' : 'صفحات محفوظة'}
+         </span>`
+      : '';
+
     bar.innerHTML = `
       <span class="ai-context-label"><i class="fa-solid fa-filter"></i> ${filterLabel}</span>
       ${badgesHtml}
       <span class="ai-context-badge" style="background:var(--benefit-green-soft);color:var(--benefit-green);border-color:transparent;margin-inline-start:auto;">
         <i class="fa-solid fa-comments"></i> ${countLabel}
       </span>
+      ${memoryBadge}
     `;
   },
 
   _getActiveFilterLabels() {
-    const isEn = window.I18nService && window.I18nService.currentLang === 'en';
     const filterIds = ['filter-year','filter-faith','filter-intent','filter-funnel',
                        'filter-blocker','filter-convtype','filter-topic','filter-language','filter-region'];
     const labels = [];
@@ -196,7 +407,7 @@ window.AIPanelComponent = {
   },
 
   // ═══════════════════════════════════════════
-  //  Auto-Analysis (Initial Trigger)
+  //  Auto-Analysis (Initial or Reanalyze Trigger)
   // ═══════════════════════════════════════════
   async runAutoAnalysis() {
     const isEn = window.I18nService && window.I18nService.currentLang === 'en';
@@ -213,16 +424,32 @@ window.AIPanelComponent = {
 
     const lang = isEn ? 'en' : 'ar';
     const filterCtx = this._getFilterContextString();
-    const prompt = GeminiService.buildAnalysisPrompt(questions, lang, filterCtx);
+    const userPrompt = GeminiService.buildAnalysisPrompt(questions, lang, filterCtx);
 
     // Status message
     const statusMsg = isEn
-      ? `🔍 Analyzing ${questions.length} displayed questions...`
-      : `🔍 جاري تحليل ${questions.length} سؤالاً معروضاً...`;
+      ? `🔍 Analyzing ${questions.length} questions (${this.pageHistory.length} previous pages in memory)...`
+      : `🔍 جاري تحليل ${questions.length} سؤالاً (${this.pageHistory.length} صفحات سابقة في الذاكرة)...`;
     this._appendSystemMsg(statusMsg);
 
-    // Add to history
-    this.chatHistory.push({ role: 'user', text: prompt });
+    // Add user prompt to chat history
+    this.chatHistory.push({ role: 'user', text: userPrompt, isSystem: true });
+
+    // Build dynamic system instruction
+    const systemInstruction = GeminiService.buildSystemInstruction(
+      questions,
+      lang,
+      this.pageHistory,
+      filterCtx
+    );
+
+    // Build messages array (filter out markers and system-initiated prompts for cleaner API calls)
+    const apiMessages = this.chatHistory
+      .filter(m => !m.isMarker)
+      .map(m => ({
+        role: m.role === 'assistant' ? 'model' : 'user',
+        parts: [{ text: m.text }]
+      }));
 
     // Stream
     this._setInputDisabled(true);
@@ -232,7 +459,8 @@ window.AIPanelComponent = {
     this.currentAssistantText = '';
 
     GeminiService.streamGenerate(
-      GeminiService.buildMessagesArray(this.chatHistory.slice(-1)),
+      systemInstruction,
+      apiMessages,
       (chunk) => this._onChunk(chunk, bubbleEl),
       ()      => this._onDone(),
       (err)   => this._onError(err)
@@ -240,7 +468,7 @@ window.AIPanelComponent = {
   },
 
   // ═══════════════════════════════════════════
-  //  Send Follow-Up Message
+  //  Send Follow-Up Message (with Security Check)
   // ═══════════════════════════════════════════
   async sendFollowUp() {
     if (this.isStreaming) return;
@@ -249,11 +477,51 @@ window.AIPanelComponent = {
     const text = input.value.trim();
     if (!text) return;
 
+    // 🔒 Security Shield — Layer 1: Client-Side Validation
+    const validation = GeminiService.validateUserInput(text);
+    if (!validation.safe) {
+      if (validation.reason === 'INJECTION_DETECTED') {
+        this._showSecurityWarning();
+        return;
+      }
+      if (validation.reason === 'TOO_LONG') {
+        const isEn = window.I18nService && window.I18nService.currentLang === 'en';
+        this._appendErrorMsg(
+          isEn
+            ? '⚠️ Message too long. Maximum 2000 characters allowed.'
+            : '⚠️ الرسالة طويلة جداً. الحد الأقصى 2000 حرف.'
+        );
+        return;
+      }
+      return;
+    }
+
     input.value = '';
     input.style.height = 'auto';
 
     this._appendUserBubble(text);
     this.chatHistory.push({ role: 'user', text });
+
+    // Build dynamic system instruction with CURRENT questions
+    const isEn = window.I18nService && window.I18nService.currentLang === 'en';
+    const lang = isEn ? 'en' : 'ar';
+    const questions = this._getCurrentPageQuestions();
+    const filterCtx = this._getFilterContextString();
+
+    const systemInstruction = GeminiService.buildSystemInstruction(
+      questions,
+      lang,
+      this.pageHistory,
+      filterCtx
+    );
+
+    // Build API messages (filter out markers)
+    const apiMessages = this.chatHistory
+      .filter(m => !m.isMarker)
+      .map(m => ({
+        role: m.role === 'assistant' ? 'model' : 'user',
+        parts: [{ text: m.text }]
+      }));
 
     this._setInputDisabled(true);
     this._showTypingIndicator();
@@ -261,13 +529,37 @@ window.AIPanelComponent = {
     this.currentAssistantEl = bubbleEl;
     this.currentAssistantText = '';
 
-    // Use full history for multi-turn context
+    // Use full history with dynamic system instruction
     GeminiService.streamGenerate(
-      GeminiService.buildMessagesArray(this.chatHistory),
+      systemInstruction,
+      apiMessages,
       (chunk) => this._onChunk(chunk, bubbleEl),
       ()      => this._onDone(),
       (err)   => this._onError(err)
     );
+  },
+
+  /**
+   * Shows a security warning when prompt injection is detected.
+   */
+  _showSecurityWarning() {
+    const body = document.getElementById('ai-chat-body');
+    if (!body) return;
+
+    const isEn = window.I18nService && window.I18nService.currentLang === 'en';
+    const el = document.createElement('div');
+    el.className = 'ai-security-warning';
+    el.innerHTML = `
+      <i class="fa-solid fa-shield-halved" style="flex-shrink:0;margin-top:2px;font-size:16px;"></i>
+      <div>
+        <strong>${isEn ? '🔒 Security Alert' : '🔒 تنبيه أمني'}</strong><br>
+        ${isEn
+          ? 'Your message was blocked because it contains patterns that resemble an instruction override attempt. This assistant is specialized exclusively in analyzing Islam.chat conversation data.'
+          : 'تم حظر رسالتك لأنها تحتوي على أنماط تشبه محاولة تجاوز التعليمات. هذا المساعد متخصص حصرياً في تحليل بيانات محادثات Islam.chat.'}
+      </div>
+    `;
+    body.appendChild(el);
+    body.scrollTop = body.scrollHeight;
   },
 
   // ═══════════════════════════════════════════
@@ -341,29 +633,39 @@ window.AIPanelComponent = {
       msg = isEn ? `❌ Connection error: ${err}` : `❌ خطأ في الاتصال: ${err}`;
     }
 
-    const body = document.getElementById('ai-chat-body');
-    if (body) {
-      const el = document.createElement('div');
-      el.className = 'ai-error-msg';
-      el.innerHTML = `<i class="fa-solid fa-triangle-exclamation" style="flex-shrink:0;margin-top:2px;"></i><span>${msg}</span>`;
-      body.appendChild(el);
-      body.scrollTop = body.scrollHeight;
-    }
-
+    this._appendErrorMsg(msg);
     this._setInputDisabled(false);
   },
 
   // ═══════════════════════════════════════════
   //  DOM Builders
   // ═══════════════════════════════════════════
+  _clearWelcomeState() {
+    const welcome = document.getElementById('ai-chat-body')?.querySelector('.ai-welcome-state');
+    if (welcome) welcome.remove();
+  },
+
   _appendSystemMsg(text) {
     const body = document.getElementById('ai-chat-body');
     if (!body) return;
+    this._clearWelcomeState();
     const el = document.createElement('div');
     el.className = 'ai-msg-system';
     el.innerHTML = `<i class="fa-solid fa-circle-info"></i><span>${this._esc(text)}</span>`;
     body.appendChild(el);
     body.scrollTop = body.scrollHeight;
+  },
+
+  _appendErrorMsg(msg) {
+    const body = document.getElementById('ai-chat-body');
+    if (body) {
+      this._clearWelcomeState();
+      const el = document.createElement('div');
+      el.className = 'ai-error-msg';
+      el.innerHTML = `<i class="fa-solid fa-triangle-exclamation" style="flex-shrink:0;margin-top:2px;"></i><span>${msg}</span>`;
+      body.appendChild(el);
+      body.scrollTop = body.scrollHeight;
+    }
   },
 
   _appendUserBubble(text) {
@@ -463,7 +765,7 @@ window.AIPanelComponent = {
       // Bullet list
       const bulletMatch = trimmed.match(/^[-•*]\s+(.*)/);
       // Emoji heading (🔍 **...**)
-      const headingMatch = trimmed.match(/^([🔍🎯⚠️🏆✅❌⚡📊💡🌟]+)\s+\*\*(.+)\*\*/);
+      const headingMatch = trimmed.match(/^([🔍🎯⚠️🏆✅❌⚡📊💡🌟📍🔒]+)\s+\*\*(.+)\*\*/);
 
       if (headingMatch) {
         if (inList) { result.push('</ul>'); inList = false; }

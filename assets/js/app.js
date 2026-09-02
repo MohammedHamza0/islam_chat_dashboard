@@ -221,6 +221,11 @@ window.App = {
 
     // 5. Render Cards
     this.renderCurrentPage();
+
+    // 6. Notify AI Panel of context change (if open)
+    if (window.AIPanelComponent) {
+      window.AIPanelComponent.onPageContextChanged();
+    }
   },
 
   resetAllFilters() {
@@ -336,6 +341,11 @@ window.App = {
       this.renderCurrentPage();
       const el = document.querySelector(".results-bar");
       if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+
+      // Notify AI Panel of page change (context update)
+      if (window.AIPanelComponent) {
+        window.AIPanelComponent.onPageContextChanged();
+      }
     });
   },
 
